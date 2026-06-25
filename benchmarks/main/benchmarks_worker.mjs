@@ -1,22 +1,22 @@
 //#region \0rolldown/runtime.js
-var __create$1 = Object.create;
-var __defProp$1 = Object.defineProperty;
-var __getOwnPropDesc$1 = Object.getOwnPropertyDescriptor;
-var __getOwnPropNames$1 = Object.getOwnPropertyNames;
-var __getProtoOf$1 = Object.getPrototypeOf;
-var __hasOwnProp$1 = Object.prototype.hasOwnProperty;
-var __commonJSMin$1 = (cb, mod) => () => (mod || (cb((mod = { exports: {} }).exports, mod), cb = null), mod.exports);
-var __copyProps$1 = (to, from, except, desc) => {
-	if (from && typeof from === "object" || typeof from === "function") for (var keys = __getOwnPropNames$1(from), i = 0, n = keys.length, key; i < n; i++) {
+var __create = Object.create;
+var __defProp = Object.defineProperty;
+var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
+var __getOwnPropNames = Object.getOwnPropertyNames;
+var __getProtoOf = Object.getPrototypeOf;
+var __hasOwnProp = Object.prototype.hasOwnProperty;
+var __commonJSMin = (cb, mod) => () => (mod || (cb((mod = { exports: {} }).exports, mod), cb = null), mod.exports);
+var __copyProps = (to, from, except, desc) => {
+	if (from && typeof from === "object" || typeof from === "function") for (var keys = __getOwnPropNames(from), i = 0, n = keys.length, key; i < n; i++) {
 		key = keys[i];
-		if (!__hasOwnProp$1.call(to, key) && key !== except) __defProp$1(to, key, {
+		if (!__hasOwnProp.call(to, key) && key !== except) __defProp(to, key, {
 			get: ((k) => from[k]).bind(null, key),
-			enumerable: !(desc = __getOwnPropDesc$1(from, key)) || desc.enumerable
+			enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable
 		});
 	}
 	return to;
 };
-var __toESM$1 = (mod, isNodeMode, target) => (target = mod != null ? __create$1(__getProtoOf$1(mod)) : {}, __copyProps$1(isNodeMode || !mod || !mod.__esModule ? __defProp$1(target, "default", {
+var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", {
 	value: mod,
 	enumerable: true
 }) : target, mod));
@@ -321,7 +321,7 @@ Point.convert = function(p) {
 };
 //#endregion
 //#region node_modules/@mapbox/unitbezier/index.js
-function unitBezier(p1x, p1y, p2x, p2y) {
+function unitBezier$1(p1x, p1y, p2x, p2y) {
 	const cx = 3 * p1x;
 	const bx = 3 * (p2x - p1x) - cx;
 	const ax = 1 - cx - bx;
@@ -503,7 +503,7 @@ function easeCubicInOut(t) {
 * @param p2y - control point 2 y coordinate
 */
 function bezier(p1x, p1y, p2x, p2y) {
-	return unitBezier(p1x, p1y, p2x, p2y);
+	return unitBezier$1(p1x, p1y, p2x, p2y);
 }
 bezier(.25, .1, .25, 1);
 /**
@@ -740,6 +740,36 @@ function degreesToRadians(degrees) {
 	return degrees * Math.PI / 180;
 }
 //#endregion
+//#region src/util/abort_error.ts
+/**
+* An error message to use when an operation is aborted
+*/
+const ABORT_ERROR = "AbortError";
+var AbortError = class extends Error {
+	constructor(messageOrError = ABORT_ERROR) {
+		super(messageOrError instanceof Error ? messageOrError.message : messageOrError);
+		this.name = ABORT_ERROR;
+		if (messageOrError instanceof Error && messageOrError.stack) this.stack = messageOrError.stack;
+	}
+};
+/**
+* Check if an error is an abort error
+* @param error - An error object
+* @returns - true if the error is an abort error
+*/
+function isAbortError(error) {
+	return error instanceof Error && error.name === "AbortError";
+}
+/**
+* Throws an AbortError if the provided abort signal has already been aborted.
+*
+* @param signal - The abort signal to check.
+* @throws AbortError If the signal is aborted.
+*/
+function throwIfAborted(signal) {
+	if (signal.aborted) throw new AbortError(signal.reason);
+}
+//#endregion
 //#region src/util/transferable_grid_index.ts
 const NUM_PARAMS = 3;
 var TransferableGridIndex = class TransferableGridIndex {
@@ -866,29 +896,6 @@ var TransferableGridIndex = class TransferableGridIndex {
 		return new TransferableGridIndex(serialized.buffer);
 	}
 };
-//#endregion
-//#region node_modules/@maplibre/maplibre-gl-style-spec/dist/index.mjs
-var __create = Object.create;
-var __defProp = Object.defineProperty;
-var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
-var __getOwnPropNames = Object.getOwnPropertyNames;
-var __getProtoOf = Object.getPrototypeOf;
-var __hasOwnProp = Object.prototype.hasOwnProperty;
-var __commonJSMin = (cb, mod) => () => (mod || (cb((mod = { exports: {} }).exports, mod), cb = null), mod.exports);
-var __copyProps = (to, from, except, desc) => {
-	if (from && typeof from === "object" || typeof from === "function") for (var keys = __getOwnPropNames(from), i = 0, n = keys.length, key; i < n; i++) {
-		key = keys[i];
-		if (!__hasOwnProp.call(to, key) && key !== except) __defProp(to, key, {
-			get: ((k) => from[k]).bind(null, key),
-			enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable
-		});
-	}
-	return to;
-};
-var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", {
-	value: mod,
-	enumerable: true
-}) : target, mod));
 var v8_default = {
 	$version: 8,
 	$root: {
@@ -2328,11 +2335,22 @@ var v8_default = {
 			},
 			"property-type": "data-driven"
 		},
+		"fill-layer-opacity": {
+			"type": "number",
+			"default": 1,
+			"minimum": 0,
+			"maximum": 1,
+			"transition": true,
+			"expression": {
+				"interpolated": true,
+				"parameters": ["zoom", "global-state"]
+			},
+			"property-type": "data-constant"
+		},
 		"fill-color": {
 			"type": "color",
 			"default": "#000000",
 			"transition": true,
-			"requires": [{ "!": "fill-pattern" }],
 			"expression": {
 				"interpolated": true,
 				"parameters": [
@@ -2518,6 +2536,18 @@ var v8_default = {
 				]
 			},
 			"property-type": "data-driven"
+		},
+		"line-layer-opacity": {
+			"type": "number",
+			"default": 1,
+			"minimum": 0,
+			"maximum": 1,
+			"transition": true,
+			"expression": {
+				"interpolated": true,
+				"parameters": ["zoom", "global-state"]
+			},
+			"property-type": "data-constant"
 		},
 		"line-color": {
 			"type": "color",
@@ -4993,7 +5023,7 @@ var RuntimeError = class extends Error {
 	}
 };
 /** Set of valid anchor positions, as a set for validation */
-const anchors = new Set([
+const anchors = /* @__PURE__ */ new Set([
 	"center",
 	"left",
 	"right",
@@ -5873,59 +5903,37 @@ var Step = class Step {
 		return this.outputs.every((out) => out.outputDefined());
 	}
 };
-var import_unitbezier = /* @__PURE__ */ __toESM((/* @__PURE__ */ __commonJSMin(((exports, module) => {
-	module.exports = UnitBezier;
-	function UnitBezier(p1x, p1y, p2x, p2y) {
-		this.cx = 3 * p1x;
-		this.bx = 3 * (p2x - p1x) - this.cx;
-		this.ax = 1 - this.cx - this.bx;
-		this.cy = 3 * p1y;
-		this.by = 3 * (p2y - p1y) - this.cy;
-		this.ay = 1 - this.cy - this.by;
-		this.p1x = p1x;
-		this.p1y = p1y;
-		this.p2x = p2x;
-		this.p2y = p2y;
-	}
-	UnitBezier.prototype = {
-		sampleCurveX: function(t) {
-			return ((this.ax * t + this.bx) * t + this.cx) * t;
-		},
-		sampleCurveY: function(t) {
-			return ((this.ay * t + this.by) * t + this.cy) * t;
-		},
-		sampleCurveDerivativeX: function(t) {
-			return (3 * this.ax * t + 2 * this.bx) * t + this.cx;
-		},
-		solveCurveX: function(x, epsilon) {
-			if (epsilon === void 0) epsilon = 1e-6;
-			if (x < 0) return 0;
-			if (x > 1) return 1;
-			var t = x;
-			for (var i = 0; i < 8; i++) {
-				var x2 = this.sampleCurveX(t) - x;
-				if (Math.abs(x2) < epsilon) return t;
-				var d2 = this.sampleCurveDerivativeX(t);
-				if (Math.abs(d2) < 1e-6) break;
-				t = t - x2 / d2;
-			}
-			var t0 = 0;
-			var t1 = 1;
-			t = x;
-			for (i = 0; i < 20; i++) {
-				x2 = this.sampleCurveX(t);
-				if (Math.abs(x2 - x) < epsilon) break;
-				if (x > x2) t0 = t;
-				else t1 = t;
-				t = (t1 - t0) * .5 + t0;
-			}
-			return t;
-		},
-		solve: function(x, epsilon) {
-			return this.sampleCurveY(this.solveCurveX(x, epsilon));
+function unitBezier(p1x, p1y, p2x, p2y) {
+	const cx = 3 * p1x;
+	const bx = 3 * (p2x - p1x) - cx;
+	const ax = 1 - cx - bx;
+	const cy = 3 * p1y;
+	const by = 3 * (p2y - p1y) - cy;
+	const ay = 1 - cy - by;
+	return function solve(x, epsilon = 1e-6) {
+		if (x <= 0) return 0;
+		if (x >= 1) return 1;
+		let t = x;
+		for (let i = 0; i < 8; i++) {
+			const x2 = ((ax * t + bx) * t + cx) * t - x;
+			if (Math.abs(x2) < epsilon) return ((ay * t + by) * t + cy) * t;
+			const d2 = (3 * ax * t + 2 * bx) * t + cx;
+			if (Math.abs(d2) < 1e-6) break;
+			t -= x2 / d2;
 		}
+		let t0 = 0;
+		let t1 = 1;
+		t = x;
+		for (let i = 0; i < 20; i++) {
+			const x2 = ((ax * t + bx) * t + cx) * t;
+			if (Math.abs(x2 - x) < epsilon) break;
+			if (x > x2) t0 = t;
+			else t1 = t;
+			t = (t0 + t1) * .5;
+		}
+		return ((ay * t + by) * t + cy) * t;
 	};
-})))(), 1);
+}
 var Interpolate = class Interpolate {
 	constructor(type, operator, interpolation, input, stops) {
 		this.type = type;
@@ -5945,7 +5953,7 @@ var Interpolate = class Interpolate {
 		else if (interpolation.name === "linear") t = exponentialInterpolation(input, 1, lower, upper);
 		else if (interpolation.name === "cubic-bezier") {
 			const c = interpolation.controlPoints;
-			t = new import_unitbezier.default(c[0], c[1], c[2], c[3]).solve(exponentialInterpolation(input, 1, lower, upper));
+			t = unitBezier(c[0], c[1], c[2], c[3])(exponentialInterpolation(input, 1, lower, upper));
 		}
 		return t;
 	}
@@ -7361,7 +7369,7 @@ var GlobalState = class GlobalState {
 	evaluate(ctx) {
 		const globalState = ctx.globals?.globalState;
 		if (!globalState || Object.keys(globalState).length === 0) return null;
-		return getOwn(globalState, this.key);
+		return getOwn(globalState, this.key) ?? null;
 	}
 	eachChild() {}
 	outputDefined() {
@@ -8440,20 +8448,123 @@ function isExpressionFilter(filter) {
 		case "has": return filter.length >= 2 && filter[1] !== "$id" && filter[1] !== "$type";
 		case "in": return filter.length >= 3 && (typeof filter[1] !== "string" || Array.isArray(filter[2]));
 		case "!in":
-		case "!has":
-		case "none": return false;
+		case "!has": return false;
 		case "==":
 		case "!=":
 		case ">":
 		case ">=":
 		case "<":
 		case "<=": return filter.length !== 3 || Array.isArray(filter[1]) || Array.isArray(filter[2]);
+		case "none":
+			for (const f of filter.slice(1)) {
+				if (typeof f === "boolean") continue;
+				if (isExpressionFilter(f)) return true;
+			}
+			return false;
 		case "any":
-		case "all":
-			for (const f of filter.slice(1)) if (!isExpressionFilter(f) && typeof f !== "boolean") return false;
-			return true;
+		case "all": {
+			let hasLegacy = false;
+			for (const f of filter.slice(1)) {
+				if (typeof f === "boolean") continue;
+				if (isExpressionFilter(f)) return true;
+				hasLegacy = true;
+			}
+			return !hasLegacy;
+		}
 		default: return true;
 	}
+}
+function getFilterPropertyExpression(property) {
+	if (property === "$id") return ["id"];
+	return ["get", property];
+}
+function getLegacyFilterExpressionSuggestion(filter) {
+	switch (filter[0]) {
+		case "==":
+		case "!=":
+		case "<":
+		case "<=":
+		case ">":
+		case ">=":
+			if (filter.length !== 3 || typeof filter[1] !== "string") return null;
+			if (filter[1] === "$type") return [filter[0], [
+				"in",
+				["geometry-type"],
+				["literal", [filter[2], `Multi${filter[2]}`]]
+			]];
+			return [
+				filter[0],
+				getFilterPropertyExpression(filter[1]),
+				filter[2]
+			];
+		case "in":
+		case "!in": {
+			if (filter.length < 2 || typeof filter[1] !== "string") return null;
+			let expression = [
+				"in",
+				getFilterPropertyExpression(filter[1]),
+				["literal", filter.slice(2)]
+			];
+			if (filter[1] === "$type") expression = [
+				"in",
+				["geometry-type"],
+				["literal", filter.slice(2).map((g) => [g, `Multi${g}`]).flat()]
+			];
+			return filter[0] === "!in" ? ["!", expression] : expression;
+		}
+		case "has":
+		case "!has": {
+			if (filter.length !== 2 || typeof filter[1] !== "string") return null;
+			if (filter[1] === "$type" || filter[1] === "$id") return null;
+			const expression = ["has", filter[1]];
+			return filter[0] === "!has" ? ["!", expression] : expression;
+		}
+		default: return null;
+	}
+}
+function getMixedFilterErrorMessage(filter) {
+	if ((filter[0] === "<" || filter[0] === "<=" || filter[0] === ">" || filter[0] === ">=") && filter[1] === "$type") return `"$type" cannot be use with operator "${filter[0]}"`;
+	const suggestion = getLegacyFilterExpressionSuggestion(filter);
+	if (suggestion) return `Mixing deprecated filter syntax with expression syntax is not supported. Replace ${JSON.stringify(filter)} with ${JSON.stringify(suggestion)}.`;
+	return `Mixing deprecated filter syntax with expression syntax is not supported. Convert ${JSON.stringify(filter)} to expression syntax.`;
+}
+function checkChild(index, path, filter) {
+	const child = filter[index];
+	if (!Array.isArray(child)) return null;
+	if (!isExpressionFilter(child)) return {
+		path: path.concat(index),
+		legacyFilter: child
+	};
+	return findMixedLegacyFilter(child, path.concat(index));
+}
+function findMixedLegacyFilter(filter, path = []) {
+	if (!Array.isArray(filter) || filter.length < 1) return null;
+	switch (filter[0]) {
+		case "all":
+		case "any":
+		case "none":
+			for (let i = 1; i < filter.length; i++) {
+				const diagnostic = checkChild(i, path, filter);
+				if (diagnostic) return diagnostic;
+			}
+			break;
+		case "!": {
+			const diagnostic = checkChild(1, path, filter);
+			if (diagnostic) return diagnostic;
+			break;
+		}
+		case "case":
+			for (let i = 1; i < filter.length - 1; i += 2) {
+				const diagnostic = checkChild(i, path, filter);
+				if (diagnostic) return diagnostic;
+			}
+			break;
+	}
+	return null;
+}
+function validateNoMixedExpressionFilter(filter) {
+	const diagnostic = findMixedLegacyFilter(filter);
+	if (diagnostic) throw new Error(getMixedFilterErrorMessage(diagnostic.legacyFilter));
 }
 const filterSpec = {
 	type: "boolean",
@@ -8481,7 +8592,11 @@ function featureFilter(filter, globalState) {
 		needGeometry: false,
 		getGlobalStateRefs: () => /* @__PURE__ */ new Set()
 	};
-	if (!isExpressionFilter(filter)) filter = convertFilter$1(filter);
+	if (Array.isArray(filter) && filter[0] === "none" && isExpressionFilter(filter)) {
+		validateNoMixedExpressionFilter(filter);
+		filter = convertFilter$1(filter);
+	} else if (!isExpressionFilter(filter)) filter = convertFilter$1(filter);
+	else validateNoMixedExpressionFilter(filter);
 	const compiled = createExpression(filter, filterSpec, globalState);
 	if (compiled.result === "error") throw new Error(compiled.value.map((err) => `${err.key}: ${err.message}`).join(", "));
 	else return {
@@ -8855,12 +8970,20 @@ function validateEnum(options) {
 	} else if (Object.keys(valueSpec.values).indexOf(unbundle(value)) === -1) errors.push(new ValidationError(key, value, `expected one of [${Object.keys(valueSpec.values).join(", ")}], ${JSON.stringify(value)} found`));
 	return errors;
 }
+function getValueAtPath(value, path) {
+	let current = value;
+	for (const index of path) current = current[index];
+	return current;
+}
 function validateFilter$1(options) {
-	if (isExpressionFilter(deepUnbundle(options.value))) return validateExpression(extendBy({}, options, {
+	const value = deepUnbundle(options.value);
+	if (!isExpressionFilter(value)) return validateNonExpressionFilter(options);
+	const mixedLegacyDiagnostic = findMixedLegacyFilter(value);
+	if (mixedLegacyDiagnostic) return [new ValidationError(`${options.key}${mixedLegacyDiagnostic.path.map((index) => `[${index}]`).join("")}`, getValueAtPath(options.value, mixedLegacyDiagnostic.path), getMixedFilterErrorMessage(mixedLegacyDiagnostic.legacyFilter))];
+	return validateExpression(extendBy({}, options, {
 		expressionContext: "filter",
 		valueSpec: { value: "boolean" }
 	}));
-	else return validateNonExpressionFilter(options);
 }
 function validateNonExpressionFilter(options) {
 	const value = options.value;
@@ -9686,36 +9809,6 @@ function createVisibility(visibility, globalState) {
 	return new VisibilityExpressionClass(visibility, globalState);
 }
 //#endregion
-//#region src/util/abort_error.ts
-/**
-* An error message to use when an operation is aborted
-*/
-const ABORT_ERROR = "AbortError";
-var AbortError = class extends Error {
-	constructor(messageOrError = ABORT_ERROR) {
-		super(messageOrError instanceof Error ? messageOrError.message : messageOrError);
-		this.name = ABORT_ERROR;
-		if (messageOrError instanceof Error && messageOrError.stack) this.stack = messageOrError.stack;
-	}
-};
-/**
-* Check if an error is an abort error
-* @param error - An error object
-* @returns - true if the error is an abort error
-*/
-function isAbortError(error) {
-	return error instanceof Error && error.name === "AbortError";
-}
-/**
-* Throws an AbortError if the provided abort signal has already been aborted.
-*
-* @param signal - The abort signal to check.
-* @throws AbortError If the signal is aborted.
-*/
-function throwIfAborted(signal) {
-	if (signal.aborted) throw new AbortError(signal.reason);
-}
-//#endregion
 //#region src/util/config.ts
 const config = {
 	MAX_PARALLEL_IMAGE_REQUESTS: 16,
@@ -10031,6 +10124,7 @@ function serialize(input, transferables) {
 			if (!input.hasOwnProperty(key)) continue;
 			if (registry[classRegistryKey].omit.includes(key)) continue;
 			const property = input[key];
+			if (property === void 0) continue;
 			properties[key] = registry[classRegistryKey].shallow.includes(key) ? property : serialize(property, transferables);
 		}
 		if (input instanceof Error) properties.message = input.message;
@@ -10135,6 +10229,7 @@ var Actor = class {
 					sourceMapId: this.mapId
 				};
 				this.target.postMessage(cancelMessage);
+				reject(new AbortError(abortController.signal.reason));
 			}, addEventDefaultOptions) : null;
 			this.resolveRejects[id] = {
 				resolve: (value) => {
@@ -10298,15 +10393,6 @@ var Evented = class {
 		_removeEventListener(type, listener, this._oneTimeListeners);
 		return this;
 	}
-	/**
-	* Adds a listener that will be called only once to a specified event type.
-	*
-	* The listener will be called first time the event fires after the listener is registered.
-	*
-	* @param type - The event type to listen for.
-	* @param listener - The function to be called when the event is fired the first time.
-	* @returns `this` or a promise if a listener is not provided
-	*/
 	once(type, listener) {
 		if (!listener) return new Promise((resolve) => this.once(type, resolve));
 		this._oneTimeListeners ||= {};
@@ -12650,7 +12736,7 @@ const dashAttributes = createLayout([{
 }]);
 //#endregion
 //#region node_modules/murmurhash-js/murmurhash3_gc.js
-var require_murmurhash3_gc = /* @__PURE__ */ __commonJSMin$1(((exports, module) => {
+var require_murmurhash3_gc = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	/**
 	* JS Implementation of MurmurHash3 (r136) (as of May 20, 2011)
 	* 
@@ -12699,7 +12785,7 @@ var require_murmurhash3_gc = /* @__PURE__ */ __commonJSMin$1(((exports, module) 
 }));
 //#endregion
 //#region node_modules/murmurhash-js/murmurhash2_gc.js
-var require_murmurhash2_gc = /* @__PURE__ */ __commonJSMin$1(((exports, module) => {
+var require_murmurhash2_gc = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	/**
 	* JS Implementation of MurmurHash2
 	* 
@@ -12739,7 +12825,7 @@ var require_murmurhash2_gc = /* @__PURE__ */ __commonJSMin$1(((exports, module) 
 }));
 //#endregion
 //#region src/data/feature_position_map.ts
-var import_murmurhash_js = /* @__PURE__ */ __toESM$1((/* @__PURE__ */ __commonJSMin$1(((exports, module) => {
+var import_murmurhash_js = /* @__PURE__ */ __toESM((/* @__PURE__ */ __commonJSMin(((exports, module) => {
 	var murmur3 = require_murmurhash3_gc();
 	var murmur2 = require_murmurhash2_gc();
 	module.exports = murmur3;
@@ -13121,8 +13207,8 @@ var CrossFadedDasharrayBinder = class extends CrossFadedBinder {
 *
 * Non-data-driven property values are bound to shader uniforms. Data-driven property
 * values are bound to vertex attributes. In order to support a uniform GLSL syntax over
-* both, [Mapbox GL Shaders](https://github.com/mapbox/mapbox-gl-shaders) defines a `#pragma`
-* abstraction, which ProgramConfiguration is responsible for implementing. At runtime,
+* both, the [shaders](../shaders/README.md) define a `#pragma` abstraction, which
+* ProgramConfiguration is responsible for implementing. At runtime,
 * it examines the attributes of a particular layer, combines this with fixed knowledge
 * about how layers of the particular type are implemented, and determines which uniforms
 * and vertex attributes will be required. It can then substitute the appropriate text
@@ -14238,7 +14324,10 @@ var Texture = class {
 * surrounding pixel values to compute the slope at that pixel, and we cannot accurately calculate the slope at pixels on a
 * tile's edge without backfilling from neighboring tiles.
 */
-var DEMData = class {
+var DEMData = class DEMData {
+	static {
+		this.byteViewCache = /* @__PURE__ */ new WeakMap();
+	}
 	/**
 	* Constructs a `DEMData` object
 	* @param uid - the tile's unique id
@@ -14264,6 +14353,7 @@ var DEMData = class {
 		this.stride = data.height;
 		const dim = this.dim = data.height - 2;
 		this.data = new Uint32Array(data.data.buffer);
+		DEMData.byteViewCache.set(this, new Uint8Array(this.data.buffer));
 		switch (encoding) {
 			case "terrarium":
 				this.redFactor = 256;
@@ -14294,18 +14384,35 @@ var DEMData = class {
 		this.data[this._idx(dim, -1)] = this.data[this._idx(dim - 1, 0)];
 		this.data[this._idx(-1, dim)] = this.data[this._idx(0, dim - 1)];
 		this.data[this._idx(dim, dim)] = this.data[this._idx(dim - 1, dim - 1)];
+		const pixels = this._getByteView();
 		this.min = Number.MAX_SAFE_INTEGER;
 		this.max = Number.MIN_SAFE_INTEGER;
 		for (let x = 0; x < dim; x++) for (let y = 0; y < dim; y++) {
-			const ele = this.get(x, y);
+			const index = this._idx(x, y) * 4;
+			const ele = this._unpackAtIndex(pixels, index);
 			if (ele > this.max) this.max = ele;
 			if (ele < this.min) this.min = ele;
 		}
 	}
 	get(x, y) {
-		const pixels = new Uint8Array(this.data.buffer);
+		const pixels = this._getByteView();
 		const index = this._idx(x, y) * 4;
-		return this.unpack(pixels[index], pixels[index + 1], pixels[index + 2]);
+		return this._unpackAtIndex(pixels, index);
+	}
+	sampleBilinear(x, y) {
+		const cx = Math.floor(x);
+		const cy = Math.floor(y);
+		if (cx < -1 || cx >= this.dim || cy < -1 || cy >= this.dim) throw new RangeError(`Out of range source coordinates for DEM data. x: ${x}, y: ${y}, dim: ${this.dim}`);
+		const pixels = this._getByteView();
+		const index = ((cy + 1) * this.stride + cx + 1) * 4;
+		const strideByteWidth = this.stride * 4;
+		const tx = x - cx;
+		const ty = y - cy;
+		const z00 = this._unpackAtIndex(pixels, index);
+		const z10 = this._unpackAtIndex(pixels, index + 4);
+		const z01 = this._unpackAtIndex(pixels, index + strideByteWidth);
+		const z11 = this._unpackAtIndex(pixels, index + strideByteWidth + 4);
+		return z00 * (1 - tx) * (1 - ty) + z10 * tx * (1 - ty) + z01 * (1 - tx) * ty + z11 * tx * ty;
 	}
 	getUnpackVector() {
 		return [
@@ -14329,7 +14436,7 @@ var DEMData = class {
 		return new RGBAImage({
 			width: this.stride,
 			height: this.stride
-		}, new Uint8Array(this.data.buffer));
+		}, this._getByteView());
 	}
 	backfillBorder(borderTile, dx, dy) {
 		if (this.dim !== borderTile.dim) throw new Error("dem dimension mismatch");
@@ -14353,6 +14460,17 @@ var DEMData = class {
 		const ox = -dx * this.dim;
 		const oy = -dy * this.dim;
 		for (let y = yMin; y < yMax; y++) for (let x = xMin; x < xMax; x++) this.data[this._idx(x, y)] = borderTile.data[this._idx(x + ox, y + oy)];
+	}
+	_getByteView() {
+		let byteView = DEMData.byteViewCache.get(this);
+		if (byteView?.buffer !== this.data.buffer) {
+			byteView = new Uint8Array(this.data.buffer);
+			DEMData.byteViewCache.set(this, byteView);
+		}
+		return byteView;
+	}
+	_unpackAtIndex(pixels, index) {
+		return this.unpack(pixels[index], pixels[index + 1], pixels[index + 2]);
 	}
 };
 function packDEMData(v, unpackVector) {
@@ -15760,6 +15878,7 @@ let paint$5;
 const getPaint$5 = () => paint$5 = paint$5 || new Properties({
 	"fill-antialias": new DataConstantProperty(latest_default["paint_fill"]["fill-antialias"]),
 	"fill-opacity": new DataDrivenProperty(latest_default["paint_fill"]["fill-opacity"]),
+	"fill-layer-opacity": new DataConstantProperty(latest_default["paint_fill"]["fill-layer-opacity"]),
 	"fill-color": new DataDrivenProperty(latest_default["paint_fill"]["fill-color"]),
 	"fill-outline-color": new DataDrivenProperty(latest_default["paint_fill"]["fill-outline-color"]),
 	"fill-translate": new DataConstantProperty(latest_default["paint_fill"]["fill-translate"]),
@@ -16441,7 +16560,7 @@ const ARRAY_TYPES = [
 /** @typedef {Int8Array | Uint8Array | Uint8ClampedArray | Int16Array | Uint16Array | Int32Array | Uint32Array | Float32Array | Float64Array} TypedArray */
 const VERSION = 1;
 const HEADER_SIZE = 8;
-const STACK = new Uint32Array(96);
+const STACK = /* @__PURE__ */ new Uint32Array(96);
 var KDBush = class KDBush {
 	/**
 	* Creates an index from raw `ArrayBuffer` data.
@@ -18694,6 +18813,7 @@ const getLayout$1 = () => layout$1 = layout$1 || new Properties({
 let paint$3;
 const getPaint$3 = () => paint$3 = paint$3 || new Properties({
 	"line-opacity": new DataDrivenProperty(latest_default["paint_line"]["line-opacity"]),
+	"line-layer-opacity": new DataConstantProperty(latest_default["paint_line"]["line-layer-opacity"]),
 	"line-color": new DataDrivenProperty(latest_default["paint_line"]["line-color"]),
 	"line-translate": new DataConstantProperty(latest_default["paint_line"]["line-translate"]),
 	"line-translate-anchor": new DataConstantProperty(latest_default["paint_line"]["line-translate-anchor"]),
@@ -18734,11 +18854,7 @@ let lineFloorwidthProperty;
 var LineStyleLayer = class extends StyleLayer {
 	constructor(layer, globalState) {
 		super(layer, line_style_layer_properties_g_default, globalState);
-		this.onRemove = () => {
-			this.resize();
-		};
 		this.gradientVersion = 0;
-		this.lineFbo = null;
 		if (!lineFloorwidthProperty) {
 			lineFloorwidthProperty = new LineFloorwidthProperty(line_style_layer_properties_g_default.paint.properties["line-width"].specification);
 			lineFloorwidthProperty.useIntegerZoom = true;
@@ -18777,14 +18893,6 @@ var LineStyleLayer = class extends StyleLayer {
 	}
 	isTileClipped() {
 		return true;
-	}
-	hasOffscreenPass() {
-		const constantOpacity = this.paint.get("line-opacity").constantOr(-1);
-		return constantOpacity > 0 && constantOpacity < 1 && !this.isHidden();
-	}
-	resize() {
-		this.lineFbo?.destroy();
-		this.lineFbo = null;
 	}
 };
 function getLineWidth(lineWidth, lineGapWidth) {
@@ -19399,7 +19507,7 @@ var TaggedString = class TaggedString {
 	/**
 	* Returns whether the text contains zero-width spaces.
 	*
-	* Some tilesets such as Mapbox Streets insert ZWSPs as hints for line
+	* Some tilesets such as Streets insert ZWSPs as hints for line
 	* breaking in CJK text.
 	*/
 	hasZeroWidthSpaces() {
@@ -19725,7 +19833,7 @@ var PbfWriter = class {
 	/**
 	* @param {Uint8Array | ArrayBuffer} [buf]
 	*/
-	constructor(buf = new Uint8Array(16)) {
+	constructor(buf = /* @__PURE__ */ new Uint8Array(16)) {
 		this.buf = ArrayBuffer.isView(buf) ? buf : new Uint8Array(buf);
 		this.dataView = new DataView(this.buf.buffer);
 		this.pos = 0;
@@ -22045,6 +22153,7 @@ var FeatureTable = class {
 		this._idVector = _idVector;
 		this._propertyVectors = _propertyVectors;
 		this._extent = _extent;
+		if (_name.length === 0) throw new Error("Missing layer name");
 	}
 	get name() {
 		return this._name;
@@ -22178,7 +22287,7 @@ var PhysicalLevelTechnique;
 * Bit masks for each bitwidth 0-32.
 * DO NOT MUTATE - this is a shared constant.
 */
-const masks = new Uint32Array(33);
+const masks = /* @__PURE__ */ new Uint32Array(33);
 masks[0] = 0;
 for (let bitWidth = 1; bitWidth <= 32; bitWidth++) masks[bitWidth] = bitWidth === 32 ? 4294967295 : 4294967295 >>> 32 - bitWidth;
 const MASKS = masks;
@@ -24355,7 +24464,10 @@ function decodeSignedConstInt64Stream(data, offset, streamMetadata) {
 }
 function decodeUnsignedConstInt64Stream(data, offset, streamMetadata) {
 	const values = decodeVarintInt64(data, offset, streamMetadata.numValues);
-	if (values.length === 1) return values[0];
+	if (values.length === 1) {
+		if (streamMetadata.logicalLevelTechnique1 === LogicalLevelTechnique.DELTA) return decodeZigZagInt64Value(values[0]);
+		return values[0];
+	}
 	return decodeUnsignedConstRleInt64(values);
 }
 /**
@@ -25919,6 +26031,7 @@ function decodeEmbeddedTileSetMetadata(bytes, offset) {
 	meta.featureTables = [];
 	const table = {};
 	table.name = decodeString(bytes, offset);
+	if (table.name.length === 0) throw new Error("Missing layer name");
 	const extent = decodeVarintInt32(bytes, offset, 1)[0] >>> 0;
 	const columnCount = decodeVarintInt32(bytes, offset, 1)[0] >>> 0;
 	table.columns = new Array(columnCount);
@@ -25992,7 +26105,7 @@ function decodeTile(tile, geometryScaling, idWithinMaxSafeInteger = true) {
 }
 function decodeIdColumn(tile, columnMetadata, offset, columnName, idDataStreamMetadata, sizeOrNullabilityBuffer, idWithinMaxSafeInteger = false) {
 	const scalarTypeMetadata = columnMetadata.scalarType;
-	if (!scalarTypeMetadata || scalarTypeMetadata.type !== "logicalType" || scalarTypeMetadata.logicalType !== LogicalScalarType.ID) throw new Error(`ID column must be a logical ID scalar type: ${columnName}`);
+	if (scalarTypeMetadata?.type !== "logicalType" || scalarTypeMetadata.logicalType !== LogicalScalarType.ID) throw new Error(`ID column must be a logical ID scalar type: ${columnName}`);
 	const idDataType = scalarTypeMetadata.longID ? ScalarType.UINT_64 : ScalarType.UINT_32;
 	const nullabilityBuffer = typeof sizeOrNullabilityBuffer === "number" ? void 0 : sizeOrNullabilityBuffer;
 	const vectorType = getVectorType(idDataStreamMetadata, sizeOrNullabilityBuffer, tile, offset, idDataType === ScalarType.UINT_64 ? "int64" : "int32");
@@ -28199,16 +28312,13 @@ var WorkerTileState = class {
 		tile.abort.abort();
 		delete this.loading[uid];
 	}
+	getParsing(uid) {
+		return this.parsing[uid];
+	}
 	setParsing(uid, state) {
 		this.parsing[uid] = state;
 	}
-	consumeParsing(uid) {
-		const state = this.parsing[uid];
-		if (!state) return void 0;
-		delete this.parsing[uid];
-		return state;
-	}
-	clearParsing(uid) {
+	removeParsing(uid) {
 		delete this.parsing[uid];
 	}
 	markLoaded(uid, tile) {
@@ -28408,7 +28518,7 @@ var VectorTileWorkerSource = class {
 			try {
 				return await this._parseWorkerTile(workerTile, params, parseState);
 			} finally {
-				this.tileState.clearParsing(uid);
+				this.tileState.removeParsing(uid);
 			}
 		} catch (err) {
 			this.tileState.finishLoading(uid);
@@ -28484,8 +28594,12 @@ var VectorTileWorkerSource = class {
 		if (!workerTile) throw new Error("Should not be trying to reload a tile that was never loaded or has been removed");
 		workerTile.showCollisionBoxes = params.showCollisionBoxes;
 		if (workerTile.status === "parsing") {
-			const parseState = this.tileState.consumeParsing(uid);
-			return await this._parseWorkerTile(workerTile, params, parseState);
+			const parseState = this.tileState.getParsing(uid);
+			try {
+				return await this._parseWorkerTile(workerTile, params, parseState);
+			} finally {
+				this.tileState.removeParsing(uid);
+			}
 		}
 		if (workerTile.status === "done" && workerTile.vectorTile) return await this._parseWorkerTile(workerTile, params);
 	}
@@ -28578,7 +28692,7 @@ var GeoJSONWorkerSource = class {
 			try {
 				return await this._parseWorkerTile(workerTile, params, parseState);
 			} finally {
-				this.tileState.clearParsing(uid);
+				this.tileState.removeParsing(uid);
 			}
 		} catch (err) {
 			workerTile.status = "done";
@@ -28592,8 +28706,12 @@ var GeoJSONWorkerSource = class {
 		if (!workerTile) throw new Error("Should not be trying to reload a tile that was never loaded or has been removed");
 		workerTile.showCollisionBoxes = params.showCollisionBoxes;
 		if (workerTile.status === "parsing") {
-			const parseState = this.tileState.consumeParsing(uid);
-			return await this._parseWorkerTile(workerTile, params, parseState);
+			const parseState = this.tileState.getParsing(uid);
+			try {
+				return await this._parseWorkerTile(workerTile, params, parseState);
+			} finally {
+				this.tileState.removeParsing(uid);
+			}
 		}
 		if (workerTile.status === "done" && workerTile.vectorTile) return await this._parseWorkerTile(workerTile, params);
 	}

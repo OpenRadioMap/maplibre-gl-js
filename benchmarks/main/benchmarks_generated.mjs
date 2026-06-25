@@ -1,22 +1,22 @@
 //#region \0rolldown/runtime.js
-var __create$1 = Object.create;
-var __defProp$1 = Object.defineProperty;
-var __getOwnPropDesc$1 = Object.getOwnPropertyDescriptor;
-var __getOwnPropNames$1 = Object.getOwnPropertyNames;
-var __getProtoOf$1 = Object.getPrototypeOf;
-var __hasOwnProp$1 = Object.prototype.hasOwnProperty;
-var __commonJSMin$1 = (cb, mod) => () => (mod || (cb((mod = { exports: {} }).exports, mod), cb = null), mod.exports);
-var __copyProps$1 = (to, from, except, desc) => {
-	if (from && typeof from === "object" || typeof from === "function") for (var keys = __getOwnPropNames$1(from), i = 0, n = keys.length, key; i < n; i++) {
+var __create = Object.create;
+var __defProp = Object.defineProperty;
+var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
+var __getOwnPropNames = Object.getOwnPropertyNames;
+var __getProtoOf = Object.getPrototypeOf;
+var __hasOwnProp = Object.prototype.hasOwnProperty;
+var __commonJSMin = (cb, mod) => () => (mod || (cb((mod = { exports: {} }).exports, mod), cb = null), mod.exports);
+var __copyProps = (to, from, except, desc) => {
+	if (from && typeof from === "object" || typeof from === "function") for (var keys = __getOwnPropNames(from), i = 0, n = keys.length, key; i < n; i++) {
 		key = keys[i];
-		if (!__hasOwnProp$1.call(to, key) && key !== except) __defProp$1(to, key, {
+		if (!__hasOwnProp.call(to, key) && key !== except) __defProp(to, key, {
 			get: ((k) => from[k]).bind(null, key),
-			enumerable: !(desc = __getOwnPropDesc$1(from, key)) || desc.enumerable
+			enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable
 		});
 	}
 	return to;
 };
-var __toESM$1 = (mod, isNodeMode, target) => (target = mod != null ? __create$1(__getProtoOf$1(mod)) : {}, __copyProps$1(isNodeMode || !mod || !mod.__esModule ? __defProp$1(target, "default", {
+var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", {
 	value: mod,
 	enumerable: true
 }) : target, mod));
@@ -321,7 +321,7 @@ Point.convert = function(p) {
 };
 //#endregion
 //#region node_modules/@mapbox/unitbezier/index.js
-function unitBezier(p1x, p1y, p2x, p2y) {
+function unitBezier$1(p1x, p1y, p2x, p2y) {
 	const cx = 3 * p1x;
 	const bx = 3 * (p2x - p1x) - cx;
 	const ax = 1 - cx - bx;
@@ -1925,25 +1925,25 @@ function ensureError(e) {
 * Returns a new 64 bit float vec4 of zeroes.
 */
 function createVec4f64() {
-	return new Float64Array(4);
+	return /* @__PURE__ */ new Float64Array(4);
 }
 /**
 * Returns a new 64 bit float vec3 of zeroes.
 */
 function createVec3f64() {
-	return new Float64Array(3);
+	return /* @__PURE__ */ new Float64Array(3);
 }
 /**
 * Returns a new 64 bit float mat4 of zeroes.
 */
 function createMat4f64() {
-	return new Float64Array(16);
+	return /* @__PURE__ */ new Float64Array(16);
 }
 /**
 * Returns a new 64 bit float mat4 set to identity.
 */
 function createIdentityMat4f64() {
-	const m = new Float64Array(16);
+	const m = /* @__PURE__ */ new Float64Array(16);
 	identity(m);
 	return m;
 }
@@ -1951,7 +1951,7 @@ function createIdentityMat4f64() {
 * Returns a new 32 bit float mat4 set to identity.
 */
 function createIdentityMat4f32() {
-	const m = new Float32Array(16);
+	const m = /* @__PURE__ */ new Float32Array(16);
 	identity(m);
 	return m;
 }
@@ -2178,7 +2178,7 @@ function easeCubicInOut(t) {
 * @param p2y - control point 2 y coordinate
 */
 function bezier(p1x, p1y, p2x, p2y) {
-	return unitBezier(p1x, p1y, p2x, p2y);
+	return unitBezier$1(p1x, p1y, p2x, p2y);
 }
 /**
 * A default bezier-curve powered easing function with
@@ -2599,7 +2599,7 @@ function rollPitchBearingEqual(a, b) {
 * @returns roll, pitch, and bearing angles in degrees
 */
 function getRollPitchBearing(rotation) {
-	const m = new Float64Array(9);
+	const m = /* @__PURE__ */ new Float64Array(9);
 	fromQuat(m, rotation);
 	const xAngle = radiansToDegrees(-Math.asin(clamp$2(m[2], -1, 1)));
 	let roll;
@@ -2631,7 +2631,7 @@ function getAngleDelta(lastPoint, currentPoint, center) {
 * @returns The rotation quaternion
 */
 function rollPitchBearingToQuat(roll, pitch, bearing) {
-	const rotation = new Float64Array(4);
+	const rotation = /* @__PURE__ */ new Float64Array(4);
 	fromEuler(rotation, roll, pitch - 90, bearing);
 	return rotation;
 }
@@ -3069,29 +3069,6 @@ var TransferableGridIndex = class TransferableGridIndex {
 		return new TransferableGridIndex(serialized.buffer);
 	}
 };
-//#endregion
-//#region node_modules/@maplibre/maplibre-gl-style-spec/dist/index.mjs
-var __create = Object.create;
-var __defProp = Object.defineProperty;
-var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
-var __getOwnPropNames = Object.getOwnPropertyNames;
-var __getProtoOf = Object.getPrototypeOf;
-var __hasOwnProp = Object.prototype.hasOwnProperty;
-var __commonJSMin = (cb, mod) => () => (mod || (cb((mod = { exports: {} }).exports, mod), cb = null), mod.exports);
-var __copyProps = (to, from, except, desc) => {
-	if (from && typeof from === "object" || typeof from === "function") for (var keys = __getOwnPropNames(from), i = 0, n = keys.length, key; i < n; i++) {
-		key = keys[i];
-		if (!__hasOwnProp.call(to, key) && key !== except) __defProp(to, key, {
-			get: ((k) => from[k]).bind(null, key),
-			enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable
-		});
-	}
-	return to;
-};
-var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", {
-	value: mod,
-	enumerable: true
-}) : target, mod));
 var v8_default = {
 	$version: 8,
 	$root: {
@@ -4531,11 +4508,22 @@ var v8_default = {
 			},
 			"property-type": "data-driven"
 		},
+		"fill-layer-opacity": {
+			"type": "number",
+			"default": 1,
+			"minimum": 0,
+			"maximum": 1,
+			"transition": true,
+			"expression": {
+				"interpolated": true,
+				"parameters": ["zoom", "global-state"]
+			},
+			"property-type": "data-constant"
+		},
 		"fill-color": {
 			"type": "color",
 			"default": "#000000",
 			"transition": true,
-			"requires": [{ "!": "fill-pattern" }],
 			"expression": {
 				"interpolated": true,
 				"parameters": [
@@ -4721,6 +4709,18 @@ var v8_default = {
 				]
 			},
 			"property-type": "data-driven"
+		},
+		"line-layer-opacity": {
+			"type": "number",
+			"default": 1,
+			"minimum": 0,
+			"maximum": 1,
+			"transition": true,
+			"expression": {
+				"interpolated": true,
+				"parameters": ["zoom", "global-state"]
+			},
+			"property-type": "data-constant"
 		},
 		"line-color": {
 			"type": "color",
@@ -7538,7 +7538,7 @@ var RuntimeError = class extends Error {
 	}
 };
 /** Set of valid anchor positions, as a set for validation */
-const anchors = new Set([
+const anchors = /* @__PURE__ */ new Set([
 	"center",
 	"left",
 	"right",
@@ -8418,59 +8418,37 @@ var Step = class Step {
 		return this.outputs.every((out) => out.outputDefined());
 	}
 };
-var import_unitbezier = /* @__PURE__ */ __toESM((/* @__PURE__ */ __commonJSMin(((exports, module) => {
-	module.exports = UnitBezier;
-	function UnitBezier(p1x, p1y, p2x, p2y) {
-		this.cx = 3 * p1x;
-		this.bx = 3 * (p2x - p1x) - this.cx;
-		this.ax = 1 - this.cx - this.bx;
-		this.cy = 3 * p1y;
-		this.by = 3 * (p2y - p1y) - this.cy;
-		this.ay = 1 - this.cy - this.by;
-		this.p1x = p1x;
-		this.p1y = p1y;
-		this.p2x = p2x;
-		this.p2y = p2y;
-	}
-	UnitBezier.prototype = {
-		sampleCurveX: function(t) {
-			return ((this.ax * t + this.bx) * t + this.cx) * t;
-		},
-		sampleCurveY: function(t) {
-			return ((this.ay * t + this.by) * t + this.cy) * t;
-		},
-		sampleCurveDerivativeX: function(t) {
-			return (3 * this.ax * t + 2 * this.bx) * t + this.cx;
-		},
-		solveCurveX: function(x, epsilon) {
-			if (epsilon === void 0) epsilon = 1e-6;
-			if (x < 0) return 0;
-			if (x > 1) return 1;
-			var t = x;
-			for (var i = 0; i < 8; i++) {
-				var x2 = this.sampleCurveX(t) - x;
-				if (Math.abs(x2) < epsilon) return t;
-				var d2 = this.sampleCurveDerivativeX(t);
-				if (Math.abs(d2) < 1e-6) break;
-				t = t - x2 / d2;
-			}
-			var t0 = 0;
-			var t1 = 1;
-			t = x;
-			for (i = 0; i < 20; i++) {
-				x2 = this.sampleCurveX(t);
-				if (Math.abs(x2 - x) < epsilon) break;
-				if (x > x2) t0 = t;
-				else t1 = t;
-				t = (t1 - t0) * .5 + t0;
-			}
-			return t;
-		},
-		solve: function(x, epsilon) {
-			return this.sampleCurveY(this.solveCurveX(x, epsilon));
+function unitBezier(p1x, p1y, p2x, p2y) {
+	const cx = 3 * p1x;
+	const bx = 3 * (p2x - p1x) - cx;
+	const ax = 1 - cx - bx;
+	const cy = 3 * p1y;
+	const by = 3 * (p2y - p1y) - cy;
+	const ay = 1 - cy - by;
+	return function solve(x, epsilon = 1e-6) {
+		if (x <= 0) return 0;
+		if (x >= 1) return 1;
+		let t = x;
+		for (let i = 0; i < 8; i++) {
+			const x2 = ((ax * t + bx) * t + cx) * t - x;
+			if (Math.abs(x2) < epsilon) return ((ay * t + by) * t + cy) * t;
+			const d2 = (3 * ax * t + 2 * bx) * t + cx;
+			if (Math.abs(d2) < 1e-6) break;
+			t -= x2 / d2;
 		}
+		let t0 = 0;
+		let t1 = 1;
+		t = x;
+		for (let i = 0; i < 20; i++) {
+			const x2 = ((ax * t + bx) * t + cx) * t;
+			if (Math.abs(x2 - x) < epsilon) break;
+			if (x > x2) t0 = t;
+			else t1 = t;
+			t = (t0 + t1) * .5;
+		}
+		return ((ay * t + by) * t + cy) * t;
 	};
-})))(), 1);
+}
 var Interpolate = class Interpolate {
 	constructor(type, operator, interpolation, input, stops) {
 		this.type = type;
@@ -8490,7 +8468,7 @@ var Interpolate = class Interpolate {
 		else if (interpolation.name === "linear") t = exponentialInterpolation(input, 1, lower, upper);
 		else if (interpolation.name === "cubic-bezier") {
 			const c = interpolation.controlPoints;
-			t = new import_unitbezier.default(c[0], c[1], c[2], c[3]).solve(exponentialInterpolation(input, 1, lower, upper));
+			t = unitBezier(c[0], c[1], c[2], c[3])(exponentialInterpolation(input, 1, lower, upper));
 		}
 		return t;
 	}
@@ -9906,7 +9884,7 @@ var GlobalState = class GlobalState {
 	evaluate(ctx) {
 		const globalState = ctx.globals?.globalState;
 		if (!globalState || Object.keys(globalState).length === 0) return null;
-		return getOwn(globalState, this.key);
+		return getOwn(globalState, this.key) ?? null;
 	}
 	eachChild() {}
 	outputDefined() {
@@ -10985,20 +10963,123 @@ function isExpressionFilter(filter) {
 		case "has": return filter.length >= 2 && filter[1] !== "$id" && filter[1] !== "$type";
 		case "in": return filter.length >= 3 && (typeof filter[1] !== "string" || Array.isArray(filter[2]));
 		case "!in":
-		case "!has":
-		case "none": return false;
+		case "!has": return false;
 		case "==":
 		case "!=":
 		case ">":
 		case ">=":
 		case "<":
 		case "<=": return filter.length !== 3 || Array.isArray(filter[1]) || Array.isArray(filter[2]);
+		case "none":
+			for (const f of filter.slice(1)) {
+				if (typeof f === "boolean") continue;
+				if (isExpressionFilter(f)) return true;
+			}
+			return false;
 		case "any":
-		case "all":
-			for (const f of filter.slice(1)) if (!isExpressionFilter(f) && typeof f !== "boolean") return false;
-			return true;
+		case "all": {
+			let hasLegacy = false;
+			for (const f of filter.slice(1)) {
+				if (typeof f === "boolean") continue;
+				if (isExpressionFilter(f)) return true;
+				hasLegacy = true;
+			}
+			return !hasLegacy;
+		}
 		default: return true;
 	}
+}
+function getFilterPropertyExpression(property) {
+	if (property === "$id") return ["id"];
+	return ["get", property];
+}
+function getLegacyFilterExpressionSuggestion(filter) {
+	switch (filter[0]) {
+		case "==":
+		case "!=":
+		case "<":
+		case "<=":
+		case ">":
+		case ">=":
+			if (filter.length !== 3 || typeof filter[1] !== "string") return null;
+			if (filter[1] === "$type") return [filter[0], [
+				"in",
+				["geometry-type"],
+				["literal", [filter[2], `Multi${filter[2]}`]]
+			]];
+			return [
+				filter[0],
+				getFilterPropertyExpression(filter[1]),
+				filter[2]
+			];
+		case "in":
+		case "!in": {
+			if (filter.length < 2 || typeof filter[1] !== "string") return null;
+			let expression = [
+				"in",
+				getFilterPropertyExpression(filter[1]),
+				["literal", filter.slice(2)]
+			];
+			if (filter[1] === "$type") expression = [
+				"in",
+				["geometry-type"],
+				["literal", filter.slice(2).map((g) => [g, `Multi${g}`]).flat()]
+			];
+			return filter[0] === "!in" ? ["!", expression] : expression;
+		}
+		case "has":
+		case "!has": {
+			if (filter.length !== 2 || typeof filter[1] !== "string") return null;
+			if (filter[1] === "$type" || filter[1] === "$id") return null;
+			const expression = ["has", filter[1]];
+			return filter[0] === "!has" ? ["!", expression] : expression;
+		}
+		default: return null;
+	}
+}
+function getMixedFilterErrorMessage(filter) {
+	if ((filter[0] === "<" || filter[0] === "<=" || filter[0] === ">" || filter[0] === ">=") && filter[1] === "$type") return `"$type" cannot be use with operator "${filter[0]}"`;
+	const suggestion = getLegacyFilterExpressionSuggestion(filter);
+	if (suggestion) return `Mixing deprecated filter syntax with expression syntax is not supported. Replace ${JSON.stringify(filter)} with ${JSON.stringify(suggestion)}.`;
+	return `Mixing deprecated filter syntax with expression syntax is not supported. Convert ${JSON.stringify(filter)} to expression syntax.`;
+}
+function checkChild(index, path, filter) {
+	const child = filter[index];
+	if (!Array.isArray(child)) return null;
+	if (!isExpressionFilter(child)) return {
+		path: path.concat(index),
+		legacyFilter: child
+	};
+	return findMixedLegacyFilter(child, path.concat(index));
+}
+function findMixedLegacyFilter(filter, path = []) {
+	if (!Array.isArray(filter) || filter.length < 1) return null;
+	switch (filter[0]) {
+		case "all":
+		case "any":
+		case "none":
+			for (let i = 1; i < filter.length; i++) {
+				const diagnostic = checkChild(i, path, filter);
+				if (diagnostic) return diagnostic;
+			}
+			break;
+		case "!": {
+			const diagnostic = checkChild(1, path, filter);
+			if (diagnostic) return diagnostic;
+			break;
+		}
+		case "case":
+			for (let i = 1; i < filter.length - 1; i += 2) {
+				const diagnostic = checkChild(i, path, filter);
+				if (diagnostic) return diagnostic;
+			}
+			break;
+	}
+	return null;
+}
+function validateNoMixedExpressionFilter(filter) {
+	const diagnostic = findMixedLegacyFilter(filter);
+	if (diagnostic) throw new Error(getMixedFilterErrorMessage(diagnostic.legacyFilter));
 }
 const filterSpec = {
 	type: "boolean",
@@ -11026,7 +11107,11 @@ function featureFilter(filter, globalState) {
 		needGeometry: false,
 		getGlobalStateRefs: () => /* @__PURE__ */ new Set()
 	};
-	if (!isExpressionFilter(filter)) filter = convertFilter$1(filter);
+	if (Array.isArray(filter) && filter[0] === "none" && isExpressionFilter(filter)) {
+		validateNoMixedExpressionFilter(filter);
+		filter = convertFilter$1(filter);
+	} else if (!isExpressionFilter(filter)) filter = convertFilter$1(filter);
+	else validateNoMixedExpressionFilter(filter);
 	const compiled = createExpression(filter, filterSpec, globalState);
 	if (compiled.result === "error") throw new Error(compiled.value.map((err) => `${err.key}: ${err.message}`).join(", "));
 	else return {
@@ -11602,12 +11687,20 @@ function validateEnum(options) {
 	} else if (Object.keys(valueSpec.values).indexOf(unbundle(value)) === -1) errors.push(new ValidationError(key, value, `expected one of [${Object.keys(valueSpec.values).join(", ")}], ${JSON.stringify(value)} found`));
 	return errors;
 }
+function getValueAtPath(value, path) {
+	let current = value;
+	for (const index of path) current = current[index];
+	return current;
+}
 function validateFilter$1(options) {
-	if (isExpressionFilter(deepUnbundle(options.value))) return validateExpression(extendBy({}, options, {
+	const value = deepUnbundle(options.value);
+	if (!isExpressionFilter(value)) return validateNonExpressionFilter(options);
+	const mixedLegacyDiagnostic = findMixedLegacyFilter(value);
+	if (mixedLegacyDiagnostic) return [new ValidationError(`${options.key}${mixedLegacyDiagnostic.path.map((index) => `[${index}]`).join("")}`, getValueAtPath(options.value, mixedLegacyDiagnostic.path), getMixedFilterErrorMessage(mixedLegacyDiagnostic.legacyFilter))];
+	return validateExpression(extendBy({}, options, {
 		expressionContext: "filter",
 		valueSpec: { value: "boolean" }
 	}));
-	else return validateNonExpressionFilter(options);
 }
 function validateNonExpressionFilter(options) {
 	const value = options.value;
@@ -12822,6 +12915,7 @@ function serialize(input, transferables) {
 			if (!input.hasOwnProperty(key)) continue;
 			if (registry[classRegistryKey].omit.includes(key)) continue;
 			const property = input[key];
+			if (property === void 0) continue;
 			properties[key] = registry[classRegistryKey].shallow.includes(key) ? property : serialize(property, transferables);
 		}
 		if (input instanceof Error) properties.message = input.message;
@@ -13421,7 +13515,7 @@ var Benchmark = class {
 		map._render(paintStartTimeStamp);
 		const gl = map.painter.context.gl;
 		gl.finish();
-		gl.readPixels(0, 0, 1, 1, gl.RGBA, gl.UNSIGNED_BYTE, new Uint8Array(4));
+		gl.readPixels(0, 0, 1, 1, gl.RGBA, gl.UNSIGNED_BYTE, /* @__PURE__ */ new Uint8Array(4));
 	}
 };
 //#endregion
@@ -14057,15 +14151,6 @@ var Evented = class {
 		_removeEventListener(type, listener, this._oneTimeListeners);
 		return this;
 	}
-	/**
-	* Adds a listener that will be called only once to a specified event type.
-	*
-	* The listener will be called first time the event fires after the listener is registered.
-	*
-	* @param type - The event type to listen for.
-	* @param listener - The function to be called when the event is fired the first time.
-	* @returns `this` or a promise if a listener is not provided
-	*/
 	once(type, listener) {
 		if (!listener) return new Promise((resolve) => this.once(type, resolve));
 		this._oneTimeListeners ||= {};
@@ -14108,6 +14193,345 @@ var Evented = class {
 		this._eventedParent = parent;
 		this._eventedParentData = data;
 		return this;
+	}
+};
+//#endregion
+//#region src/util/dom.ts
+var DOM = class DOM {
+	static {
+		this.docStyle = typeof window !== "undefined" && window.document?.documentElement.style;
+	}
+	static {
+		this.selectProp = !DOM.docStyle || "userSelect" in DOM.docStyle ? "userSelect" : "webkitUserSelect";
+	}
+	static create(tagName, className, container) {
+		const el = window.document.createElement(tagName);
+		if (className !== void 0) el.className = className;
+		if (container) container.appendChild(el);
+		return el;
+	}
+	static createNS(namespaceURI, tagName) {
+		return window.document.createElementNS(namespaceURI, tagName);
+	}
+	static disableDrag() {
+		if (DOM.docStyle && DOM.selectProp) {
+			DOM.userSelect = DOM.docStyle[DOM.selectProp];
+			DOM.docStyle[DOM.selectProp] = "none";
+		}
+	}
+	static enableDrag() {
+		if (DOM.docStyle && DOM.selectProp) DOM.docStyle[DOM.selectProp] = DOM.userSelect;
+	}
+	static suppressClickInternal(e) {
+		e.preventDefault();
+		e.stopPropagation();
+		window.removeEventListener("click", DOM.suppressClickInternal, true);
+	}
+	static suppressClick() {
+		window.addEventListener("click", DOM.suppressClickInternal, true);
+		window.setTimeout(() => {
+			window.removeEventListener("click", DOM.suppressClickInternal, true);
+		}, 0);
+	}
+	static getScale(element) {
+		const rect = element.getBoundingClientRect();
+		return {
+			x: rect.width / element.offsetWidth || 1,
+			y: rect.height / element.offsetHeight || 1,
+			boundingClientRect: rect
+		};
+	}
+	static getPoint(el, scale, e) {
+		const rect = scale.boundingClientRect;
+		return new Point((e.clientX - rect.left) / scale.x - el.clientLeft, (e.clientY - rect.top) / scale.y - el.clientTop);
+	}
+	static mousePos(el, e) {
+		const scale = DOM.getScale(el);
+		return DOM.getPoint(el, scale, e);
+	}
+	static touchPos(el, touches) {
+		const points = [];
+		const scale = DOM.getScale(el);
+		for (const touch of touches) points.push(DOM.getPoint(el, scale, touch));
+		return points;
+	}
+	/**
+	* Sanitize an HTML string - this might not be enough to prevent all XSS attacks
+	* Base on https://javascriptsource.com/sanitize-an-html-string-to-reduce-the-risk-of-xss-attacks/
+	* (c) 2021 Chris Ferdinandi, MIT License, https://gomakethings.com
+	*/
+	static sanitize(str) {
+		const html = new DOMParser().parseFromString(str, "text/html").body || document.createElement("body");
+		const scripts = html.querySelectorAll("script");
+		for (const script of scripts) script.remove();
+		DOM.clean(html);
+		return html.innerHTML;
+	}
+	/**
+	* Check if the attribute is potentially dangerous
+	*/
+	static isPossiblyDangerous(name, value) {
+		const val = value.replace(/\s+/g, "").toLowerCase();
+		if ([
+			"src",
+			"href",
+			"xlink:href"
+		].includes(name)) {
+			if (val.includes("javascript:") || val.includes("data:")) return true;
+		}
+		if (name.startsWith("on")) return true;
+	}
+	/**
+	* Remove dangerous stuff from the HTML document's nodes
+	* @param html - The HTML document
+	*/
+	static clean(html) {
+		const nodes = html.children;
+		for (const node of nodes) {
+			DOM.removeAttributes(node);
+			DOM.clean(node);
+		}
+	}
+	/**
+	* Remove potentially dangerous attributes from an element
+	* @param elem - The element
+	*/
+	static removeAttributes(elem) {
+		for (const { name, value } of elem.attributes) {
+			if (!DOM.isPossiblyDangerous(name, value)) continue;
+			elem.removeAttribute(name);
+		}
+	}
+};
+//#endregion
+//#region src/ui/events.ts
+/**
+* The base event for MapLibre
+*
+* @group Event Related
+*/
+var MapLibreEvent = class extends Event {};
+/**
+* `MapMovementEvent` is the event type for the camera-transition map events:
+* `movestart`, `move`, `moveend`, `zoomstart`, `zoom`, `zoomend`, `rotatestart`, `rotate`, `rotateend`,
+* `dragstart`, `drag`, `dragend`, `pitchstart`, `pitch`, `pitchend`, `rollstart`, `roll` and `rollend`.
+* These are fired as the map's view changes, as a result of either user interaction or methods such
+* as {@link Map.jumpTo} / {@link Map.flyTo}.
+*
+* @group Event Related
+*/
+var MapMovementEvent = class extends MapLibreEvent {};
+/**
+* The `style.load` event, fired once the map's style has fully loaded or changed.
+*
+* @group Event Related
+*/
+var MapStyleLoadEvent = class extends MapLibreEvent {
+	constructor(data = {}) {
+		super("style.load", data);
+	}
+};
+/**
+* The style data event
+*
+* @group Event Related
+*/
+var MapStyleDataEvent = class extends MapLibreEvent {
+	constructor(type, data = {}) {
+		super(type, data);
+		this.dataType = "style";
+	}
+};
+/**
+* A `MapSourceDataEvent` is emitted with the source-related `data`, `dataloading`, `dataabort`,
+* `sourcedata`, `sourcedataloading` and `sourcedataabort` events. Its `dataType` is always `'source'`.
+*
+* Possible values for `sourceDataType`s are:
+*
+* - `'metadata'`: indicates that any necessary source metadata has been loaded (such as TileJSON) and it is ok to start loading tiles
+* - `'content'`: indicates the source data has changed (such as when source.setData() has been called on GeoJSONSource)
+* - `'visibility'`: send when the source becomes used when at least one of its layers becomes visible in style sense (inside the layer's zoom range and with layout.visibility set to 'visible')
+* - `'idle'`: indicates that no new source data has been fetched (but the source has done loading)
+*
+* @group Event Related
+*
+* @example
+* ```ts
+* // The sourcedata event is an example of a MapSourceDataEvent.
+* // Set up an event listener on the map.
+* map.on('sourcedata', (e) => {
+*    if (e.isSourceLoaded) {
+*        // Do something when the source has finished loading
+*    }
+* });
+* ```
+*/
+var MapSourceDataEvent = class extends MapLibreEvent {
+	constructor(type, data = {}) {
+		super(type, data);
+		this.dataType = "source";
+	}
+};
+/**
+* `MapMouseEvent` is the event type for mouse-related map events.
+*
+* @group Event Related
+*
+* @example
+* ```ts
+* // The `click` event is an example of a `MapMouseEvent`.
+* // Set up an event listener on the map.
+* map.on('click', (e) => {
+*   // The event object (e) contains information like the
+*   // coordinates of the point on the map that was clicked.
+*   console.log('A click event has occurred at ' + e.lngLat);
+* });
+* ```
+*/
+var MapMouseEvent = class extends MapLibreEvent {
+	/**
+	* Prevents subsequent default processing of the event by the map.
+	*
+	* Calling this method will prevent the following default map behaviors:
+	*
+	*   * On `mousedown` events, the behavior of {@link DragPanHandler}
+	*   * On `mousedown` events, the behavior of {@link DragRotateHandler}
+	*   * On `mousedown` events, the behavior of {@link BoxZoomHandler}
+	*   * On `dblclick` events, the behavior of {@link DoubleClickZoomHandler}
+	*
+	*/
+	preventDefault() {
+		this._defaultPrevented = true;
+	}
+	/**
+	* `true` if `preventDefault` has been called.
+	*/
+	get defaultPrevented() {
+		return this._defaultPrevented;
+	}
+	constructor(type, map, originalEvent, data = {}) {
+		originalEvent = originalEvent instanceof MouseEvent ? originalEvent : new MouseEvent(type, originalEvent);
+		const point = DOM.mousePos(map.getCanvas(), originalEvent);
+		const lngLat = map.unproject(point);
+		super(type, extend({
+			point,
+			lngLat,
+			originalEvent
+		}, data));
+		this._defaultPrevented = false;
+		this.target = map;
+	}
+};
+/**
+* `MapTouchEvent` is the event type for touch-related map events.
+*
+* @group Event Related
+*/
+var MapTouchEvent = class extends MapLibreEvent {
+	/**
+	* Prevents subsequent default processing of the event by the map.
+	*
+	* Calling this method will prevent the following default map behaviors:
+	*
+	*   * On `touchstart` events, the behavior of {@link DragPanHandler}
+	*   * On `touchstart` events, the behavior of {@link TwoFingersTouchZoomRotateHandler}
+	*
+	*/
+	preventDefault() {
+		this._defaultPrevented = true;
+	}
+	/**
+	* `true` if `preventDefault` has been called.
+	*/
+	get defaultPrevented() {
+		return this._defaultPrevented;
+	}
+	constructor(type, map, originalEvent) {
+		const touches = type === "touchend" ? originalEvent.changedTouches : originalEvent.touches;
+		const points = DOM.touchPos(map.getCanvasContainer(), touches);
+		const lngLats = points.map((t) => map.unproject(t));
+		const point = points.reduce((prev, curr, i, arr) => {
+			return prev.add(curr.div(arr.length));
+		}, new Point(0, 0));
+		const lngLat = map.unproject(point);
+		super(type, {
+			points,
+			point,
+			lngLats,
+			lngLat,
+			originalEvent
+		});
+		this._defaultPrevented = false;
+	}
+};
+/**
+* `MapWheelEvent` is the event type for the `wheel` map event.
+*
+* @group Event Related
+*/
+var MapWheelEvent = class extends MapLibreEvent {
+	/**
+	* Prevents subsequent default processing of the event by the map.
+	*
+	* Calling this method will prevent the behavior of {@link ScrollZoomHandler}.
+	*/
+	preventDefault() {
+		this._defaultPrevented = true;
+	}
+	/**
+	* `true` if `preventDefault` has been called.
+	*/
+	get defaultPrevented() {
+		return this._defaultPrevented;
+	}
+	/** */
+	constructor(map, originalEvent) {
+		super("wheel", { originalEvent });
+		this._defaultPrevented = false;
+	}
+};
+/**
+* A `MapBoxZoomEvent` is the event type for the boxzoom-related map events emitted by the {@link BoxZoomHandler}.
+*
+* @group Event Related
+*/
+var MapBoxZoomEvent = class extends MapLibreEvent {};
+/**
+* The terrain event
+*
+* @group Event Related
+*/
+var MapTerrainEvent = class extends MapLibreEvent {
+	constructor(data = {}) {
+		super("terrain", data);
+	}
+};
+/**
+* The map projection event
+*
+* @group Event Related
+*/
+var MapProjectionEvent = class extends MapLibreEvent {
+	constructor(data = {}) {
+		super("projectiontransition", data);
+	}
+};
+/**
+* An event related to the web gl context
+*
+* @group Event Related
+*/
+var MapContextEvent = class extends MapLibreEvent {};
+/**
+* The style image missing event
+*
+* @group Event Related
+*
+* @see [Generate and add a missing icon to the map](https://maplibre.org/maplibre-gl-js/docs/examples/generate-and-add-a-missing-icon-to-the-map/)
+*/
+var MapStyleImageMissingEvent = class extends MapLibreEvent {
+	constructor(data = {}) {
+		super("styleimagemissing", data);
 	}
 };
 //#endregion
@@ -16446,7 +16870,7 @@ const dashAttributes = createLayout([{
 }]);
 //#endregion
 //#region node_modules/murmurhash-js/murmurhash3_gc.js
-var require_murmurhash3_gc = /* @__PURE__ */ __commonJSMin$1(((exports, module) => {
+var require_murmurhash3_gc = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	/**
 	* JS Implementation of MurmurHash3 (r136) (as of May 20, 2011)
 	* 
@@ -16495,7 +16919,7 @@ var require_murmurhash3_gc = /* @__PURE__ */ __commonJSMin$1(((exports, module) 
 }));
 //#endregion
 //#region node_modules/murmurhash-js/murmurhash2_gc.js
-var require_murmurhash2_gc = /* @__PURE__ */ __commonJSMin$1(((exports, module) => {
+var require_murmurhash2_gc = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	/**
 	* JS Implementation of MurmurHash2
 	* 
@@ -16535,7 +16959,7 @@ var require_murmurhash2_gc = /* @__PURE__ */ __commonJSMin$1(((exports, module) 
 }));
 //#endregion
 //#region src/data/feature_position_map.ts
-var import_murmurhash_js = /* @__PURE__ */ __toESM$1((/* @__PURE__ */ __commonJSMin$1(((exports, module) => {
+var import_murmurhash_js = /* @__PURE__ */ __toESM((/* @__PURE__ */ __commonJSMin(((exports, module) => {
 	var murmur3 = require_murmurhash3_gc();
 	var murmur2 = require_murmurhash2_gc();
 	module.exports = murmur3;
@@ -16757,7 +17181,7 @@ var UniformFloatArray = class extends Uniform {
 		}
 	}
 };
-const emptyMat4 = new Float32Array(16);
+const emptyMat4 = /* @__PURE__ */ new Float32Array(16);
 var UniformMatrix4f = class extends Uniform {
 	constructor(context, location) {
 		super(context, location);
@@ -17008,8 +17432,8 @@ var CrossFadedDasharrayBinder = class extends CrossFadedBinder {
 *
 * Non-data-driven property values are bound to shader uniforms. Data-driven property
 * values are bound to vertex attributes. In order to support a uniform GLSL syntax over
-* both, [Mapbox GL Shaders](https://github.com/mapbox/mapbox-gl-shaders) defines a `#pragma`
-* abstraction, which ProgramConfiguration is responsible for implementing. At runtime,
+* both, the [shaders](../shaders/README.md) define a `#pragma` abstraction, which
+* ProgramConfiguration is responsible for implementing. At runtime,
 * it examines the attributes of a particular layer, combines this with fixed knowledge
 * about how layers of the particular type are implemented, and determines which uniforms
 * and vertex attributes will be required. It can then substitute the appropriate text
@@ -18128,7 +18552,10 @@ var Texture = class {
 * surrounding pixel values to compute the slope at that pixel, and we cannot accurately calculate the slope at pixels on a
 * tile's edge without backfilling from neighboring tiles.
 */
-var DEMData = class {
+var DEMData = class DEMData {
+	static {
+		this.byteViewCache = /* @__PURE__ */ new WeakMap();
+	}
 	/**
 	* Constructs a `DEMData` object
 	* @param uid - the tile's unique id
@@ -18154,6 +18581,7 @@ var DEMData = class {
 		this.stride = data.height;
 		const dim = this.dim = data.height - 2;
 		this.data = new Uint32Array(data.data.buffer);
+		DEMData.byteViewCache.set(this, new Uint8Array(this.data.buffer));
 		switch (encoding) {
 			case "terrarium":
 				this.redFactor = 256;
@@ -18184,18 +18612,35 @@ var DEMData = class {
 		this.data[this._idx(dim, -1)] = this.data[this._idx(dim - 1, 0)];
 		this.data[this._idx(-1, dim)] = this.data[this._idx(0, dim - 1)];
 		this.data[this._idx(dim, dim)] = this.data[this._idx(dim - 1, dim - 1)];
+		const pixels = this._getByteView();
 		this.min = Number.MAX_SAFE_INTEGER;
 		this.max = Number.MIN_SAFE_INTEGER;
 		for (let x = 0; x < dim; x++) for (let y = 0; y < dim; y++) {
-			const ele = this.get(x, y);
+			const index = this._idx(x, y) * 4;
+			const ele = this._unpackAtIndex(pixels, index);
 			if (ele > this.max) this.max = ele;
 			if (ele < this.min) this.min = ele;
 		}
 	}
 	get(x, y) {
-		const pixels = new Uint8Array(this.data.buffer);
+		const pixels = this._getByteView();
 		const index = this._idx(x, y) * 4;
-		return this.unpack(pixels[index], pixels[index + 1], pixels[index + 2]);
+		return this._unpackAtIndex(pixels, index);
+	}
+	sampleBilinear(x, y) {
+		const cx = Math.floor(x);
+		const cy = Math.floor(y);
+		if (cx < -1 || cx >= this.dim || cy < -1 || cy >= this.dim) throw new RangeError(`Out of range source coordinates for DEM data. x: ${x}, y: ${y}, dim: ${this.dim}`);
+		const pixels = this._getByteView();
+		const index = ((cy + 1) * this.stride + cx + 1) * 4;
+		const strideByteWidth = this.stride * 4;
+		const tx = x - cx;
+		const ty = y - cy;
+		const z00 = this._unpackAtIndex(pixels, index);
+		const z10 = this._unpackAtIndex(pixels, index + 4);
+		const z01 = this._unpackAtIndex(pixels, index + strideByteWidth);
+		const z11 = this._unpackAtIndex(pixels, index + strideByteWidth + 4);
+		return z00 * (1 - tx) * (1 - ty) + z10 * tx * (1 - ty) + z01 * (1 - tx) * ty + z11 * tx * ty;
 	}
 	getUnpackVector() {
 		return [
@@ -18219,7 +18664,7 @@ var DEMData = class {
 		return new RGBAImage({
 			width: this.stride,
 			height: this.stride
-		}, new Uint8Array(this.data.buffer));
+		}, this._getByteView());
 	}
 	backfillBorder(borderTile, dx, dy) {
 		if (this.dim !== borderTile.dim) throw new Error("dem dimension mismatch");
@@ -18243,6 +18688,17 @@ var DEMData = class {
 		const ox = -dx * this.dim;
 		const oy = -dy * this.dim;
 		for (let y = yMin; y < yMax; y++) for (let x = xMin; x < xMax; x++) this.data[this._idx(x, y)] = borderTile.data[this._idx(x + ox, y + oy)];
+	}
+	_getByteView() {
+		let byteView = DEMData.byteViewCache.get(this);
+		if (byteView?.buffer !== this.data.buffer) {
+			byteView = new Uint8Array(this.data.buffer);
+			DEMData.byteViewCache.set(this, byteView);
+		}
+		return byteView;
+	}
+	_unpackAtIndex(pixels, index) {
+		return this.unpack(pixels[index], pixels[index + 1], pixels[index + 2]);
 	}
 };
 function packDEMData(v, unpackVector) {
@@ -19651,6 +20107,7 @@ let paint$4;
 const getPaint$4 = () => paint$4 = paint$4 || new Properties({
 	"fill-antialias": new DataConstantProperty(latest_default["paint_fill"]["fill-antialias"]),
 	"fill-opacity": new DataDrivenProperty(latest_default["paint_fill"]["fill-opacity"]),
+	"fill-layer-opacity": new DataConstantProperty(latest_default["paint_fill"]["fill-layer-opacity"]),
 	"fill-color": new DataDrivenProperty(latest_default["paint_fill"]["fill-color"]),
 	"fill-outline-color": new DataDrivenProperty(latest_default["paint_fill"]["fill-outline-color"]),
 	"fill-translate": new DataConstantProperty(latest_default["paint_fill"]["fill-translate"]),
@@ -20048,7 +20505,7 @@ const ARRAY_TYPES = [
 /** @typedef {Int8Array | Uint8Array | Uint8ClampedArray | Int16Array | Uint16Array | Int32Array | Uint32Array | Float32Array | Float64Array} TypedArray */
 const VERSION = 1;
 const HEADER_SIZE = 8;
-const STACK = new Uint32Array(96);
+const STACK = /* @__PURE__ */ new Uint32Array(96);
 var KDBush = class KDBush {
 	/**
 	* Creates an index from raw `ArrayBuffer` data.
@@ -20696,6 +21153,7 @@ const getLayout$1 = () => layout$1 = layout$1 || new Properties({
 let paint$2;
 const getPaint$2 = () => paint$2 = paint$2 || new Properties({
 	"line-opacity": new DataDrivenProperty(latest_default["paint_line"]["line-opacity"]),
+	"line-layer-opacity": new DataConstantProperty(latest_default["paint_line"]["line-layer-opacity"]),
 	"line-color": new DataDrivenProperty(latest_default["paint_line"]["line-color"]),
 	"line-translate": new DataConstantProperty(latest_default["paint_line"]["line-translate"]),
 	"line-translate-anchor": new DataConstantProperty(latest_default["paint_line"]["line-translate-anchor"]),
@@ -20737,11 +21195,7 @@ const isLineStyleLayer = (layer) => layer.type === "line";
 var LineStyleLayer = class extends StyleLayer {
 	constructor(layer, globalState) {
 		super(layer, line_style_layer_properties_g_default, globalState);
-		this.onRemove = () => {
-			this.resize();
-		};
 		this.gradientVersion = 0;
-		this.lineFbo = null;
 		if (!lineFloorwidthProperty) {
 			lineFloorwidthProperty = new LineFloorwidthProperty(line_style_layer_properties_g_default.paint.properties["line-width"].specification);
 			lineFloorwidthProperty.useIntegerZoom = true;
@@ -20780,14 +21234,6 @@ var LineStyleLayer = class extends StyleLayer {
 	}
 	isTileClipped() {
 		return true;
-	}
-	hasOffscreenPass() {
-		const constantOpacity = this.paint.get("line-opacity").constantOr(-1);
-		return constantOpacity > 0 && constantOpacity < 1 && !this.isHidden();
-	}
-	resize() {
-		this.lineFbo?.destroy();
-		this.lineFbo = null;
 	}
 };
 function getLineWidth(lineWidth, lineGapWidth) {
@@ -21402,7 +21848,7 @@ var TaggedString = class TaggedString {
 	/**
 	* Returns whether the text contains zero-width spaces.
 	*
-	* Some tilesets such as Mapbox Streets insert ZWSPs as hints for line
+	* Some tilesets such as Streets insert ZWSPs as hints for line
 	* breaking in CJK text.
 	*/
 	hasZeroWidthSpaces() {
@@ -23465,7 +23911,7 @@ var ImageManager = class extends Evented {
 		for (const id of ids) {
 			let image = this.getImage(id);
 			if (!image) {
-				this.fire(new Event("styleimagemissing", { id }));
+				this.fire(new MapStyleImageMissingEvent({ id }));
 				image = this.getImage(id);
 			}
 			if (image) response[id] = {
@@ -23628,7 +24074,7 @@ async function loadGlyphRange(fontstack, range, urlTemplate, requestManager) {
 //#endregion
 //#region node_modules/@mapbox/tiny-sdf/index.js
 const INF = 0x56bc75e2d63100000;
-const alphaTable = new Float64Array(256);
+const alphaTable = /* @__PURE__ */ new Float64Array(256);
 for (let i = 0; i < 256; i++) {
 	const d = .5 - Math.pow(i / 255, 1 / 2.2);
 	alphaTable[i] = d * Math.abs(d);
@@ -23799,7 +24245,7 @@ var GlyphManager = class GlyphManager {
 			glyph
 		};
 		if (!this.url || this._charUsesLocalIdeographFontFamily(id)) {
-			glyph = entry.glyphs[id] = this._drawGlyph(entry, stack, id);
+			glyph = entry.glyphs[id] = await this._drawGlyph(entry, stack, id);
 			return {
 				stack,
 				id,
@@ -23827,7 +24273,7 @@ var GlyphManager = class GlyphManager {
 				glyph: response[id] || null
 			};
 		} catch (e) {
-			const glyph = entry.glyphs[id] = this._drawGlyph(entry, stack, id);
+			const glyph = entry.glyphs[id] = await this._drawGlyph(entry, stack, id);
 			this._warnOnMissingGlyphRange(glyph, range, id, ensureError(e));
 			return {
 				stack,
@@ -23849,11 +24295,11 @@ var GlyphManager = class GlyphManager {
 	/**
 	* Draws a glyph offscreen using TinySDF, creating a TinySDF instance lazily.
 	*/
-	_drawGlyph(entry, stack, id) {
+	async _drawGlyph(entry, stack, id) {
 		const usesLocalIdeographFontFamily = stack === defaultStack && this.localIdeographFontFamily !== "" && this._charUsesLocalIdeographFontFamily(id);
 		const tinySDFKey = usesLocalIdeographFontFamily ? "ideographTinySDF" : "tinySDF";
 		entry[tinySDFKey] ||= this._createTinySDF(usesLocalIdeographFontFamily ? this.localIdeographFontFamily : stack);
-		const char = entry[tinySDFKey].draw(String.fromCodePoint(id));
+		const char = (await entry[tinySDFKey]).draw(String.fromCodePoint(id));
 		/**
 		* TinySDF's "top" is the distance from the alphabetic baseline to the top of the glyph.
 		* Server-generated fonts specify "top" relative to an origin above the em box (the origin
@@ -23886,18 +24332,26 @@ var GlyphManager = class GlyphManager {
 			}
 		};
 	}
-	_createTinySDF(stack) {
+	async _createTinySDF(stack) {
 		const fontFamilies = stack ? stack.split(",") : [];
 		fontFamilies.push(defaultGenericFontFamily);
 		const fontFamily = fontFamilies.map((fontName) => /[-\w]+/.test(fontName) ? fontName : `'${CSS.escape(fontName)}'`).join(",");
+		const fontSize = 24 * textureScale;
+		const fontWeight = this._fontWeight(fontFamilies[0]);
+		const fontStyle = this._fontStyle(fontFamilies[0]);
+		if (typeof document !== "undefined" && document.fonts?.load) try {
+			await document.fonts.load(`${fontStyle} ${fontWeight || "normal"} ${fontSize}px ${fontFamily}`);
+		} catch (e) {
+			warnOnce(`Failed to load font "${fontFamily}": ${ensureError(e).message}`);
+		}
 		return new GlyphManager.TinySDF({
-			fontSize: 24 * textureScale,
+			fontSize,
 			buffer: 3 * textureScale,
 			radius: 8 * textureScale,
 			cutoff: .25,
 			fontFamily,
-			fontWeight: this._fontWeight(fontFamilies[0]),
-			fontStyle: this._fontStyle(fontFamilies[0]),
+			fontWeight,
+			fontStyle,
 			lang: this.lang
 		});
 	}
@@ -24426,6 +24880,7 @@ var Actor = class {
 					sourceMapId: this.mapId
 				};
 				this.target.postMessage(cancelMessage);
+				reject(new AbortError(abortController.signal.reason));
 			}, addEventDefaultOptions) : null;
 			this.resolveRejects[id] = {
 				resolve: (value) => {
@@ -24539,14 +24994,10 @@ function isCrossOrigin(url) {
 	}
 }
 function defaultWorkerUrl() {
-	try {
-		const moduleUrl = import.meta.url;
-		if (!/^https?:/.test(moduleUrl)) return "";
-		const workerName = moduleUrl.endsWith("-dev.mjs") ? "maplibre-gl-worker-dev.mjs" : "maplibre-gl-worker.mjs";
-		return new URL(`./${workerName}`, moduleUrl).href;
-	} catch {
-		return "";
-	}
+	const moduleUrl = import.meta.url;
+	if (!/^https?:/.test(moduleUrl)) return "";
+	const workerName = moduleUrl.endsWith("-dev.mjs") ? "maplibre-gl-worker-dev.mjs" : "maplibre-gl-worker.mjs";
+	return new URL(`./${workerName}`, moduleUrl).href;
 }
 function createWorker(url, asModule) {
 	if (asModule) try {
@@ -24563,10 +25014,22 @@ async function fetchAsBlobUrl(url) {
 	const blob = new Blob([code], { type: "text/javascript" });
 	return URL.createObjectURL(blob);
 }
+function importAsBlobUrl(url) {
+	const blob = new Blob([`import ${JSON.stringify(new URL(url, import.meta.url).href)}`], { type: "text/javascript" });
+	return URL.createObjectURL(blob);
+}
 async function workerFactory() {
 	const url = config.WORKER_URL || defaultWorkerUrl();
-	const asModule = url?.endsWith(".mjs") ?? false;
+	const asModule = url?.endsWith(".cjs") ? false : true;
 	if (!isCrossOrigin(url)) return createWorker(url, asModule);
+	if (asModule) {
+		const blobUrl = importAsBlobUrl(url);
+		try {
+			return createWorker(blobUrl, asModule);
+		} finally {
+			URL.revokeObjectURL(blobUrl);
+		}
+	}
 	const blobUrl = await fetchAsBlobUrl(url);
 	try {
 		return createWorker(blobUrl, asModule);
@@ -25310,7 +25773,7 @@ var VectorTileSource = class extends Evented {
 	}
 	async load(sourceDataChanged = false) {
 		this._loaded = false;
-		this.fire(new Event("dataloading", { dataType: "source" }));
+		this.fire(new MapSourceDataEvent("dataloading"));
 		this._tileJSONRequest = new AbortController();
 		try {
 			const tileJSON = await loadTileJson(this._options, this.map._requestManager, this._tileJSONRequest, this.map._ownerWindow);
@@ -25319,12 +25782,8 @@ var VectorTileSource = class extends Evented {
 			if (tileJSON) {
 				extend(this, tileJSON);
 				if (tileJSON.bounds) this.tileBounds = new TileBounds(tileJSON.bounds, this.minzoom, this.maxzoom);
-				this.fire(new Event("data", {
-					dataType: "source",
-					sourceDataType: "metadata"
-				}));
-				this.fire(new Event("data", {
-					dataType: "source",
+				this.fire(new MapSourceDataEvent("data", { sourceDataType: "metadata" }));
+				this.fire(new MapSourceDataEvent("data", {
 					sourceDataType: "content",
 					sourceDataChanged
 				}));
@@ -25426,7 +25885,7 @@ var VectorTileSource = class extends Evented {
 			return result;
 		} catch (err) {
 			delete tile.abortController;
-			if (tile.aborted) return;
+			if (tile.aborted || isAbortError(err)) return;
 			if (err && err.status !== 404) throw err;
 			this._afterTileLoadWorkerResponse(tile, null);
 		}
@@ -25540,7 +25999,7 @@ var RasterTileSource = class extends Evented {
 	}
 	async load(sourceDataChanged = false) {
 		this._loaded = false;
-		this.fire(new Event("dataloading", { dataType: "source" }));
+		this.fire(new MapSourceDataEvent("dataloading"));
 		this._tileJSONRequest = new AbortController();
 		try {
 			const tileJSON = await loadTileJson(this._options, this.map._requestManager, this._tileJSONRequest, this.map._ownerWindow);
@@ -25549,12 +26008,8 @@ var RasterTileSource = class extends Evented {
 			if (tileJSON) {
 				extend(this, tileJSON);
 				if (tileJSON.bounds) this.tileBounds = new TileBounds(tileJSON.bounds, this.minzoom, this.maxzoom);
-				this.fire(new Event("data", {
-					dataType: "source",
-					sourceDataType: "metadata"
-				}));
-				this.fire(new Event("data", {
-					dataType: "source",
+				this.fire(new MapSourceDataEvent("data", { sourceDataType: "metadata" }));
+				this.fire(new MapSourceDataEvent("data", {
 					sourceDataType: "content",
 					sourceDataChanged
 				}));
@@ -25898,7 +26353,7 @@ function mergeSourceDiffs(prevDiff, nextDiff, promoteId) {
 	resolveMergeConflicts(prev, next);
 	const merged = {};
 	if (prev.removeAll || next.removeAll) merged.removeAll = true;
-	merged.remove = new Set([...prev.remove, ...next.remove]);
+	merged.remove = /* @__PURE__ */ new Set([...prev.remove, ...next.remove]);
 	merged.add = new Map([...prev.add, ...next.add]);
 	merged.update = new Map([...prev.update, ...next.update]);
 	if (merged.remove.size && merged.add.size) for (const id of merged.add.keys()) merged.remove.delete(id);
@@ -26300,7 +26755,7 @@ var GeoJSONSource = class extends Evented {
 	* using geojson-vt or supercluster as appropriate.
 	*/
 	async _updateWorkerData() {
-		if (this._isUpdatingWorker) return;
+		if (this._isUpdatingWorker) return this._updatePromise;
 		if (!this._hasPendingWorkerUpdate()) {
 			warnOnce(`No pending worker updates for GeoJSONSource ${this.id}.`);
 			return;
@@ -26310,7 +26765,8 @@ var GeoJSONSource = class extends Evented {
 		if (data !== void 0) this._pendingWorkerUpdate.data = void 0;
 		else if (diff) this._pendingWorkerUpdate.diff = void 0;
 		else if (updateCluster) this._pendingWorkerUpdate.updateCluster = void 0;
-		await this._dispatchWorkerUpdate(params);
+		this._updatePromise = this._dispatchWorkerUpdate(params);
+		await this._updatePromise;
 	}
 	/**
 	* Create the parameters object that will be sent to the worker and used to load GeoJSON.
@@ -26340,7 +26796,7 @@ var GeoJSONSource = class extends Evented {
 	*/
 	async _dispatchWorkerUpdate(optionsPromise) {
 		this._isUpdatingWorker = true;
-		this.fire(new Event("dataloading", { dataType: "source" }));
+		this.fire(new MapSourceDataEvent("dataloading"));
 		try {
 			const options = await optionsPromise;
 			const result = await (await this.actorPromise).sendAsync({
@@ -26349,19 +26805,19 @@ var GeoJSONSource = class extends Evented {
 			});
 			this._isUpdatingWorker = false;
 			if (this._removed || result.abandoned) {
-				this.fire(new Event("dataabort", { dataType: "source" }));
+				this.fire(new MapSourceDataEvent("dataabort"));
 				return;
 			}
 			if (result.data) this._data = { geojson: result.data };
 			const affectedGeometries = this._applyDiffToSource(options.dataDiff);
 			const shouldReloadTileOptions = this._getShouldReloadTileOptions(affectedGeometries);
-			const eventData = { dataType: "source" };
+			const eventData = {};
 			this._applyResourceTiming(eventData, result);
-			this.fire(new Event("data", {
+			this.fire(new MapSourceDataEvent("data", {
 				...eventData,
 				sourceDataType: "metadata"
 			}));
-			this.fire(new Event("data", {
+			this.fire(new MapSourceDataEvent("data", {
 				...eventData,
 				sourceDataType: "content",
 				shouldReloadTileOptions
@@ -26369,7 +26825,7 @@ var GeoJSONSource = class extends Evented {
 		} catch (err) {
 			this._isUpdatingWorker = false;
 			if (this._removed) {
-				this.fire(new Event("dataabort", { dataType: "source" }));
+				this.fire(new MapSourceDataEvent("dataabort"));
 				return;
 			}
 			this.fire(new ErrorEvent(ensureError(err)));
@@ -26447,13 +26903,19 @@ var GeoJSONSource = class extends Evented {
 			subdivisionGranularity: this.map.style.projection.subdivisionGranularity
 		};
 		tile.abortController = new AbortController();
-		const data = await (await this.actorPromise).sendAsync({
-			type: message,
-			data: params
-		}, tile.abortController);
-		delete tile.abortController;
-		tile.unloadVectorData();
-		if (!tile.aborted) tile.loadVectorData(data, this.map.painter, message === "RT");
+		try {
+			const data = await (await this.actorPromise).sendAsync({
+				type: message,
+				data: params
+			}, tile.abortController);
+			delete tile.abortController;
+			tile.unloadVectorData();
+			if (!tile.aborted) tile.loadVectorData(data, this.map.painter, message === "RT");
+		} catch (err) {
+			delete tile.abortController;
+			if (tile.aborted || isAbortError(err)) return;
+			throw err;
+		}
 	}
 	async abortTile(tile) {
 		if (tile.abortController) {
@@ -26656,7 +27118,7 @@ var ImageSource = class extends Evented {
 	}
 	async load(newCoordinates) {
 		this._loaded = false;
-		this.fire(new Event("dataloading", { dataType: "source" }));
+		this.fire(new MapSourceDataEvent("dataloading"));
 		this.url = this.options.url;
 		this._request = new AbortController();
 		try {
@@ -26696,10 +27158,7 @@ var ImageSource = class extends Evented {
 	_finishLoading() {
 		if (this.map) {
 			this.setCoordinates(this.coordinates);
-			this.fire(new Event("data", {
-				dataType: "source",
-				sourceDataType: "metadata"
-			}));
+			this.fire(new MapSourceDataEvent("data", { sourceDataType: "metadata" }));
 		}
 	}
 	onAdd(map) {
@@ -26728,10 +27187,7 @@ var ImageSource = class extends Evented {
 		this.minzoom = this.maxzoom = this.tileID.z;
 		this.tileCoords = cornerCoords.map((coord) => this.tileID.getTilePoint(coord)._round());
 		this.flippedWindingOrder = hasWrongWindingOrder(this.tileCoords);
-		this.fire(new Event("data", {
-			dataType: "source",
-			sourceDataType: "content"
-		}));
+		this.fire(new MapSourceDataEvent("data", { sourceDataType: "content" }));
 		return this;
 	}
 	prepare() {
@@ -26751,8 +27207,7 @@ var ImageSource = class extends Evented {
 				newTilesLoaded = true;
 			}
 		}
-		if (newTilesLoaded) this.fire(new Event("data", {
-			dataType: "source",
+		if (newTilesLoaded) this.fire(new MapSourceDataEvent("data", {
 			sourceDataType: "idle",
 			sourceId: this.id
 		}));
@@ -26961,8 +27416,7 @@ var VideoSource = class extends ImageSource {
 				newTilesLoaded = true;
 			}
 		}
-		if (newTilesLoaded) this.fire(new Event("data", {
-			dataType: "source",
+		if (newTilesLoaded) this.fire(new MapSourceDataEvent("data", {
 			sourceDataType: "idle",
 			sourceId: this.id
 		}));
@@ -27090,8 +27544,7 @@ var CanvasSource = class extends ImageSource {
 				newTilesLoaded = true;
 			}
 		}
-		if (newTilesLoaded) this.fire(new Event("data", {
-			dataType: "source",
+		if (newTilesLoaded) this.fire(new MapSourceDataEvent("data", {
 			sourceDataType: "idle",
 			sourceId: this.id
 		}));
@@ -27358,6 +27811,7 @@ var FeatureTable = class {
 		this._idVector = _idVector;
 		this._propertyVectors = _propertyVectors;
 		this._extent = _extent;
+		if (_name.length === 0) throw new Error("Missing layer name");
 	}
 	get name() {
 		return this._name;
@@ -27491,7 +27945,7 @@ var PhysicalLevelTechnique;
 * Bit masks for each bitwidth 0-32.
 * DO NOT MUTATE - this is a shared constant.
 */
-const masks = new Uint32Array(33);
+const masks = /* @__PURE__ */ new Uint32Array(33);
 masks[0] = 0;
 for (let bitWidth = 1; bitWidth <= 32; bitWidth++) masks[bitWidth] = bitWidth === 32 ? 4294967295 : 4294967295 >>> 32 - bitWidth;
 const MASKS = masks;
@@ -29668,7 +30122,10 @@ function decodeSignedConstInt64Stream(data, offset, streamMetadata) {
 }
 function decodeUnsignedConstInt64Stream(data, offset, streamMetadata) {
 	const values = decodeVarintInt64(data, offset, streamMetadata.numValues);
-	if (values.length === 1) return values[0];
+	if (values.length === 1) {
+		if (streamMetadata.logicalLevelTechnique1 === LogicalLevelTechnique.DELTA) return decodeZigZagInt64Value(values[0]);
+		return values[0];
+	}
 	return decodeUnsignedConstRleInt64(values);
 }
 /**
@@ -31232,6 +31689,7 @@ function decodeEmbeddedTileSetMetadata(bytes, offset) {
 	meta.featureTables = [];
 	const table = {};
 	table.name = decodeString(bytes, offset);
+	if (table.name.length === 0) throw new Error("Missing layer name");
 	const extent = decodeVarintInt32(bytes, offset, 1)[0] >>> 0;
 	const columnCount = decodeVarintInt32(bytes, offset, 1)[0] >>> 0;
 	table.columns = new Array(columnCount);
@@ -31305,7 +31763,7 @@ function decodeTile(tile, geometryScaling, idWithinMaxSafeInteger = true) {
 }
 function decodeIdColumn(tile, columnMetadata, offset, columnName, idDataStreamMetadata, sizeOrNullabilityBuffer, idWithinMaxSafeInteger = false) {
 	const scalarTypeMetadata = columnMetadata.scalarType;
-	if (!scalarTypeMetadata || scalarTypeMetadata.type !== "logicalType" || scalarTypeMetadata.logicalType !== LogicalScalarType.ID) throw new Error(`ID column must be a logical ID scalar type: ${columnName}`);
+	if (scalarTypeMetadata?.type !== "logicalType" || scalarTypeMetadata.logicalType !== LogicalScalarType.ID) throw new Error(`ID column must be a logical ID scalar type: ${columnName}`);
 	const idDataType = scalarTypeMetadata.longID ? ScalarType.UINT_64 : ScalarType.UINT_32;
 	const nullabilityBuffer = typeof sizeOrNullabilityBuffer === "number" ? void 0 : sizeOrNullabilityBuffer;
 	const vectorType = getVectorType(idDataStreamMetadata, sizeOrNullabilityBuffer, tile, offset, idDataType === ScalarType.UINT_64 ? "int64" : "int32");
@@ -32209,7 +32667,8 @@ function calculateTileMatrix(unwrappedTileID, worldSize) {
 	const canonical = unwrappedTileID.canonical;
 	const scale = worldSize / zoomScale(canonical.z);
 	const unwrappedX = canonical.x + Math.pow(2, canonical.z) * unwrappedTileID.wrap;
-	const worldMatrix = identity(new Float64Array(16));
+	const worldMatrix = /* @__PURE__ */ new Float64Array(16);
+	identity(worldMatrix);
 	translate$1(worldMatrix, worldMatrix, [
 		unwrappedX * scale,
 		canonical.y * scale,
@@ -32751,10 +33210,9 @@ var TileManager = class TileManager extends Evented {
 	}
 	_abortTile(tile) {
 		if (this._source.abortTile) this._source.abortTile(tile);
-		this._source.fire(new Event("dataabort", {
+		this._source.fire(new MapSourceDataEvent("dataabort", {
 			tile,
-			coord: tile.tileID,
-			dataType: "source"
+			coord: tile.tileID
 		}));
 	}
 	serialize() {
@@ -32818,8 +33276,7 @@ var TileManager = class TileManager extends Evented {
 		if (this.getSource().type === "raster-dem" && tile.dem) backfillDEM(tile, this._inViewTiles);
 		tile.featureStateRevision = -1;
 		this._state.initializeTileState(tile, this.map ? this.map.painter : null);
-		if (!tile.aborted) this._source.fire(new Event("data", {
-			dataType: "source",
+		if (!tile.aborted) this._source.fire(new MapSourceDataEvent("data", {
 			tile,
 			coord: tile.tileID
 		}));
@@ -32962,9 +33419,8 @@ var TileManager = class TileManager extends Evented {
 		if (this.usedForTerrain) idealTileIDs = this._addTerrainIdealTiles(idealTileIDs);
 		const noPendingDataEmissions = idealTileIDs.length === 0 && !this._updated && this._didEmitContent;
 		this._updated = true;
-		if (noPendingDataEmissions) this.fire(new Event("data", {
+		if (noPendingDataEmissions) this.fire(new MapSourceDataEvent("data", {
 			sourceDataType: "idle",
-			dataType: "source",
 			sourceId: this.id
 		}));
 		const zoom = coveringZoomLevel(transform, this._source);
@@ -33068,10 +33524,9 @@ var TileManager = class TileManager extends Evented {
 		}
 		tile.uses++;
 		this._inViewTiles.setTile(tileID.key, tile);
-		if (!cached) this._source.fire(new Event("dataloading", {
+		if (!cached) this._source.fire(new MapSourceDataEvent("dataloading", {
 			tile,
-			coord: tile.tileID,
-			dataType: "source"
+			coord: tile.tileID
 		}));
 		return tile;
 	}
@@ -36428,10 +36883,10 @@ var background_pattern_fragment_glsl_g_default = "uniform vec2 u_pattern_tl_a;un
 var background_pattern_vertex_glsl_g_default = "uniform vec2 u_pattern_size_a;uniform vec2 u_pattern_size_b;uniform vec2 u_pixel_coord_upper;uniform vec2 u_pixel_coord_lower;uniform float u_scale_a;uniform float u_scale_b;uniform float u_tile_units_to_pixels;layout(location=0) in vec2 a_pos;out vec2 v_pos_a;out vec2 v_pos_b;void main() {gl_Position=projectTile(a_pos);v_pos_a=get_pattern_pos(u_pixel_coord_upper,u_pixel_coord_lower,u_scale_a*u_pattern_size_a,u_tile_units_to_pixels,a_pos);v_pos_b=get_pattern_pos(u_pixel_coord_upper,u_pixel_coord_lower,u_scale_b*u_pattern_size_b,u_tile_units_to_pixels,a_pos);}";
 //#endregion
 //#region src/shaders/glsl/circle.fragment.glsl.g.ts
-var circle_fragment_glsl_g_default = "in vec3 v_data;flat in float v_visibility;\n#pragma mapbox: define highp vec4 color\n#pragma mapbox: define mediump float radius\n#pragma mapbox: define lowp float blur\n#pragma mapbox: define lowp float opacity\n#pragma mapbox: define highp vec4 stroke_color\n#pragma mapbox: define mediump float stroke_width\n#pragma mapbox: define lowp float stroke_opacity\nvoid main() {\n#pragma mapbox: initialize highp vec4 color\n#pragma mapbox: initialize mediump float radius\n#pragma mapbox: initialize lowp float blur\n#pragma mapbox: initialize lowp float opacity\n#pragma mapbox: initialize highp vec4 stroke_color\n#pragma mapbox: initialize mediump float stroke_width\n#pragma mapbox: initialize lowp float stroke_opacity\nvec2 extrude=v_data.xy;float extrude_length=length(extrude);float antialiased_blur=v_data.z;float opacity_t=smoothstep(0.0,antialiased_blur,extrude_length-1.0);float color_t=stroke_width < 0.01 ? 0.0 : smoothstep(antialiased_blur,0.0,extrude_length-radius/(radius+stroke_width));fragColor=v_visibility*opacity_t*mix(color*opacity,stroke_color*stroke_opacity,color_t);const float epsilon=0.5/255.0;if (fragColor.r < epsilon && fragColor.g < epsilon && fragColor.b < epsilon && fragColor.a < epsilon) {discard;}\n#ifdef OVERDRAW_INSPECTOR\nfragColor=vec4(1.0);\n#endif\n}";
+var circle_fragment_glsl_g_default = "in vec3 v_data;flat in float v_visibility;\n#pragma maplibre: define highp vec4 color\n#pragma maplibre: define mediump float radius\n#pragma maplibre: define lowp float blur\n#pragma maplibre: define lowp float opacity\n#pragma maplibre: define highp vec4 stroke_color\n#pragma maplibre: define mediump float stroke_width\n#pragma maplibre: define lowp float stroke_opacity\nvoid main() {\n#pragma maplibre: initialize highp vec4 color\n#pragma maplibre: initialize mediump float radius\n#pragma maplibre: initialize lowp float blur\n#pragma maplibre: initialize lowp float opacity\n#pragma maplibre: initialize highp vec4 stroke_color\n#pragma maplibre: initialize mediump float stroke_width\n#pragma maplibre: initialize lowp float stroke_opacity\nvec2 extrude=v_data.xy;float extrude_length=length(extrude);float antialiased_blur=v_data.z;float opacity_t=smoothstep(0.0,antialiased_blur,extrude_length-1.0);float color_t=stroke_width < 0.01 ? 0.0 : smoothstep(antialiased_blur,0.0,extrude_length-radius/(radius+stroke_width));fragColor=v_visibility*opacity_t*mix(color*opacity,stroke_color*stroke_opacity,color_t);const float epsilon=0.5/255.0;if (fragColor.r < epsilon && fragColor.g < epsilon && fragColor.b < epsilon && fragColor.a < epsilon) {discard;}\n#ifdef OVERDRAW_INSPECTOR\nfragColor=vec4(1.0);\n#endif\n}";
 //#endregion
 //#region src/shaders/glsl/circle.vertex.glsl.g.ts
-var circle_vertex_glsl_g_default = "uniform bool u_scale_with_map;uniform bool u_pitch_with_map;uniform vec2 u_extrude_scale;uniform highp float u_globe_extrude_scale;uniform lowp float u_device_pixel_ratio;uniform highp float u_camera_to_center_distance;uniform vec2 u_translate;layout(location=0) in vec2 a_pos;out vec3 v_data;flat out float v_visibility;\n#pragma mapbox: define highp vec4 color\n#pragma mapbox: define mediump float radius\n#pragma mapbox: define lowp float blur\n#pragma mapbox: define lowp float opacity\n#pragma mapbox: define highp vec4 stroke_color\n#pragma mapbox: define mediump float stroke_width\n#pragma mapbox: define lowp float stroke_opacity\nvoid main(void) {\n#pragma mapbox: initialize highp vec4 color\n#pragma mapbox: initialize mediump float radius\n#pragma mapbox: initialize lowp float blur\n#pragma mapbox: initialize lowp float opacity\n#pragma mapbox: initialize highp vec4 stroke_color\n#pragma mapbox: initialize mediump float stroke_width\n#pragma mapbox: initialize lowp float stroke_opacity\nvec2 pos_raw=a_pos+32768.0;vec2 extrude=vec2(mod(pos_raw,8.0)/7.0*2.0-1.0);vec2 circle_center=floor(pos_raw/8.0)+u_translate;float ele=get_elevation(circle_center);v_visibility=calculate_visibility(projectTileWithElevation(circle_center,ele));if (u_pitch_with_map) {\n#ifdef GLOBE\nvec3 center_vector=projectToSphere(circle_center);\n#endif\nfloat angle_scale=u_globe_extrude_scale;vec2 corner_position=circle_center;if (u_scale_with_map) {angle_scale*=(radius+stroke_width);corner_position+=extrude*u_extrude_scale*(radius+stroke_width);} else {\n#ifdef GLOBE\nvec4 projected_center=interpolateProjection(circle_center,center_vector,ele);\n#else\nvec4 projected_center=projectTileWithElevation(circle_center,ele);\n#endif\ncorner_position+=extrude*u_extrude_scale*(radius+stroke_width)*(projected_center.w/u_camera_to_center_distance);angle_scale*=(radius+stroke_width)*(projected_center.w/u_camera_to_center_distance);}\n#ifdef GLOBE\nvec2 angles=extrude*angle_scale;vec3 corner_vector=globeRotateVector(center_vector,angles);gl_Position=interpolateProjection(corner_position,corner_vector,ele);\n#else\ngl_Position=projectTileWithElevation(corner_position,ele);\n#endif\n} else {gl_Position=projectTileWithElevation(circle_center,ele);if (gl_Position.z/gl_Position.w > 1.0) {gl_Position.xy=vec2(10000.0);}if (u_scale_with_map) {gl_Position.xy+=extrude*(radius+stroke_width)*u_extrude_scale*u_camera_to_center_distance;} else {gl_Position.xy+=extrude*(radius+stroke_width)*u_extrude_scale*gl_Position.w;}}float antialiasblur=-max(1.0/u_device_pixel_ratio/(radius+stroke_width),blur);v_data=vec3(extrude.x,extrude.y,antialiasblur);}";
+var circle_vertex_glsl_g_default = "uniform bool u_scale_with_map;uniform bool u_pitch_with_map;uniform vec2 u_extrude_scale;uniform highp float u_globe_extrude_scale;uniform lowp float u_device_pixel_ratio;uniform highp float u_camera_to_center_distance;uniform vec2 u_translate;layout(location=0) in vec2 a_pos;out vec3 v_data;flat out float v_visibility;\n#pragma maplibre: define highp vec4 color\n#pragma maplibre: define mediump float radius\n#pragma maplibre: define lowp float blur\n#pragma maplibre: define lowp float opacity\n#pragma maplibre: define highp vec4 stroke_color\n#pragma maplibre: define mediump float stroke_width\n#pragma maplibre: define lowp float stroke_opacity\nvoid main(void) {\n#pragma maplibre: initialize highp vec4 color\n#pragma maplibre: initialize mediump float radius\n#pragma maplibre: initialize lowp float blur\n#pragma maplibre: initialize lowp float opacity\n#pragma maplibre: initialize highp vec4 stroke_color\n#pragma maplibre: initialize mediump float stroke_width\n#pragma maplibre: initialize lowp float stroke_opacity\nvec2 pos_raw=a_pos+32768.0;vec2 extrude=vec2(mod(pos_raw,8.0)/7.0*2.0-1.0);vec2 circle_center=floor(pos_raw/8.0)+u_translate;float ele=get_elevation(circle_center);v_visibility=calculate_visibility(projectTileWithElevation(circle_center,ele));if (u_pitch_with_map) {\n#ifdef GLOBE\nvec3 center_vector=projectToSphere(circle_center);\n#endif\nfloat angle_scale=u_globe_extrude_scale;vec2 corner_position=circle_center;if (u_scale_with_map) {angle_scale*=(radius+stroke_width);corner_position+=extrude*u_extrude_scale*(radius+stroke_width);} else {\n#ifdef GLOBE\nvec4 projected_center=interpolateProjection(circle_center,center_vector,ele);\n#else\nvec4 projected_center=projectTileWithElevation(circle_center,ele);\n#endif\ncorner_position+=extrude*u_extrude_scale*(radius+stroke_width)*(projected_center.w/u_camera_to_center_distance);angle_scale*=(radius+stroke_width)*(projected_center.w/u_camera_to_center_distance);}\n#ifdef GLOBE\nvec2 angles=extrude*angle_scale;vec3 corner_vector=globeRotateVector(center_vector,angles);gl_Position=interpolateProjection(corner_position,corner_vector,ele);\n#else\ngl_Position=projectTileWithElevation(corner_position,ele);\n#endif\n} else {gl_Position=projectTileWithElevation(circle_center,ele);if (gl_Position.z/gl_Position.w > 1.0) {gl_Position.xy=vec2(10000.0);}if (u_scale_with_map) {gl_Position.xy+=extrude*(radius+stroke_width)*u_extrude_scale*u_camera_to_center_distance;} else {gl_Position.xy+=extrude*(radius+stroke_width)*u_extrude_scale*gl_Position.w;}}float antialiasblur=-max(1.0/u_device_pixel_ratio/(radius+stroke_width),blur);v_data=vec3(extrude.x,extrude.y,antialiasblur);}";
 //#endregion
 //#region src/shaders/glsl/clipping_mask.fragment.glsl.g.ts
 var clipping_mask_fragment_glsl_g_default = "void main() {fragColor=vec4(1.0);}";
@@ -36445,31 +36900,31 @@ const shaders = {
 	backgroundPattern: prepare(background_pattern_fragment_glsl_g_default, background_pattern_vertex_glsl_g_default),
 	circle: prepare(circle_fragment_glsl_g_default, circle_vertex_glsl_g_default),
 	clippingMask: prepare(clipping_mask_fragment_glsl_g_default, "layout(location=0) in vec2 a_pos;void main() {gl_Position=projectTile(a_pos);}"),
-	heatmap: prepare("uniform highp float u_intensity;in vec2 v_extrude;\n#pragma mapbox: define highp float weight\n#define GAUSS_COEF 0.3989422804014327\nvoid main() {\n#pragma mapbox: initialize highp float weight\nfloat d=-0.5*3.0*3.0*dot(v_extrude,v_extrude);float val=weight*u_intensity*GAUSS_COEF*exp(d);fragColor=vec4(val,1.0,1.0,1.0);\n#ifdef OVERDRAW_INSPECTOR\nfragColor=vec4(1.0);\n#endif\n}", "uniform float u_extrude_scale;uniform float u_opacity;uniform float u_intensity;uniform highp float u_globe_extrude_scale;layout(location=0) in vec2 a_pos;out vec2 v_extrude;\n#pragma mapbox: define highp float weight\n#pragma mapbox: define mediump float radius\nconst highp float ZERO=1.0/255.0/16.0;\n#define GAUSS_COEF 0.3989422804014327\nvoid main(void) {\n#pragma mapbox: initialize highp float weight\n#pragma mapbox: initialize mediump float radius\nvec2 pos_raw=a_pos+32768.0;vec2 unscaled_extrude=vec2(mod(pos_raw,8.0)/7.0*2.0-1.0);float S=sqrt(-2.0*log(ZERO/weight/u_intensity/GAUSS_COEF))/3.0;v_extrude=S*unscaled_extrude;vec2 extrude=v_extrude*radius*u_extrude_scale;vec2 circle_center=floor(pos_raw/8.0);\n#ifdef GLOBE\nvec2 angles=v_extrude*radius*u_globe_extrude_scale;vec3 center_vector=projectToSphere(circle_center);vec3 corner_vector=globeRotateVector(center_vector,angles);gl_Position=interpolateProjection(circle_center+extrude,corner_vector,0.0);\n#else\ngl_Position=projectTileFor3D(circle_center+extrude,get_elevation(circle_center));\n#endif\n}"),
+	heatmap: prepare("uniform highp float u_intensity;in vec2 v_extrude;\n#pragma maplibre: define highp float weight\n#define GAUSS_COEF 0.3989422804014327\nvoid main() {\n#pragma maplibre: initialize highp float weight\nfloat d=-0.5*3.0*3.0*dot(v_extrude,v_extrude);float val=weight*u_intensity*GAUSS_COEF*exp(d);fragColor=vec4(val,1.0,1.0,1.0);\n#ifdef OVERDRAW_INSPECTOR\nfragColor=vec4(1.0);\n#endif\n}", "uniform float u_extrude_scale;uniform float u_opacity;uniform float u_intensity;uniform highp float u_globe_extrude_scale;layout(location=0) in vec2 a_pos;out vec2 v_extrude;\n#pragma maplibre: define highp float weight\n#pragma maplibre: define mediump float radius\nconst highp float ZERO=1.0/255.0/16.0;\n#define GAUSS_COEF 0.3989422804014327\nvoid main(void) {\n#pragma maplibre: initialize highp float weight\n#pragma maplibre: initialize mediump float radius\nvec2 pos_raw=a_pos+32768.0;vec2 unscaled_extrude=vec2(mod(pos_raw,8.0)/7.0*2.0-1.0);float S=sqrt(-2.0*log(ZERO/weight/u_intensity/GAUSS_COEF))/3.0;v_extrude=S*unscaled_extrude;vec2 extrude=v_extrude*radius*u_extrude_scale;vec2 circle_center=floor(pos_raw/8.0);\n#ifdef GLOBE\nvec2 angles=v_extrude*radius*u_globe_extrude_scale;vec3 center_vector=projectToSphere(circle_center);vec3 corner_vector=globeRotateVector(center_vector,angles);gl_Position=interpolateProjection(circle_center+extrude,corner_vector,0.0);\n#else\ngl_Position=projectTileFor3D(circle_center+extrude,get_elevation(circle_center));\n#endif\n}"),
 	heatmapTexture: prepare("uniform sampler2D u_image;uniform sampler2D u_color_ramp;uniform float u_opacity;in vec2 v_pos;void main() {float t=texture(u_image,v_pos).r;vec4 color=texture(u_color_ramp,vec2(t,0.5));fragColor=color*u_opacity;\n#ifdef OVERDRAW_INSPECTOR\nfragColor=vec4(0.0);\n#endif\n}", "uniform mat4 u_matrix;uniform vec2 u_world;layout(location=0) in vec2 a_pos;out vec2 v_pos;void main() {gl_Position=u_matrix*vec4(a_pos*u_world,0,1);v_pos.x=a_pos.x;v_pos.y=1.0-a_pos.y;}"),
 	collisionBox: prepare("flat in float v_placed;flat in float v_notUsed;void main() {float alpha=0.5;fragColor=vec4(1.0,0.0,0.0,1.0)*alpha;if (v_placed > 0.5) {fragColor=vec4(0.0,0.0,1.0,0.5)*alpha;}if (v_notUsed > 0.5) {fragColor*=.1;}}", "layout(location=0) in vec2 a_anchor_pos;layout(location=1) in vec2 a_placed;layout(location=2) in vec2 a_box_real;uniform vec2 u_pixel_extrude_scale;flat out float v_placed;flat out float v_notUsed;void main() {gl_Position=projectTileWithElevation(a_anchor_pos,get_elevation(a_anchor_pos));gl_Position.xy=((a_box_real+0.5)*u_pixel_extrude_scale*2.0-1.0)*vec2(1.0,-1.0)*gl_Position.w;if (gl_Position.z/gl_Position.w < 1.1) {gl_Position.z=0.5;}v_placed=a_placed.x;v_notUsed=a_placed.y;}"),
 	collisionCircle: prepare("flat in float v_radius;in vec2 v_extrude;flat in float v_collision;void main() {float alpha=0.5;float stroke_radius=0.9;float distance_to_center=length(v_extrude);float distance_to_edge=abs(distance_to_center-v_radius);float opacity_t=smoothstep(-stroke_radius,0.0,-distance_to_edge);vec4 color=mix(vec4(0.0,0.0,1.0,0.5),vec4(1.0,0.0,0.0,1.0),v_collision);fragColor=color*alpha*opacity_t;}", "layout(location=0) in vec2 a_pos;layout(location=1) in float a_radius;layout(location=2) in vec2 a_flags;uniform vec2 u_viewport_size;flat out float v_radius;out vec2 v_extrude;flat out float v_collision;void main() {float radius=a_radius;float collision=a_flags.x;float vertexIdx=a_flags.y;vec2 quadVertexOffset=vec2(mix(-1.0,1.0,float(vertexIdx >=2.0)),mix(-1.0,1.0,float(vertexIdx >=1.0 && vertexIdx <=2.0)));vec2 quadVertexExtent=quadVertexOffset*radius;float padding_factor=1.2;v_radius=radius;v_extrude=quadVertexExtent*padding_factor;v_collision=collision;gl_Position=vec4((a_pos/u_viewport_size*2.0-1.0)*vec2(1.0,-1.0),0.0,1.0)+vec4(quadVertexExtent*padding_factor/u_viewport_size*2.0,0.0,0.0);}"),
 	colorRelief: prepare("#ifdef GL_ES\nprecision highp float;\n#endif\nuniform sampler2D u_image;uniform vec4 u_unpack;uniform sampler2D u_elevation_stops;uniform sampler2D u_color_stops;uniform int u_color_ramp_size;uniform float u_opacity;in vec2 v_pos;float getElevation(vec2 coord) {vec4 data=texture(u_image,coord)*255.0;data.a=-1.0;return dot(data,u_unpack);}float getElevationStop(int stop) {float x=(float(stop)+0.5)/float(u_color_ramp_size);vec4 data=texture(u_elevation_stops,vec2(x,0))*255.0;data.a=-1.0;return dot(data,u_unpack);}void main() {float el=getElevation(v_pos);int r=(u_color_ramp_size-1);int l=0;float el_l=getElevationStop(l);float el_r=getElevationStop(r);while(r-l > 1){int m=(r+l)/2;float el_m=getElevationStop(m);if(el < el_m){r=m;el_r=el_m;}else\n{l=m;el_l=el_m;}}float x=(float(l)+(el-el_l)/(el_r-el_l)+0.5)/float(u_color_ramp_size);fragColor=u_opacity*texture(u_color_stops,vec2(x,0));\n#ifdef OVERDRAW_INSPECTOR\nfragColor=vec4(1.0);\n#endif\n}", "uniform vec2 u_dimension;layout(location=0) in vec2 a_pos;out vec2 v_pos;void main() {gl_Position=projectTile(a_pos,a_pos);highp vec2 epsilon=1.0/u_dimension;float scale=(u_dimension.x-2.0)/u_dimension.x;v_pos=(a_pos/8192.0)*scale+epsilon;if (a_pos.y <-32767.5) {v_pos.y=0.0;}if (a_pos.y > 32766.5) {v_pos.y=1.0;}}"),
 	debug: prepare("uniform highp vec4 u_color;uniform sampler2D u_overlay;in vec2 v_uv;void main() {vec4 overlay_color=texture(u_overlay,v_uv);fragColor=mix(u_color,overlay_color,overlay_color.a);}", "layout(location=0) in vec2 a_pos;out vec2 v_uv;uniform float u_overlay_scale;void main() {v_uv=a_pos/8192.0;gl_Position=projectTileWithElevation(a_pos*u_overlay_scale,get_elevation(a_pos));}"),
 	depth: prepare(clipping_mask_fragment_glsl_g_default, "layout(location=0) in vec2 a_pos;void main() {\n#ifdef GLOBE\ngl_Position=projectTileFor3D(a_pos,0.0);\n#else\ngl_Position=u_projection_matrix*vec4(a_pos,0.0,1.0);\n#endif\n}"),
-	fill: prepare("#pragma mapbox: define highp vec4 color\n#pragma mapbox: define lowp float opacity\nvoid main() {\n#pragma mapbox: initialize highp vec4 color\n#pragma mapbox: initialize lowp float opacity\nfragColor=color*opacity;\n#ifdef OVERDRAW_INSPECTOR\nfragColor=vec4(1.0);\n#endif\n}", "uniform vec2 u_fill_translate;layout(location=0) in vec2 a_pos;\n#pragma mapbox: define highp vec4 color\n#pragma mapbox: define lowp float opacity\nvoid main() {\n#pragma mapbox: initialize highp vec4 color\n#pragma mapbox: initialize lowp float opacity\nif (opacity < 0.01) {gl_Position=vec4(-2.0,-2.0,-2.0,1.0);return;}gl_Position=projectTile(a_pos+u_fill_translate,a_pos);}"),
-	fillOutline: prepare("in vec2 v_pos;\n#ifdef GLOBE\nin float v_depth;\n#endif\n#pragma mapbox: define highp vec4 outline_color\n#pragma mapbox: define lowp float opacity\nvoid main() {\n#pragma mapbox: initialize highp vec4 outline_color\n#pragma mapbox: initialize lowp float opacity\nfloat dist=length(v_pos-gl_FragCoord.xy);float alpha=1.0-smoothstep(0.0,1.0,dist);fragColor=outline_color*(alpha*opacity);\n#ifdef GLOBE\nif (v_depth > 1.0) {discard;}\n#endif\n#ifdef OVERDRAW_INSPECTOR\nfragColor=vec4(1.0);\n#endif\n}", "uniform vec2 u_world;uniform vec2 u_fill_translate;layout(location=0) in vec2 a_pos;out vec2 v_pos;\n#ifdef GLOBE\nout float v_depth;\n#endif\n#pragma mapbox: define highp vec4 outline_color\n#pragma mapbox: define lowp float opacity\nvoid main() {\n#pragma mapbox: initialize highp vec4 outline_color\n#pragma mapbox: initialize lowp float opacity\nif (opacity < 0.01) {gl_Position=vec4(-2.0,-2.0,-2.0,1.0);return;}gl_Position=projectTile(a_pos+u_fill_translate,a_pos);v_pos=(gl_Position.xy/gl_Position.w+1.0)/2.0*u_world;\n#ifdef GLOBE\nv_depth=gl_Position.z/gl_Position.w;\n#endif\n}"),
-	fillOutlinePattern: prepare("uniform vec2 u_texsize;uniform sampler2D u_image;uniform float u_fade;in vec2 v_pos_a;in vec2 v_pos_b;in vec2 v_pos;\n#ifdef GLOBE\nin float v_depth;\n#endif\n#pragma mapbox: define lowp float opacity\n#pragma mapbox: define lowp vec4 pattern_from\n#pragma mapbox: define lowp vec4 pattern_to\nvoid main() {\n#pragma mapbox: initialize lowp float opacity\n#pragma mapbox: initialize mediump vec4 pattern_from\n#pragma mapbox: initialize mediump vec4 pattern_to\nvec2 pattern_tl_a=pattern_from.xy;vec2 pattern_br_a=pattern_from.zw;vec2 pattern_tl_b=pattern_to.xy;vec2 pattern_br_b=pattern_to.zw;vec2 imagecoord=mod(v_pos_a,1.0);vec2 pos=mix(pattern_tl_a/u_texsize,pattern_br_a/u_texsize,imagecoord);vec4 color1=texture(u_image,pos);vec2 imagecoord_b=mod(v_pos_b,1.0);vec2 pos2=mix(pattern_tl_b/u_texsize,pattern_br_b/u_texsize,imagecoord_b);vec4 color2=texture(u_image,pos2);float dist=length(v_pos-gl_FragCoord.xy);float alpha=1.0-smoothstep(0.0,1.0,dist);fragColor=mix(color1,color2,u_fade)*alpha*opacity;\n#ifdef GLOBE\nif (v_depth > 1.0) {discard;}\n#endif\n#ifdef OVERDRAW_INSPECTOR\nfragColor=vec4(1.0);\n#endif\n}", "uniform vec2 u_world;uniform vec2 u_pixel_coord_upper;uniform vec2 u_pixel_coord_lower;uniform vec3 u_scale;uniform vec2 u_fill_translate;layout(location=0) in vec2 a_pos;out vec2 v_pos_a;out vec2 v_pos_b;out vec2 v_pos;\n#ifdef GLOBE\nout float v_depth;\n#endif\n#pragma mapbox: define lowp float opacity\n#pragma mapbox: define lowp vec4 pattern_from\n#pragma mapbox: define lowp vec4 pattern_to\n#pragma mapbox: define lowp float pixel_ratio_from\n#pragma mapbox: define lowp float pixel_ratio_to\nvoid main() {\n#pragma mapbox: initialize lowp float opacity\n#pragma mapbox: initialize mediump vec4 pattern_from\n#pragma mapbox: initialize mediump vec4 pattern_to\n#pragma mapbox: initialize lowp float pixel_ratio_from\n#pragma mapbox: initialize lowp float pixel_ratio_to\nif (opacity < 0.01) {gl_Position=vec4(-2.0,-2.0,-2.0,1.0);return;}vec2 pattern_tl_a=pattern_from.xy;vec2 pattern_br_a=pattern_from.zw;vec2 pattern_tl_b=pattern_to.xy;vec2 pattern_br_b=pattern_to.zw;float tileRatio=u_scale.x;float fromScale=u_scale.y;float toScale=u_scale.z;gl_Position=projectTile(a_pos+u_fill_translate,a_pos);vec2 display_size_a=(pattern_br_a-pattern_tl_a)/pixel_ratio_from;vec2 display_size_b=(pattern_br_b-pattern_tl_b)/pixel_ratio_to;v_pos_a=get_pattern_pos(u_pixel_coord_upper,u_pixel_coord_lower,fromScale*display_size_a,tileRatio,a_pos);v_pos_b=get_pattern_pos(u_pixel_coord_upper,u_pixel_coord_lower,toScale*display_size_b,tileRatio,a_pos);v_pos=(gl_Position.xy/gl_Position.w+1.0)/2.0*u_world;\n#ifdef GLOBE\nv_depth=gl_Position.z/gl_Position.w;\n#endif\n}"),
-	fillPattern: prepare("#ifdef GL_ES\nprecision highp float;\n#endif\nuniform vec2 u_texsize;uniform float u_fade;uniform sampler2D u_image;in vec2 v_pos_a;in vec2 v_pos_b;\n#pragma mapbox: define lowp float opacity\n#pragma mapbox: define lowp vec4 pattern_from\n#pragma mapbox: define lowp vec4 pattern_to\nvoid main() {\n#pragma mapbox: initialize lowp float opacity\n#pragma mapbox: initialize mediump vec4 pattern_from\n#pragma mapbox: initialize mediump vec4 pattern_to\nvec2 pattern_tl_a=pattern_from.xy;vec2 pattern_br_a=pattern_from.zw;vec2 pattern_tl_b=pattern_to.xy;vec2 pattern_br_b=pattern_to.zw;vec2 imagecoord=mod(v_pos_a,1.0);vec2 pos=mix(pattern_tl_a/u_texsize,pattern_br_a/u_texsize,imagecoord);vec4 color1=texture(u_image,pos);vec2 imagecoord_b=mod(v_pos_b,1.0);vec2 pos2=mix(pattern_tl_b/u_texsize,pattern_br_b/u_texsize,imagecoord_b);vec4 color2=texture(u_image,pos2);fragColor=mix(color1,color2,u_fade)*opacity;\n#ifdef OVERDRAW_INSPECTOR\nfragColor=vec4(1.0);\n#endif\n}", "uniform vec2 u_pixel_coord_upper;uniform vec2 u_pixel_coord_lower;uniform vec3 u_scale;uniform vec2 u_fill_translate;layout(location=0) in vec2 a_pos;out vec2 v_pos_a;out vec2 v_pos_b;\n#pragma mapbox: define lowp float opacity\n#pragma mapbox: define lowp vec4 pattern_from\n#pragma mapbox: define lowp vec4 pattern_to\n#pragma mapbox: define lowp float pixel_ratio_from\n#pragma mapbox: define lowp float pixel_ratio_to\nvoid main() {\n#pragma mapbox: initialize lowp float opacity\n#pragma mapbox: initialize mediump vec4 pattern_from\n#pragma mapbox: initialize mediump vec4 pattern_to\n#pragma mapbox: initialize lowp float pixel_ratio_from\n#pragma mapbox: initialize lowp float pixel_ratio_to\nif (opacity < 0.01) {gl_Position=vec4(-2.0,-2.0,-2.0,1.0);return;}vec2 pattern_tl_a=pattern_from.xy;vec2 pattern_br_a=pattern_from.zw;vec2 pattern_tl_b=pattern_to.xy;vec2 pattern_br_b=pattern_to.zw;float tileZoomRatio=u_scale.x;float fromScale=u_scale.y;float toScale=u_scale.z;vec2 display_size_a=(pattern_br_a-pattern_tl_a)/pixel_ratio_from;vec2 display_size_b=(pattern_br_b-pattern_tl_b)/pixel_ratio_to;gl_Position=projectTile(a_pos+u_fill_translate,a_pos);v_pos_a=get_pattern_pos(u_pixel_coord_upper,u_pixel_coord_lower,fromScale*display_size_a,tileZoomRatio,a_pos);v_pos_b=get_pattern_pos(u_pixel_coord_upper,u_pixel_coord_lower,toScale*display_size_b,tileZoomRatio,a_pos);}"),
-	fillExtrusion: prepare("in vec4 v_color;void main() {fragColor=v_color;\n#ifdef OVERDRAW_INSPECTOR\nfragColor=vec4(1.0);\n#endif\n}", "uniform vec3 u_lightcolor;uniform lowp vec3 u_lightpos;uniform lowp vec3 u_lightpos_globe;uniform lowp float u_lightintensity;uniform float u_vertical_gradient;uniform lowp float u_opacity;uniform vec2 u_fill_translate;layout(location=0) in vec2 a_pos;layout(location=1) in vec4 a_normal_ed;\n#ifdef TERRAIN3D\nlayout(location=2) in vec2 a_centroid;\n#endif\nout vec4 v_color;\n#pragma mapbox: define highp float base\n#pragma mapbox: define highp float height\n#pragma mapbox: define highp vec4 color\nvoid main() {\n#pragma mapbox: initialize highp float base\n#pragma mapbox: initialize highp float height\n#pragma mapbox: initialize highp vec4 color\nvec3 normal=a_normal_ed.xyz;\n#ifdef TERRAIN3D\nfloat height_terrain3d_offset=get_elevation(a_centroid);float base_terrain3d_offset=height_terrain3d_offset-(base > 0.0 ? 0.0 : 10.0);\n#else\nfloat height_terrain3d_offset=0.0;float base_terrain3d_offset=0.0;\n#endif\nbase=max(0.0,base)+base_terrain3d_offset;height=max(0.0,height)+height_terrain3d_offset;float t=mod(normal.x,2.0);float elevation=t > 0.0 ? height : base;vec2 posInTile=a_pos+u_fill_translate;\n#ifdef GLOBE\nvec3 spherePos=projectToSphere(posInTile,a_pos);gl_Position=interpolateProjectionFor3D(posInTile,spherePos,elevation);\n#else\ngl_Position=u_projection_matrix*vec4(posInTile,elevation,1.0);\n#endif\nfloat colorvalue=color.r*0.2126+color.g*0.7152+color.b*0.0722;v_color=vec4(0.0,0.0,0.0,1.0);vec4 ambientlight=vec4(0.03,0.03,0.03,1.0);color+=ambientlight;vec3 normalForLighting=normal/16384.0;float directional=clamp(dot(normalForLighting,u_lightpos),0.0,1.0);\n#ifdef GLOBE\nmat3 rotMatrix=globeGetRotationMatrix(spherePos);normalForLighting=rotMatrix*normalForLighting;directional=mix(directional,clamp(dot(normalForLighting,u_lightpos_globe),0.0,1.0),u_projection_transition);\n#endif\ndirectional=mix((1.0-u_lightintensity),max((1.0-colorvalue+u_lightintensity),1.0),directional);if (normal.y !=0.0) {directional*=((1.0-u_vertical_gradient)+(u_vertical_gradient*clamp((t+base)*pow(height/150.0,0.5),mix(0.7,0.98,1.0-u_lightintensity),1.0)));}v_color.r+=clamp(color.r*directional*u_lightcolor.r,mix(0.0,0.3,1.0-u_lightcolor.r),1.0);v_color.g+=clamp(color.g*directional*u_lightcolor.g,mix(0.0,0.3,1.0-u_lightcolor.g),1.0);v_color.b+=clamp(color.b*directional*u_lightcolor.b,mix(0.0,0.3,1.0-u_lightcolor.b),1.0);v_color*=u_opacity;}"),
-	fillExtrusionPattern: prepare("uniform vec2 u_texsize;uniform float u_fade;uniform sampler2D u_image;in vec2 v_pos_a;in vec2 v_pos_b;in vec4 v_lighting;\n#pragma mapbox: define lowp float base\n#pragma mapbox: define lowp float height\n#pragma mapbox: define lowp vec4 pattern_from\n#pragma mapbox: define lowp vec4 pattern_to\n#pragma mapbox: define lowp float pixel_ratio_from\n#pragma mapbox: define lowp float pixel_ratio_to\nvoid main() {\n#pragma mapbox: initialize lowp float base\n#pragma mapbox: initialize lowp float height\n#pragma mapbox: initialize mediump vec4 pattern_from\n#pragma mapbox: initialize mediump vec4 pattern_to\n#pragma mapbox: initialize lowp float pixel_ratio_from\n#pragma mapbox: initialize lowp float pixel_ratio_to\nvec2 pattern_tl_a=pattern_from.xy;vec2 pattern_br_a=pattern_from.zw;vec2 pattern_tl_b=pattern_to.xy;vec2 pattern_br_b=pattern_to.zw;vec2 imagecoord=mod(v_pos_a,1.0);vec2 pos=mix(pattern_tl_a/u_texsize,pattern_br_a/u_texsize,imagecoord);vec4 color1=texture(u_image,pos);vec2 imagecoord_b=mod(v_pos_b,1.0);vec2 pos2=mix(pattern_tl_b/u_texsize,pattern_br_b/u_texsize,imagecoord_b);vec4 color2=texture(u_image,pos2);vec4 mixedColor=mix(color1,color2,u_fade);fragColor=mixedColor*v_lighting;\n#ifdef OVERDRAW_INSPECTOR\nfragColor=vec4(1.0);\n#endif\n}", "uniform vec2 u_pixel_coord_upper;uniform vec2 u_pixel_coord_lower;uniform float u_height_factor;uniform vec3 u_scale;uniform float u_vertical_gradient;uniform lowp float u_opacity;uniform vec2 u_fill_translate;uniform vec3 u_lightcolor;uniform lowp vec3 u_lightpos;uniform lowp vec3 u_lightpos_globe;uniform lowp float u_lightintensity;layout(location=0) in vec2 a_pos;layout(location=1) in vec4 a_normal_ed;\n#ifdef TERRAIN3D\nlayout(location=2) in vec2 a_centroid;\n#endif\n#ifdef GLOBE\nout vec3 v_sphere_pos;\n#endif\nout vec2 v_pos_a;out vec2 v_pos_b;out vec4 v_lighting;\n#pragma mapbox: define lowp float base\n#pragma mapbox: define lowp float height\n#pragma mapbox: define lowp vec4 pattern_from\n#pragma mapbox: define lowp vec4 pattern_to\n#pragma mapbox: define lowp float pixel_ratio_from\n#pragma mapbox: define lowp float pixel_ratio_to\nvoid main() {\n#pragma mapbox: initialize lowp float base\n#pragma mapbox: initialize lowp float height\n#pragma mapbox: initialize mediump vec4 pattern_from\n#pragma mapbox: initialize mediump vec4 pattern_to\n#pragma mapbox: initialize lowp float pixel_ratio_from\n#pragma mapbox: initialize lowp float pixel_ratio_to\nvec2 pattern_tl_a=pattern_from.xy;vec2 pattern_br_a=pattern_from.zw;vec2 pattern_tl_b=pattern_to.xy;vec2 pattern_br_b=pattern_to.zw;float tileRatio=u_scale.x;float fromScale=u_scale.y;float toScale=u_scale.z;vec3 normal=a_normal_ed.xyz;float edgedistance=a_normal_ed.w;vec2 display_size_a=(pattern_br_a-pattern_tl_a)/pixel_ratio_from;vec2 display_size_b=(pattern_br_b-pattern_tl_b)/pixel_ratio_to;\n#ifdef TERRAIN3D\nfloat height_terrain3d_offset=get_elevation(a_centroid);float base_terrain3d_offset=height_terrain3d_offset-(base > 0.0 ? 0.0 : 10.0);\n#else\nfloat height_terrain3d_offset=0.0;float base_terrain3d_offset=0.0;\n#endif\nbase=max(0.0,base)+base_terrain3d_offset;height=max(0.0,height)+height_terrain3d_offset;float t=mod(normal.x,2.0);float elevation=t > 0.0 ? height : base;vec2 posInTile=a_pos+u_fill_translate;\n#ifdef GLOBE\nvec3 spherePos=projectToSphere(posInTile,a_pos);vec3 elevatedPos=spherePos*(1.0+elevation/GLOBE_RADIUS);v_sphere_pos=elevatedPos;gl_Position=interpolateProjectionFor3D(posInTile,spherePos,elevation);\n#else\ngl_Position=u_projection_matrix*vec4(posInTile,elevation,1.0);\n#endif\nvec2 pos=normal.x==1.0 && normal.y==0.0 && normal.z==16384.0\n? a_pos\n: vec2(edgedistance,elevation*u_height_factor);v_pos_a=get_pattern_pos(u_pixel_coord_upper,u_pixel_coord_lower,fromScale*display_size_a,tileRatio,pos);v_pos_b=get_pattern_pos(u_pixel_coord_upper,u_pixel_coord_lower,toScale*display_size_b,tileRatio,pos);v_lighting=vec4(0.0,0.0,0.0,1.0);float directional=clamp(dot(normal/16383.0,u_lightpos),0.0,1.0);directional=mix((1.0-u_lightintensity),max((0.5+u_lightintensity),1.0),directional);if (normal.y !=0.0) {directional*=((1.0-u_vertical_gradient)+(u_vertical_gradient*clamp((t+base)*pow(height/150.0,0.5),mix(0.7,0.98,1.0-u_lightintensity),1.0)));}v_lighting.rgb+=clamp(directional*u_lightcolor,mix(vec3(0.0),vec3(0.3),1.0-u_lightcolor),vec3(1.0));v_lighting*=u_opacity;}"),
+	fill: prepare("#pragma maplibre: define highp vec4 color\n#pragma maplibre: define lowp float opacity\nvoid main() {\n#pragma maplibre: initialize highp vec4 color\n#pragma maplibre: initialize lowp float opacity\nfragColor=color*opacity;\n#ifdef OVERDRAW_INSPECTOR\nfragColor=vec4(1.0);\n#endif\n}", "uniform vec2 u_fill_translate;layout(location=0) in vec2 a_pos;\n#pragma maplibre: define highp vec4 color\n#pragma maplibre: define lowp float opacity\nvoid main() {\n#pragma maplibre: initialize highp vec4 color\n#pragma maplibre: initialize lowp float opacity\nif (opacity < 0.01) {gl_Position=vec4(-2.0,-2.0,-2.0,1.0);return;}gl_Position=projectTile(a_pos+u_fill_translate,a_pos);}"),
+	fillOutline: prepare("in vec2 v_pos;\n#ifdef GLOBE\nin float v_depth;\n#endif\n#pragma maplibre: define highp vec4 outline_color\n#pragma maplibre: define lowp float opacity\nvoid main() {\n#pragma maplibre: initialize highp vec4 outline_color\n#pragma maplibre: initialize lowp float opacity\nfloat dist=length(v_pos-gl_FragCoord.xy);float alpha=1.0-smoothstep(0.0,1.0,dist);fragColor=outline_color*(alpha*opacity);\n#ifdef GLOBE\nif (v_depth > 1.0) {discard;}\n#endif\n#ifdef OVERDRAW_INSPECTOR\nfragColor=vec4(1.0);\n#endif\n}", "uniform vec2 u_world;uniform vec2 u_fill_translate;layout(location=0) in vec2 a_pos;out vec2 v_pos;\n#ifdef GLOBE\nout float v_depth;\n#endif\n#pragma maplibre: define highp vec4 outline_color\n#pragma maplibre: define lowp float opacity\nvoid main() {\n#pragma maplibre: initialize highp vec4 outline_color\n#pragma maplibre: initialize lowp float opacity\nif (opacity < 0.01) {gl_Position=vec4(-2.0,-2.0,-2.0,1.0);return;}gl_Position=projectTile(a_pos+u_fill_translate,a_pos);v_pos=(gl_Position.xy/gl_Position.w+1.0)/2.0*u_world;\n#ifdef GLOBE\nv_depth=gl_Position.z/gl_Position.w;\n#endif\n}"),
+	fillOutlinePattern: prepare("uniform vec2 u_texsize;uniform sampler2D u_image;uniform float u_fade;in vec2 v_pos_a;in vec2 v_pos_b;in vec2 v_pos;\n#ifdef GLOBE\nin float v_depth;\n#endif\n#pragma maplibre: define lowp float opacity\n#pragma maplibre: define lowp vec4 pattern_from\n#pragma maplibre: define lowp vec4 pattern_to\nvoid main() {\n#pragma maplibre: initialize lowp float opacity\n#pragma maplibre: initialize mediump vec4 pattern_from\n#pragma maplibre: initialize mediump vec4 pattern_to\nvec2 pattern_tl_a=pattern_from.xy;vec2 pattern_br_a=pattern_from.zw;vec2 pattern_tl_b=pattern_to.xy;vec2 pattern_br_b=pattern_to.zw;vec2 imagecoord=mod(v_pos_a,1.0);vec2 pos=mix(pattern_tl_a/u_texsize,pattern_br_a/u_texsize,imagecoord);vec4 color1=texture(u_image,pos);vec2 imagecoord_b=mod(v_pos_b,1.0);vec2 pos2=mix(pattern_tl_b/u_texsize,pattern_br_b/u_texsize,imagecoord_b);vec4 color2=texture(u_image,pos2);float dist=length(v_pos-gl_FragCoord.xy);float alpha=1.0-smoothstep(0.0,1.0,dist);fragColor=mix(color1,color2,u_fade)*alpha*opacity;\n#ifdef GLOBE\nif (v_depth > 1.0) {discard;}\n#endif\n#ifdef OVERDRAW_INSPECTOR\nfragColor=vec4(1.0);\n#endif\n}", "uniform vec2 u_world;uniform vec2 u_pixel_coord_upper;uniform vec2 u_pixel_coord_lower;uniform vec3 u_scale;uniform vec2 u_fill_translate;layout(location=0) in vec2 a_pos;out vec2 v_pos_a;out vec2 v_pos_b;out vec2 v_pos;\n#ifdef GLOBE\nout float v_depth;\n#endif\n#pragma maplibre: define lowp float opacity\n#pragma maplibre: define lowp vec4 pattern_from\n#pragma maplibre: define lowp vec4 pattern_to\n#pragma maplibre: define lowp float pixel_ratio_from\n#pragma maplibre: define lowp float pixel_ratio_to\nvoid main() {\n#pragma maplibre: initialize lowp float opacity\n#pragma maplibre: initialize mediump vec4 pattern_from\n#pragma maplibre: initialize mediump vec4 pattern_to\n#pragma maplibre: initialize lowp float pixel_ratio_from\n#pragma maplibre: initialize lowp float pixel_ratio_to\nif (opacity < 0.01) {gl_Position=vec4(-2.0,-2.0,-2.0,1.0);return;}vec2 pattern_tl_a=pattern_from.xy;vec2 pattern_br_a=pattern_from.zw;vec2 pattern_tl_b=pattern_to.xy;vec2 pattern_br_b=pattern_to.zw;float tileRatio=u_scale.x;float fromScale=u_scale.y;float toScale=u_scale.z;gl_Position=projectTile(a_pos+u_fill_translate,a_pos);vec2 display_size_a=(pattern_br_a-pattern_tl_a)/pixel_ratio_from;vec2 display_size_b=(pattern_br_b-pattern_tl_b)/pixel_ratio_to;v_pos_a=get_pattern_pos(u_pixel_coord_upper,u_pixel_coord_lower,fromScale*display_size_a,tileRatio,a_pos);v_pos_b=get_pattern_pos(u_pixel_coord_upper,u_pixel_coord_lower,toScale*display_size_b,tileRatio,a_pos);v_pos=(gl_Position.xy/gl_Position.w+1.0)/2.0*u_world;\n#ifdef GLOBE\nv_depth=gl_Position.z/gl_Position.w;\n#endif\n}"),
+	fillPattern: prepare("#ifdef GL_ES\nprecision highp float;\n#endif\nuniform vec2 u_texsize;uniform float u_fade;uniform sampler2D u_image;in vec2 v_pos_a;in vec2 v_pos_b;\n#pragma maplibre: define lowp float opacity\n#pragma maplibre: define lowp vec4 pattern_from\n#pragma maplibre: define lowp vec4 pattern_to\nvoid main() {\n#pragma maplibre: initialize lowp float opacity\n#pragma maplibre: initialize mediump vec4 pattern_from\n#pragma maplibre: initialize mediump vec4 pattern_to\nvec2 pattern_tl_a=pattern_from.xy;vec2 pattern_br_a=pattern_from.zw;vec2 pattern_tl_b=pattern_to.xy;vec2 pattern_br_b=pattern_to.zw;vec2 imagecoord=mod(v_pos_a,1.0);vec2 pos=mix(pattern_tl_a/u_texsize,pattern_br_a/u_texsize,imagecoord);vec4 color1=texture(u_image,pos);vec2 imagecoord_b=mod(v_pos_b,1.0);vec2 pos2=mix(pattern_tl_b/u_texsize,pattern_br_b/u_texsize,imagecoord_b);vec4 color2=texture(u_image,pos2);fragColor=mix(color1,color2,u_fade)*opacity;\n#ifdef OVERDRAW_INSPECTOR\nfragColor=vec4(1.0);\n#endif\n}", "uniform vec2 u_pixel_coord_upper;uniform vec2 u_pixel_coord_lower;uniform vec3 u_scale;uniform vec2 u_fill_translate;layout(location=0) in vec2 a_pos;out vec2 v_pos_a;out vec2 v_pos_b;\n#pragma maplibre: define lowp float opacity\n#pragma maplibre: define lowp vec4 pattern_from\n#pragma maplibre: define lowp vec4 pattern_to\n#pragma maplibre: define lowp float pixel_ratio_from\n#pragma maplibre: define lowp float pixel_ratio_to\nvoid main() {\n#pragma maplibre: initialize lowp float opacity\n#pragma maplibre: initialize mediump vec4 pattern_from\n#pragma maplibre: initialize mediump vec4 pattern_to\n#pragma maplibre: initialize lowp float pixel_ratio_from\n#pragma maplibre: initialize lowp float pixel_ratio_to\nif (opacity < 0.01) {gl_Position=vec4(-2.0,-2.0,-2.0,1.0);return;}vec2 pattern_tl_a=pattern_from.xy;vec2 pattern_br_a=pattern_from.zw;vec2 pattern_tl_b=pattern_to.xy;vec2 pattern_br_b=pattern_to.zw;float tileZoomRatio=u_scale.x;float fromScale=u_scale.y;float toScale=u_scale.z;vec2 display_size_a=(pattern_br_a-pattern_tl_a)/pixel_ratio_from;vec2 display_size_b=(pattern_br_b-pattern_tl_b)/pixel_ratio_to;gl_Position=projectTile(a_pos+u_fill_translate,a_pos);v_pos_a=get_pattern_pos(u_pixel_coord_upper,u_pixel_coord_lower,fromScale*display_size_a,tileZoomRatio,a_pos);v_pos_b=get_pattern_pos(u_pixel_coord_upper,u_pixel_coord_lower,toScale*display_size_b,tileZoomRatio,a_pos);}"),
+	fillExtrusion: prepare("in vec4 v_color;void main() {fragColor=v_color;\n#ifdef OVERDRAW_INSPECTOR\nfragColor=vec4(1.0);\n#endif\n}", "uniform vec3 u_lightcolor;uniform lowp vec3 u_lightpos;uniform lowp vec3 u_lightpos_globe;uniform lowp float u_lightintensity;uniform float u_vertical_gradient;uniform lowp float u_opacity;uniform vec2 u_fill_translate;layout(location=0) in vec2 a_pos;layout(location=1) in vec4 a_normal_ed;\n#ifdef TERRAIN3D\nlayout(location=2) in vec2 a_centroid;\n#endif\nout vec4 v_color;\n#pragma maplibre: define highp float base\n#pragma maplibre: define highp float height\n#pragma maplibre: define highp vec4 color\nvoid main() {\n#pragma maplibre: initialize highp float base\n#pragma maplibre: initialize highp float height\n#pragma maplibre: initialize highp vec4 color\nvec3 normal=a_normal_ed.xyz;\n#ifdef TERRAIN3D\nfloat height_terrain3d_offset=get_elevation(a_centroid);float base_terrain3d_offset=height_terrain3d_offset-(base > 0.0 ? 0.0 : 10.0);\n#else\nfloat height_terrain3d_offset=0.0;float base_terrain3d_offset=0.0;\n#endif\nbase=max(0.0,base)+base_terrain3d_offset;height=max(0.0,height)+height_terrain3d_offset;float t=mod(normal.x,2.0);float elevation=t > 0.0 ? height : base;vec2 posInTile=a_pos+u_fill_translate;\n#ifdef GLOBE\nvec3 spherePos=projectToSphere(posInTile,a_pos);gl_Position=interpolateProjectionFor3D(posInTile,spherePos,elevation);\n#else\ngl_Position=u_projection_matrix*vec4(posInTile,elevation,1.0);\n#endif\nfloat colorvalue=color.r*0.2126+color.g*0.7152+color.b*0.0722;v_color=vec4(0.0,0.0,0.0,1.0);vec4 ambientlight=vec4(0.03,0.03,0.03,1.0);color+=ambientlight;vec3 normalForLighting=normal/16384.0;float directional=clamp(dot(normalForLighting,u_lightpos),0.0,1.0);\n#ifdef GLOBE\nmat3 rotMatrix=globeGetRotationMatrix(spherePos);normalForLighting=rotMatrix*normalForLighting;directional=mix(directional,clamp(dot(normalForLighting,u_lightpos_globe),0.0,1.0),u_projection_transition);\n#endif\ndirectional=mix((1.0-u_lightintensity),max((1.0-colorvalue+u_lightintensity),1.0),directional);if (normal.y !=0.0) {directional*=((1.0-u_vertical_gradient)+(u_vertical_gradient*clamp((t+base)*pow(height/150.0,0.5),mix(0.7,0.98,1.0-u_lightintensity),1.0)));}v_color.r+=clamp(color.r*directional*u_lightcolor.r,mix(0.0,0.3,1.0-u_lightcolor.r),1.0);v_color.g+=clamp(color.g*directional*u_lightcolor.g,mix(0.0,0.3,1.0-u_lightcolor.g),1.0);v_color.b+=clamp(color.b*directional*u_lightcolor.b,mix(0.0,0.3,1.0-u_lightcolor.b),1.0);v_color*=u_opacity;}"),
+	fillExtrusionPattern: prepare("uniform vec2 u_texsize;uniform float u_fade;uniform sampler2D u_image;in vec2 v_pos_a;in vec2 v_pos_b;in vec4 v_lighting;\n#pragma maplibre: define lowp float base\n#pragma maplibre: define lowp float height\n#pragma maplibre: define lowp vec4 pattern_from\n#pragma maplibre: define lowp vec4 pattern_to\n#pragma maplibre: define lowp float pixel_ratio_from\n#pragma maplibre: define lowp float pixel_ratio_to\nvoid main() {\n#pragma maplibre: initialize lowp float base\n#pragma maplibre: initialize lowp float height\n#pragma maplibre: initialize mediump vec4 pattern_from\n#pragma maplibre: initialize mediump vec4 pattern_to\n#pragma maplibre: initialize lowp float pixel_ratio_from\n#pragma maplibre: initialize lowp float pixel_ratio_to\nvec2 pattern_tl_a=pattern_from.xy;vec2 pattern_br_a=pattern_from.zw;vec2 pattern_tl_b=pattern_to.xy;vec2 pattern_br_b=pattern_to.zw;vec2 imagecoord=mod(v_pos_a,1.0);vec2 pos=mix(pattern_tl_a/u_texsize,pattern_br_a/u_texsize,imagecoord);vec4 color1=texture(u_image,pos);vec2 imagecoord_b=mod(v_pos_b,1.0);vec2 pos2=mix(pattern_tl_b/u_texsize,pattern_br_b/u_texsize,imagecoord_b);vec4 color2=texture(u_image,pos2);vec4 mixedColor=mix(color1,color2,u_fade);fragColor=mixedColor*v_lighting;\n#ifdef OVERDRAW_INSPECTOR\nfragColor=vec4(1.0);\n#endif\n}", "uniform vec2 u_pixel_coord_upper;uniform vec2 u_pixel_coord_lower;uniform float u_height_factor;uniform vec3 u_scale;uniform float u_vertical_gradient;uniform lowp float u_opacity;uniform vec2 u_fill_translate;uniform vec3 u_lightcolor;uniform lowp vec3 u_lightpos;uniform lowp vec3 u_lightpos_globe;uniform lowp float u_lightintensity;layout(location=0) in vec2 a_pos;layout(location=1) in vec4 a_normal_ed;\n#ifdef TERRAIN3D\nlayout(location=2) in vec2 a_centroid;\n#endif\n#ifdef GLOBE\nout vec3 v_sphere_pos;\n#endif\nout vec2 v_pos_a;out vec2 v_pos_b;out vec4 v_lighting;\n#pragma maplibre: define lowp float base\n#pragma maplibre: define lowp float height\n#pragma maplibre: define lowp vec4 pattern_from\n#pragma maplibre: define lowp vec4 pattern_to\n#pragma maplibre: define lowp float pixel_ratio_from\n#pragma maplibre: define lowp float pixel_ratio_to\nvoid main() {\n#pragma maplibre: initialize lowp float base\n#pragma maplibre: initialize lowp float height\n#pragma maplibre: initialize mediump vec4 pattern_from\n#pragma maplibre: initialize mediump vec4 pattern_to\n#pragma maplibre: initialize lowp float pixel_ratio_from\n#pragma maplibre: initialize lowp float pixel_ratio_to\nvec2 pattern_tl_a=pattern_from.xy;vec2 pattern_br_a=pattern_from.zw;vec2 pattern_tl_b=pattern_to.xy;vec2 pattern_br_b=pattern_to.zw;float tileRatio=u_scale.x;float fromScale=u_scale.y;float toScale=u_scale.z;vec3 normal=a_normal_ed.xyz;float edgedistance=a_normal_ed.w;vec2 display_size_a=(pattern_br_a-pattern_tl_a)/pixel_ratio_from;vec2 display_size_b=(pattern_br_b-pattern_tl_b)/pixel_ratio_to;\n#ifdef TERRAIN3D\nfloat height_terrain3d_offset=get_elevation(a_centroid);float base_terrain3d_offset=height_terrain3d_offset-(base > 0.0 ? 0.0 : 10.0);\n#else\nfloat height_terrain3d_offset=0.0;float base_terrain3d_offset=0.0;\n#endif\nbase=max(0.0,base)+base_terrain3d_offset;height=max(0.0,height)+height_terrain3d_offset;float t=mod(normal.x,2.0);float elevation=t > 0.0 ? height : base;vec2 posInTile=a_pos+u_fill_translate;\n#ifdef GLOBE\nvec3 spherePos=projectToSphere(posInTile,a_pos);vec3 elevatedPos=spherePos*(1.0+elevation/GLOBE_RADIUS);v_sphere_pos=elevatedPos;gl_Position=interpolateProjectionFor3D(posInTile,spherePos,elevation);\n#else\ngl_Position=u_projection_matrix*vec4(posInTile,elevation,1.0);\n#endif\nvec2 pos=normal.x==1.0 && normal.y==0.0 && normal.z==16384.0\n? a_pos\n: vec2(edgedistance,elevation*u_height_factor);v_pos_a=get_pattern_pos(u_pixel_coord_upper,u_pixel_coord_lower,fromScale*display_size_a,tileRatio,pos);v_pos_b=get_pattern_pos(u_pixel_coord_upper,u_pixel_coord_lower,toScale*display_size_b,tileRatio,pos);v_lighting=vec4(0.0,0.0,0.0,1.0);float directional=clamp(dot(normal/16383.0,u_lightpos),0.0,1.0);directional=mix((1.0-u_lightintensity),max((0.5+u_lightintensity),1.0),directional);if (normal.y !=0.0) {directional*=((1.0-u_vertical_gradient)+(u_vertical_gradient*clamp((t+base)*pow(height/150.0,0.5),mix(0.7,0.98,1.0-u_lightintensity),1.0)));}v_lighting.rgb+=clamp(directional*u_lightcolor,mix(vec3(0.0),vec3(0.3),1.0-u_lightcolor),vec3(1.0));v_lighting*=u_opacity;}"),
 	hillshadePrepare: prepare("#ifdef GL_ES\nprecision highp float;\n#endif\nuniform sampler2D u_image;in vec2 v_pos;uniform vec2 u_dimension;uniform float u_zoom;uniform vec4 u_unpack;float getElevation(vec2 coord,float bias) {vec4 data=texture(u_image,coord)*255.0;data.a=-1.0;return dot(data,u_unpack);}void main() {vec2 epsilon=1.0/u_dimension;float tileSize=u_dimension.x-2.0;float a=getElevation(v_pos+vec2(-epsilon.x,-epsilon.y),0.0);float b=getElevation(v_pos+vec2(0,-epsilon.y),0.0);float c=getElevation(v_pos+vec2(epsilon.x,-epsilon.y),0.0);float d=getElevation(v_pos+vec2(-epsilon.x,0),0.0);float e=getElevation(v_pos,0.0);float f=getElevation(v_pos+vec2(epsilon.x,0),0.0);float g=getElevation(v_pos+vec2(-epsilon.x,epsilon.y),0.0);float h=getElevation(v_pos+vec2(0,epsilon.y),0.0);float i=getElevation(v_pos+vec2(epsilon.x,epsilon.y),0.0);float exaggerationFactor=u_zoom < 2.0 ? 0.4 : u_zoom < 4.5 ? 0.35 : 0.3;float exaggeration=u_zoom < 15.0 ? (u_zoom-15.0)*exaggerationFactor : 0.0;vec2 deriv=vec2((c+f+f+i)-(a+d+d+g),(g+h+h+i)-(a+b+b+c))*tileSize/pow(2.0,exaggeration+(28.2562-u_zoom));fragColor=clamp(vec4(deriv.x/8.0+0.5,deriv.y/8.0+0.5,1.0,1.0),0.0,1.0);\n#ifdef OVERDRAW_INSPECTOR\nfragColor=vec4(1.0);\n#endif\n}", "uniform mat4 u_matrix;uniform vec2 u_dimension;layout(location=0) in vec2 a_pos;layout(location=1) in vec2 a_texture_pos;out vec2 v_pos;void main() {gl_Position=u_matrix*vec4(a_pos,0,1);highp vec2 epsilon=1.0/u_dimension;float scale=(u_dimension.x-2.0)/u_dimension.x;v_pos=(a_texture_pos/8192.0)*scale+epsilon;}"),
 	hillshade: prepare("uniform sampler2D u_image;in vec2 v_pos;uniform vec2 u_latrange;uniform float u_exaggeration;uniform vec4 u_accent;uniform int u_method;uniform float u_altitudes[NUM_ILLUMINATION_SOURCES];uniform float u_azimuths[NUM_ILLUMINATION_SOURCES];uniform vec4 u_shadows[NUM_ILLUMINATION_SOURCES];uniform vec4 u_highlights[NUM_ILLUMINATION_SOURCES];\n#define PI 3.141592653589793\n#define STANDARD 0\n#define COMBINED 1\n#define IGOR 2\n#define MULTIDIRECTIONAL 3\n#define BASIC 4\nfloat get_aspect(vec2 deriv){return deriv.x !=0.0 ? atan(deriv.y,-deriv.x) : PI/2.0*(deriv.y > 0.0 ? 1.0 :-1.0);}void igor_hillshade(vec2 deriv){deriv=deriv*u_exaggeration*2.0;float aspect=get_aspect(deriv);float azimuth=u_azimuths[0]+PI;float slope_stength=atan(length(deriv))*2.0/PI;float aspect_strength=1.0-abs(mod((aspect+azimuth)/PI+0.5,2.0)-1.0);float shadow_strength=slope_stength*aspect_strength;float highlight_strength=slope_stength*(1.0-aspect_strength);fragColor=u_shadows[0]*shadow_strength+u_highlights[0]*highlight_strength;}void standard_hillshade(vec2 deriv){float azimuth=u_azimuths[0]+PI;float slope=atan(0.625*length(deriv));float aspect=get_aspect(deriv);float intensity=u_exaggeration;float base=1.875-intensity*1.75;float maxValue=0.5*PI;float scaledSlope=intensity !=0.5 ? ((pow(base,slope)-1.0)/(pow(base,maxValue)-1.0))*maxValue : slope;float accent=cos(scaledSlope);vec4 accent_color=(1.0-accent)*u_accent*clamp(intensity*2.0,0.0,1.0);float shade=abs(mod((aspect+azimuth)/PI+0.5,2.0)-1.0);vec4 shade_color=mix(u_shadows[0],u_highlights[0],shade)*sin(scaledSlope)*clamp(intensity*2.0,0.0,1.0);fragColor=accent_color*(1.0-shade_color.a)+shade_color;}void basic_hillshade(vec2 deriv){deriv=deriv*u_exaggeration*2.0;float azimuth=u_azimuths[0]+PI;float cos_az=cos(azimuth);float sin_az=sin(azimuth);float cos_alt=cos(u_altitudes[0]);float sin_alt=sin(u_altitudes[0]);float cang=(sin_alt-(deriv.y*cos_az*cos_alt-deriv.x*sin_az*cos_alt))/sqrt(1.0+dot(deriv,deriv));float shade=clamp(cang,0.0,1.0);if(shade > 0.5){fragColor=u_highlights[0]*(2.0*shade-1.0);}else\n{fragColor=u_shadows[0]*(1.0-2.0*shade);}}void multidirectional_hillshade(vec2 deriv){deriv=deriv*u_exaggeration*2.0;fragColor=vec4(0,0,0,0);for(int i=0; i < NUM_ILLUMINATION_SOURCES; i++){float cos_alt=cos(u_altitudes[i]);float sin_alt=sin(u_altitudes[i]);float cos_az=-cos(u_azimuths[i]);float sin_az=-sin(u_azimuths[i]);float cang=(sin_alt-(deriv.y*cos_az*cos_alt-deriv.x*sin_az*cos_alt))/sqrt(1.0+dot(deriv,deriv));float shade=clamp(cang,0.0,1.0);if(shade > 0.5){fragColor+=u_highlights[i]*(2.0*shade-1.0)/float(NUM_ILLUMINATION_SOURCES);}else\n{fragColor+=u_shadows[i]*(1.0-2.0*shade)/float(NUM_ILLUMINATION_SOURCES);}}}void combined_hillshade(vec2 deriv){deriv=deriv*u_exaggeration*2.0;float azimuth=u_azimuths[0]+PI;float cos_az=cos(azimuth);float sin_az=sin(azimuth);float cos_alt=cos(u_altitudes[0]);float sin_alt=sin(u_altitudes[0]);float cang=acos((sin_alt-(deriv.y*cos_az*cos_alt-deriv.x*sin_az*cos_alt))/sqrt(1.0+dot(deriv,deriv)));cang=clamp(cang,0.0,PI/2.0);float shade=cang*atan(length(deriv))*4.0/PI/PI;float highlight=(PI/2.0-cang)*atan(length(deriv))*4.0/PI/PI;fragColor=u_shadows[0]*shade+u_highlights[0]*highlight;}void main() {vec4 pixel=texture(u_image,v_pos);float scaleFactor=cos(radians((u_latrange[0]-u_latrange[1])*(1.0-v_pos.y)+u_latrange[1]));vec2 deriv=((pixel.rg*8.0)-4.0)/scaleFactor;if (u_method==BASIC) {basic_hillshade(deriv);} else if (u_method==COMBINED) {combined_hillshade(deriv);} else if (u_method==IGOR) {igor_hillshade(deriv);} else if (u_method==MULTIDIRECTIONAL) {multidirectional_hillshade(deriv);} else if (u_method==STANDARD) {standard_hillshade(deriv);} else {standard_hillshade(deriv);}\n#ifdef OVERDRAW_INSPECTOR\nfragColor=vec4(1.0);\n#endif\n}", "uniform mat4 u_matrix;layout(location=0) in vec2 a_pos;out vec2 v_pos;void main() {gl_Position=projectTile(a_pos,a_pos);v_pos=a_pos/8192.0;if (a_pos.y <-32767.5) {v_pos.y=0.0;}if (a_pos.y > 32766.5) {v_pos.y=1.0;}}"),
-	line: prepare("uniform lowp float u_device_pixel_ratio;uniform bool u_opacity_override;flat in vec2 v_width2;in vec2 v_normal;in float v_gamma_scale;\n#ifdef GLOBE\nin float v_depth;\n#endif\n#pragma mapbox: define highp vec4 color\n#pragma mapbox: define lowp float blur\n#pragma mapbox: define lowp float opacity\nvoid main() {\n#pragma mapbox: initialize highp vec4 color\n#pragma mapbox: initialize lowp float blur\n#pragma mapbox: initialize lowp float opacity\nfloat dist=length(v_normal)*v_width2.s;float blur2=(blur+1.0/u_device_pixel_ratio)*v_gamma_scale;float alpha=clamp(min(dist-(v_width2.t-blur2),v_width2.s-dist)/blur2,0.0,1.0);float finalOpacity=u_opacity_override ? 1.0 : opacity;fragColor=color*(alpha*finalOpacity);\n#ifdef GLOBE\nif (v_depth > 1.0) {discard;}\n#endif\n#ifdef OVERDRAW_INSPECTOR\nfragColor=vec4(1.0);\n#endif\n}", "\n#define scale 0.015873016\nlayout(location=0) in vec2 a_pos_normal;layout(location=1) in vec4 a_data;uniform vec2 u_translation;uniform mediump float u_ratio;uniform vec2 u_units_to_pixels;uniform lowp float u_device_pixel_ratio;out vec2 v_normal;flat out vec2 v_width2;out float v_gamma_scale;out highp float v_linesofar;\n#ifdef GLOBE\nout float v_depth;\n#endif\n#pragma mapbox: define highp vec4 color\n#pragma mapbox: define lowp float blur\n#pragma mapbox: define lowp float opacity\n#pragma mapbox: define mediump float gapwidth\n#pragma mapbox: define lowp float offset\n#pragma mapbox: define mediump float width\nvoid main() {\n#pragma mapbox: initialize highp vec4 color\n#pragma mapbox: initialize lowp float blur\n#pragma mapbox: initialize lowp float opacity\n#pragma mapbox: initialize mediump float gapwidth\n#pragma mapbox: initialize lowp float offset\n#pragma mapbox: initialize mediump float width\nif (opacity < 0.01) {gl_Position=vec4(-2.0,-2.0,-2.0,1.0);return;}float ANTIALIASING=1.0/u_device_pixel_ratio/2.0;vec2 a_extrude=a_data.xy-128.0;float a_direction=mod(a_data.z,4.0)-1.0;v_linesofar=(floor(a_data.z/4.0)+a_data.w*64.0)*2.0;vec2 pos=floor(a_pos_normal*0.5);mediump vec2 normal=a_pos_normal-2.0*pos;normal.y=normal.y*2.0-1.0;v_normal=normal;gapwidth=gapwidth/2.0;float halfwidth=width/2.0;offset=-1.0*offset;float inset=gapwidth+(gapwidth > 0.0 ? ANTIALIASING : 0.0);float outset=gapwidth+halfwidth*(gapwidth > 0.0 ? 2.0 : 1.0)+(halfwidth==0.0 ? 0.0 : ANTIALIASING);mediump vec2 dist=outset*a_extrude*scale;mediump float u=0.5*a_direction;mediump float t=1.0-abs(u);mediump vec2 offset2=offset*a_extrude*scale*normal.y*mat2(t,-u,u,t);float adjustedThickness=projectLineThickness(pos.y);vec4 projected_no_extrude=projectTile(pos+offset2/u_ratio*adjustedThickness+u_translation);vec4 projected_with_extrude=projectTile(pos+offset2/u_ratio*adjustedThickness+u_translation+dist/u_ratio*adjustedThickness);gl_Position=projected_with_extrude;\n#ifdef GLOBE\nv_depth=gl_Position.z/gl_Position.w;\n#endif\n#ifdef TERRAIN3D\nv_gamma_scale=1.0;\n#else\nfloat extrude_length_without_perspective=length(dist);float extrude_length_with_perspective=length((projected_with_extrude.xy-projected_no_extrude.xy)/projected_with_extrude.w*u_units_to_pixels);v_gamma_scale=extrude_length_without_perspective/extrude_length_with_perspective;\n#endif\nv_width2=vec2(outset,inset);}"),
-	lineGradient: prepare("uniform lowp float u_device_pixel_ratio;uniform sampler2D u_image;uniform bool u_opacity_override;flat in vec2 v_width2;in vec2 v_normal;in float v_gamma_scale;in highp vec2 v_uv;\n#ifdef GLOBE\nin float v_depth;\n#endif\n#pragma mapbox: define lowp float blur\n#pragma mapbox: define lowp float opacity\nvoid main() {\n#pragma mapbox: initialize lowp float blur\n#pragma mapbox: initialize lowp float opacity\nfloat dist=length(v_normal)*v_width2.s;float blur2=(blur+1.0/u_device_pixel_ratio)*v_gamma_scale;float alpha=clamp(min(dist-(v_width2.t-blur2),v_width2.s-dist)/blur2,0.0,1.0);vec4 color=texture(u_image,v_uv);float finalOpacity=u_opacity_override ? 1.0 : opacity;fragColor=color*(alpha*finalOpacity);\n#ifdef GLOBE\nif (v_depth > 1.0) {discard;}\n#endif\n#ifdef OVERDRAW_INSPECTOR\nfragColor=vec4(1.0);\n#endif\n}", "\n#define scale 0.015873016\nlayout(location=0) in vec2 a_pos_normal;layout(location=1) in vec4 a_data;layout(location=2) in float a_uv_x;layout(location=3) in float a_split_index;uniform vec2 u_translation;uniform mediump float u_ratio;uniform lowp float u_device_pixel_ratio;uniform vec2 u_units_to_pixels;uniform float u_image_height;out vec2 v_normal;flat out vec2 v_width2;out float v_gamma_scale;out highp vec2 v_uv;\n#ifdef GLOBE\nout float v_depth;\n#endif\n#pragma mapbox: define lowp float blur\n#pragma mapbox: define lowp float opacity\n#pragma mapbox: define mediump float gapwidth\n#pragma mapbox: define lowp float offset\n#pragma mapbox: define mediump float width\nvoid main() {\n#pragma mapbox: initialize lowp float blur\n#pragma mapbox: initialize lowp float opacity\n#pragma mapbox: initialize mediump float gapwidth\n#pragma mapbox: initialize lowp float offset\n#pragma mapbox: initialize mediump float width\nif (opacity < 0.01) {gl_Position=vec4(-2.0,-2.0,-2.0,1.0);return;}float ANTIALIASING=1.0/u_device_pixel_ratio/2.0;vec2 a_extrude=a_data.xy-128.0;float a_direction=mod(a_data.z,4.0)-1.0;highp float texel_height=1.0/u_image_height;highp float half_texel_height=0.5*texel_height;v_uv=vec2(a_uv_x,a_split_index*texel_height-half_texel_height);vec2 pos=floor(a_pos_normal*0.5);mediump vec2 normal=a_pos_normal-2.0*pos;normal.y=normal.y*2.0-1.0;v_normal=normal;gapwidth=gapwidth/2.0;float halfwidth=width/2.0;offset=-1.0*offset;float inset=gapwidth+(gapwidth > 0.0 ? ANTIALIASING : 0.0);float outset=gapwidth+halfwidth*(gapwidth > 0.0 ? 2.0 : 1.0)+(halfwidth==0.0 ? 0.0 : ANTIALIASING);mediump vec2 dist=outset*a_extrude*scale;mediump float u=0.5*a_direction;mediump float t=1.0-abs(u);mediump vec2 offset2=offset*a_extrude*scale*normal.y*mat2(t,-u,u,t);float adjustedThickness=projectLineThickness(pos.y);vec4 projected_no_extrude=projectTile(pos+offset2/u_ratio*adjustedThickness+u_translation);vec4 projected_with_extrude=projectTile(pos+offset2/u_ratio*adjustedThickness+u_translation+dist/u_ratio*adjustedThickness);gl_Position=projected_with_extrude;\n#ifdef GLOBE\nv_depth=gl_Position.z/gl_Position.w;\n#endif\n#ifdef TERRAIN3D\nv_gamma_scale=1.0;\n#else\nfloat extrude_length_without_perspective=length(dist);float extrude_length_with_perspective=length((projected_with_extrude.xy-projected_no_extrude.xy)/projected_with_extrude.w*u_units_to_pixels);v_gamma_scale=extrude_length_without_perspective/extrude_length_with_perspective;\n#endif\nv_width2=vec2(outset,inset);}"),
-	linePattern: prepare("#ifdef GL_ES\nprecision highp float;\n#endif\nuniform lowp float u_device_pixel_ratio;uniform vec2 u_texsize;uniform float u_fade;uniform mediump vec3 u_scale;uniform sampler2D u_image;uniform bool u_opacity_override;in vec2 v_normal;flat in vec2 v_width2;in float v_linesofar;in float v_gamma_scale;flat in float v_width;\n#ifdef GLOBE\nin float v_depth;\n#endif\n#pragma mapbox: define lowp vec4 pattern_from\n#pragma mapbox: define lowp vec4 pattern_to\n#pragma mapbox: define lowp float pixel_ratio_from\n#pragma mapbox: define lowp float pixel_ratio_to\n#pragma mapbox: define lowp float blur\n#pragma mapbox: define lowp float opacity\nvoid main() {\n#pragma mapbox: initialize mediump vec4 pattern_from\n#pragma mapbox: initialize mediump vec4 pattern_to\n#pragma mapbox: initialize lowp float pixel_ratio_from\n#pragma mapbox: initialize lowp float pixel_ratio_to\n#pragma mapbox: initialize lowp float blur\n#pragma mapbox: initialize lowp float opacity\nvec2 pattern_tl_a=pattern_from.xy;vec2 pattern_br_a=pattern_from.zw;vec2 pattern_tl_b=pattern_to.xy;vec2 pattern_br_b=pattern_to.zw;float tileZoomRatio=u_scale.x;float fromScale=u_scale.y;float toScale=u_scale.z;vec2 display_size_a=(pattern_br_a-pattern_tl_a)/pixel_ratio_from;vec2 display_size_b=(pattern_br_b-pattern_tl_b)/pixel_ratio_to;vec2 pattern_size_a=vec2(display_size_a.x*fromScale/tileZoomRatio,display_size_a.y);vec2 pattern_size_b=vec2(display_size_b.x*toScale/tileZoomRatio,display_size_b.y);float aspect_a=display_size_a.y/v_width;float aspect_b=display_size_b.y/v_width;float dist=length(v_normal)*v_width2.s;float blur2=(blur+1.0/u_device_pixel_ratio)*v_gamma_scale;float alpha=clamp(min(dist-(v_width2.t-blur2),v_width2.s-dist)/blur2,0.0,1.0);float x_a=mod(v_linesofar/pattern_size_a.x*aspect_a,1.0);float x_b=mod(v_linesofar/pattern_size_b.x*aspect_b,1.0);float y=0.5*v_normal.y+0.5;vec2 texel_size=1.0/u_texsize;vec2 pos_a=mix(pattern_tl_a*texel_size-texel_size,pattern_br_a*texel_size+texel_size,vec2(x_a,y));vec2 pos_b=mix(pattern_tl_b*texel_size-texel_size,pattern_br_b*texel_size+texel_size,vec2(x_b,y));vec4 color=mix(texture(u_image,pos_a),texture(u_image,pos_b),u_fade);float finalOpacity=u_opacity_override ? 1.0 : opacity;fragColor=color*alpha*finalOpacity;\n#ifdef GLOBE\nif (v_depth > 1.0) {discard;}\n#endif\n#ifdef OVERDRAW_INSPECTOR\nfragColor=vec4(1.0);\n#endif\n}", "\n#define scale 0.015873016\n#define LINE_DISTANCE_SCALE 2.0\nlayout(location=0) in vec2 a_pos_normal;layout(location=1) in vec4 a_data;uniform vec2 u_translation;uniform vec2 u_units_to_pixels;uniform mediump float u_ratio;uniform lowp float u_device_pixel_ratio;out vec2 v_normal;flat out vec2 v_width2;out float v_linesofar;out float v_gamma_scale;flat out float v_width;\n#ifdef GLOBE\nout float v_depth;\n#endif\n#pragma mapbox: define lowp float blur\n#pragma mapbox: define lowp float opacity\n#pragma mapbox: define lowp float offset\n#pragma mapbox: define mediump float gapwidth\n#pragma mapbox: define mediump float width\n#pragma mapbox: define lowp float floorwidth\n#pragma mapbox: define lowp vec4 pattern_from\n#pragma mapbox: define lowp vec4 pattern_to\n#pragma mapbox: define lowp float pixel_ratio_from\n#pragma mapbox: define lowp float pixel_ratio_to\nvoid main() {\n#pragma mapbox: initialize lowp float blur\n#pragma mapbox: initialize lowp float opacity\n#pragma mapbox: initialize lowp float offset\n#pragma mapbox: initialize mediump float gapwidth\n#pragma mapbox: initialize mediump float width\n#pragma mapbox: initialize lowp float floorwidth\n#pragma mapbox: initialize mediump vec4 pattern_from\n#pragma mapbox: initialize mediump vec4 pattern_to\n#pragma mapbox: initialize lowp float pixel_ratio_from\n#pragma mapbox: initialize lowp float pixel_ratio_to\nif (opacity < 0.01) {gl_Position=vec4(-2.0,-2.0,-2.0,1.0);return;}float ANTIALIASING=1.0/u_device_pixel_ratio/2.0;vec2 a_extrude=a_data.xy-128.0;float a_direction=mod(a_data.z,4.0)-1.0;float a_linesofar=(floor(a_data.z/4.0)+a_data.w*64.0)*LINE_DISTANCE_SCALE;vec2 pos=floor(a_pos_normal*0.5);mediump vec2 normal=a_pos_normal-2.0*pos;normal.y=normal.y*2.0-1.0;v_normal=normal;gapwidth=gapwidth/2.0;float halfwidth=width/2.0;offset=-1.0*offset;float inset=gapwidth+(gapwidth > 0.0 ? ANTIALIASING : 0.0);float outset=gapwidth+halfwidth*(gapwidth > 0.0 ? 2.0 : 1.0)+(halfwidth==0.0 ? 0.0 : ANTIALIASING);mediump vec2 dist=outset*a_extrude*scale;mediump float u=0.5*a_direction;mediump float t=1.0-abs(u);mediump vec2 offset2=offset*a_extrude*scale*normal.y*mat2(t,-u,u,t);float adjustedThickness=projectLineThickness(pos.y);vec4 projected_no_extrude=projectTile(pos+offset2/u_ratio*adjustedThickness+u_translation);vec4 projected_with_extrude=projectTile(pos+offset2/u_ratio*adjustedThickness+u_translation+dist/u_ratio*adjustedThickness);gl_Position=projected_with_extrude;\n#ifdef GLOBE\nv_depth=gl_Position.z/gl_Position.w;\n#endif\n#ifdef TERRAIN3D\nv_gamma_scale=1.0;\n#else\nfloat extrude_length_without_perspective=length(dist);float extrude_length_with_perspective=length((projected_with_extrude.xy-projected_no_extrude.xy)/projected_with_extrude.w*u_units_to_pixels);v_gamma_scale=extrude_length_without_perspective/extrude_length_with_perspective;\n#endif\nv_linesofar=a_linesofar;v_width2=vec2(outset,inset);v_width=floorwidth;}"),
-	lineSDF: prepare("uniform lowp float u_device_pixel_ratio;uniform lowp float u_lineatlas_width;uniform sampler2D u_image;uniform float u_mix;uniform bool u_opacity_override;in vec2 v_normal;flat in vec2 v_width2;in vec2 v_tex_a;in vec2 v_tex_b;in float v_gamma_scale;\n#ifdef GLOBE\nin float v_depth;\n#endif\n#pragma mapbox: define highp vec4 color\n#pragma mapbox: define lowp float blur\n#pragma mapbox: define lowp float opacity\n#pragma mapbox: define mediump float width\n#pragma mapbox: define lowp float floorwidth\n#pragma mapbox: define mediump vec4 dasharray_from\n#pragma mapbox: define mediump vec4 dasharray_to\nvoid main() {\n#pragma mapbox: initialize highp vec4 color\n#pragma mapbox: initialize lowp float blur\n#pragma mapbox: initialize lowp float opacity\n#pragma mapbox: initialize mediump float width\n#pragma mapbox: initialize lowp float floorwidth\n#pragma mapbox: initialize mediump vec4 dasharray_from\n#pragma mapbox: initialize mediump vec4 dasharray_to\nfloat dist=length(v_normal)*v_width2.s;float blur2=(blur+1.0/u_device_pixel_ratio)*v_gamma_scale;float alpha=clamp(min(dist-(v_width2.t-blur2),v_width2.s-dist)/blur2,0.0,1.0);float sdfdist_a=texture(u_image,v_tex_a).a;float sdfdist_b=texture(u_image,v_tex_b).a;float sdfdist=mix(sdfdist_a,sdfdist_b,u_mix);float sdfgamma=(u_lineatlas_width/256.0/u_device_pixel_ratio)/min(dasharray_from.w,dasharray_to.w);alpha*=smoothstep(0.5-sdfgamma/floorwidth,0.5+sdfgamma/floorwidth,sdfdist);float finalOpacity=u_opacity_override ? 1.0 : opacity;fragColor=color*(alpha*finalOpacity);\n#ifdef GLOBE\nif (v_depth > 1.0) {discard;}\n#endif\n#ifdef OVERDRAW_INSPECTOR\nfragColor=vec4(1.0);\n#endif\n}", "\n#define scale 0.015873016\n#define LINE_DISTANCE_SCALE 2.0\nlayout(location=0) in vec2 a_pos_normal;layout(location=1) in vec4 a_data;uniform vec2 u_translation;uniform mediump float u_ratio;uniform lowp float u_device_pixel_ratio;uniform vec2 u_units_to_pixels;uniform float u_tileratio;uniform float u_crossfade_from;uniform float u_crossfade_to;uniform float u_lineatlas_height;out vec2 v_normal;flat out vec2 v_width2;out vec2 v_tex_a;out vec2 v_tex_b;out float v_gamma_scale;\n#ifdef GLOBE\nout float v_depth;\n#endif\n#pragma mapbox: define highp vec4 color\n#pragma mapbox: define lowp float blur\n#pragma mapbox: define lowp float opacity\n#pragma mapbox: define mediump float gapwidth\n#pragma mapbox: define lowp float offset\n#pragma mapbox: define mediump float width\n#pragma mapbox: define lowp float floorwidth\n#pragma mapbox: define mediump vec4 dasharray_from\n#pragma mapbox: define mediump vec4 dasharray_to\nvoid main() {\n#pragma mapbox: initialize highp vec4 color\n#pragma mapbox: initialize lowp float blur\n#pragma mapbox: initialize lowp float opacity\n#pragma mapbox: initialize mediump float gapwidth\n#pragma mapbox: initialize lowp float offset\n#pragma mapbox: initialize mediump float width\n#pragma mapbox: initialize lowp float floorwidth\n#pragma mapbox: initialize mediump vec4 dasharray_from\n#pragma mapbox: initialize mediump vec4 dasharray_to\nif (opacity < 0.01) {gl_Position=vec4(-2.0,-2.0,-2.0,1.0);return;}float ANTIALIASING=1.0/u_device_pixel_ratio/2.0;vec2 a_extrude=a_data.xy-128.0;float a_direction=mod(a_data.z,4.0)-1.0;float a_linesofar=(floor(a_data.z/4.0)+a_data.w*64.0)*LINE_DISTANCE_SCALE;vec2 pos=floor(a_pos_normal*0.5);mediump vec2 normal=a_pos_normal-2.0*pos;normal.y=normal.y*2.0-1.0;v_normal=normal;gapwidth=gapwidth/2.0;float halfwidth=width/2.0;offset=-1.0*offset;float inset=gapwidth+(gapwidth > 0.0 ? ANTIALIASING : 0.0);float outset=gapwidth+halfwidth*(gapwidth > 0.0 ? 2.0 : 1.0)+(halfwidth==0.0 ? 0.0 : ANTIALIASING);mediump vec2 dist=outset*a_extrude*scale;mediump float u=0.5*a_direction;mediump float t=1.0-abs(u);mediump vec2 offset2=offset*a_extrude*scale*normal.y*mat2(t,-u,u,t);float adjustedThickness=projectLineThickness(pos.y);vec4 projected_no_extrude=projectTile(pos+offset2/u_ratio*adjustedThickness+u_translation);vec4 projected_with_extrude=projectTile(pos+offset2/u_ratio*adjustedThickness+u_translation+dist/u_ratio*adjustedThickness);gl_Position=projected_with_extrude;\n#ifdef GLOBE\nv_depth=gl_Position.z/gl_Position.w;\n#endif\n#ifdef TERRAIN3D\nv_gamma_scale=1.0;\n#else\nfloat extrude_length_without_perspective=length(dist);float extrude_length_with_perspective=length((projected_with_extrude.xy-projected_no_extrude.xy)/projected_with_extrude.w*u_units_to_pixels);v_gamma_scale=extrude_length_without_perspective/extrude_length_with_perspective;\n#endif\nfloat u_patternscale_a_x=u_tileratio/dasharray_from.w/u_crossfade_from;float u_patternscale_a_y=-dasharray_from.z/2.0/u_lineatlas_height;float u_patternscale_b_x=u_tileratio/dasharray_to.w/u_crossfade_to;float u_patternscale_b_y=-dasharray_to.z/2.0/u_lineatlas_height;v_tex_a=vec2(a_linesofar*u_patternscale_a_x/floorwidth,normal.y*u_patternscale_a_y+(float(dasharray_from.y)+0.5)/u_lineatlas_height);v_tex_b=vec2(a_linesofar*u_patternscale_b_x/floorwidth,normal.y*u_patternscale_b_y+(float(dasharray_to.y)+0.5)/u_lineatlas_height);v_width2=vec2(outset,inset);}"),
-	lineGradientSDF: prepare("uniform lowp float u_device_pixel_ratio;uniform sampler2D u_image;uniform sampler2D u_image_dash;uniform float u_mix;uniform lowp float u_lineatlas_width;uniform bool u_opacity_override;in vec2 v_normal;flat in vec2 v_width2;in vec2 v_tex_a;in vec2 v_tex_b;in float v_gamma_scale;in highp vec2 v_uv;\n#ifdef GLOBE\nin float v_depth;\n#endif\n#pragma mapbox: define lowp float blur\n#pragma mapbox: define lowp float opacity\n#pragma mapbox: define mediump float width\n#pragma mapbox: define lowp float floorwidth\n#pragma mapbox: define mediump vec4 dasharray_from\n#pragma mapbox: define mediump vec4 dasharray_to\nvoid main() {\n#pragma mapbox: initialize lowp float blur\n#pragma mapbox: initialize lowp float opacity\n#pragma mapbox: initialize mediump float width\n#pragma mapbox: initialize lowp float floorwidth\n#pragma mapbox: initialize mediump vec4 dasharray_from\n#pragma mapbox: initialize mediump vec4 dasharray_to\nfloat dist=length(v_normal)*v_width2.s;float blur2=(blur+1.0/u_device_pixel_ratio)*v_gamma_scale;float alpha=clamp(min(dist-(v_width2.t-blur2),v_width2.s-dist)/blur2,0.0,1.0);vec4 color=texture(u_image,v_uv);float sdfdist_a=texture(u_image_dash,v_tex_a).a;float sdfdist_b=texture(u_image_dash,v_tex_b).a;float sdfdist=mix(sdfdist_a,sdfdist_b,u_mix);float sdfgamma=(u_lineatlas_width/256.0)/min(dasharray_from.w,dasharray_to.w);float dash_alpha=smoothstep(0.5-sdfgamma/floorwidth,0.5+sdfgamma/floorwidth,sdfdist);float finalOpacity=u_opacity_override ? 1.0 : opacity;fragColor=color*(alpha*dash_alpha*finalOpacity);\n#ifdef GLOBE\nif (v_depth > 1.0) {discard;}\n#endif\n#ifdef OVERDRAW_INSPECTOR\nfragColor=vec4(1.0);\n#endif\n}", "\n#define scale 0.015873016\n#define LINE_DISTANCE_SCALE 2.0\nlayout(location=0) in vec2 a_pos_normal;layout(location=1) in vec4 a_data;layout(location=2) in float a_uv_x;layout(location=3) in float a_split_index;uniform vec2 u_translation;uniform mediump float u_ratio;uniform lowp float u_device_pixel_ratio;uniform vec2 u_units_to_pixels;uniform float u_image_height;uniform float u_tileratio;uniform float u_crossfade_from;uniform float u_crossfade_to;uniform float u_lineatlas_height;out vec2 v_normal;flat out vec2 v_width2;out float v_gamma_scale;out highp vec2 v_uv;out vec2 v_tex_a;out vec2 v_tex_b;\n#ifdef GLOBE\nout float v_depth;\n#endif\n#pragma mapbox: define lowp float blur\n#pragma mapbox: define lowp float opacity\n#pragma mapbox: define mediump float gapwidth\n#pragma mapbox: define lowp float offset\n#pragma mapbox: define mediump float width\n#pragma mapbox: define lowp float floorwidth\n#pragma mapbox: define mediump vec4 dasharray_from\n#pragma mapbox: define mediump vec4 dasharray_to\nvoid main() {\n#pragma mapbox: initialize lowp float blur\n#pragma mapbox: initialize lowp float opacity\n#pragma mapbox: initialize mediump float gapwidth\n#pragma mapbox: initialize lowp float offset\n#pragma mapbox: initialize mediump float width\n#pragma mapbox: initialize lowp float floorwidth\n#pragma mapbox: initialize mediump vec4 dasharray_from\n#pragma mapbox: initialize mediump vec4 dasharray_to\nif (opacity < 0.01) {gl_Position=vec4(-2.0,-2.0,-2.0,1.0);return;}float ANTIALIASING=1.0/u_device_pixel_ratio/2.0;vec2 a_extrude=a_data.xy-128.0;float a_direction=mod(a_data.z,4.0)-1.0;float a_linesofar=(floor(a_data.z/4.0)+a_data.w*64.0)*LINE_DISTANCE_SCALE;float texel_height=1.0/u_image_height;float half_texel_height=0.5*texel_height;v_uv=vec2(a_uv_x,a_split_index*texel_height-half_texel_height);vec2 pos=floor(a_pos_normal*0.5);mediump vec2 normal=a_pos_normal-2.0*pos;normal.y=normal.y*2.0-1.0;v_normal=normal;gapwidth=gapwidth/2.0;float halfwidth=width/2.0;offset=-1.0*offset;float inset=gapwidth+(gapwidth > 0.0 ? ANTIALIASING : 0.0);float outset=gapwidth+halfwidth*(gapwidth > 0.0 ? 2.0 : 1.0)+(halfwidth==0.0 ? 0.0 : ANTIALIASING);mediump vec2 dist=outset*a_extrude*scale;mediump float u=0.5*a_direction;mediump float t=1.0-abs(u);mediump vec2 offset2=offset*a_extrude*scale*normal.y*mat2(t,-u,u,t);float adjustedThickness=projectLineThickness(pos.y);vec4 projected_no_extrude=projectTile(pos+offset2/u_ratio*adjustedThickness+u_translation);vec4 projected_with_extrude=projectTile(pos+offset2/u_ratio*adjustedThickness+u_translation+dist/u_ratio*adjustedThickness);gl_Position=projected_with_extrude;\n#ifdef GLOBE\nv_depth=gl_Position.z/gl_Position.w;\n#endif\n#ifdef TERRAIN3D\nv_gamma_scale=1.0;\n#else\nfloat extrude_length_without_perspective=length(dist);float extrude_length_with_perspective=length((projected_with_extrude.xy-projected_no_extrude.xy)/projected_with_extrude.w*u_units_to_pixels);v_gamma_scale=extrude_length_without_perspective/extrude_length_with_perspective;\n#endif\nfloat u_patternscale_a_x=u_tileratio/dasharray_from.w/u_crossfade_from;float u_patternscale_a_y=-dasharray_from.z/2.0/u_lineatlas_height;float u_patternscale_b_x=u_tileratio/dasharray_to.w/u_crossfade_to;float u_patternscale_b_y=-dasharray_to.z/2.0/u_lineatlas_height;v_tex_a=vec2(a_linesofar*u_patternscale_a_x/floorwidth,normal.y*u_patternscale_a_y+(float(dasharray_from.y)+0.5)/u_lineatlas_height);v_tex_b=vec2(a_linesofar*u_patternscale_b_x/floorwidth,normal.y*u_patternscale_b_y+(float(dasharray_to.y)+0.5)/u_lineatlas_height);v_width2=vec2(outset,inset);}"),
-	lineTexture: prepare("uniform sampler2D u_image;uniform float u_opacity;in vec2 v_pos;void main() {fragColor=texture(u_image,v_pos)*u_opacity;\n#ifdef OVERDRAW_INSPECTOR\nfragColor=vec4(0.0);\n#endif\n}", "uniform mat4 u_matrix;uniform vec2 u_world;layout(location=0) in vec2 a_pos;out vec2 v_pos;void main() {gl_Position=u_matrix*vec4(a_pos*u_world,0,1);v_pos.x=a_pos.x;v_pos.y=1.0-a_pos.y;}"),
+	line: prepare("uniform lowp float u_device_pixel_ratio;flat in vec2 v_width2;in vec2 v_normal;in float v_gamma_scale;\n#ifdef GLOBE\nin float v_depth;\n#endif\n#pragma maplibre: define highp vec4 color\n#pragma maplibre: define lowp float blur\n#pragma maplibre: define lowp float opacity\nvoid main() {\n#pragma maplibre: initialize highp vec4 color\n#pragma maplibre: initialize lowp float blur\n#pragma maplibre: initialize lowp float opacity\nfloat dist=length(v_normal)*v_width2.s;float blur2=(blur+1.0/u_device_pixel_ratio)*v_gamma_scale;float alpha=clamp(min(dist-(v_width2.t-blur2),v_width2.s-dist)/blur2,0.0,1.0);fragColor=color*(alpha*opacity);\n#ifdef GLOBE\nif (v_depth > 1.0) {discard;}\n#endif\n#ifdef OVERDRAW_INSPECTOR\nfragColor=vec4(1.0);\n#endif\n}", "\n#define scale 0.015873016\nlayout(location=0) in vec2 a_pos_normal;layout(location=1) in vec4 a_data;uniform vec2 u_translation;uniform mediump float u_ratio;uniform vec2 u_units_to_pixels;uniform lowp float u_device_pixel_ratio;out vec2 v_normal;flat out vec2 v_width2;out float v_gamma_scale;out highp float v_linesofar;\n#ifdef GLOBE\nout float v_depth;\n#endif\n#pragma maplibre: define highp vec4 color\n#pragma maplibre: define lowp float blur\n#pragma maplibre: define lowp float opacity\n#pragma maplibre: define mediump float gapwidth\n#pragma maplibre: define lowp float offset\n#pragma maplibre: define mediump float width\nvoid main() {\n#pragma maplibre: initialize highp vec4 color\n#pragma maplibre: initialize lowp float blur\n#pragma maplibre: initialize lowp float opacity\n#pragma maplibre: initialize mediump float gapwidth\n#pragma maplibre: initialize lowp float offset\n#pragma maplibre: initialize mediump float width\nif (opacity < 0.01) {gl_Position=vec4(-2.0,-2.0,-2.0,1.0);return;}float ANTIALIASING=1.0/u_device_pixel_ratio/2.0;vec2 a_extrude=a_data.xy-128.0;float a_direction=mod(a_data.z,4.0)-1.0;v_linesofar=(floor(a_data.z/4.0)+a_data.w*64.0)*2.0;vec2 pos=floor(a_pos_normal*0.5);mediump vec2 normal=a_pos_normal-2.0*pos;normal.y=normal.y*2.0-1.0;v_normal=normal;gapwidth=gapwidth/2.0;float halfwidth=width/2.0;offset=-1.0*offset;float inset=gapwidth+(gapwidth > 0.0 ? ANTIALIASING : 0.0);float outset=gapwidth+halfwidth*(gapwidth > 0.0 ? 2.0 : 1.0)+(halfwidth==0.0 ? 0.0 : ANTIALIASING);mediump vec2 dist=outset*a_extrude*scale;mediump float u=0.5*a_direction;mediump float t=1.0-abs(u);mediump vec2 offset2=offset*a_extrude*scale*normal.y*mat2(t,-u,u,t);float adjustedThickness=projectLineThickness(pos.y);vec4 projected_no_extrude=projectTile(pos+offset2/u_ratio*adjustedThickness+u_translation);vec4 projected_with_extrude=projectTile(pos+offset2/u_ratio*adjustedThickness+u_translation+dist/u_ratio*adjustedThickness);gl_Position=projected_with_extrude;\n#ifdef GLOBE\nv_depth=gl_Position.z/gl_Position.w;\n#endif\n#ifdef TERRAIN3D\nv_gamma_scale=1.0;\n#else\nfloat extrude_length_without_perspective=length(dist);float extrude_length_with_perspective=length((projected_with_extrude.xy-projected_no_extrude.xy)/projected_with_extrude.w*u_units_to_pixels);v_gamma_scale=extrude_length_without_perspective/extrude_length_with_perspective;\n#endif\nv_width2=vec2(outset,inset);}"),
+	lineGradient: prepare("uniform lowp float u_device_pixel_ratio;uniform sampler2D u_image;flat in vec2 v_width2;in vec2 v_normal;in float v_gamma_scale;in highp vec2 v_uv;\n#ifdef GLOBE\nin float v_depth;\n#endif\n#pragma maplibre: define lowp float blur\n#pragma maplibre: define lowp float opacity\nvoid main() {\n#pragma maplibre: initialize lowp float blur\n#pragma maplibre: initialize lowp float opacity\nfloat dist=length(v_normal)*v_width2.s;float blur2=(blur+1.0/u_device_pixel_ratio)*v_gamma_scale;float alpha=clamp(min(dist-(v_width2.t-blur2),v_width2.s-dist)/blur2,0.0,1.0);vec4 color=texture(u_image,v_uv);fragColor=color*(alpha*opacity);\n#ifdef GLOBE\nif (v_depth > 1.0) {discard;}\n#endif\n#ifdef OVERDRAW_INSPECTOR\nfragColor=vec4(1.0);\n#endif\n}", "\n#define scale 0.015873016\nlayout(location=0) in vec2 a_pos_normal;layout(location=1) in vec4 a_data;layout(location=2) in float a_uv_x;layout(location=3) in float a_split_index;uniform vec2 u_translation;uniform mediump float u_ratio;uniform lowp float u_device_pixel_ratio;uniform vec2 u_units_to_pixels;uniform float u_image_height;out vec2 v_normal;flat out vec2 v_width2;out float v_gamma_scale;out highp vec2 v_uv;\n#ifdef GLOBE\nout float v_depth;\n#endif\n#pragma maplibre: define lowp float blur\n#pragma maplibre: define lowp float opacity\n#pragma maplibre: define mediump float gapwidth\n#pragma maplibre: define lowp float offset\n#pragma maplibre: define mediump float width\nvoid main() {\n#pragma maplibre: initialize lowp float blur\n#pragma maplibre: initialize lowp float opacity\n#pragma maplibre: initialize mediump float gapwidth\n#pragma maplibre: initialize lowp float offset\n#pragma maplibre: initialize mediump float width\nif (opacity < 0.01) {gl_Position=vec4(-2.0,-2.0,-2.0,1.0);return;}float ANTIALIASING=1.0/u_device_pixel_ratio/2.0;vec2 a_extrude=a_data.xy-128.0;float a_direction=mod(a_data.z,4.0)-1.0;highp float texel_height=1.0/u_image_height;highp float half_texel_height=0.5*texel_height;v_uv=vec2(a_uv_x,a_split_index*texel_height-half_texel_height);vec2 pos=floor(a_pos_normal*0.5);mediump vec2 normal=a_pos_normal-2.0*pos;normal.y=normal.y*2.0-1.0;v_normal=normal;gapwidth=gapwidth/2.0;float halfwidth=width/2.0;offset=-1.0*offset;float inset=gapwidth+(gapwidth > 0.0 ? ANTIALIASING : 0.0);float outset=gapwidth+halfwidth*(gapwidth > 0.0 ? 2.0 : 1.0)+(halfwidth==0.0 ? 0.0 : ANTIALIASING);mediump vec2 dist=outset*a_extrude*scale;mediump float u=0.5*a_direction;mediump float t=1.0-abs(u);mediump vec2 offset2=offset*a_extrude*scale*normal.y*mat2(t,-u,u,t);float adjustedThickness=projectLineThickness(pos.y);vec4 projected_no_extrude=projectTile(pos+offset2/u_ratio*adjustedThickness+u_translation);vec4 projected_with_extrude=projectTile(pos+offset2/u_ratio*adjustedThickness+u_translation+dist/u_ratio*adjustedThickness);gl_Position=projected_with_extrude;\n#ifdef GLOBE\nv_depth=gl_Position.z/gl_Position.w;\n#endif\n#ifdef TERRAIN3D\nv_gamma_scale=1.0;\n#else\nfloat extrude_length_without_perspective=length(dist);float extrude_length_with_perspective=length((projected_with_extrude.xy-projected_no_extrude.xy)/projected_with_extrude.w*u_units_to_pixels);v_gamma_scale=extrude_length_without_perspective/extrude_length_with_perspective;\n#endif\nv_width2=vec2(outset,inset);}"),
+	linePattern: prepare("#ifdef GL_ES\nprecision highp float;\n#endif\nuniform lowp float u_device_pixel_ratio;uniform vec2 u_texsize;uniform float u_fade;uniform mediump vec3 u_scale;uniform sampler2D u_image;in vec2 v_normal;flat in vec2 v_width2;in float v_linesofar;in float v_gamma_scale;flat in float v_width;\n#ifdef GLOBE\nin float v_depth;\n#endif\n#pragma maplibre: define lowp vec4 pattern_from\n#pragma maplibre: define lowp vec4 pattern_to\n#pragma maplibre: define lowp float pixel_ratio_from\n#pragma maplibre: define lowp float pixel_ratio_to\n#pragma maplibre: define lowp float blur\n#pragma maplibre: define lowp float opacity\nvoid main() {\n#pragma maplibre: initialize mediump vec4 pattern_from\n#pragma maplibre: initialize mediump vec4 pattern_to\n#pragma maplibre: initialize lowp float pixel_ratio_from\n#pragma maplibre: initialize lowp float pixel_ratio_to\n#pragma maplibre: initialize lowp float blur\n#pragma maplibre: initialize lowp float opacity\nvec2 pattern_tl_a=pattern_from.xy;vec2 pattern_br_a=pattern_from.zw;vec2 pattern_tl_b=pattern_to.xy;vec2 pattern_br_b=pattern_to.zw;float tileZoomRatio=u_scale.x;float fromScale=u_scale.y;float toScale=u_scale.z;vec2 display_size_a=(pattern_br_a-pattern_tl_a)/pixel_ratio_from;vec2 display_size_b=(pattern_br_b-pattern_tl_b)/pixel_ratio_to;vec2 pattern_size_a=vec2(display_size_a.x*fromScale/tileZoomRatio,display_size_a.y);vec2 pattern_size_b=vec2(display_size_b.x*toScale/tileZoomRatio,display_size_b.y);float aspect_a=display_size_a.y/v_width;float aspect_b=display_size_b.y/v_width;float dist=length(v_normal)*v_width2.s;float blur2=(blur+1.0/u_device_pixel_ratio)*v_gamma_scale;float alpha=clamp(min(dist-(v_width2.t-blur2),v_width2.s-dist)/blur2,0.0,1.0);float x_a=mod(v_linesofar/pattern_size_a.x*aspect_a,1.0);float x_b=mod(v_linesofar/pattern_size_b.x*aspect_b,1.0);float y=0.5*v_normal.y+0.5;vec2 texel_size=1.0/u_texsize;vec2 pos_a=mix(pattern_tl_a*texel_size-texel_size,pattern_br_a*texel_size+texel_size,vec2(x_a,y));vec2 pos_b=mix(pattern_tl_b*texel_size-texel_size,pattern_br_b*texel_size+texel_size,vec2(x_b,y));vec4 color=mix(texture(u_image,pos_a),texture(u_image,pos_b),u_fade);fragColor=color*alpha*opacity;\n#ifdef GLOBE\nif (v_depth > 1.0) {discard;}\n#endif\n#ifdef OVERDRAW_INSPECTOR\nfragColor=vec4(1.0);\n#endif\n}", "\n#define scale 0.015873016\n#define LINE_DISTANCE_SCALE 2.0\nlayout(location=0) in vec2 a_pos_normal;layout(location=1) in vec4 a_data;uniform vec2 u_translation;uniform vec2 u_units_to_pixels;uniform mediump float u_ratio;uniform lowp float u_device_pixel_ratio;out vec2 v_normal;flat out vec2 v_width2;out float v_linesofar;out float v_gamma_scale;flat out float v_width;\n#ifdef GLOBE\nout float v_depth;\n#endif\n#pragma maplibre: define lowp float blur\n#pragma maplibre: define lowp float opacity\n#pragma maplibre: define lowp float offset\n#pragma maplibre: define mediump float gapwidth\n#pragma maplibre: define mediump float width\n#pragma maplibre: define lowp float floorwidth\n#pragma maplibre: define lowp vec4 pattern_from\n#pragma maplibre: define lowp vec4 pattern_to\n#pragma maplibre: define lowp float pixel_ratio_from\n#pragma maplibre: define lowp float pixel_ratio_to\nvoid main() {\n#pragma maplibre: initialize lowp float blur\n#pragma maplibre: initialize lowp float opacity\n#pragma maplibre: initialize lowp float offset\n#pragma maplibre: initialize mediump float gapwidth\n#pragma maplibre: initialize mediump float width\n#pragma maplibre: initialize lowp float floorwidth\n#pragma maplibre: initialize mediump vec4 pattern_from\n#pragma maplibre: initialize mediump vec4 pattern_to\n#pragma maplibre: initialize lowp float pixel_ratio_from\n#pragma maplibre: initialize lowp float pixel_ratio_to\nif (opacity < 0.01) {gl_Position=vec4(-2.0,-2.0,-2.0,1.0);return;}float ANTIALIASING=1.0/u_device_pixel_ratio/2.0;vec2 a_extrude=a_data.xy-128.0;float a_direction=mod(a_data.z,4.0)-1.0;float a_linesofar=(floor(a_data.z/4.0)+a_data.w*64.0)*LINE_DISTANCE_SCALE;vec2 pos=floor(a_pos_normal*0.5);mediump vec2 normal=a_pos_normal-2.0*pos;normal.y=normal.y*2.0-1.0;v_normal=normal;gapwidth=gapwidth/2.0;float halfwidth=width/2.0;offset=-1.0*offset;float inset=gapwidth+(gapwidth > 0.0 ? ANTIALIASING : 0.0);float outset=gapwidth+halfwidth*(gapwidth > 0.0 ? 2.0 : 1.0)+(halfwidth==0.0 ? 0.0 : ANTIALIASING);mediump vec2 dist=outset*a_extrude*scale;mediump float u=0.5*a_direction;mediump float t=1.0-abs(u);mediump vec2 offset2=offset*a_extrude*scale*normal.y*mat2(t,-u,u,t);float adjustedThickness=projectLineThickness(pos.y);vec4 projected_no_extrude=projectTile(pos+offset2/u_ratio*adjustedThickness+u_translation);vec4 projected_with_extrude=projectTile(pos+offset2/u_ratio*adjustedThickness+u_translation+dist/u_ratio*adjustedThickness);gl_Position=projected_with_extrude;\n#ifdef GLOBE\nv_depth=gl_Position.z/gl_Position.w;\n#endif\n#ifdef TERRAIN3D\nv_gamma_scale=1.0;\n#else\nfloat extrude_length_without_perspective=length(dist);float extrude_length_with_perspective=length((projected_with_extrude.xy-projected_no_extrude.xy)/projected_with_extrude.w*u_units_to_pixels);v_gamma_scale=extrude_length_without_perspective/extrude_length_with_perspective;\n#endif\nv_linesofar=a_linesofar;v_width2=vec2(outset,inset);v_width=floorwidth;}"),
+	lineSDF: prepare("uniform lowp float u_device_pixel_ratio;uniform lowp float u_lineatlas_width;uniform sampler2D u_image;uniform float u_mix;in vec2 v_normal;flat in vec2 v_width2;in vec2 v_tex_a;in vec2 v_tex_b;in float v_gamma_scale;\n#ifdef GLOBE\nin float v_depth;\n#endif\n#pragma maplibre: define highp vec4 color\n#pragma maplibre: define lowp float blur\n#pragma maplibre: define lowp float opacity\n#pragma maplibre: define mediump float width\n#pragma maplibre: define lowp float floorwidth\n#pragma maplibre: define mediump vec4 dasharray_from\n#pragma maplibre: define mediump vec4 dasharray_to\nvoid main() {\n#pragma maplibre: initialize highp vec4 color\n#pragma maplibre: initialize lowp float blur\n#pragma maplibre: initialize lowp float opacity\n#pragma maplibre: initialize mediump float width\n#pragma maplibre: initialize lowp float floorwidth\n#pragma maplibre: initialize mediump vec4 dasharray_from\n#pragma maplibre: initialize mediump vec4 dasharray_to\nfloat dist=length(v_normal)*v_width2.s;float blur2=(blur+1.0/u_device_pixel_ratio)*v_gamma_scale;float alpha=clamp(min(dist-(v_width2.t-blur2),v_width2.s-dist)/blur2,0.0,1.0);float sdfdist_a=texture(u_image,v_tex_a).a;float sdfdist_b=texture(u_image,v_tex_b).a;float sdfdist=mix(sdfdist_a,sdfdist_b,u_mix);float sdfgamma=(u_lineatlas_width/256.0/u_device_pixel_ratio)/min(dasharray_from.w,dasharray_to.w);alpha*=smoothstep(0.5-sdfgamma/floorwidth,0.5+sdfgamma/floorwidth,sdfdist);fragColor=color*(alpha*opacity);\n#ifdef GLOBE\nif (v_depth > 1.0) {discard;}\n#endif\n#ifdef OVERDRAW_INSPECTOR\nfragColor=vec4(1.0);\n#endif\n}", "\n#define scale 0.015873016\n#define LINE_DISTANCE_SCALE 2.0\nlayout(location=0) in vec2 a_pos_normal;layout(location=1) in vec4 a_data;uniform vec2 u_translation;uniform mediump float u_ratio;uniform lowp float u_device_pixel_ratio;uniform vec2 u_units_to_pixels;uniform float u_tileratio;uniform float u_crossfade_from;uniform float u_crossfade_to;uniform float u_lineatlas_height;out vec2 v_normal;flat out vec2 v_width2;out vec2 v_tex_a;out vec2 v_tex_b;out float v_gamma_scale;\n#ifdef GLOBE\nout float v_depth;\n#endif\n#pragma maplibre: define highp vec4 color\n#pragma maplibre: define lowp float blur\n#pragma maplibre: define lowp float opacity\n#pragma maplibre: define mediump float gapwidth\n#pragma maplibre: define lowp float offset\n#pragma maplibre: define mediump float width\n#pragma maplibre: define lowp float floorwidth\n#pragma maplibre: define mediump vec4 dasharray_from\n#pragma maplibre: define mediump vec4 dasharray_to\nvoid main() {\n#pragma maplibre: initialize highp vec4 color\n#pragma maplibre: initialize lowp float blur\n#pragma maplibre: initialize lowp float opacity\n#pragma maplibre: initialize mediump float gapwidth\n#pragma maplibre: initialize lowp float offset\n#pragma maplibre: initialize mediump float width\n#pragma maplibre: initialize lowp float floorwidth\n#pragma maplibre: initialize mediump vec4 dasharray_from\n#pragma maplibre: initialize mediump vec4 dasharray_to\nif (opacity < 0.01) {gl_Position=vec4(-2.0,-2.0,-2.0,1.0);return;}float ANTIALIASING=1.0/u_device_pixel_ratio/2.0;vec2 a_extrude=a_data.xy-128.0;float a_direction=mod(a_data.z,4.0)-1.0;float a_linesofar=(floor(a_data.z/4.0)+a_data.w*64.0)*LINE_DISTANCE_SCALE;vec2 pos=floor(a_pos_normal*0.5);mediump vec2 normal=a_pos_normal-2.0*pos;normal.y=normal.y*2.0-1.0;v_normal=normal;gapwidth=gapwidth/2.0;float halfwidth=width/2.0;offset=-1.0*offset;float inset=gapwidth+(gapwidth > 0.0 ? ANTIALIASING : 0.0);float outset=gapwidth+halfwidth*(gapwidth > 0.0 ? 2.0 : 1.0)+(halfwidth==0.0 ? 0.0 : ANTIALIASING);mediump vec2 dist=outset*a_extrude*scale;mediump float u=0.5*a_direction;mediump float t=1.0-abs(u);mediump vec2 offset2=offset*a_extrude*scale*normal.y*mat2(t,-u,u,t);float adjustedThickness=projectLineThickness(pos.y);vec4 projected_no_extrude=projectTile(pos+offset2/u_ratio*adjustedThickness+u_translation);vec4 projected_with_extrude=projectTile(pos+offset2/u_ratio*adjustedThickness+u_translation+dist/u_ratio*adjustedThickness);gl_Position=projected_with_extrude;\n#ifdef GLOBE\nv_depth=gl_Position.z/gl_Position.w;\n#endif\n#ifdef TERRAIN3D\nv_gamma_scale=1.0;\n#else\nfloat extrude_length_without_perspective=length(dist);float extrude_length_with_perspective=length((projected_with_extrude.xy-projected_no_extrude.xy)/projected_with_extrude.w*u_units_to_pixels);v_gamma_scale=extrude_length_without_perspective/extrude_length_with_perspective;\n#endif\nfloat u_patternscale_a_x=u_tileratio/dasharray_from.w/u_crossfade_from;float u_patternscale_a_y=-dasharray_from.z/2.0/u_lineatlas_height;float u_patternscale_b_x=u_tileratio/dasharray_to.w/u_crossfade_to;float u_patternscale_b_y=-dasharray_to.z/2.0/u_lineatlas_height;v_tex_a=vec2(a_linesofar*u_patternscale_a_x/floorwidth,normal.y*u_patternscale_a_y+(float(dasharray_from.y)+0.5)/u_lineatlas_height);v_tex_b=vec2(a_linesofar*u_patternscale_b_x/floorwidth,normal.y*u_patternscale_b_y+(float(dasharray_to.y)+0.5)/u_lineatlas_height);v_width2=vec2(outset,inset);}"),
+	lineGradientSDF: prepare("uniform lowp float u_device_pixel_ratio;uniform sampler2D u_image;uniform sampler2D u_image_dash;uniform float u_mix;uniform lowp float u_lineatlas_width;in vec2 v_normal;flat in vec2 v_width2;in vec2 v_tex_a;in vec2 v_tex_b;in float v_gamma_scale;in highp vec2 v_uv;\n#ifdef GLOBE\nin float v_depth;\n#endif\n#pragma maplibre: define lowp float blur\n#pragma maplibre: define lowp float opacity\n#pragma maplibre: define mediump float width\n#pragma maplibre: define lowp float floorwidth\n#pragma maplibre: define mediump vec4 dasharray_from\n#pragma maplibre: define mediump vec4 dasharray_to\nvoid main() {\n#pragma maplibre: initialize lowp float blur\n#pragma maplibre: initialize lowp float opacity\n#pragma maplibre: initialize mediump float width\n#pragma maplibre: initialize lowp float floorwidth\n#pragma maplibre: initialize mediump vec4 dasharray_from\n#pragma maplibre: initialize mediump vec4 dasharray_to\nfloat dist=length(v_normal)*v_width2.s;float blur2=(blur+1.0/u_device_pixel_ratio)*v_gamma_scale;float alpha=clamp(min(dist-(v_width2.t-blur2),v_width2.s-dist)/blur2,0.0,1.0);vec4 color=texture(u_image,v_uv);float sdfdist_a=texture(u_image_dash,v_tex_a).a;float sdfdist_b=texture(u_image_dash,v_tex_b).a;float sdfdist=mix(sdfdist_a,sdfdist_b,u_mix);float sdfgamma=(u_lineatlas_width/256.0)/min(dasharray_from.w,dasharray_to.w);float dash_alpha=smoothstep(0.5-sdfgamma/floorwidth,0.5+sdfgamma/floorwidth,sdfdist);fragColor=color*(alpha*dash_alpha*opacity);\n#ifdef GLOBE\nif (v_depth > 1.0) {discard;}\n#endif\n#ifdef OVERDRAW_INSPECTOR\nfragColor=vec4(1.0);\n#endif\n}", "\n#define scale 0.015873016\n#define LINE_DISTANCE_SCALE 2.0\nlayout(location=0) in vec2 a_pos_normal;layout(location=1) in vec4 a_data;layout(location=2) in float a_uv_x;layout(location=3) in float a_split_index;uniform vec2 u_translation;uniform mediump float u_ratio;uniform lowp float u_device_pixel_ratio;uniform vec2 u_units_to_pixels;uniform float u_image_height;uniform float u_tileratio;uniform float u_crossfade_from;uniform float u_crossfade_to;uniform float u_lineatlas_height;out vec2 v_normal;flat out vec2 v_width2;out float v_gamma_scale;out highp vec2 v_uv;out vec2 v_tex_a;out vec2 v_tex_b;\n#ifdef GLOBE\nout float v_depth;\n#endif\n#pragma maplibre: define lowp float blur\n#pragma maplibre: define lowp float opacity\n#pragma maplibre: define mediump float gapwidth\n#pragma maplibre: define lowp float offset\n#pragma maplibre: define mediump float width\n#pragma maplibre: define lowp float floorwidth\n#pragma maplibre: define mediump vec4 dasharray_from\n#pragma maplibre: define mediump vec4 dasharray_to\nvoid main() {\n#pragma maplibre: initialize lowp float blur\n#pragma maplibre: initialize lowp float opacity\n#pragma maplibre: initialize mediump float gapwidth\n#pragma maplibre: initialize lowp float offset\n#pragma maplibre: initialize mediump float width\n#pragma maplibre: initialize lowp float floorwidth\n#pragma maplibre: initialize mediump vec4 dasharray_from\n#pragma maplibre: initialize mediump vec4 dasharray_to\nif (opacity < 0.01) {gl_Position=vec4(-2.0,-2.0,-2.0,1.0);return;}float ANTIALIASING=1.0/u_device_pixel_ratio/2.0;vec2 a_extrude=a_data.xy-128.0;float a_direction=mod(a_data.z,4.0)-1.0;float a_linesofar=(floor(a_data.z/4.0)+a_data.w*64.0)*LINE_DISTANCE_SCALE;float texel_height=1.0/u_image_height;float half_texel_height=0.5*texel_height;v_uv=vec2(a_uv_x,a_split_index*texel_height-half_texel_height);vec2 pos=floor(a_pos_normal*0.5);mediump vec2 normal=a_pos_normal-2.0*pos;normal.y=normal.y*2.0-1.0;v_normal=normal;gapwidth=gapwidth/2.0;float halfwidth=width/2.0;offset=-1.0*offset;float inset=gapwidth+(gapwidth > 0.0 ? ANTIALIASING : 0.0);float outset=gapwidth+halfwidth*(gapwidth > 0.0 ? 2.0 : 1.0)+(halfwidth==0.0 ? 0.0 : ANTIALIASING);mediump vec2 dist=outset*a_extrude*scale;mediump float u=0.5*a_direction;mediump float t=1.0-abs(u);mediump vec2 offset2=offset*a_extrude*scale*normal.y*mat2(t,-u,u,t);float adjustedThickness=projectLineThickness(pos.y);vec4 projected_no_extrude=projectTile(pos+offset2/u_ratio*adjustedThickness+u_translation);vec4 projected_with_extrude=projectTile(pos+offset2/u_ratio*adjustedThickness+u_translation+dist/u_ratio*adjustedThickness);gl_Position=projected_with_extrude;\n#ifdef GLOBE\nv_depth=gl_Position.z/gl_Position.w;\n#endif\n#ifdef TERRAIN3D\nv_gamma_scale=1.0;\n#else\nfloat extrude_length_without_perspective=length(dist);float extrude_length_with_perspective=length((projected_with_extrude.xy-projected_no_extrude.xy)/projected_with_extrude.w*u_units_to_pixels);v_gamma_scale=extrude_length_without_perspective/extrude_length_with_perspective;\n#endif\nfloat u_patternscale_a_x=u_tileratio/dasharray_from.w/u_crossfade_from;float u_patternscale_a_y=-dasharray_from.z/2.0/u_lineatlas_height;float u_patternscale_b_x=u_tileratio/dasharray_to.w/u_crossfade_to;float u_patternscale_b_y=-dasharray_to.z/2.0/u_lineatlas_height;v_tex_a=vec2(a_linesofar*u_patternscale_a_x/floorwidth,normal.y*u_patternscale_a_y+(float(dasharray_from.y)+0.5)/u_lineatlas_height);v_tex_b=vec2(a_linesofar*u_patternscale_b_x/floorwidth,normal.y*u_patternscale_b_y+(float(dasharray_to.y)+0.5)/u_lineatlas_height);v_width2=vec2(outset,inset);}"),
+	layerOpacity: prepare("uniform sampler2D u_image;uniform float u_opacity;in vec2 v_pos;void main() {fragColor=texture(u_image,v_pos)*u_opacity;\n#ifdef OVERDRAW_INSPECTOR\nfragColor=vec4(0.0);\n#endif\n}", "layout(location=0) in vec2 a_pos;out vec2 v_pos;void main() {gl_Position=vec4(a_pos.x*2.0-1.0,1.0-a_pos.y*2.0,0.0,1.0);v_pos.x=a_pos.x;v_pos.y=1.0-a_pos.y;}"),
 	raster: prepare("uniform float u_fade_t;uniform float u_opacity;uniform sampler2D u_image0;uniform sampler2D u_image1;in vec2 v_pos0;in vec2 v_pos1;uniform float u_brightness_low;uniform float u_brightness_high;uniform float u_saturation_factor;uniform float u_contrast_factor;uniform vec3 u_spin_weights;void main() {vec4 color0=texture(u_image0,v_pos0);vec4 color1=texture(u_image1,v_pos1);if (color0.a > 0.0) {color0.rgb=color0.rgb/color0.a;}if (color1.a > 0.0) {color1.rgb=color1.rgb/color1.a;}vec4 color=mix(color0,color1,u_fade_t);color.a*=u_opacity;vec3 rgb=color.rgb;rgb=vec3(dot(rgb,u_spin_weights.xyz),dot(rgb,u_spin_weights.zxy),dot(rgb,u_spin_weights.yzx));float average=(color.r+color.g+color.b)/3.0;rgb+=(average-rgb)*u_saturation_factor;rgb=(rgb-0.5)*u_contrast_factor+0.5;vec3 u_high_vec=vec3(u_brightness_low,u_brightness_low,u_brightness_low);vec3 u_low_vec=vec3(u_brightness_high,u_brightness_high,u_brightness_high);fragColor=vec4(mix(u_high_vec,u_low_vec,rgb)*color.a,color.a);\n#ifdef OVERDRAW_INSPECTOR\nfragColor=vec4(1.0);\n#endif\n}", "uniform vec2 u_tl_parent;uniform float u_scale_parent;uniform float u_buffer_scale;uniform vec4 u_coords_top;uniform vec4 u_coords_bottom;layout(location=0) in vec2 a_pos;out vec2 v_pos0;out vec2 v_pos1;void main() {vec2 fractionalPos=a_pos/8192.0;vec2 position=mix(mix(u_coords_top.xy,u_coords_top.zw,fractionalPos.x),mix(u_coords_bottom.xy,u_coords_bottom.zw,fractionalPos.x),fractionalPos.y);gl_Position=projectTile(position,position);v_pos0=((fractionalPos-0.5)/u_buffer_scale)+0.5;\n#ifdef GLOBE\nif (a_pos.y <-32767.5) {v_pos0.y=0.0;}if (a_pos.y > 32766.5) {v_pos0.y=1.0;}\n#endif\nv_pos1=(v_pos0*u_scale_parent)+u_tl_parent;}"),
-	symbolIcon: prepare("uniform sampler2D u_texture;in vec2 v_tex;flat in float v_total_opacity;void main() {fragColor=texture(u_texture,v_tex)*v_total_opacity;\n#ifdef OVERDRAW_INSPECTOR\nfragColor=vec4(1.0);\n#endif\n}", "layout(location=0) in vec4 a_pos_offset;layout(location=1) in vec4 a_data;layout(location=2) in vec4 a_pixeloffset;layout(location=3) in vec3 a_projected_pos;layout(location=4) in float a_fade_opacity;uniform bool u_is_size_zoom_constant;uniform bool u_is_size_feature_constant;uniform highp float u_size_t;uniform highp float u_size;uniform highp float u_camera_to_center_distance;uniform highp float u_pitch;uniform bool u_rotate_symbol;uniform highp float u_aspect_ratio;uniform float u_fade_change;uniform mat4 u_label_plane_matrix;uniform mat4 u_coord_matrix;uniform bool u_is_text;uniform bool u_pitch_with_map;uniform vec2 u_texsize;uniform bool u_is_along_line;uniform bool u_is_variable_anchor;uniform vec2 u_translation;uniform float u_pitched_scale;out vec2 v_tex;flat out float v_total_opacity;\n#pragma mapbox: define lowp float opacity\nvoid main() {\n#pragma mapbox: initialize lowp float opacity\nvec2 a_pos=a_pos_offset.xy;vec2 a_offset=a_pos_offset.zw;vec2 a_tex=a_data.xy;vec2 a_size=a_data.zw;float a_size_min=floor(a_size[0]*0.5);vec2 a_pxoffset=a_pixeloffset.xy;vec2 a_minFontScale=a_pixeloffset.zw/256.0;float ele=get_elevation(a_pos);highp float segment_angle=-a_projected_pos[2];float size;if (!u_is_size_zoom_constant && !u_is_size_feature_constant) {size=mix(a_size_min,a_size[1],u_size_t)/128.0;} else if (u_is_size_zoom_constant && !u_is_size_feature_constant) {size=a_size_min/128.0;} else {size=u_size;}vec2 translated_a_pos=a_pos+u_translation;vec4 projectedPoint=projectTileWithElevation(translated_a_pos,ele);vec2 fade_opacity=unpack_opacity(a_fade_opacity);float fade_change=fade_opacity[1] > 0.5 ? u_fade_change :-u_fade_change;float visibility=calculate_visibility(projectedPoint);v_total_opacity=opacity*max(0.0,min(visibility,fade_opacity[0]+fade_change));if (v_total_opacity < 0.1){gl_Position=vec4(-2.,-2.,-2.,1.);return;}highp float camera_to_anchor_distance=projectedPoint.w;highp float distance_ratio=u_pitch_with_map ?\ncamera_to_anchor_distance/u_camera_to_center_distance :\nu_camera_to_center_distance/camera_to_anchor_distance;highp float perspective_ratio=clamp(0.5+0.5*distance_ratio,0.0,4.0);size*=perspective_ratio;float fontScale=u_is_text ? size/24.0 : size;highp float symbol_rotation=0.0;if (u_rotate_symbol) {vec4 offsetProjectedPoint=projectTileWithElevation(translated_a_pos+vec2(1,0),ele);vec2 a=projectedPoint.xy/projectedPoint.w;vec2 b=offsetProjectedPoint.xy/offsetProjectedPoint.w;symbol_rotation=atan((b.y-a.y)/u_aspect_ratio,b.x-a.x);}highp float angle_sin=sin(segment_angle+symbol_rotation);highp float angle_cos=cos(segment_angle+symbol_rotation);mat2 rotation_matrix=mat2(angle_cos,-1.0*angle_sin,angle_sin,angle_cos);vec4 projected_pos;if (u_is_along_line || u_is_variable_anchor) {projected_pos=vec4(a_projected_pos.xy,ele,1.0);} else if (u_pitch_with_map) {projected_pos=u_label_plane_matrix*vec4(a_projected_pos.xy+u_translation,ele,1.0);} else {projected_pos=u_label_plane_matrix*projectTileWithElevation(a_projected_pos.xy+u_translation,ele);}float z=float(u_pitch_with_map)*projected_pos.z/projected_pos.w;float projectionScaling=1.0;\n#ifdef GLOBE\nif(u_pitch_with_map) {float anchor_pos_tile_y=(u_coord_matrix*vec4(projected_pos.xy/projected_pos.w,z,1.0)).y;projectionScaling=mix(projectionScaling,1.0/circumferenceRatioAtTileY(anchor_pos_tile_y)*u_pitched_scale,u_projection_transition);}\n#endif\nvec4 finalPos=u_coord_matrix*vec4(projected_pos.xy/projected_pos.w+rotation_matrix*(a_offset/32.0*max(a_minFontScale,fontScale)+a_pxoffset/16.0)*projectionScaling,z,1.0);if(u_pitch_with_map) {finalPos=projectTileWithElevation(finalPos.xy,finalPos.z);}gl_Position=finalPos;v_tex=a_tex/u_texsize;}"),
-	symbolSDF: prepare("#define SDF_PX 8.0\nuniform bool u_is_halo;uniform bool u_is_plain;uniform sampler2D u_texture;uniform highp float u_gamma_scale;uniform lowp float u_device_pixel_ratio;uniform bool u_is_text;in vec2 v_data0;in vec3 v_data1;\n#pragma mapbox: define highp vec4 fill_color\n#pragma mapbox: define highp vec4 halo_color\n#pragma mapbox: define lowp float halo_width\n#pragma mapbox: define lowp float halo_blur\nvoid main() {\n#pragma mapbox: initialize highp vec4 fill_color\n#pragma mapbox: initialize highp vec4 halo_color\n#pragma mapbox: initialize lowp float halo_width\n#pragma mapbox: initialize lowp float halo_blur\nfloat EDGE_GAMMA=0.105/u_device_pixel_ratio;vec2 tex=v_data0.xy;float gamma_scale=v_data1.x;float size=v_data1.y;float total_opacity=v_data1[2];float fontScale=u_is_text ? size/24.0 : size;highp float gamma=EDGE_GAMMA/(fontScale*u_gamma_scale);lowp float inner_edge=(256.0-64.0)/256.0;lowp float dist=texture(u_texture,tex).a;lowp vec4 color_alpha_out_text,color_alpha_out_halo;if (u_is_plain){highp float gamma_scaled=gamma*gamma_scale;highp float alpha=smoothstep(inner_edge-gamma_scaled,inner_edge+gamma_scaled,dist);color_alpha_out_text=total_opacity*alpha*fill_color;}if (u_is_halo) {float gamma_halo=(halo_blur*1.19/SDF_PX+EDGE_GAMMA)/(fontScale*u_gamma_scale);float inner_edge_halo=inner_edge+gamma_halo*gamma_scale;highp float gamma_scaled_halo=gamma_halo*gamma_scale;highp float alpha_halo=smoothstep(inner_edge_halo-gamma_scaled_halo,inner_edge_halo+gamma_scaled_halo,dist);highp float halo_edge=(6.0-halo_width/fontScale)/SDF_PX;alpha_halo= min(smoothstep(halo_edge-gamma_scaled_halo,halo_edge+gamma_scaled_halo,dist),1.0-alpha_halo);color_alpha_out_halo=total_opacity*alpha_halo*halo_color;}if (u_is_plain && u_is_halo) {fragColor=color_alpha_out_text+(1.-color_alpha_out_text.a)*color_alpha_out_halo;} else if (u_is_halo){fragColor=color_alpha_out_halo;} else {fragColor=color_alpha_out_text;}\n#ifdef OVERDRAW_INSPECTOR\nfragColor=vec4(1.0);\n#endif\n}", "layout(location=0) in vec4 a_pos_offset;layout(location=1) in vec4 a_data;layout(location=2) in vec4 a_pixeloffset;layout(location=3) in vec3 a_projected_pos;layout(location=4) in float a_fade_opacity;uniform bool u_is_size_zoom_constant;uniform bool u_is_size_feature_constant;uniform highp float u_size_t;uniform highp float u_size;uniform mat4 u_label_plane_matrix;uniform mat4 u_coord_matrix;uniform bool u_is_text;uniform bool u_pitch_with_map;uniform bool u_is_along_line;uniform bool u_is_variable_anchor;uniform highp float u_pitch;uniform bool u_rotate_symbol;uniform highp float u_aspect_ratio;uniform highp float u_camera_to_center_distance;uniform float u_fade_change;uniform vec2 u_texsize;uniform vec2 u_translation;uniform float u_pitched_scale;out vec2 v_data0;out vec3 v_data1;\n#pragma mapbox: define highp vec4 fill_color\n#pragma mapbox: define highp vec4 halo_color\n#pragma mapbox: define lowp float opacity\n#pragma mapbox: define lowp float halo_width\n#pragma mapbox: define lowp float halo_blur\nvoid main() {\n#pragma mapbox: initialize highp vec4 fill_color\n#pragma mapbox: initialize highp vec4 halo_color\n#pragma mapbox: initialize lowp float opacity\n#pragma mapbox: initialize lowp float halo_width\n#pragma mapbox: initialize lowp float halo_blur\nvec2 a_pos=a_pos_offset.xy;vec2 a_offset=a_pos_offset.zw;vec2 a_tex=a_data.xy;vec2 a_size=a_data.zw;float a_size_min=floor(a_size[0]*0.5);vec2 a_pxoffset=a_pixeloffset.xy/16.0;vec2 a_minFontScale=a_pixeloffset.zw/256.0;float ele=get_elevation(a_pos);highp float segment_angle=-a_projected_pos[2];float size;if (!u_is_size_zoom_constant && !u_is_size_feature_constant) {size=mix(a_size_min,a_size[1],u_size_t)/128.0;} else if (u_is_size_zoom_constant && !u_is_size_feature_constant) {size=a_size_min/128.0;} else {size=u_size;}vec2 translated_a_pos=a_pos+u_translation;vec4 projectedPoint=projectTileWithElevation(translated_a_pos,ele);vec2 fade_opacity=unpack_opacity(a_fade_opacity);float visibility=calculate_visibility(projectedPoint);float fade_change=fade_opacity[1] > 0.5 ? u_fade_change :-u_fade_change;float interpolated_fade_opacity=max(0.0,min(visibility,fade_opacity[0]+fade_change));float total_opacity=opacity*interpolated_fade_opacity;if (total_opacity < 0.1){gl_Position=vec4(-2.,-2.,-2.,1.);return;}highp float camera_to_anchor_distance=projectedPoint.w;highp float distance_ratio=u_pitch_with_map ?\ncamera_to_anchor_distance/u_camera_to_center_distance :\nu_camera_to_center_distance/camera_to_anchor_distance;highp float perspective_ratio=clamp(0.5+0.5*distance_ratio,0.0,4.0);size*=perspective_ratio;float fontScale=u_is_text ? size/24.0 : size;highp float symbol_rotation=0.0;if (u_rotate_symbol) {vec4 offsetProjectedPoint=projectTileWithElevation(translated_a_pos+vec2(1,0),ele);vec2 a=projectedPoint.xy/projectedPoint.w;vec2 b=offsetProjectedPoint.xy/offsetProjectedPoint.w;symbol_rotation=atan((b.y-a.y)/u_aspect_ratio,b.x-a.x);}highp float angle_sin=sin(segment_angle+symbol_rotation);highp float angle_cos=cos(segment_angle+symbol_rotation);mat2 rotation_matrix=mat2(angle_cos,-1.0*angle_sin,angle_sin,angle_cos);vec4 projected_pos;if (u_is_along_line || u_is_variable_anchor) {projected_pos=vec4(a_projected_pos.xy,ele,1.0);} else if (u_pitch_with_map) {projected_pos=u_label_plane_matrix*vec4(a_projected_pos.xy+u_translation,ele,1.0);} else {projected_pos=u_label_plane_matrix*projectTileWithElevation(a_projected_pos.xy+u_translation,ele);}float z=float(u_pitch_with_map)*projected_pos.z/projected_pos.w;float projectionScaling=1.0;\n#ifdef GLOBE\nif(u_pitch_with_map) {float anchor_pos_tile_y=(u_coord_matrix*vec4(projected_pos.xy/projected_pos.w,z,1.0)).y;projectionScaling=mix(projectionScaling,1.0/circumferenceRatioAtTileY(anchor_pos_tile_y)*u_pitched_scale,u_projection_transition);}\n#endif\nvec4 finalPos=u_coord_matrix*vec4(projected_pos.xy/projected_pos.w+rotation_matrix*(a_offset/32.0*max(a_minFontScale,fontScale)+a_pxoffset)*projectionScaling,z,1.0);if(u_pitch_with_map) {finalPos=projectTileWithElevation(finalPos.xy,finalPos.z);}float gamma_scale=finalPos.w;gl_Position=finalPos;v_data0=a_tex/u_texsize;v_data1=vec3(gamma_scale,size,total_opacity);}"),
-	symbolTextAndIcon: prepare("#define SDF_PX 8.0\n#define SDF 1.0\n#define ICON 0.0\nuniform bool u_is_halo;uniform bool u_is_text;uniform sampler2D u_texture;uniform sampler2D u_texture_icon;uniform highp float u_gamma_scale;uniform lowp float u_device_pixel_ratio;in vec4 v_data0;in vec3 v_data1;flat in float v_is_sdf;\n#pragma mapbox: define highp vec4 fill_color\n#pragma mapbox: define highp vec4 halo_color\n#pragma mapbox: define lowp float halo_width\n#pragma mapbox: define lowp float halo_blur\nvoid main() {\n#pragma mapbox: initialize highp vec4 fill_color\n#pragma mapbox: initialize highp vec4 halo_color\n#pragma mapbox: initialize lowp float halo_width\n#pragma mapbox: initialize lowp float halo_blur\nfloat total_opacity=v_data1[2];if (v_is_sdf==ICON) {vec2 tex_icon=v_data0.zw;fragColor=texture(u_texture_icon,tex_icon)*total_opacity;\n#ifdef OVERDRAW_INSPECTOR\nfragColor=vec4(1.0);\n#endif\nreturn;}vec2 tex=v_data0.xy;float EDGE_GAMMA=0.105/u_device_pixel_ratio;float gamma_scale=v_data1.x;float size=v_data1.y;float fontScale=size/24.0;highp float gamma=EDGE_GAMMA/(fontScale*u_gamma_scale);lowp float buff=(256.0-64.0)/256.0;lowp float dist=texture(u_texture,tex).a;lowp vec4 color_alpha_out,color_alpha_out_halo;if (u_is_text) {highp float gamma_scaled=gamma*gamma_scale;highp float alpha=smoothstep(buff-gamma_scaled,buff+gamma_scaled,dist);color_alpha_out=fill_color*(alpha*total_opacity);}if (u_is_halo) {highp float gamma_halo=(halo_blur*1.19/SDF_PX+EDGE_GAMMA)/(fontScale*u_gamma_scale);lowp float buff_halo=(6.0-halo_width/fontScale)/SDF_PX;highp float gamma_scaled_halo=gamma_halo*gamma_scale;highp float alpha_halo=smoothstep(buff_halo-gamma_scaled_halo,buff_halo+gamma_scaled_halo,dist);color_alpha_out_halo=halo_color*(alpha_halo*total_opacity);}if (u_is_text && u_is_halo) {fragColor=color_alpha_out+(1.-color_alpha_out.a)*color_alpha_out_halo;} else if (u_is_halo) {fragColor=color_alpha_out_halo;} else {fragColor=color_alpha_out;}\n#ifdef OVERDRAW_INSPECTOR\nfragColor=vec4(1.0);\n#endif\n}", "layout(location=0) in vec4 a_pos_offset;layout(location=1) in vec4 a_data;layout(location=2) in vec3 a_projected_pos;layout(location=3) in float a_fade_opacity;uniform bool u_is_size_zoom_constant;uniform bool u_is_size_feature_constant;uniform highp float u_size_t;uniform highp float u_size;uniform mat4 u_label_plane_matrix;uniform mat4 u_coord_matrix;uniform bool u_is_text;uniform bool u_pitch_with_map;uniform highp float u_pitch;uniform bool u_rotate_symbol;uniform highp float u_aspect_ratio;uniform highp float u_camera_to_center_distance;uniform float u_fade_change;uniform vec2 u_texsize;uniform vec2 u_texsize_icon;uniform bool u_is_along_line;uniform bool u_is_variable_anchor;uniform vec2 u_translation;uniform float u_pitched_scale;out vec4 v_data0;out vec3 v_data1;flat out float v_is_sdf;\n#pragma mapbox: define highp vec4 fill_color\n#pragma mapbox: define highp vec4 halo_color\n#pragma mapbox: define lowp float opacity\n#pragma mapbox: define lowp float halo_width\n#pragma mapbox: define lowp float halo_blur\nvoid main() {\n#pragma mapbox: initialize highp vec4 fill_color\n#pragma mapbox: initialize highp vec4 halo_color\n#pragma mapbox: initialize lowp float opacity\n#pragma mapbox: initialize lowp float halo_width\n#pragma mapbox: initialize lowp float halo_blur\nvec2 a_pos=a_pos_offset.xy;vec2 a_offset=a_pos_offset.zw;vec2 a_tex=a_data.xy;vec2 a_size=a_data.zw;float a_size_min=floor(a_size[0]*0.5);float is_sdf=a_size[0]-2.0*a_size_min;float ele=get_elevation(a_pos);highp float segment_angle=-a_projected_pos[2];float size;if (!u_is_size_zoom_constant && !u_is_size_feature_constant) {size=mix(a_size_min,a_size[1],u_size_t)/128.0;} else if (u_is_size_zoom_constant && !u_is_size_feature_constant) {size=a_size_min/128.0;} else {size=u_size;}vec2 translated_a_pos=a_pos+u_translation;vec4 projectedPoint=projectTileWithElevation(translated_a_pos,ele);vec2 fade_opacity=unpack_opacity(a_fade_opacity);float visibility=calculate_visibility(projectedPoint);float fade_change=fade_opacity[1] > 0.5 ? u_fade_change :-u_fade_change;float interpolated_fade_opacity=max(0.0,min(visibility,fade_opacity[0]+fade_change));float total_opacity=opacity*interpolated_fade_opacity;if (total_opacity < 0.1){gl_Position=vec4(-2.,-2.,-2.,1.);return;}highp float camera_to_anchor_distance=projectedPoint.w;highp float distance_ratio=u_pitch_with_map ?\ncamera_to_anchor_distance/u_camera_to_center_distance :\nu_camera_to_center_distance/camera_to_anchor_distance;highp float perspective_ratio=clamp(0.5+0.5*distance_ratio,0.0,4.0);size*=perspective_ratio;float fontScale=size/24.0;highp float symbol_rotation=0.0;if (u_rotate_symbol) {vec4 offsetProjectedPoint=projectTileWithElevation(translated_a_pos+vec2(1,0),ele);vec2 a=projectedPoint.xy/projectedPoint.w;vec2 b=offsetProjectedPoint.xy/offsetProjectedPoint.w;symbol_rotation=atan((b.y-a.y)/u_aspect_ratio,b.x-a.x);}highp float angle_sin=sin(segment_angle+symbol_rotation);highp float angle_cos=cos(segment_angle+symbol_rotation);mat2 rotation_matrix=mat2(angle_cos,-1.0*angle_sin,angle_sin,angle_cos);vec4 projected_pos;if (u_is_along_line || u_is_variable_anchor) {projected_pos=vec4(a_projected_pos.xy,ele,1.0);} else if (u_pitch_with_map) {projected_pos=u_label_plane_matrix*vec4(a_projected_pos.xy+u_translation,ele,1.0);} else {projected_pos=u_label_plane_matrix*projectTileWithElevation(a_projected_pos.xy+u_translation,ele);}float z=float(u_pitch_with_map)*projected_pos.z/projected_pos.w;float projectionScaling=1.0;\n#ifdef GLOBE\nif(u_pitch_with_map && !u_is_along_line) {float anchor_pos_tile_y=(u_coord_matrix*vec4(projected_pos.xy/projected_pos.w,z,1.0)).y;projectionScaling=mix(projectionScaling,1.0/circumferenceRatioAtTileY(anchor_pos_tile_y)*u_pitched_scale,u_projection_transition);}\n#endif\nvec4 finalPos=u_coord_matrix*vec4(projected_pos.xy/projected_pos.w+rotation_matrix*(a_offset/32.0*fontScale)*projectionScaling,z,1.0);if(u_pitch_with_map) {finalPos=projectTileWithElevation(finalPos.xy,finalPos.z);}float gamma_scale=finalPos.w;gl_Position=finalPos;v_data0.xy=a_tex/u_texsize;v_data0.zw=a_tex/u_texsize_icon;v_data1=vec3(gamma_scale,size,total_opacity);v_is_sdf=is_sdf;}"),
+	symbolIcon: prepare("uniform sampler2D u_texture;in vec2 v_tex;flat in float v_total_opacity;void main() {fragColor=texture(u_texture,v_tex)*v_total_opacity;\n#ifdef OVERDRAW_INSPECTOR\nfragColor=vec4(1.0);\n#endif\n}", "layout(location=0) in vec4 a_pos_offset;layout(location=1) in vec4 a_data;layout(location=2) in vec4 a_pixeloffset;layout(location=3) in vec3 a_projected_pos;layout(location=4) in float a_fade_opacity;uniform bool u_is_size_zoom_constant;uniform bool u_is_size_feature_constant;uniform highp float u_size_t;uniform highp float u_size;uniform highp float u_camera_to_center_distance;uniform highp float u_pitch;uniform bool u_rotate_symbol;uniform highp float u_aspect_ratio;uniform float u_fade_change;uniform mat4 u_label_plane_matrix;uniform mat4 u_coord_matrix;uniform bool u_is_text;uniform bool u_pitch_with_map;uniform vec2 u_texsize;uniform bool u_is_along_line;uniform bool u_is_variable_anchor;uniform vec2 u_translation;uniform float u_pitched_scale;uniform bool u_is_offset;out vec2 v_tex;flat out float v_total_opacity;\n#pragma maplibre: define lowp float opacity\nvoid main() {\n#pragma maplibre: initialize lowp float opacity\nvec2 a_pos=a_pos_offset.xy;vec2 a_offset=a_pos_offset.zw;vec2 a_tex=a_data.xy;vec2 a_size=a_data.zw;float a_size_min=floor(a_size[0]*0.5);vec2 a_pxoffset=a_pixeloffset.xy;vec2 a_minFontScale=a_pixeloffset.zw/256.0;float ele=get_elevation(a_pos);highp float segment_angle=-a_projected_pos[2];float size;if (!u_is_size_zoom_constant && !u_is_size_feature_constant) {size=mix(a_size_min,a_size[1],u_size_t)/128.0;} else if (u_is_size_zoom_constant && !u_is_size_feature_constant) {size=a_size_min/128.0;} else {size=u_size;}vec2 translated_a_pos=a_pos+u_translation;vec4 projectedPoint=projectTileWithElevation(translated_a_pos,ele);vec2 fade_opacity=unpack_opacity(a_fade_opacity);float fade_change=fade_opacity[1] > 0.5 ? u_fade_change :-u_fade_change;float visibility=calculate_visibility(projectedPoint);v_total_opacity=opacity*max(0.0,min(visibility,fade_opacity[0]+fade_change));if (v_total_opacity < 0.1){gl_Position=vec4(-2.,-2.,-2.,1.);return;}highp float camera_to_anchor_distance=projectedPoint.w;highp float distance_ratio=u_pitch_with_map ?\ncamera_to_anchor_distance/u_camera_to_center_distance :\nu_camera_to_center_distance/camera_to_anchor_distance;highp float perspective_ratio=clamp(0.5+0.5*distance_ratio,0.0,4.0);if (!u_is_offset) {size*=perspective_ratio;}float fontScale=u_is_text ? size/24.0 : size;highp float symbol_rotation=0.0;if (u_rotate_symbol) {vec4 offsetProjectedPoint=projectTileWithElevation(translated_a_pos+vec2(1,0),ele);vec2 a=projectedPoint.xy/projectedPoint.w;vec2 b=offsetProjectedPoint.xy/offsetProjectedPoint.w;symbol_rotation=atan((b.y-a.y)/u_aspect_ratio,b.x-a.x);}highp float angle_sin=sin(segment_angle+symbol_rotation);highp float angle_cos=cos(segment_angle+symbol_rotation);mat2 rotation_matrix=mat2(angle_cos,-1.0*angle_sin,angle_sin,angle_cos);vec4 projected_pos;if (u_is_along_line || u_is_variable_anchor) {projected_pos=vec4(a_projected_pos.xy,ele,1.0);} else if (u_pitch_with_map) {projected_pos=u_label_plane_matrix*vec4(a_projected_pos.xy+u_translation,ele,1.0);} else {projected_pos=u_label_plane_matrix*projectTileWithElevation(a_projected_pos.xy+u_translation,ele);}float z=float(u_pitch_with_map)*projected_pos.z/projected_pos.w;float projectionScaling=1.0;\n#ifdef GLOBE\nif(u_pitch_with_map) {float anchor_pos_tile_y=(u_coord_matrix*vec4(projected_pos.xy/projected_pos.w,z,1.0)).y;projectionScaling=mix(projectionScaling,1.0/circumferenceRatioAtTileY(anchor_pos_tile_y)*u_pitched_scale,u_projection_transition);}\n#endif\nvec4 finalPos=u_coord_matrix*vec4(projected_pos.xy/projected_pos.w+rotation_matrix*(a_offset/32.0*max(a_minFontScale,fontScale)+a_pxoffset/16.0)*projectionScaling,z,1.0);if(u_pitch_with_map) {finalPos=projectTileWithElevation(finalPos.xy,finalPos.z);}gl_Position=finalPos;v_tex=a_tex/u_texsize;}"),
+	symbolSDF: prepare("#define SDF_PX 8.0\nuniform bool u_is_halo;uniform bool u_is_plain;uniform sampler2D u_texture;uniform highp float u_gamma_scale;uniform lowp float u_device_pixel_ratio;uniform bool u_is_text;in vec2 v_data0;in vec3 v_data1;\n#pragma maplibre: define highp vec4 fill_color\n#pragma maplibre: define highp vec4 halo_color\n#pragma maplibre: define lowp float halo_width\n#pragma maplibre: define lowp float halo_blur\nvoid main() {\n#pragma maplibre: initialize highp vec4 fill_color\n#pragma maplibre: initialize highp vec4 halo_color\n#pragma maplibre: initialize lowp float halo_width\n#pragma maplibre: initialize lowp float halo_blur\nfloat EDGE_GAMMA=0.105/u_device_pixel_ratio;vec2 tex=v_data0.xy;float gamma_scale=v_data1.x;float size=v_data1.y;float total_opacity=v_data1[2];float fontScale=u_is_text ? size/24.0 : size;highp float gamma=EDGE_GAMMA/(fontScale*u_gamma_scale);lowp float inner_edge=(256.0-64.0)/256.0;lowp float dist=texture(u_texture,tex).a;lowp vec4 color_alpha_out_text,color_alpha_out_halo;if (u_is_plain){highp float gamma_scaled=gamma*gamma_scale;highp float alpha=smoothstep(inner_edge-gamma_scaled,inner_edge+gamma_scaled,dist);color_alpha_out_text=total_opacity*alpha*fill_color;}if (u_is_halo) {float gamma_halo=(halo_blur*1.19/SDF_PX+EDGE_GAMMA)/(fontScale*u_gamma_scale);float inner_edge_halo=inner_edge+gamma_halo*gamma_scale;highp float gamma_scaled_halo=gamma_halo*gamma_scale;highp float alpha_halo=smoothstep(inner_edge_halo-gamma_scaled_halo,inner_edge_halo+gamma_scaled_halo,dist);highp float halo_edge=(6.0-halo_width/fontScale)/SDF_PX;alpha_halo= min(smoothstep(halo_edge-gamma_scaled_halo,halo_edge+gamma_scaled_halo,dist),1.0-alpha_halo);color_alpha_out_halo=total_opacity*alpha_halo*halo_color;}if (u_is_plain && u_is_halo) {fragColor=color_alpha_out_text+(1.-color_alpha_out_text.a)*color_alpha_out_halo;} else if (u_is_halo){fragColor=color_alpha_out_halo;} else {fragColor=color_alpha_out_text;}\n#ifdef OVERDRAW_INSPECTOR\nfragColor=vec4(1.0);\n#endif\n}", "layout(location=0) in vec4 a_pos_offset;layout(location=1) in vec4 a_data;layout(location=2) in vec4 a_pixeloffset;layout(location=3) in vec3 a_projected_pos;layout(location=4) in float a_fade_opacity;uniform bool u_is_size_zoom_constant;uniform bool u_is_size_feature_constant;uniform highp float u_size_t;uniform highp float u_size;uniform mat4 u_label_plane_matrix;uniform mat4 u_coord_matrix;uniform bool u_is_text;uniform bool u_pitch_with_map;uniform bool u_is_along_line;uniform bool u_is_variable_anchor;uniform highp float u_pitch;uniform bool u_rotate_symbol;uniform highp float u_aspect_ratio;uniform highp float u_camera_to_center_distance;uniform float u_fade_change;uniform vec2 u_texsize;uniform vec2 u_translation;uniform float u_pitched_scale;uniform bool u_is_offset;out vec2 v_data0;out vec3 v_data1;\n#pragma maplibre: define highp vec4 fill_color\n#pragma maplibre: define highp vec4 halo_color\n#pragma maplibre: define lowp float opacity\n#pragma maplibre: define lowp float halo_width\n#pragma maplibre: define lowp float halo_blur\nvoid main() {\n#pragma maplibre: initialize highp vec4 fill_color\n#pragma maplibre: initialize highp vec4 halo_color\n#pragma maplibre: initialize lowp float opacity\n#pragma maplibre: initialize lowp float halo_width\n#pragma maplibre: initialize lowp float halo_blur\nvec2 a_pos=a_pos_offset.xy;vec2 a_offset=a_pos_offset.zw;vec2 a_tex=a_data.xy;vec2 a_size=a_data.zw;float a_size_min=floor(a_size[0]*0.5);vec2 a_pxoffset=a_pixeloffset.xy/16.0;vec2 a_minFontScale=a_pixeloffset.zw/256.0;float ele=get_elevation(a_pos);highp float segment_angle=-a_projected_pos[2];float size;if (!u_is_size_zoom_constant && !u_is_size_feature_constant) {size=mix(a_size_min,a_size[1],u_size_t)/128.0;} else if (u_is_size_zoom_constant && !u_is_size_feature_constant) {size=a_size_min/128.0;} else {size=u_size;}vec2 translated_a_pos=a_pos+u_translation;vec4 projectedPoint=projectTileWithElevation(translated_a_pos,ele);vec2 fade_opacity=unpack_opacity(a_fade_opacity);float visibility=calculate_visibility(projectedPoint);float fade_change=fade_opacity[1] > 0.5 ? u_fade_change :-u_fade_change;float interpolated_fade_opacity=max(0.0,min(visibility,fade_opacity[0]+fade_change));float total_opacity=opacity*interpolated_fade_opacity;if (total_opacity < 0.1){gl_Position=vec4(-2.,-2.,-2.,1.);return;}highp float camera_to_anchor_distance=projectedPoint.w;highp float distance_ratio=u_pitch_with_map ?\ncamera_to_anchor_distance/u_camera_to_center_distance :\nu_camera_to_center_distance/camera_to_anchor_distance;highp float perspective_ratio=clamp(0.5+0.5*distance_ratio,0.0,4.0);if (!u_is_offset) {size*=perspective_ratio;}float fontScale=u_is_text ? size/24.0 : size;highp float symbol_rotation=0.0;if (u_rotate_symbol) {vec4 offsetProjectedPoint=projectTileWithElevation(translated_a_pos+vec2(1,0),ele);vec2 a=projectedPoint.xy/projectedPoint.w;vec2 b=offsetProjectedPoint.xy/offsetProjectedPoint.w;symbol_rotation=atan((b.y-a.y)/u_aspect_ratio,b.x-a.x);}highp float angle_sin=sin(segment_angle+symbol_rotation);highp float angle_cos=cos(segment_angle+symbol_rotation);mat2 rotation_matrix=mat2(angle_cos,-1.0*angle_sin,angle_sin,angle_cos);vec4 projected_pos;if (u_is_along_line || u_is_variable_anchor) {projected_pos=vec4(a_projected_pos.xy,ele,1.0);} else if (u_pitch_with_map) {projected_pos=u_label_plane_matrix*vec4(a_projected_pos.xy+u_translation,ele,1.0);} else {projected_pos=u_label_plane_matrix*projectTileWithElevation(a_projected_pos.xy+u_translation,ele);}float z=float(u_pitch_with_map)*projected_pos.z/projected_pos.w;float projectionScaling=1.0;\n#ifdef GLOBE\nif(u_pitch_with_map) {float anchor_pos_tile_y=(u_coord_matrix*vec4(projected_pos.xy/projected_pos.w,z,1.0)).y;projectionScaling=mix(projectionScaling,1.0/circumferenceRatioAtTileY(anchor_pos_tile_y)*u_pitched_scale,u_projection_transition);}\n#endif\nvec4 finalPos=u_coord_matrix*vec4(projected_pos.xy/projected_pos.w+rotation_matrix*(a_offset/32.0*max(a_minFontScale,fontScale)+a_pxoffset)*projectionScaling,z,1.0);if(u_pitch_with_map) {finalPos=projectTileWithElevation(finalPos.xy,finalPos.z);}float gamma_scale=finalPos.w;gl_Position=finalPos;v_data0=a_tex/u_texsize;v_data1=vec3(gamma_scale,size,total_opacity);}"),
+	symbolTextAndIcon: prepare("#define SDF_PX 8.0\n#define SDF 1.0\n#define ICON 0.0\nuniform bool u_is_halo;uniform bool u_is_text;uniform sampler2D u_texture;uniform sampler2D u_texture_icon;uniform highp float u_gamma_scale;uniform lowp float u_device_pixel_ratio;in vec4 v_data0;in vec3 v_data1;flat in float v_is_sdf;\n#pragma maplibre: define highp vec4 fill_color\n#pragma maplibre: define highp vec4 halo_color\n#pragma maplibre: define lowp float halo_width\n#pragma maplibre: define lowp float halo_blur\nvoid main() {\n#pragma maplibre: initialize highp vec4 fill_color\n#pragma maplibre: initialize highp vec4 halo_color\n#pragma maplibre: initialize lowp float halo_width\n#pragma maplibre: initialize lowp float halo_blur\nfloat total_opacity=v_data1[2];if (v_is_sdf==ICON) {vec2 tex_icon=v_data0.zw;fragColor=texture(u_texture_icon,tex_icon)*total_opacity;\n#ifdef OVERDRAW_INSPECTOR\nfragColor=vec4(1.0);\n#endif\nreturn;}vec2 tex=v_data0.xy;float EDGE_GAMMA=0.105/u_device_pixel_ratio;float gamma_scale=v_data1.x;float size=v_data1.y;float fontScale=size/24.0;highp float gamma=EDGE_GAMMA/(fontScale*u_gamma_scale);lowp float buff=(256.0-64.0)/256.0;lowp float dist=texture(u_texture,tex).a;lowp vec4 color_alpha_out,color_alpha_out_halo;if (u_is_text) {highp float gamma_scaled=gamma*gamma_scale;highp float alpha=smoothstep(buff-gamma_scaled,buff+gamma_scaled,dist);color_alpha_out=fill_color*(alpha*total_opacity);}if (u_is_halo) {highp float gamma_halo=(halo_blur*1.19/SDF_PX+EDGE_GAMMA)/(fontScale*u_gamma_scale);lowp float buff_halo=(6.0-halo_width/fontScale)/SDF_PX;highp float gamma_scaled_halo=gamma_halo*gamma_scale;highp float alpha_halo=smoothstep(buff_halo-gamma_scaled_halo,buff_halo+gamma_scaled_halo,dist);color_alpha_out_halo=halo_color*(alpha_halo*total_opacity);}if (u_is_text && u_is_halo) {fragColor=color_alpha_out+(1.-color_alpha_out.a)*color_alpha_out_halo;} else if (u_is_halo) {fragColor=color_alpha_out_halo;} else {fragColor=color_alpha_out;}\n#ifdef OVERDRAW_INSPECTOR\nfragColor=vec4(1.0);\n#endif\n}", "layout(location=0) in vec4 a_pos_offset;layout(location=1) in vec4 a_data;layout(location=2) in vec3 a_projected_pos;layout(location=3) in float a_fade_opacity;uniform bool u_is_size_zoom_constant;uniform bool u_is_size_feature_constant;uniform highp float u_size_t;uniform highp float u_size;uniform mat4 u_label_plane_matrix;uniform mat4 u_coord_matrix;uniform bool u_is_text;uniform bool u_pitch_with_map;uniform highp float u_pitch;uniform bool u_rotate_symbol;uniform highp float u_aspect_ratio;uniform highp float u_camera_to_center_distance;uniform float u_fade_change;uniform vec2 u_texsize;uniform vec2 u_texsize_icon;uniform bool u_is_along_line;uniform bool u_is_variable_anchor;uniform vec2 u_translation;uniform float u_pitched_scale;uniform bool u_is_offset;out vec4 v_data0;out vec3 v_data1;flat out float v_is_sdf;\n#pragma maplibre: define highp vec4 fill_color\n#pragma maplibre: define highp vec4 halo_color\n#pragma maplibre: define lowp float opacity\n#pragma maplibre: define lowp float halo_width\n#pragma maplibre: define lowp float halo_blur\nvoid main() {\n#pragma maplibre: initialize highp vec4 fill_color\n#pragma maplibre: initialize highp vec4 halo_color\n#pragma maplibre: initialize lowp float opacity\n#pragma maplibre: initialize lowp float halo_width\n#pragma maplibre: initialize lowp float halo_blur\nvec2 a_pos=a_pos_offset.xy;vec2 a_offset=a_pos_offset.zw;vec2 a_tex=a_data.xy;vec2 a_size=a_data.zw;float a_size_min=floor(a_size[0]*0.5);float is_sdf=a_size[0]-2.0*a_size_min;float ele=get_elevation(a_pos);highp float segment_angle=-a_projected_pos[2];float size;if (!u_is_size_zoom_constant && !u_is_size_feature_constant) {size=mix(a_size_min,a_size[1],u_size_t)/128.0;} else if (u_is_size_zoom_constant && !u_is_size_feature_constant) {size=a_size_min/128.0;} else {size=u_size;}vec2 translated_a_pos=a_pos+u_translation;vec4 projectedPoint=projectTileWithElevation(translated_a_pos,ele);vec2 fade_opacity=unpack_opacity(a_fade_opacity);float visibility=calculate_visibility(projectedPoint);float fade_change=fade_opacity[1] > 0.5 ? u_fade_change :-u_fade_change;float interpolated_fade_opacity=max(0.0,min(visibility,fade_opacity[0]+fade_change));float total_opacity=opacity*interpolated_fade_opacity;if (total_opacity < 0.1){gl_Position=vec4(-2.,-2.,-2.,1.);return;}highp float camera_to_anchor_distance=projectedPoint.w;highp float distance_ratio=u_pitch_with_map ?\ncamera_to_anchor_distance/u_camera_to_center_distance :\nu_camera_to_center_distance/camera_to_anchor_distance;highp float perspective_ratio=clamp(0.5+0.5*distance_ratio,0.0,4.0);if (!u_is_offset) {size*=perspective_ratio;}float fontScale=size/24.0;highp float symbol_rotation=0.0;if (u_rotate_symbol) {vec4 offsetProjectedPoint=projectTileWithElevation(translated_a_pos+vec2(1,0),ele);vec2 a=projectedPoint.xy/projectedPoint.w;vec2 b=offsetProjectedPoint.xy/offsetProjectedPoint.w;symbol_rotation=atan((b.y-a.y)/u_aspect_ratio,b.x-a.x);}highp float angle_sin=sin(segment_angle+symbol_rotation);highp float angle_cos=cos(segment_angle+symbol_rotation);mat2 rotation_matrix=mat2(angle_cos,-1.0*angle_sin,angle_sin,angle_cos);vec4 projected_pos;if (u_is_along_line || u_is_variable_anchor) {projected_pos=vec4(a_projected_pos.xy,ele,1.0);} else if (u_pitch_with_map) {projected_pos=u_label_plane_matrix*vec4(a_projected_pos.xy+u_translation,ele,1.0);} else {projected_pos=u_label_plane_matrix*projectTileWithElevation(a_projected_pos.xy+u_translation,ele);}float z=float(u_pitch_with_map)*projected_pos.z/projected_pos.w;float projectionScaling=1.0;\n#ifdef GLOBE\nif(u_pitch_with_map && !u_is_along_line) {float anchor_pos_tile_y=(u_coord_matrix*vec4(projected_pos.xy/projected_pos.w,z,1.0)).y;projectionScaling=mix(projectionScaling,1.0/circumferenceRatioAtTileY(anchor_pos_tile_y)*u_pitched_scale,u_projection_transition);}\n#endif\nvec4 finalPos=u_coord_matrix*vec4(projected_pos.xy/projected_pos.w+rotation_matrix*(a_offset/32.0*fontScale)*projectionScaling,z,1.0);if(u_pitch_with_map) {finalPos=projectTileWithElevation(finalPos.xy,finalPos.z);}float gamma_scale=finalPos.w;gl_Position=finalPos;v_data0.xy=a_tex/u_texsize;v_data0.zw=a_tex/u_texsize_icon;v_data1=vec3(gamma_scale,size,total_opacity);v_is_sdf=is_sdf;}"),
 	terrain: prepare("uniform sampler2D u_texture;uniform vec4 u_fog_color;uniform vec4 u_horizon_color;uniform float u_fog_ground_blend;uniform float u_fog_ground_blend_opacity;uniform float u_horizon_fog_blend;uniform bool u_is_globe_mode;in vec2 v_texture_pos;in float v_fog_depth;const float gamma=2.2;vec4 gammaToLinear(vec4 color) {return pow(color,vec4(gamma));}vec4 linearToGamma(vec4 color) {return pow(color,vec4(1.0/gamma));}void main() {vec4 surface_color=texture(u_texture,vec2(v_texture_pos.x,1.0-v_texture_pos.y));if (!u_is_globe_mode && u_fog_ground_blend_opacity > 0.0 && v_fog_depth > u_fog_ground_blend) {vec4 surface_color_linear=gammaToLinear(surface_color);float blend_color=smoothstep(0.0,1.0,max((v_fog_depth-u_horizon_fog_blend)/(1.0-u_horizon_fog_blend),0.0));vec4 fog_horizon_color_linear=mix(gammaToLinear(u_fog_color),gammaToLinear(u_horizon_color),blend_color);float factor_fog=max(v_fog_depth-u_fog_ground_blend,0.0)/(1.0-u_fog_ground_blend);fragColor=linearToGamma(mix(surface_color_linear,fog_horizon_color_linear,pow(factor_fog,2.0)*u_fog_ground_blend_opacity));} else {fragColor=surface_color;}}", "layout(location=0) in vec3 a_pos3d;uniform mat4 u_fog_matrix;uniform float u_ele_delta;out vec2 v_texture_pos;out float v_fog_depth;void main() {float ele=get_elevation(a_pos3d.xy);float ele_delta=a_pos3d.z==1.0 ? u_ele_delta : 0.0;v_texture_pos=a_pos3d.xy/8192.0;gl_Position=projectTileFor3D(a_pos3d.xy,ele-ele_delta);vec4 pos=u_fog_matrix*vec4(a_pos3d.xy,ele,1.0);v_fog_depth=pos.z/pos.w*0.5+0.5;}"),
 	terrainDepth: prepare("in float v_depth;const highp vec4 bitSh=vec4(256.*256.*256.,256.*256.,256.,1.);const highp vec4 bitMsk=vec4(0.,vec3(1./256.0));highp vec4 pack(highp float value) {highp vec4 comp=fract(value*bitSh);comp-=comp.xxyz*bitMsk;return comp;}void main() {fragColor=pack(v_depth);}", "layout(location=0) in vec3 a_pos3d;uniform float u_ele_delta;out float v_depth;void main() {float ele=get_elevation(a_pos3d.xy);float ele_delta=a_pos3d.z==1.0 ? u_ele_delta : 0.0;gl_Position=projectTileFor3D(a_pos3d.xy,ele-ele_delta);v_depth=gl_Position.z/gl_Position.w;}"),
 	terrainCoords: prepare("precision mediump float;uniform sampler2D u_texture;uniform float u_terrain_coords_id;in vec2 v_texture_pos;void main() {vec4 rgba=texture(u_texture,v_texture_pos);fragColor=vec4(rgba.r,rgba.g,rgba.b,u_terrain_coords_id);}", "layout(location=0) in vec3 a_pos3d;uniform float u_ele_delta;out vec2 v_texture_pos;void main() {float ele=get_elevation(a_pos3d.xy);float ele_delta=a_pos3d.z==1.0 ? u_ele_delta : 0.0;v_texture_pos=a_pos3d.xy/8192.0;gl_Position=projectTileFor3D(a_pos3d.xy,ele-ele_delta);}"),
@@ -36479,7 +36934,7 @@ const shaders = {
 };
 /** Expand #pragmas to #ifdefs, extract attributes and uniforms */
 function prepare(fragmentSource, vertexSource) {
-	const re = /#pragma mapbox: ([\w]+) ([\w]+) ([\w]+) ([\w]+)/g;
+	const re = /#pragma maplibre: ([\w]+) ([\w]+) ([\w]+) ([\w]+)/g;
 	const vertexAttributes = vertexSource.match(/in ([\w]+) ([\w]+)/g);
 	const fragmentUniforms = fragmentSource.match(/uniform ([\w]+) ([\w]+)([\s]*)([\w]*)/g);
 	const vertexUniforms = vertexSource.match(/uniform ([\w]+) ([\w]+)([\s]*)([\w]*)/g);
@@ -37130,7 +37585,7 @@ var TransformHelper = class {
 	_calcMatrices() {
 		if (this._width && this._height) {
 			this._pixelsToGLUnits = [2 / this._width, -2 / this._height];
-			let m = identity(new Float64Array(16));
+			let m = identity(/* @__PURE__ */ new Float64Array(16));
 			scale$3(m, m, [
 				this._width / 2,
 				-this._height / 2,
@@ -37142,7 +37597,7 @@ var TransformHelper = class {
 				0
 			]);
 			this._clipSpaceToPixelsMatrix = m;
-			m = identity(new Float64Array(16));
+			m = identity(/* @__PURE__ */ new Float64Array(16));
 			scale$3(m, m, [
 				1,
 				-1,
@@ -37980,14 +38435,7 @@ var MercatorTransform = class MercatorTransform {
 		if (terrain) return terrain.pointCoordinate(p) != null;
 		return p.y > this.height / 2 - getMercatorHorizon(this);
 	}
-	/**
-	* Calculate the posMatrix that, given a tile coordinate, would be used to display the tile on a map.
-	* This function is specific to the mercator projection.
-	* @param tileID - the tile ID
-	* @param aligned - whether to use a pixel-aligned matrix variant, intended for rendering raster tiles
-	* @param useFloat32 - when true, returns a float32 matrix instead of float64. Use float32 for matrices that are passed to shaders, use float64 for everything else.
-	*/
-	calculatePosMatrix(tileID, aligned = false, useFloat32) {
+	calculatePosMatrix(tileID, aligned = false, useFloat32 = false) {
 		const posMatrixKey = tileID.key ?? calculateTileKey(tileID.wrap, tileID.canonical.z, tileID.canonical.z, tileID.canonical.x, tileID.canonical.y);
 		const cache = aligned ? this._alignedPosMatrixCache : this._posMatrixCache;
 		if (cache.has(posMatrixKey)) {
@@ -38042,9 +38490,9 @@ var MercatorTransform = class MercatorTransform {
 		const cameraToSeaLevelDistance = Math.max(this._helper.cameraToCenterDistance / 2, this._helper.cameraToCenterDistance + this._helper._elevation * this._helper._pixelPerMeter / Math.cos(limitedPitchRadians));
 		this._calculateNearFarZIfNeeded(cameraToSeaLevelDistance, limitedPitchRadians, offset);
 		let m;
-		m = new Float64Array(16);
+		m = /* @__PURE__ */ new Float64Array(16);
 		perspective(m, this.fovInRadians, this._helper._width / this._helper._height, this._helper._nearZ, this._helper._farZ);
-		this._invProjMatrix = new Float64Array(16);
+		this._invProjMatrix = /* @__PURE__ */ new Float64Array(16);
 		fastInvertProjMat4(this._invProjMatrix, m);
 		m[8] = -offset.x * 2 / this._helper._width;
 		m[9] = offset.y * 2 / this._helper._height;
@@ -38077,7 +38525,7 @@ var MercatorTransform = class MercatorTransform {
 			1,
 			this._helper._pixelPerMeter
 		]);
-		this._pixelMatrix = multiply$1(new Float64Array(16), this.clipSpaceToPixelsMatrix, m);
+		this._pixelMatrix = multiply$1(/* @__PURE__ */ new Float64Array(16), this.clipSpaceToPixelsMatrix, m);
 		translate$1(m, m, [
 			0,
 			0,
@@ -38097,7 +38545,7 @@ var MercatorTransform = class MercatorTransform {
 			cameraPos[1] / cameraPos[3],
 			cameraPos[2] / cameraPos[3]
 		];
-		this._fogMatrix = new Float64Array(16);
+		this._fogMatrix = /* @__PURE__ */ new Float64Array(16);
 		perspective(this._fogMatrix, this.fovInRadians, this.width / this.height, cameraToSeaLevelDistance, this._helper._farZ);
 		this._fogMatrix[8] = -offset.x * 2 / this.width;
 		this._fogMatrix[9] = offset.y * 2 / this.height;
@@ -38129,7 +38577,7 @@ var MercatorTransform = class MercatorTransform {
 			0,
 			-this.elevation
 		]);
-		this._pixelMatrix3D = multiply$1(new Float64Array(16), this.clipSpaceToPixelsMatrix, m);
+		this._pixelMatrix3D = multiply$1(/* @__PURE__ */ new Float64Array(16), this.clipSpaceToPixelsMatrix, m);
 		const xShift = this._helper._width % 2 / 2, yShift = this._helper._height % 2 / 2, angleCos = Math.cos(this.bearingInRadians), angleSin = Math.sin(-this.bearingInRadians), dx = x - Math.round(x) + angleCos * xShift + angleSin * yShift, dy = y - Math.round(y) + angleCos * yShift + angleSin * xShift;
 		const alignedM = new Float64Array(m);
 		translate$1(alignedM, alignedM, [
@@ -38138,7 +38586,7 @@ var MercatorTransform = class MercatorTransform {
 			0
 		]);
 		this._alignedProjMatrix = alignedM;
-		m = invert(new Float64Array(16), this._pixelMatrix);
+		m = invert(/* @__PURE__ */ new Float64Array(16), this._pixelMatrix);
 		if (!m) throw new Error("failed to invert matrix");
 		this._pixelMatrixInverse = m;
 		this._clearMatrixCaches();
@@ -38270,18 +38718,12 @@ var MercatorTransform = class MercatorTransform {
 	}
 	getProjectionDataForCustomLayer(applyGlobeMatrix = true) {
 		const tileID = new OverscaledTileID(0, 0, 0, 0, 0);
-		const projectionData = this.getProjectionData({
+		const rendererProjectionData = this.getProjectionData({
 			overscaledTileID: tileID,
 			applyGlobeMatrix
 		});
 		const tileMatrix = calculateTileMatrix(tileID, this.worldSize);
 		multiply$1(tileMatrix, this._viewProjMatrix, tileMatrix);
-		projectionData.tileMercatorCoords = [
-			0,
-			0,
-			1,
-			1
-		];
 		const scale = [
 			EXTENT,
 			EXTENT,
@@ -38289,9 +38731,17 @@ var MercatorTransform = class MercatorTransform {
 		];
 		const projectionMatrixScaled = createMat4f64();
 		scale$3(projectionMatrixScaled, tileMatrix, scale);
-		projectionData.fallbackMatrix = projectionMatrixScaled;
-		projectionData.mainMatrix = projectionMatrixScaled;
-		return projectionData;
+		return {
+			...rendererProjectionData,
+			tileMercatorCoords: [
+				0,
+				0,
+				1,
+				1
+			],
+			fallbackMatrix: projectionMatrixScaled,
+			mainMatrix: projectionMatrixScaled
+		};
 	}
 	getFastPathSimpleProjectionMatrix(tileID) {
 		return this.calculatePosMatrix(tileID);
@@ -38313,7 +38763,7 @@ function updateRotation(args) {
 	if (args.useSlerp) if (args.k < 1) {
 		const startRotation = rollPitchBearingToQuat(args.startEulerAngles.roll, args.startEulerAngles.pitch, args.startEulerAngles.bearing);
 		const endRotation = rollPitchBearingToQuat(args.endEulerAngles.roll, args.endEulerAngles.pitch, args.endEulerAngles.bearing);
-		const rotation = new Float64Array(4);
+		const rotation = /* @__PURE__ */ new Float64Array(4);
 		slerp(rotation, startRotation, endRotation, args.k);
 		const eulerAngles = getRollPitchBearing(rotation);
 		args.tr.setRoll(eulerAngles.roll);
@@ -38622,7 +39072,7 @@ var ProjectionErrorMeasurement = class ProjectionErrorMeasurement {
 		const indexArray = new TriangleIndexArray();
 		indexArray.emplaceBack(0, 1, 2);
 		this._fullscreenTriangle = new Mesh(context.createVertexBuffer(vertexArray, posAttributes.members), context.createIndexBuffer(indexArray), SegmentVector.simpleSegment(0, 0, vertexArray.length, indexArray.length));
-		this._resultBuffer = new Uint8Array(4);
+		this._resultBuffer = /* @__PURE__ */ new Uint8Array(4);
 		context.activeTexture.set(gl.TEXTURE1);
 		const texture = gl.createTexture();
 		gl.bindTexture(gl.TEXTURE_2D, texture);
@@ -39021,7 +39471,7 @@ function mercatorCoordinatesToAngularCoordinatesRadians(mercatorX, mercatorY) {
 */
 function angularCoordinatesRadiansToVector(lngRadians, latRadians) {
 	const len = Math.cos(latRadians);
-	const vec = new Float64Array(3);
+	const vec = /* @__PURE__ */ new Float64Array(3);
 	vec[0] = Math.sin(lngRadians) * len;
 	vec[1] = Math.sin(latRadians);
 	vec[2] = Math.cos(lngRadians) * len;
@@ -39043,7 +39493,7 @@ function projectTileCoordinatesToSphere(inTileX, inTileY, tileIdX, tileIdY, tile
 	const sphericalX = mod(mercatorX * Math.PI * 2 + Math.PI, Math.PI * 2);
 	const sphericalY = 2 * Math.atan(Math.exp(Math.PI - mercatorY * Math.PI * 2)) - Math.PI * .5;
 	const len = Math.cos(sphericalY);
-	const vec = new Float64Array(3);
+	const vec = /* @__PURE__ */ new Float64Array(3);
 	vec[0] = Math.sin(sphericalX) * len;
 	vec[1] = Math.sin(sphericalY);
 	vec[2] = Math.cos(sphericalX) * len;
@@ -40045,7 +40495,10 @@ var VerticalPerspectiveTransform = class VerticalPerspectiveTransform {
 		return this._coveringTilesDetailsProvider;
 	}
 	recalculateZoomAndCenter(terrain) {
-		if (terrain) warnOnce("terrain is not fully supported on vertical perspective projection.");
+		if (terrain) {
+			warnOnce("terrain is not fully supported on vertical perspective projection.");
+			return;
+		}
 		this._helper.recalculateZoomAndCenter(0);
 	}
 	maxPitchScaleFactor() {
@@ -40679,8 +41132,7 @@ var GlobeTransform = class GlobeTransform {
 		return this.currentTransform.getCoveringTilesDetailsProvider();
 	}
 	recalculateZoomAndCenter(terrain) {
-		this._mercatorTransform.recalculateZoomAndCenter(terrain);
-		this._verticalPerspectiveTransform.recalculateZoomAndCenter(terrain);
+		this.currentTransform.recalculateZoomAndCenter(terrain);
 	}
 	maxPitchScaleFactor() {
 		return this._mercatorTransform.maxPitchScaleFactor();
@@ -41202,7 +41654,7 @@ var Style = class extends Evented {
 		this._glyphsDidChange = false;
 		this._updatedPaintProps = {};
 		this._layerOrderChanged = false;
-		this.crossTileSymbolIndex = new (this.crossTileSymbolIndex?.constructor || Object)();
+		this.crossTileSymbolIndex = new ((this.crossTileSymbolIndex?.constructor) || Object)();
 		this.pauseablePlacement = void 0;
 		this.placement = void 0;
 		this.z = 0;
@@ -41258,7 +41710,7 @@ var Style = class extends Evented {
 		}
 	}
 	async loadURL(url, options = {}, previousStyle) {
-		this.fire(new Event("dataloading", { dataType: "style" }));
+		this.fire(new MapStyleDataEvent("dataloading"));
 		options.validate = typeof options.validate === "boolean" ? options.validate : true;
 		this._loadStyleRequest = new AbortController();
 		const abortController = this._loadStyleRequest;
@@ -41274,7 +41726,7 @@ var Style = class extends Evented {
 		}
 	}
 	loadJSON(json, options = {}, previousStyle) {
-		this.fire(new Event("dataloading", { dataType: "style" }));
+		this.fire(new MapStyleDataEvent("dataloading"));
 		this._frameRequest = new AbortController();
 		browser.frameAsync(this._frameRequest, this.map._ownerWindow).then(() => {
 			this._frameRequest = null;
@@ -41283,7 +41735,7 @@ var Style = class extends Evented {
 		}).catch(() => {});
 	}
 	loadEmpty() {
-		this.fire(new Event("dataloading", { dataType: "style" }));
+		this.fire(new MapStyleDataEvent("dataloading"));
 		this._load(empty, { validate: false });
 	}
 	_load(json, options, previousStyle) {
@@ -41301,8 +41753,8 @@ var Style = class extends Evented {
 		this._setProjectionInternal(this.stylesheet.projection?.type || "mercator");
 		this.sky = new Sky(this.stylesheet.sky);
 		this.map.setTerrain(this.stylesheet.terrain ?? null);
-		this.fire(new Event("data", { dataType: "style" }));
-		this.fire(new Event("style.load"));
+		this.fire(new MapStyleDataEvent("data"));
+		this.fire(new MapStyleLoadEvent());
 	}
 	_createLayers() {
 		const dereferencedLayers = derefLayers(this.stylesheet.layers);
@@ -41352,7 +41804,7 @@ var Style = class extends Evented {
 			this._availableImages = this.imageManager.listImages();
 			if (isUpdate) this._changed = true;
 			this.dispatcher.broadcast("SI", this._availableImages);
-			this.fire(new Event("data", { dataType: "style" }));
+			this.fire(new MapStyleDataEvent("data"));
 			if (completion) completion(err);
 		});
 	}
@@ -41365,7 +41817,7 @@ var Style = class extends Evented {
 		this._availableImages = this.imageManager.listImages();
 		this._changed = true;
 		this.dispatcher.broadcast("SI", this._availableImages);
-		this.fire(new Event("data", { dataType: "style" }));
+		this.fire(new MapStyleDataEvent("data"));
 	}
 	_validateLayer(layer) {
 		const tileManager = this.tileManagers[layer.source];
@@ -41462,9 +41914,8 @@ var Style = class extends Evented {
 		}
 		for (const id in managersUsedBefore) {
 			const tileManager = this.tileManagers[id];
-			if (!!managersUsedBefore[id] !== !!tileManager.used) tileManager.fire(new Event("data", {
+			if (!!managersUsedBefore[id] !== !!tileManager.used) tileManager.fire(new MapSourceDataEvent("data", {
 				sourceDataType: "visibility",
-				dataType: "source",
 				sourceId: id
 			}));
 		}
@@ -41472,7 +41923,7 @@ var Style = class extends Evented {
 		this.sky.recalculate(parameters);
 		this.projection.recalculate(parameters);
 		this.z = parameters.zoom;
-		if (changed) this.fire(new Event("data", { dataType: "style" }));
+		if (changed) this.fire(new MapStyleDataEvent("data"));
 	}
 	_updateTilesForChangedImages() {
 		const changedImages = Object.keys(this._changedImages);
@@ -41506,7 +41957,7 @@ var Style = class extends Evented {
 	* Update this style's state to match the given style JSON, performing only
 	* the necessary mutations.
 	*
-	* May throw an Error ('Unimplemented: METHOD') if the mapbox-gl-style-spec
+	* May throw an Error ('Unimplemented: METHOD') if the maplibre-gl-style-spec
 	* diff algorithm produces an operation that is not supported.
 	*
 	* @returns true if any changes were made; false otherwise
@@ -41525,7 +41976,7 @@ var Style = class extends Evented {
 		for (const styleChangeOperation of operations.operations) styleChangeOperation();
 		this.stylesheet = nextState;
 		this._serializedLayers = null;
-		this.fire(new Event("style.load", { style: this }));
+		this.fire(new MapStyleLoadEvent({ style: this }));
 		return true;
 	}
 	_getOperationsToPerform(diff) {
@@ -41624,7 +42075,7 @@ var Style = class extends Evented {
 		this._changedImages[id] = true;
 		this._changed = true;
 		this.dispatcher.broadcast("SI", this._availableImages);
-		this.fire(new Event("data", { dataType: "style" }));
+		this.fire(new MapStyleDataEvent("data"));
 	}
 	listImages() {
 		this._checkLoaded();
@@ -41664,9 +42115,8 @@ var Style = class extends Evented {
 		const tileManager = this.tileManagers[id];
 		delete this.tileManagers[id];
 		delete this._updatedSources[id];
-		tileManager.fire(new Event("data", {
+		tileManager.fire(new MapSourceDataEvent("data", {
 			sourceDataType: "metadata",
-			dataType: "source",
 			sourceId: id
 		}));
 		tileManager.setEventedParent(null);
@@ -42308,7 +42758,7 @@ var Style = class extends Evented {
 		this._availableImages = this.imageManager.listImages();
 		this._changed = true;
 		this.dispatcher.broadcast("SI", this._availableImages);
-		this.fire(new Event("data", { dataType: "style" }));
+		this.fire(new MapStyleDataEvent("data"));
 	}
 	/**
 	* Get the current sprite value.
@@ -42756,116 +43206,8 @@ var Layout = class extends Benchmark {
 	}
 };
 //#endregion
-//#region src/util/dom.ts
-var DOM = class DOM {
-	static {
-		this.docStyle = typeof window !== "undefined" && window.document?.documentElement.style;
-	}
-	static {
-		this.selectProp = !DOM.docStyle || "userSelect" in DOM.docStyle ? "userSelect" : "webkitUserSelect";
-	}
-	static create(tagName, className, container) {
-		const el = window.document.createElement(tagName);
-		if (className !== void 0) el.className = className;
-		if (container) container.appendChild(el);
-		return el;
-	}
-	static createNS(namespaceURI, tagName) {
-		return window.document.createElementNS(namespaceURI, tagName);
-	}
-	static disableDrag() {
-		if (DOM.docStyle && DOM.selectProp) {
-			DOM.userSelect = DOM.docStyle[DOM.selectProp];
-			DOM.docStyle[DOM.selectProp] = "none";
-		}
-	}
-	static enableDrag() {
-		if (DOM.docStyle && DOM.selectProp) DOM.docStyle[DOM.selectProp] = DOM.userSelect;
-	}
-	static suppressClickInternal(e) {
-		e.preventDefault();
-		e.stopPropagation();
-		window.removeEventListener("click", DOM.suppressClickInternal, true);
-	}
-	static suppressClick() {
-		window.addEventListener("click", DOM.suppressClickInternal, true);
-		window.setTimeout(() => {
-			window.removeEventListener("click", DOM.suppressClickInternal, true);
-		}, 0);
-	}
-	static getScale(element) {
-		const rect = element.getBoundingClientRect();
-		return {
-			x: rect.width / element.offsetWidth || 1,
-			y: rect.height / element.offsetHeight || 1,
-			boundingClientRect: rect
-		};
-	}
-	static getPoint(el, scale, e) {
-		const rect = scale.boundingClientRect;
-		return new Point((e.clientX - rect.left) / scale.x - el.clientLeft, (e.clientY - rect.top) / scale.y - el.clientTop);
-	}
-	static mousePos(el, e) {
-		const scale = DOM.getScale(el);
-		return DOM.getPoint(el, scale, e);
-	}
-	static touchPos(el, touches) {
-		const points = [];
-		const scale = DOM.getScale(el);
-		for (const touch of touches) points.push(DOM.getPoint(el, scale, touch));
-		return points;
-	}
-	/**
-	* Sanitize an HTML string - this might not be enough to prevent all XSS attacks
-	* Base on https://javascriptsource.com/sanitize-an-html-string-to-reduce-the-risk-of-xss-attacks/
-	* (c) 2021 Chris Ferdinandi, MIT License, https://gomakethings.com
-	*/
-	static sanitize(str) {
-		const html = new DOMParser().parseFromString(str, "text/html").body || document.createElement("body");
-		const scripts = html.querySelectorAll("script");
-		for (const script of scripts) script.remove();
-		DOM.clean(html);
-		return html.innerHTML;
-	}
-	/**
-	* Check if the attribute is potentially dangerous
-	*/
-	static isPossiblyDangerous(name, value) {
-		const val = value.replace(/\s+/g, "").toLowerCase();
-		if ([
-			"src",
-			"href",
-			"xlink:href"
-		].includes(name)) {
-			if (val.includes("javascript:") || val.includes("data:")) return true;
-		}
-		if (name.startsWith("on")) return true;
-	}
-	/**
-	* Remove dangerous stuff from the HTML document's nodes
-	* @param html - The HTML document
-	*/
-	static clean(html) {
-		const nodes = html.children;
-		for (const node of nodes) {
-			DOM.removeAttributes(node);
-			DOM.clean(node);
-		}
-	}
-	/**
-	* Remove potentially dangerous attributes from an element
-	* @param elem - The element
-	*/
-	static removeAttributes(elem) {
-		for (const { name, value } of elem.attributes) {
-			if (!DOM.isPossiblyDangerous(name, value)) continue;
-			elem.removeAttribute(name);
-		}
-	}
-};
-//#endregion
 //#region package.json
-var version$4 = "6.0.0-11";
+var version$4 = "6.0.0-17";
 //#endregion
 //#region src/data/raster_bounds_attributes.ts
 const rasterBoundsAttributes = createLayout([{
@@ -43033,7 +43375,7 @@ function getTokenizedAttributesAndUniforms(array) {
 * A webgl program to execute in the GPU space
 */
 var Program = class {
-	constructor(context, source, configuration, fixedUniforms, showOverdrawInspector, hasTerrain, projectionPrelude, projectionDefine, extraDefines = []) {
+	constructor(context, source, configuration, fixedUniforms, showOverdrawInspector, useTerrain, projectionPrelude, projectionDefine, extraDefines = []) {
 		const gl = context.gl;
 		this.program = gl.createProgram();
 		const staticAttrInfo = getTokenizedAttributesAndUniforms(source.staticAttributes);
@@ -43049,7 +43391,7 @@ var Program = class {
 		const defines = configuration ? configuration.defines() : [];
 		defines.unshift("#version 300 es");
 		if (showOverdrawInspector) defines.push("#define OVERDRAW_INSPECTOR;");
-		if (hasTerrain) defines.push("#define TERRAIN3D;");
+		if (useTerrain) defines.push("#define TERRAIN3D;");
 		if (projectionDefine) defines.push(projectionDefine);
 		if (extraDefines) defines.push(...extraDefines);
 		const fragmentSource = defines.concat(shaders.prelude.fragmentSource, projectionPrelude.fragmentSource, source.fragmentSource).join("\n");
@@ -43464,8 +43806,7 @@ const lineUniforms = (context, locations) => ({
 	"u_translation": new Uniform2f(context, locations.u_translation),
 	"u_ratio": new Uniform1f(context, locations.u_ratio),
 	"u_device_pixel_ratio": new Uniform1f(context, locations.u_device_pixel_ratio),
-	"u_units_to_pixels": new Uniform2f(context, locations.u_units_to_pixels),
-	"u_opacity_override": new Uniform1i(context, locations.u_opacity_override)
+	"u_units_to_pixels": new Uniform2f(context, locations.u_units_to_pixels)
 });
 const lineGradientUniforms = (context, locations) => ({
 	"u_translation": new Uniform2f(context, locations.u_translation),
@@ -43473,8 +43814,7 @@ const lineGradientUniforms = (context, locations) => ({
 	"u_device_pixel_ratio": new Uniform1f(context, locations.u_device_pixel_ratio),
 	"u_units_to_pixels": new Uniform2f(context, locations.u_units_to_pixels),
 	"u_image": new Uniform1i(context, locations.u_image),
-	"u_image_height": new Uniform1f(context, locations.u_image_height),
-	"u_opacity_override": new Uniform1i(context, locations.u_opacity_override)
+	"u_image_height": new Uniform1f(context, locations.u_image_height)
 });
 const linePatternUniforms = (context, locations) => ({
 	"u_translation": new Uniform2f(context, locations.u_translation),
@@ -43484,8 +43824,7 @@ const linePatternUniforms = (context, locations) => ({
 	"u_image": new Uniform1i(context, locations.u_image),
 	"u_units_to_pixels": new Uniform2f(context, locations.u_units_to_pixels),
 	"u_scale": new Uniform3f(context, locations.u_scale),
-	"u_fade": new Uniform1f(context, locations.u_fade),
-	"u_opacity_override": new Uniform1i(context, locations.u_opacity_override)
+	"u_fade": new Uniform1f(context, locations.u_fade)
 });
 const lineSDFUniforms = (context, locations) => ({
 	"u_translation": new Uniform2f(context, locations.u_translation),
@@ -43498,14 +43837,7 @@ const lineSDFUniforms = (context, locations) => ({
 	"u_crossfade_from": new Uniform1f(context, locations.u_crossfade_from),
 	"u_crossfade_to": new Uniform1f(context, locations.u_crossfade_to),
 	"u_lineatlas_width": new Uniform1f(context, locations.u_lineatlas_width),
-	"u_lineatlas_height": new Uniform1f(context, locations.u_lineatlas_height),
-	"u_opacity_override": new Uniform1i(context, locations.u_opacity_override)
-});
-const lineTextureUniforms = (context, locations) => ({
-	"u_matrix": new UniformMatrix4f(context, locations.u_matrix),
-	"u_world": new Uniform2f(context, locations.u_world),
-	"u_image": new Uniform1i(context, locations.u_image),
-	"u_opacity": new Uniform1f(context, locations.u_opacity)
+	"u_lineatlas_height": new Uniform1f(context, locations.u_lineatlas_height)
 });
 const lineGradientSDFUniforms = (context, locations) => ({
 	"u_translation": new Uniform2f(context, locations.u_translation),
@@ -43520,26 +43852,24 @@ const lineGradientSDFUniforms = (context, locations) => ({
 	"u_image_dash": new Uniform1i(context, locations.u_image_dash),
 	"u_mix": new Uniform1f(context, locations.u_mix),
 	"u_lineatlas_width": new Uniform1f(context, locations.u_lineatlas_width),
-	"u_lineatlas_height": new Uniform1f(context, locations.u_lineatlas_height),
-	"u_opacity_override": new Uniform1i(context, locations.u_opacity_override)
+	"u_lineatlas_height": new Uniform1f(context, locations.u_lineatlas_height)
 });
-const lineUniformValues = (painter, tile, layer, ratioScale, opacityOverride = false) => {
+const lineUniformValues = (painter, tile, layer, ratioScale) => {
 	const transform = painter.transform;
 	return {
 		"u_translation": calculateTranslation(painter, tile, layer),
 		"u_ratio": ratioScale / pixelsToTileUnits(tile, 1, transform.zoom),
 		"u_device_pixel_ratio": painter.pixelRatio,
-		"u_units_to_pixels": [1 / transform.pixelsToGLUnits[0], 1 / transform.pixelsToGLUnits[1]],
-		"u_opacity_override": +opacityOverride
+		"u_units_to_pixels": [1 / transform.pixelsToGLUnits[0], 1 / transform.pixelsToGLUnits[1]]
 	};
 };
-const lineGradientUniformValues = (painter, tile, layer, ratioScale, imageHeight, opacityOverride = false) => {
-	return extend(lineUniformValues(painter, tile, layer, ratioScale, opacityOverride), {
+const lineGradientUniformValues = (painter, tile, layer, ratioScale, imageHeight) => {
+	return extend(lineUniformValues(painter, tile, layer, ratioScale), {
 		"u_image": 0,
 		"u_image_height": imageHeight
 	});
 };
-const linePatternUniformValues = (painter, tile, layer, ratioScale, crossfade, opacityOverride = false) => {
+const linePatternUniformValues = (painter, tile, layer, ratioScale, crossfade) => {
 	const transform = painter.transform;
 	const tileZoomRatio = calculateTileRatio(tile, transform);
 	return {
@@ -43554,14 +43884,13 @@ const linePatternUniformValues = (painter, tile, layer, ratioScale, crossfade, o
 			crossfade.toScale
 		],
 		"u_fade": crossfade.t,
-		"u_units_to_pixels": [1 / transform.pixelsToGLUnits[0], 1 / transform.pixelsToGLUnits[1]],
-		"u_opacity_override": +opacityOverride
+		"u_units_to_pixels": [1 / transform.pixelsToGLUnits[0], 1 / transform.pixelsToGLUnits[1]]
 	};
 };
-const lineSDFUniformValues = (painter, tile, layer, ratioScale, crossfade, opacityOverride = false) => {
+const lineSDFUniformValues = (painter, tile, layer, ratioScale, crossfade) => {
 	const transform = painter.transform;
 	const tileRatio = calculateTileRatio(tile, transform);
-	return extend(lineUniformValues(painter, tile, layer, ratioScale, opacityOverride), {
+	return extend(lineUniformValues(painter, tile, layer, ratioScale), {
 		"u_tileratio": tileRatio,
 		"u_crossfade_from": crossfade.fromScale,
 		"u_crossfade_to": crossfade.toScale,
@@ -43571,10 +43900,10 @@ const lineSDFUniformValues = (painter, tile, layer, ratioScale, crossfade, opaci
 		"u_lineatlas_height": painter.lineAtlas.height
 	});
 };
-const lineGradientSDFUniformValues = (painter, tile, layer, ratioScale, crossfade, imageHeight, opacityOverride = false) => {
+const lineGradientSDFUniformValues = (painter, tile, layer, ratioScale, crossfade, imageHeight) => {
 	const transform = painter.transform;
 	const tileRatio = calculateTileRatio(tile, transform);
-	return extend(lineUniformValues(painter, tile, layer, ratioScale, opacityOverride), {
+	return extend(lineUniformValues(painter, tile, layer, ratioScale), {
 		"u_image": 0,
 		"u_image_height": imageHeight,
 		"u_tileratio": tileRatio,
@@ -43586,23 +43915,22 @@ const lineGradientSDFUniformValues = (painter, tile, layer, ratioScale, crossfad
 		"u_lineatlas_height": painter.lineAtlas.height
 	});
 };
-const lineTextureUniformValues = (painter, layer, textureUnit) => {
-	const matrix = create$5();
-	ortho(matrix, 0, painter.width, painter.height, 0, 0, 1);
-	const gl = painter.context.gl;
-	return {
-		"u_matrix": matrix,
-		"u_world": [gl.drawingBufferWidth, gl.drawingBufferHeight],
-		"u_image": textureUnit,
-		"u_opacity": layer.paint.get("line-opacity").constantOr(1)
-	};
-};
 function calculateTileRatio(tile, transform) {
 	return 1 / pixelsToTileUnits(tile, 1, transform.tileZoom);
 }
 function calculateTranslation(painter, tile, layer) {
 	return translatePosition(painter.transform, tile, layer.paint.get("line-translate"), layer.paint.get("line-translate-anchor"));
 }
+//#endregion
+//#region src/webgl/program/layer_opacity_program.ts
+const layerOpacityUniforms = (context, locations) => ({
+	"u_image": new Uniform1i(context, locations.u_image),
+	"u_opacity": new Uniform1f(context, locations.u_opacity)
+});
+const layerOpacityUniformValues = (opacity, textureUnit) => ({
+	"u_image": textureUnit,
+	"u_opacity": opacity
+});
 //#endregion
 //#region src/webgl/program/raster_program.ts
 const rasterUniforms = (context, locations) => ({
@@ -43684,7 +44012,8 @@ const symbolIconUniforms = (context, locations) => ({
 	"u_texsize": new Uniform2f(context, locations.u_texsize),
 	"u_texture": new Uniform1i(context, locations.u_texture),
 	"u_translation": new Uniform2f(context, locations.u_translation),
-	"u_pitched_scale": new Uniform1f(context, locations.u_pitched_scale)
+	"u_pitched_scale": new Uniform1f(context, locations.u_pitched_scale),
+	"u_is_offset": new Uniform1i(context, locations.u_is_offset)
 });
 const symbolSDFUniforms = (context, locations) => ({
 	"u_is_size_zoom_constant": new Uniform1i(context, locations.u_is_size_zoom_constant),
@@ -43709,7 +44038,8 @@ const symbolSDFUniforms = (context, locations) => ({
 	"u_is_halo": new Uniform1i(context, locations.u_is_halo),
 	"u_is_plain": new Uniform1i(context, locations.u_is_plain),
 	"u_translation": new Uniform2f(context, locations.u_translation),
-	"u_pitched_scale": new Uniform1f(context, locations.u_pitched_scale)
+	"u_pitched_scale": new Uniform1f(context, locations.u_pitched_scale),
+	"u_is_offset": new Uniform1i(context, locations.u_is_offset)
 });
 const symbolTextAndIconUniforms = (context, locations) => ({
 	"u_is_size_zoom_constant": new Uniform1i(context, locations.u_is_size_zoom_constant),
@@ -43735,9 +44065,10 @@ const symbolTextAndIconUniforms = (context, locations) => ({
 	"u_device_pixel_ratio": new Uniform1f(context, locations.u_device_pixel_ratio),
 	"u_is_halo": new Uniform1i(context, locations.u_is_halo),
 	"u_translation": new Uniform2f(context, locations.u_translation),
-	"u_pitched_scale": new Uniform1f(context, locations.u_pitched_scale)
+	"u_pitched_scale": new Uniform1f(context, locations.u_pitched_scale),
+	"u_is_offset": new Uniform1i(context, locations.u_is_offset)
 });
-const symbolIconUniformValues = (functionType, size, rotateInShader, pitchWithMap, isAlongLine, isVariableAnchor, painter, labelPlaneMatrix, glCoordMatrix, translation, isText, texSize, pitchedScale) => {
+const symbolIconUniformValues = (functionType, size, rotateInShader, pitchWithMap, isAlongLine, isVariableAnchor, painter, labelPlaneMatrix, glCoordMatrix, translation, isText, texSize, pitchedScale, isOffset) => {
 	const transform = painter.transform;
 	return {
 		"u_is_size_zoom_constant": +(functionType === "constant" || functionType === "source"),
@@ -43758,20 +44089,21 @@ const symbolIconUniformValues = (functionType, size, rotateInShader, pitchWithMa
 		"u_texsize": texSize,
 		"u_texture": 0,
 		"u_translation": translation,
-		"u_pitched_scale": pitchedScale
+		"u_pitched_scale": pitchedScale,
+		"u_is_offset": isOffset
 	};
 };
-const symbolSDFUniformValues = (functionType, size, rotateInShader, pitchWithMap, isAlongLine, isVariableAnchor, painter, labelPlaneMatrix, glCoordMatrix, translation, isText, texSize, isHalo, pitchedScale) => {
+const symbolSDFUniformValues = (functionType, size, rotateInShader, pitchWithMap, isAlongLine, isVariableAnchor, painter, labelPlaneMatrix, glCoordMatrix, translation, isText, texSize, isHalo, pitchedScale, isOffset) => {
 	const transform = painter.transform;
-	return extend(symbolIconUniformValues(functionType, size, rotateInShader, pitchWithMap, isAlongLine, isVariableAnchor, painter, labelPlaneMatrix, glCoordMatrix, translation, isText, texSize, pitchedScale), {
+	return extend(symbolIconUniformValues(functionType, size, rotateInShader, pitchWithMap, isAlongLine, isVariableAnchor, painter, labelPlaneMatrix, glCoordMatrix, translation, isText, texSize, pitchedScale, isOffset), {
 		"u_gamma_scale": pitchWithMap ? Math.cos(transform.pitch * Math.PI / 180) * transform.cameraToCenterDistance : 1,
 		"u_device_pixel_ratio": painter.pixelRatio,
 		"u_is_halo": isHalo ? 1 : 0,
 		"u_is_plain": 1
 	});
 };
-const symbolTextAndIconUniformValues = (functionType, size, rotateInShader, pitchWithMap, isAlongLine, isVariableAnchor, painter, labelPlaneMatrix, glCoordMatrix, translation, texSizeSDF, texSizeIcon, pitchedScale) => {
-	return extend(symbolSDFUniformValues(functionType, size, rotateInShader, pitchWithMap, isAlongLine, isVariableAnchor, painter, labelPlaneMatrix, glCoordMatrix, translation, true, texSizeSDF, true, pitchedScale), {
+const symbolTextAndIconUniformValues = (functionType, size, rotateInShader, pitchWithMap, isAlongLine, isVariableAnchor, painter, labelPlaneMatrix, glCoordMatrix, translation, texSizeSDF, texSizeIcon, pitchedScale, isOffset) => {
+	return extend(symbolSDFUniformValues(functionType, size, rotateInShader, pitchWithMap, isAlongLine, isVariableAnchor, painter, labelPlaneMatrix, glCoordMatrix, translation, true, texSizeSDF, true, pitchedScale, isOffset), {
 		"u_texsize_icon": texSizeIcon,
 		"u_texture_icon": 1
 	});
@@ -43874,7 +44206,7 @@ const programUniforms = {
 	linePattern: linePatternUniforms,
 	lineSDF: lineSDFUniforms,
 	lineGradientSDF: lineGradientSDFUniforms,
-	lineTexture: lineTextureUniforms,
+	layerOpacity: layerOpacityUniforms,
 	raster: rasterUniforms,
 	symbolIcon: symbolIconUniforms,
 	symbolSDF: symbolSDFUniforms,
@@ -44445,27 +44777,6 @@ var DepthStencilAttachment = class extends FramebufferAttachment {
 	}
 };
 //#endregion
-//#region src/util/framebuffer_error.ts
-/**
-* Error message to use when framebuffer is incomplete
-*/
-const FRAMEBUFFER_NOT_COMPLETE_ERROR = "Framebuffer is not complete";
-/**
-* Check if an error is a framebuffer not complete error
-* @param error - An error object
-* @returns - true if the error is a framebuffer not complete error
-*/
-function isFramebufferNotCompleteError(error) {
-	return error.message === FRAMEBUFFER_NOT_COMPLETE_ERROR;
-}
-/**
-* Use this when you need to create a framebuffer not complete error.
-* @returns An error object with the message "Framebuffer is not complete"
-*/
-function createFramebufferNotCompleteError() {
-	return /* @__PURE__ */ new Error(FRAMEBUFFER_NOT_COMPLETE_ERROR);
-}
-//#endregion
 //#region src/webgl/framebuffer.ts
 /**
 * @internal
@@ -44481,7 +44792,6 @@ var Framebuffer = class {
 		this.colorAttachment = new ColorAttachment(context, fbo);
 		if (hasDepth) this.depthAttachment = hasStencil ? new DepthStencilAttachment(context, fbo) : new DepthAttachment(context, fbo);
 		else if (hasStencil) throw new Error("Stencil cannot be set without depth");
-		if (gl.checkFramebufferStatus(gl.FRAMEBUFFER) !== gl.FRAMEBUFFER_COMPLETE) throw createFramebufferNotCompleteError();
 	}
 	destroy() {
 		const gl = this.context.gl;
@@ -44774,7 +45084,7 @@ function createQuadTriangles(quadCount) {
 }
 //#endregion
 //#region src/webgl/draw/draw_symbol.ts
-const identityMat4 = identity(new Float32Array(16));
+const identityMat4 = identity(/* @__PURE__ */ new Float32Array(16));
 function drawSymbols(painter, tileManager, layer, coords, variableOffsets, renderOptions) {
 	if (painter.renderPass !== "translucent") return;
 	const { isRenderingToTexture } = renderOptions;
@@ -44951,6 +45261,7 @@ function drawLayerSymbols(painter, tileManager, layer, coords, isText, translate
 		});
 		const hasVariableAnchors = hasVariablePlacement && bucket.hasTextData();
 		const updateTextFitIcon = layer.layout.get("icon-text-fit") !== "none" && hasVariableAnchors && bucket.hasIconData();
+		const isOffset = layer._unevaluatedLayout.hasValue("icon-offset");
 		if (alongLine) {
 			const pitchedLabelPlaneMatrixInverse = create$5();
 			fastInvertTransformMat4(pitchedLabelPlaneMatrixInverse, pitchedLabelPlaneMatrix);
@@ -44962,9 +45273,9 @@ function drawLayerSymbols(painter, tileManager, layer, coords, isText, translate
 		const uLabelPlaneMatrix = alongLine || shaderVariableAnchor ? identityMat4 : combinedLabelPlaneMatrix;
 		const hasHalo = isSDF && layer.paint.get(isText ? "text-halo-width" : "icon-halo-width").constantOr(1) !== 0;
 		let uniformValues;
-		if (isSDF) if (!bucket.iconsInText) uniformValues = symbolSDFUniformValues(sizeData.kind, size, rotateInShader, pitchWithMap, alongLine, shaderVariableAnchor, painter, uLabelPlaneMatrix, glCoordMatrixForShader, translation, isText, texSize, hasHalo, pitchedTextRescaling);
-		else uniformValues = symbolTextAndIconUniformValues(sizeData.kind, size, rotateInShader, pitchWithMap, alongLine, shaderVariableAnchor, painter, uLabelPlaneMatrix, glCoordMatrixForShader, translation, texSize, texSizeIcon, pitchedTextRescaling);
-		else uniformValues = symbolIconUniformValues(sizeData.kind, size, rotateInShader, pitchWithMap, alongLine, shaderVariableAnchor, painter, uLabelPlaneMatrix, glCoordMatrixForShader, translation, isText, texSize, pitchedTextRescaling);
+		if (isSDF) if (!bucket.iconsInText) uniformValues = symbolSDFUniformValues(sizeData.kind, size, rotateInShader, pitchWithMap, alongLine, shaderVariableAnchor, painter, uLabelPlaneMatrix, glCoordMatrixForShader, translation, isText, texSize, hasHalo, pitchedTextRescaling, isOffset);
+		else uniformValues = symbolTextAndIconUniformValues(sizeData.kind, size, rotateInShader, pitchWithMap, alongLine, shaderVariableAnchor, painter, uLabelPlaneMatrix, glCoordMatrixForShader, translation, texSize, texSizeIcon, pitchedTextRescaling, isOffset);
+		else uniformValues = symbolIconUniformValues(sizeData.kind, size, rotateInShader, pitchWithMap, alongLine, shaderVariableAnchor, painter, uLabelPlaneMatrix, glCoordMatrixForShader, translation, isText, texSize, pitchedTextRescaling, isOffset);
 		const state = {
 			program,
 			buffers,
@@ -45248,6 +45559,77 @@ function getColorRampTexture(context, layer) {
 	return layer.colorRampTexture;
 }
 //#endregion
+//#region src/webgl/draw/draw_layer_opacity.ts
+/**
+* Partial line-layer-opacity
+* render the whole layer to a scratch FBO, then composite with `layerOpacity`.
+* Applies opacity uniformly to the layer instead of accumulating alpha across overlapping segments.
+*/
+function prepareDrawLayerOpacity(painter, layer, coords, terrain) {
+	const context = painter.context;
+	const compositeTarget = context.bindFramebuffer.get();
+	const compositeViewport = context.viewport.get();
+	const [, , width, height] = compositeViewport;
+	bindLayerOpacity(painter, width, height);
+	context.viewport.set([
+		0,
+		0,
+		width,
+		height
+	]);
+	context.clear({
+		color: Color.transparent,
+		depth: 1,
+		stencil: 0
+	});
+	painter.currentStencilSource = void 0;
+	painter.renderTileClippingMasks(layer, coords, terrain);
+	return {
+		compositeTarget,
+		compositeViewport
+	};
+}
+function bindLayerOpacity(painter, width, height) {
+	const gl = painter.context.gl;
+	if (!painter.layerOpacityFbo) {
+		const fbo = painter.context.createFramebuffer(width, height, true, true);
+		const texture = gl.createTexture();
+		gl.bindTexture(gl.TEXTURE_2D, texture);
+		gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+		gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+		gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+		gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+		gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, width, height, 0, gl.RGBA, gl.UNSIGNED_BYTE, null);
+		fbo.colorAttachment.set(texture);
+		fbo.depthAttachment.set(painter.context.createRenderbuffer(gl.DEPTH_STENCIL, width, height));
+		painter.layerOpacityFbo = fbo;
+		painter.context.bindFramebuffer.set(painter.layerOpacityFbo.framebuffer);
+		return;
+	}
+	if (painter.layerOpacityFbo.width === width && painter.layerOpacityFbo.height === height) {
+		painter.context.bindFramebuffer.set(painter.layerOpacityFbo.framebuffer);
+		return;
+	}
+	const fbo = painter.layerOpacityFbo;
+	gl.bindTexture(gl.TEXTURE_2D, fbo.colorAttachment.get());
+	gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, width, height, 0, gl.RGBA, gl.UNSIGNED_BYTE, null);
+	painter.context.bindRenderbuffer.set(fbo.depthAttachment.get());
+	gl.renderbufferStorage(gl.RENDERBUFFER, gl.DEPTH_STENCIL, width, height);
+	painter.context.bindRenderbuffer.set(null);
+	fbo.width = width;
+	fbo.height = height;
+	painter.context.bindFramebuffer.set(fbo.framebuffer);
+}
+function drawLayerOpacity(painter, opacity, prepareDrawLayerOpacityResult, layer) {
+	const context = painter.context;
+	const gl = context.gl;
+	context.bindFramebuffer.set(prepareDrawLayerOpacityResult.compositeTarget);
+	context.viewport.set(prepareDrawLayerOpacityResult.compositeViewport);
+	context.activeTexture.set(gl.TEXTURE0);
+	gl.bindTexture(gl.TEXTURE_2D, painter.layerOpacityFbo.colorAttachment.get());
+	painter.useProgram("layerOpacity").draw(context, gl.TRIANGLES, DepthMode.disabled, StencilMode.disabled, painter.colorModeForRenderPass(), CullFaceMode.disabled, layerOpacityUniformValues(opacity, 0), null, null, layer.id, painter.viewportBuffer, painter.quadTriangleIndexBuffer, painter.viewportSegments, layer.paint, painter.transform.zoom);
+}
+//#endregion
 //#region src/webgl/draw/draw_line.ts
 function updateGradientTexture(painter, tileManager, context, gl, layer, bucket, coord, layerGradient) {
 	let textureResolution = 256;
@@ -45298,58 +45680,21 @@ function bindGradientAndDashTextures(painter, tileManager, context, gl, layer, b
 	programConfiguration.updatePaintBuffers(crossfade);
 }
 function drawLine(painter, tileManager, layer, coords, renderOptions) {
-	if (painter.renderPass !== "offscreen" && painter.renderPass !== "translucent") return;
+	if (painter.renderPass !== "translucent") return;
 	const opacity = layer.paint.get("line-opacity");
 	const width = layer.paint.get("line-width");
-	if (opacity.constantOr(1) === 0 || width.constantOr(1) === 0) return;
-	const useOffscreen = layer.hasOffscreenPass() && !painter.style.map.terrain;
-	if (!useOffscreen && layer.lineFbo) {
-		layer.lineFbo.destroy();
-		layer.lineFbo = null;
-	}
-	if (painter.renderPass === "offscreen" && !useOffscreen) return;
-	if (painter.renderPass === "offscreen" && useOffscreen) {
-		drawLineOffscreen(painter, tileManager, layer, coords, renderOptions);
+	const layerOpacity = layer.paint.get("line-layer-opacity");
+	if (opacity.constantOr(1) === 0 || width.constantOr(1) === 0 || layerOpacity === 0) return;
+	const useTerrain = !!painter.style.map.terrain;
+	if (layerOpacity < 1) {
+		const results = prepareDrawLayerOpacity(painter, layer, coords, useTerrain);
+		drawLineTiles(painter, tileManager, layer, coords, renderOptions, useTerrain);
+		drawLayerOpacity(painter, layerOpacity, results, layer);
 		return;
 	}
-	if (painter.renderPass === "translucent" && useOffscreen) {
-		drawLineComposite(painter, layer);
-		return;
-	}
-	if (painter.renderPass === "translucent" && !useOffscreen) {
-		drawLineTiles(painter, tileManager, layer, coords, renderOptions, false, true);
-		return;
-	}
+	drawLineTiles(painter, tileManager, layer, coords, renderOptions, useTerrain);
 }
-function drawLineOffscreen(painter, tileManager, layer, coords, renderOptions) {
-	const context = painter.context;
-	layer.lineFbo ??= createLineFbo(context, painter.width, painter.height);
-	context.bindFramebuffer.set(layer.lineFbo.framebuffer);
-	context.viewport.set([
-		0,
-		0,
-		painter.width,
-		painter.height
-	]);
-	context.clear({
-		color: Color.transparent,
-		depth: 1,
-		stencil: 0
-	});
-	painter.currentStencilSource = void 0;
-	painter._renderTileClippingMasks(layer, coords, false);
-	drawLineTiles(painter, tileManager, layer, coords, renderOptions, true, false);
-}
-function drawLineComposite(painter, layer) {
-	const fbo = layer.lineFbo;
-	if (!fbo) return;
-	const context = painter.context;
-	const gl = context.gl;
-	context.activeTexture.set(gl.TEXTURE0);
-	gl.bindTexture(gl.TEXTURE_2D, fbo.colorAttachment.get());
-	painter.useProgram("lineTexture").draw(context, gl.TRIANGLES, DepthMode.disabled, StencilMode.disabled, painter.colorModeForRenderPass(), CullFaceMode.disabled, lineTextureUniformValues(painter, layer, 0), null, null, layer.id, painter.viewportBuffer, painter.quadTriangleIndexBuffer, painter.viewportSegments, layer.paint, painter.transform.zoom);
-}
-function drawLineTiles(painter, tileManager, layer, coords, renderOptions, forceFullOpacity, useTerrain) {
+function drawLineTiles(painter, tileManager, layer, coords, renderOptions, useTerrain) {
 	const { isRenderingToTexture } = renderOptions;
 	const depthMode = painter.getDepthModeForSublayer(0, DepthMode.ReadOnly);
 	const colorMode = painter.colorModeForRenderPass();
@@ -45400,36 +45745,22 @@ function drawLineTiles(painter, tileManager, layer, coords, renderOptions, force
 		const pixelRatio = transform.getPixelScale();
 		let uniformValues;
 		if (image) {
-			uniformValues = linePatternUniformValues(painter, tile, layer, pixelRatio, crossfade, forceFullOpacity);
+			uniformValues = linePatternUniformValues(painter, tile, layer, pixelRatio, crossfade);
 			bindImagePatternTextures(context, gl, tile, programConfiguration, crossfade);
 		} else if (dasharray && gradient) {
-			uniformValues = lineGradientSDFUniformValues(painter, tile, layer, pixelRatio, crossfade, bucket.lineClipsArray.length, forceFullOpacity);
+			uniformValues = lineGradientSDFUniformValues(painter, tile, layer, pixelRatio, crossfade, bucket.lineClipsArray.length);
 			bindGradientAndDashTextures(painter, tileManager, context, gl, layer, bucket, coord, programConfiguration, crossfade);
 		} else if (dasharray) {
-			uniformValues = lineSDFUniformValues(painter, tile, layer, pixelRatio, crossfade, forceFullOpacity);
+			uniformValues = lineSDFUniformValues(painter, tile, layer, pixelRatio, crossfade);
 			bindDasharrayTextures(painter, context, gl, programConfiguration, programChanged, crossfade);
 		} else if (gradient) {
-			uniformValues = lineGradientUniformValues(painter, tile, layer, pixelRatio, bucket.lineClipsArray.length, forceFullOpacity);
+			uniformValues = lineGradientUniformValues(painter, tile, layer, pixelRatio, bucket.lineClipsArray.length);
 			bindGradientTextures(painter, tileManager, context, gl, layer, bucket, coord);
-		} else uniformValues = lineUniformValues(painter, tile, layer, pixelRatio, forceFullOpacity);
+		} else uniformValues = lineUniformValues(painter, tile, layer, pixelRatio);
 		const stencil = painter.stencilModeForClipping(coord);
 		program.draw(context, gl.TRIANGLES, depthMode, stencil, colorMode, CullFaceMode.disabled, uniformValues, terrainData, projectionData, layer.id, bucket.layoutVertexBuffer, bucket.indexBuffer, bucket.segments, layer.paint, painter.transform.zoom, programConfiguration, bucket.layoutVertexBuffer2);
 		firstTile = false;
 	}
-}
-function createLineFbo(context, width, height) {
-	const gl = context.gl;
-	const texture = gl.createTexture();
-	gl.bindTexture(gl.TEXTURE_2D, texture);
-	gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
-	gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
-	gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
-	gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
-	gl.texStorage2D(gl.TEXTURE_2D, 1, gl.RGBA8, width, height);
-	const fbo = context.createFramebuffer(width, height, true, true);
-	fbo.colorAttachment.set(texture);
-	fbo.depthAttachment.set(context.createRenderbuffer(gl.DEPTH_STENCIL, width, height));
-	return fbo;
 }
 //#endregion
 //#region src/render/update_pattern_positions_in_program.ts
@@ -45465,13 +45796,45 @@ function updatePatternPositionsInProgram(programConfiguration, propertyName, con
 function drawFill(painter, tileManager, layer, coords, renderOptions) {
 	const color = layer.paint.get("fill-color");
 	const opacity = layer.paint.get("fill-opacity");
-	if (opacity.constantOr(1) === 0) return;
+	const layerOpacity = layer.paint.get("fill-layer-opacity");
+	if (opacity.constantOr(1) === 0 || layerOpacity === 0) return;
+	if (layerOpacity < 1) {
+		if (painter.renderPass !== "translucent") return;
+		const results = prepareDrawLayerOpacity(painter, layer, coords, !!painter.style.map.terrain);
+		drawFillAndOutline(painter, tileManager, layer, coords, renderOptions);
+		drawLayerOpacity(painter, layerOpacity, results, layer);
+		return;
+	}
+	const pattern = layer.paint.get("fill-pattern");
+	const fillEligibleForOpaque = painter.opaquePassEnabledForLayer() && !pattern.constantOr(1) && color.constantOr(Color.transparent).a === 1 && opacity.constantOr(0) === 1;
+	if (fillEligibleForOpaque && painter.renderPass === "opaque") {
+		const { isRenderingToTexture } = renderOptions;
+		const colorMode = painter.colorModeForRenderPass();
+		drawFillTiles(painter, tileManager, layer, coords, painter.getDepthModeForSublayer(1, DepthMode.ReadWrite), colorMode, false, isRenderingToTexture);
+		return;
+	}
+	if (fillEligibleForOpaque && painter.renderPass === "translucent") {
+		drawOutline(painter, tileManager, layer, coords, renderOptions);
+		return;
+	}
+	if (painter.renderPass === "translucent") drawFillAndOutline(painter, tileManager, layer, coords, renderOptions);
+}
+/**
+* Draw fill + outline in a single translucent pass with ReadOnly depth.
+* Shared by the layer-opacity subpass (always) and the normal translucent path
+* (when the fill is not opaque-pass-eligible).
+*/
+function drawFillAndOutline(painter, tileManager, layer, coords, renderOptions) {
 	const { isRenderingToTexture } = renderOptions;
 	const colorMode = painter.colorModeForRenderPass();
-	const pattern = layer.paint.get("fill-pattern");
-	const pass = painter.opaquePassEnabledForLayer() && !pattern.constantOr(1) && color.constantOr(Color.transparent).a === 1 && opacity.constantOr(0) === 1 ? "opaque" : "translucent";
-	if (painter.renderPass === pass) drawFillTiles(painter, tileManager, layer, coords, painter.getDepthModeForSublayer(1, painter.renderPass === "opaque" ? DepthMode.ReadWrite : DepthMode.ReadOnly), colorMode, false, isRenderingToTexture);
-	if (painter.renderPass === "translucent" && layer.paint.get("fill-antialias")) drawFillTiles(painter, tileManager, layer, coords, painter.getDepthModeForSublayer(layer.getPaintProperty("fill-outline-color") ? 2 : 0, DepthMode.ReadOnly), colorMode, true, isRenderingToTexture);
+	drawFillTiles(painter, tileManager, layer, coords, painter.getDepthModeForSublayer(1, DepthMode.ReadOnly), colorMode, false, isRenderingToTexture);
+	drawOutline(painter, tileManager, layer, coords, renderOptions);
+}
+function drawOutline(painter, tileManager, layer, coords, renderOptions) {
+	if (!layer.paint.get("fill-antialias")) return;
+	const { isRenderingToTexture } = renderOptions;
+	const colorMode = painter.colorModeForRenderPass();
+	drawFillTiles(painter, tileManager, layer, coords, painter.getDepthModeForSublayer(layer.getPaintProperty("fill-outline-color") ? 2 : 0, DepthMode.ReadOnly), colorMode, true, isRenderingToTexture);
 }
 function drawFillTiles(painter, tileManager, layer, coords, depthMode, colorMode, isOutline, isRenderingToTexture) {
 	const gl = painter.context.gl;
@@ -46225,7 +46588,7 @@ function getSunPos(light, transform) {
 		-_lp.y,
 		-_lp.z
 	];
-	const lightMat = identity(new Float64Array(16));
+	const lightMat = identity(/* @__PURE__ */ new Float64Array(16));
 	if (light.properties.get("anchor") === "map") {
 		rotateZ$1(lightMat, lightMat, transform.rollInRadians);
 		rotateX$1(lightMat, lightMat, -transform.pitchInRadians);
@@ -46252,7 +46615,7 @@ function drawAtmosphere(painter, sky, light) {
 	if (atmosphereBlend === 0) return;
 	const globeRadius = getGlobeRadiusPixels(transform.worldSize, transform.center.lat);
 	const invProjMatrix = transform.inverseProjectionMatrix;
-	const vec = new Float64Array(4);
+	const vec = /* @__PURE__ */ new Float64Array(4);
 	vec[3] = 1;
 	transformMat4$1(vec, vec, transform.modelViewProjectionMatrix);
 	vec[0] /= vec[3];
@@ -46304,13 +46667,14 @@ var Painter = class Painter {
 		this.drawFunctions = webglDrawFunctions;
 		this.context = new Context(gl);
 		this.transform = transform;
+		this.layerOpacityFbo = null;
 		this._tileTextures = {};
 		this._rttObjectRecyclePool = [];
 		this._rttSharedFbo = null;
 		this.terrainFacilitator = {
 			depthDirty: true,
 			coordsDirty: false,
-			matrix: identity(new Float64Array(16)),
+			matrix: identity(/* @__PURE__ */ new Float64Array(16)),
 			renderTime: 0
 		};
 		this.setup();
@@ -46416,7 +46780,7 @@ var Painter = class Painter {
 		};
 		this.useProgram("clippingMask", null, true).draw(context, gl.TRIANGLES, DepthMode.disabled, this.stencilClearMode, ColorMode.disabled, CullFaceMode.disabled, null, null, projectionData, "$clipping", this.viewportBuffer, this.quadTriangleIndexBuffer, this.viewportSegments);
 	}
-	_renderTileClippingMasks(layer, tileIDs, renderToTexture) {
+	renderTileClippingMasks(layer, tileIDs, renderToTexture) {
 		if (this.currentStencilSource === layer.source || !layer.isTileClipped() || !tileIDs?.length) return;
 		this.currentStencilSource = layer.source;
 		if (this.nextStencilID + tileIDs.length > 256) this.clearStencil();
@@ -46642,7 +47006,7 @@ var Painter = class Painter {
 				const layer = this.style._layers[layerIds[this.currentLayer]];
 				const tileManager = tileManagers[layer.source];
 				const coords = coordsAscending[layer.source];
-				this._renderTileClippingMasks(layer, coords, false);
+				this.renderTileClippingMasks(layer, coords, false);
 				this.renderLayer(this, tileManager, layer, coords, renderOptions);
 			}
 		}
@@ -46657,7 +47021,7 @@ var Painter = class Painter {
 				if (renderOptions.isRenderingGlobe && !this.style.map.terrain) this._renderTilesDepthBuffer();
 			}
 			const coords = (layer.type === "symbol" ? coordsDescendingSymbol : coordsDescending)[layer.source];
-			this._renderTileClippingMasks(layer, coordsAscending[layer.source], !!this.renderToTexture);
+			this.renderTileClippingMasks(layer, coordsAscending[layer.source], !!this.renderToTexture);
 			this.renderLayer(this, tileManager, layer, coords, renderOptions);
 		}
 		if (renderOptions.isRenderingGlobe) this.drawFunctions.atmosphere(this, this.style.sky, this.style.light);
@@ -46862,6 +47226,8 @@ var Painter = class Painter {
 			gl.deleteFramebuffer(this._rttSharedFbo.fbo.framebuffer);
 			this._rttSharedFbo = null;
 		}
+		this.layerOpacityFbo?.destroy();
+		this.layerOpacityFbo = null;
 		if (this.tileExtentBuffer) this.tileExtentBuffer.destroy();
 		if (this.debugBuffer) this.debugBuffer.destroy();
 		if (this.rasterBoundsBuffer) this.rasterBoundsBuffer.destroy();
@@ -47148,126 +47514,6 @@ function calculateEasing(amount, inertiaDuration, inertiaOptions) {
 	};
 }
 //#endregion
-//#region src/ui/events.ts
-/**
-* `MapMouseEvent` is the event type for mouse-related map events.
-*
-* @group Event Related
-*
-* @example
-* ```ts
-* // The `click` event is an example of a `MapMouseEvent`.
-* // Set up an event listener on the map.
-* map.on('click', (e) => {
-*   // The event object (e) contains information like the
-*   // coordinates of the point on the map that was clicked.
-*   console.log('A click event has occurred at ' + e.lngLat);
-* });
-* ```
-*/
-var MapMouseEvent = class extends Event {
-	/**
-	* Prevents subsequent default processing of the event by the map.
-	*
-	* Calling this method will prevent the following default map behaviors:
-	*
-	*   * On `mousedown` events, the behavior of {@link DragPanHandler}
-	*   * On `mousedown` events, the behavior of {@link DragRotateHandler}
-	*   * On `mousedown` events, the behavior of {@link BoxZoomHandler}
-	*   * On `dblclick` events, the behavior of {@link DoubleClickZoomHandler}
-	*
-	*/
-	preventDefault() {
-		this._defaultPrevented = true;
-	}
-	/**
-	* `true` if `preventDefault` has been called.
-	*/
-	get defaultPrevented() {
-		return this._defaultPrevented;
-	}
-	constructor(type, map, originalEvent, data = {}) {
-		originalEvent = originalEvent instanceof MouseEvent ? originalEvent : new MouseEvent(type, originalEvent);
-		const point = DOM.mousePos(map.getCanvas(), originalEvent);
-		const lngLat = map.unproject(point);
-		super(type, extend({
-			point,
-			lngLat,
-			originalEvent
-		}, data));
-		this._defaultPrevented = false;
-		this.target = map;
-	}
-};
-/**
-* `MapTouchEvent` is the event type for touch-related map events.
-*
-* @group Event Related
-*/
-var MapTouchEvent = class extends Event {
-	/**
-	* Prevents subsequent default processing of the event by the map.
-	*
-	* Calling this method will prevent the following default map behaviors:
-	*
-	*   * On `touchstart` events, the behavior of {@link DragPanHandler}
-	*   * On `touchstart` events, the behavior of {@link TwoFingersTouchZoomRotateHandler}
-	*
-	*/
-	preventDefault() {
-		this._defaultPrevented = true;
-	}
-	/**
-	* `true` if `preventDefault` has been called.
-	*/
-	get defaultPrevented() {
-		return this._defaultPrevented;
-	}
-	constructor(type, map, originalEvent) {
-		const touches = type === "touchend" ? originalEvent.changedTouches : originalEvent.touches;
-		const points = DOM.touchPos(map.getCanvasContainer(), touches);
-		const lngLats = points.map((t) => map.unproject(t));
-		const point = points.reduce((prev, curr, i, arr) => {
-			return prev.add(curr.div(arr.length));
-		}, new Point(0, 0));
-		const lngLat = map.unproject(point);
-		super(type, {
-			points,
-			point,
-			lngLats,
-			lngLat,
-			originalEvent
-		});
-		this._defaultPrevented = false;
-	}
-};
-/**
-* `MapWheelEvent` is the event type for the `wheel` map event.
-*
-* @group Event Related
-*/
-var MapWheelEvent = class extends Event {
-	/**
-	* Prevents subsequent default processing of the event by the map.
-	*
-	* Calling this method will prevent the behavior of {@link ScrollZoomHandler}.
-	*/
-	preventDefault() {
-		this._defaultPrevented = true;
-	}
-	/**
-	* `true` if `preventDefault` has been called.
-	*/
-	get defaultPrevented() {
-		return this._defaultPrevented;
-	}
-	/** */
-	constructor(type, map, originalEvent) {
-		super(type, { originalEvent });
-		this._defaultPrevented = false;
-	}
-};
-//#endregion
 //#region src/ui/handler/map_event.ts
 var MapEventHandler = class {
 	constructor(map, options) {
@@ -47278,7 +47524,7 @@ var MapEventHandler = class {
 		delete this._mousedownPos;
 	}
 	wheel(e) {
-		return this._firePreventable(new MapWheelEvent(e.type, this._map, e));
+		return this._firePreventable(new MapWheelEvent(this._map, e));
 	}
 	mousedown(e, point) {
 		this._mousedownPos = point;
@@ -47486,7 +47732,7 @@ var BoxZoomHandler = class {
 		DOM.suppressClick();
 		if (p0.x === p1.x && p0.y === p1.y) this._fireEvent("boxzoomcancel", e);
 		else {
-			this._map.fire(new Event("boxzoomend", { originalEvent: e }));
+			this._map.fire(new MapBoxZoomEvent("boxzoomend", { originalEvent: e }));
 			if (this._boxZoomEnd) {
 				this._boxZoomEnd(this._map, p0, p1, e);
 				return;
@@ -47513,7 +47759,7 @@ var BoxZoomHandler = class {
 		delete this._lastPos;
 	}
 	_fireEvent(type, e) {
-		return this._map.fire(new Event(type, { originalEvent: e }));
+		return this._map.fire(new MapBoxZoomEvent(type, { originalEvent: e }));
 	}
 };
 //#endregion
@@ -49117,7 +49363,7 @@ var CooperativeGesturesHandler = class {
 	}
 	notifyGestureBlocked(gestureType, originalEvent) {
 		if (!this._enabled) return;
-		this._map.fire(new Event("cooperativegestureprevented", {
+		this._map.fire(new MapLibreEvent("cooperativegestureprevented", {
 			gestureType,
 			originalEvent
 		}));
@@ -49544,14 +49790,14 @@ var HandlerManager = class {
 				inertialEase.freezeElevation = true;
 				this._map.easeTo(inertialEase, { originalEvent: originalEndEvent });
 			} else {
-				this._map.fire(new Event("moveend", { originalEvent: originalEndEvent }));
+				this._map.fire(new MapMovementEvent("moveend", { originalEvent: originalEndEvent }));
 				if (shouldSnapToNorth(this._map.getBearing())) this._map.resetNorth();
 			}
 			this._updatingCamera = false;
 		}
 	}
 	_fireEvent(type, e) {
-		this._map.fire(new Event(type, e ? { originalEvent: e } : {}));
+		this._map.fire(new MapMovementEvent(type, e ? { originalEvent: e } : {}));
 	}
 	_requestFrame() {
 		this._map.triggerRepaint();
@@ -49817,7 +50063,7 @@ var Camera = class extends Evented {
 	setVerticalFieldOfView(fov, eventData) {
 		if (fov != this.transform.fov) {
 			this.transform.setFov(fov);
-			this.fire(new Event("movestart", eventData)).fire(new Event("move", eventData)).fire(new Event("moveend", eventData));
+			this.fire(new MapMovementEvent("movestart", eventData)).fire(new MapMovementEvent("move", eventData)).fire(new MapMovementEvent("moveend", eventData));
 		}
 		return this;
 	}
@@ -50165,12 +50411,12 @@ var Camera = class extends Evented {
 		}
 		if (options.padding != null && !tr.isPaddingEqual(options.padding)) tr.setPadding(options.padding);
 		this._applyUpdatedTransform(tr);
-		this.fire(new Event("movestart", eventData)).fire(new Event("move", eventData));
-		if (zoomChanged) this.fire(new Event("zoomstart", eventData)).fire(new Event("zoom", eventData)).fire(new Event("zoomend", eventData));
-		if (bearingChanged) this.fire(new Event("rotatestart", eventData)).fire(new Event("rotate", eventData)).fire(new Event("rotateend", eventData));
-		if (pitchChanged) this.fire(new Event("pitchstart", eventData)).fire(new Event("pitch", eventData)).fire(new Event("pitchend", eventData));
-		if (rollChanged) this.fire(new Event("rollstart", eventData)).fire(new Event("roll", eventData)).fire(new Event("rollend", eventData));
-		return this.fire(new Event("moveend", eventData));
+		this.fire(new MapMovementEvent("movestart", eventData)).fire(new MapMovementEvent("move", eventData));
+		if (zoomChanged) this.fire(new MapMovementEvent("zoomstart", eventData)).fire(new MapMovementEvent("zoom", eventData)).fire(new MapMovementEvent("zoomend", eventData));
+		if (bearingChanged) this.fire(new MapMovementEvent("rotatestart", eventData)).fire(new MapMovementEvent("rotate", eventData)).fire(new MapMovementEvent("rotateend", eventData));
+		if (pitchChanged) this.fire(new MapMovementEvent("pitchstart", eventData)).fire(new MapMovementEvent("pitch", eventData)).fire(new MapMovementEvent("pitchend", eventData));
+		if (rollChanged) this.fire(new MapMovementEvent("rollstart", eventData)).fire(new MapMovementEvent("roll", eventData)).fire(new MapMovementEvent("rollend", eventData));
+		return this.fire(new MapMovementEvent("moveend", eventData));
 	}
 	/**
 	* Given a camera 'from' position and a position to look at (`to`), calculates zoom and camera rotation and returns them as {@link CameraOptions}.
@@ -50319,11 +50565,11 @@ var Camera = class extends Evented {
 	}
 	_prepareEase(eventData, noMoveStart, currently = {}) {
 		this._moving = true;
-		if (!noMoveStart && !currently.moving) this.fire(new Event("movestart", eventData));
-		if (this._zooming && !currently.zooming) this.fire(new Event("zoomstart", eventData));
-		if (this._rotating && !currently.rotating) this.fire(new Event("rotatestart", eventData));
-		if (this._pitching && !currently.pitching) this.fire(new Event("pitchstart", eventData));
-		if (this._rolling && !currently.rolling) this.fire(new Event("rollstart", eventData));
+		if (!noMoveStart && !currently.moving) this.fire(new MapMovementEvent("movestart", eventData));
+		if (this._zooming && !currently.zooming) this.fire(new MapMovementEvent("zoomstart", eventData));
+		if (this._rotating && !currently.rotating) this.fire(new MapMovementEvent("rotatestart", eventData));
+		if (this._pitching && !currently.pitching) this.fire(new MapMovementEvent("pitchstart", eventData));
+		if (this._rolling && !currently.rolling) this.fire(new MapMovementEvent("rollstart", eventData));
 	}
 	_prepareElevation(center) {
 		this._elevationCenter = center;
@@ -50413,11 +50659,11 @@ var Camera = class extends Evented {
 		this.transform.apply(finalTransform, false);
 	}
 	_fireMoveEvents(eventData) {
-		this.fire(new Event("move", eventData));
-		if (this._zooming) this.fire(new Event("zoom", eventData));
-		if (this._rotating) this.fire(new Event("rotate", eventData));
-		if (this._pitching) this.fire(new Event("pitch", eventData));
-		if (this._rolling) this.fire(new Event("roll", eventData));
+		this.fire(new MapMovementEvent("move", eventData));
+		if (this._zooming) this.fire(new MapMovementEvent("zoom", eventData));
+		if (this._rotating) this.fire(new MapMovementEvent("rotate", eventData));
+		if (this._pitching) this.fire(new MapMovementEvent("pitch", eventData));
+		if (this._rolling) this.fire(new MapMovementEvent("roll", eventData));
 	}
 	_afterEase(eventData, easeId) {
 		if (this._easeId && easeId && this._easeId === easeId) return;
@@ -50432,11 +50678,11 @@ var Camera = class extends Evented {
 		this._pitching = false;
 		this._rolling = false;
 		this._padding = false;
-		if (wasZooming) this.fire(new Event("zoomend", eventData));
-		if (wasRotating) this.fire(new Event("rotateend", eventData));
-		if (wasPitching) this.fire(new Event("pitchend", eventData));
-		if (wasRolling) this.fire(new Event("rollend", eventData));
-		this.fire(new Event("moveend", eventData));
+		if (wasZooming) this.fire(new MapMovementEvent("zoomend", eventData));
+		if (wasRotating) this.fire(new MapMovementEvent("rotateend", eventData));
+		if (wasPitching) this.fire(new MapMovementEvent("pitchend", eventData));
+		if (wasRolling) this.fire(new MapMovementEvent("rollend", eventData));
+		this.fire(new MapMovementEvent("moveend", eventData));
 	}
 	/**
 	* Changes any combination of center, zoom, bearing, pitch, and roll, animating the transition along a curve that
@@ -50678,7 +50924,7 @@ var AttributionControl = class {
 			}
 		};
 		this._updateData = (e) => {
-			if (e && (e.sourceDataType === "metadata" || e.sourceDataType === "visibility" || e.dataType === "style" || e.type === "terrain")) this._updateAttributions();
+			if (e && (e.type === "terrain" || e.dataType === "style" || e.dataType === "source" && (e.sourceDataType === "metadata" || e.sourceDataType === "visibility"))) this._updateAttributions();
 		};
 		this._updateCompact = () => {
 			if (this._map.getCanvasContainer().offsetWidth <= 640 || this._compact) {
@@ -50938,7 +51184,7 @@ var TerrainTileManager = class extends Evented {
 			keys[tileID.key] = true;
 			this._renderableTilesKeys.push(tileID.key);
 			if (!this._tiles[tileID.key]) {
-				tileID.terrainRttPosMatrix32f = new Float64Array(16);
+				tileID.terrainRttPosMatrix32f = /* @__PURE__ */ new Float32Array(16);
 				ortho(tileID.terrainRttPosMatrix32f, 0, EXTENT, EXTENT, 0, 0, 1);
 				this._tiles[tileID.key] = new Tile(tileID, this.tileSize);
 				this._lastTilesetChange = now();
@@ -51229,8 +51475,7 @@ var Terrain = class {
 		if (!dem) return 0;
 		const pos = transformMat4([], [normalized.x / extent * EXTENT, normalized.y / extent * EXTENT], terrain.u_terrain_matrix);
 		const coord = [pos[0] * dem.dim, pos[1] * dem.dim];
-		const cx = Math.floor(coord[0]), cy = Math.floor(coord[1]), tx = coord[0] - cx, ty = coord[1] - cy;
-		return dem.get(cx, cy) * (1 - tx) * (1 - ty) + dem.get(cx + 1, cy) * tx * (1 - ty) + dem.get(cx, cy + 1) * (1 - tx) * ty + dem.get(cx + 1, cy + 1) * tx * ty;
+		return dem.sampleBilinear(coord[0], coord[1]);
 	}
 	/**
 	* Get the elevation for given {@link LngLat} in respect of exaggeration.
@@ -51282,7 +51527,7 @@ var Terrain = class {
 			const image = new RGBAImage({
 				width: 1,
 				height: 1
-			}, new Uint8Array(4));
+			}, /* @__PURE__ */ new Uint8Array(4));
 			this._emptyDepthTexture = new Texture(context, image, context.gl.RGBA, { premultiply: false });
 			this._emptyDemUnpack = [
 				0,
@@ -51314,7 +51559,7 @@ var Terrain = class {
 			else warnOnce("cannot calculate elevation if elevation maxzoom > source.maxzoom");
 			const dx = tileID.canonical.x - (tileID.canonical.x >> dz << dz);
 			const dy = tileID.canonical.y - (tileID.canonical.y >> dz << dz);
-			const demMatrix = fromScaling(new Float64Array(16), [
+			const demMatrix = fromScaling(/* @__PURE__ */ new Float64Array(16), [
 				1 / (EXTENT << dz),
 				1 / (EXTENT << dz),
 				0
@@ -51417,7 +51662,7 @@ var Terrain = class {
 	pointCoordinate(p) {
 		this.painter.maybeDrawDepth(true);
 		this.painter.maybeDrawCoords();
-		const rgba = new Uint8Array(4);
+		const rgba = /* @__PURE__ */ new Uint8Array(4);
 		const context = this.painter.context, gl = context.gl;
 		const px = Math.round(p.x * this.painter.pixelRatio / devicePixelRatio);
 		const py = Math.round(p.y * this.painter.pixelRatio / devicePixelRatio);
@@ -51440,7 +51685,7 @@ var Terrain = class {
 	* @returns depth value in clip space (between 0 and 1)
 	*/
 	depthAtPoint(p) {
-		const rgba = new Uint8Array(4);
+		const rgba = /* @__PURE__ */ new Uint8Array(4);
 		const context = this.painter.context, gl = context.gl;
 		context.bindFramebuffer.set(this.getFramebuffer("depth").framebuffer);
 		gl.readPixels(p.x, this.painter.height / devicePixelRatio - p.y - 1, 1, 1, gl.RGBA, gl.UNSIGNED_BYTE, rgba);
@@ -51661,7 +51906,7 @@ var RenderToTexture = class {
 						this.rttSize,
 						this.rttSize
 					]);
-					painter._renderTileClippingMasks(layer, coords, true);
+					painter.renderTileClippingMasks(layer, coords, true);
 					painter.renderLayer(painter, painter.style.tileManagers[layer.source], layer, coords, options);
 					if (layer.source) tile.rttFingerprint[layer.source] = this._rttFingerprints[layer.source][tile.tileID.key];
 				}
@@ -51852,7 +52097,7 @@ var Map$1 = class extends Camera {
 			this.painter.destroy();
 			this._lostContextStyle = this._getStyleAndImages();
 			if (!this.style) {
-				this.fire(new Event("webglcontextlost", { originalEvent: event }));
+				this.fire(new MapContextEvent("webglcontextlost", { originalEvent: event }));
 				return;
 			}
 			for (const layer of Object.values(this.style._layers)) {
@@ -51861,7 +52106,7 @@ var Map$1 = class extends Camera {
 			}
 			this.style.destroy();
 			this.style = null;
-			this.fire(new Event("webglcontextlost", { originalEvent: event }));
+			this.fire(new MapContextEvent("webglcontextlost", { originalEvent: event }));
 		};
 		this._contextRestored = (event) => {
 			if (this._lostContextStyle.style) this.setStyle(this._lostContextStyle.style, { diff: false });
@@ -51875,7 +52120,7 @@ var Map$1 = class extends Camera {
 			this.resize();
 			this._update();
 			this._resizeInternal();
-			this.fire(new Event("webglcontextrestored", { originalEvent: event }));
+			this.fire(new MapContextEvent("webglcontextrestored", { originalEvent: event }));
 		};
 		this._onMapScroll = (event) => {
 			if (event.target !== this._container) return;
@@ -51970,13 +52215,13 @@ var Map$1 = class extends Camera {
 		});
 		this.on("data", (event) => {
 			this._update(event.dataType === "style");
-			this.fire(new Event(`${event.dataType}data`, event));
+			this.fire(event.dataType === "style" ? new MapStyleDataEvent("styledata", event) : new MapSourceDataEvent("sourcedata", event));
 		});
 		this.on("dataloading", (event) => {
-			this.fire(new Event(`${event.dataType}dataloading`, event));
+			this.fire(event.dataType === "style" ? new MapStyleDataEvent("styledataloading", event) : new MapSourceDataEvent("sourcedataloading", event));
 		});
 		this.on("dataabort", (event) => {
-			this.fire(new Event("sourcedataabort", event));
+			this.fire(new MapSourceDataEvent("sourcedataabort", event));
 		});
 	}
 	/**
@@ -52119,10 +52364,10 @@ var Map$1 = class extends Camera {
 		const fireMoving = !this._moving;
 		if (fireMoving) {
 			this.stop();
-			this.fire(new Event("movestart", eventData)).fire(new Event("move", eventData));
+			this.fire(new MapMovementEvent("movestart", eventData)).fire(new MapMovementEvent("move", eventData));
 		}
-		this.fire(new Event("resize", eventData));
-		if (fireMoving) this.fire(new Event("moveend", eventData));
+		this.fire(new MapLibreEvent("resize", eventData));
+		if (fireMoving) this.fire(new MapMovementEvent("moveend", eventData));
 		return this;
 	}
 	/**
@@ -52266,7 +52511,7 @@ var Map$1 = class extends Camera {
 			tr.setMinZoom(minZoom);
 			this._applyUpdatedTransform(tr);
 			this._update();
-			if (zoomBefore !== this.transform.zoom) this.fire(new Event("zoomstart")).fire(new Event("zoom")).fire(new Event("zoomend")).fire(new Event("movestart")).fire(new Event("move")).fire(new Event("moveend"));
+			if (zoomBefore !== this.transform.zoom) this.fire(new MapMovementEvent("zoomstart")).fire(new MapMovementEvent("zoom")).fire(new MapMovementEvent("zoomend")).fire(new MapMovementEvent("movestart")).fire(new MapMovementEvent("move")).fire(new MapMovementEvent("moveend"));
 			return this;
 		} else throw new Error(`minZoom must be between ${defaultMinZoom} and the current maxZoom, inclusive`);
 	}
@@ -52305,7 +52550,7 @@ var Map$1 = class extends Camera {
 			tr.setMaxZoom(maxZoom);
 			this._applyUpdatedTransform(tr);
 			this._update();
-			if (zoomBefore !== this.transform.zoom) this.fire(new Event("zoomstart")).fire(new Event("zoom")).fire(new Event("zoomend")).fire(new Event("movestart")).fire(new Event("move")).fire(new Event("moveend"));
+			if (zoomBefore !== this.transform.zoom) this.fire(new MapMovementEvent("zoomstart")).fire(new MapMovementEvent("zoom")).fire(new MapMovementEvent("zoomend")).fire(new MapMovementEvent("movestart")).fire(new MapMovementEvent("move")).fire(new MapMovementEvent("moveend"));
 			return this;
 		} else throw new Error("maxZoom must be greater than the current minZoom");
 	}
@@ -52341,7 +52586,7 @@ var Map$1 = class extends Camera {
 			tr.setMinPitch(minPitch);
 			this._applyUpdatedTransform(tr);
 			this._update();
-			if (pitchBefore !== this.transform.pitch) this.fire(new Event("pitchstart")).fire(new Event("pitch")).fire(new Event("pitchend")).fire(new Event("movestart")).fire(new Event("move")).fire(new Event("moveend"));
+			if (pitchBefore !== this.transform.pitch) this.fire(new MapMovementEvent("pitchstart")).fire(new MapMovementEvent("pitch")).fire(new MapMovementEvent("pitchend")).fire(new MapMovementEvent("movestart")).fire(new MapMovementEvent("move")).fire(new MapMovementEvent("moveend"));
 			return this;
 		} else throw new Error(`minPitch must be between ${defaultMinPitch} and the current maxPitch, inclusive`);
 	}
@@ -52373,7 +52618,7 @@ var Map$1 = class extends Camera {
 			tr.setMaxPitch(maxPitch);
 			this._applyUpdatedTransform(tr);
 			this._update();
-			if (pitchBefore !== this.transform.pitch) this.fire(new Event("pitchstart")).fire(new Event("pitch")).fire(new Event("pitchend")).fire(new Event("movestart")).fire(new Event("move")).fire(new Event("moveend"));
+			if (pitchBefore !== this.transform.pitch) this.fire(new MapMovementEvent("pitchstart")).fire(new MapMovementEvent("pitch")).fire(new MapMovementEvent("pitchend")).fire(new MapMovementEvent("movestart")).fire(new MapMovementEvent("move")).fire(new MapMovementEvent("moveend"));
 			return this;
 		} else throw new Error("maxPitch must be greater than the current minPitch");
 	}
@@ -53002,10 +53247,10 @@ var Map$1 = class extends Camera {
 	*     "type": "Feature",
 	*     "geometry": {
 	*       "type": "Point",
-	*       "coordinates": [-77.0323, 38.9131]
+	*       "coordinates": [-77.0396, 38.8891]
 	*     },
 	*     "properties": {
-	*       "title": "Mapbox DC",
+	*       "title": "Washington DC",
 	*       "marker-symbol": "monument"
 	*     }
 	*   }
@@ -53085,7 +53330,7 @@ var Map$1 = class extends Camera {
 			};
 			this.style.on("data", this._terrainDataCallback);
 		}
-		this.fire(new Event("terrain", { terrain: options }));
+		this.fire(new MapTerrainEvent({ terrain: options }));
 		return this;
 	}
 	/**
@@ -54059,7 +54304,7 @@ var Map$1 = class extends Camera {
 	migrateProjection(newTransform, newCameraHelper) {
 		super.migrateProjection(newTransform, newCameraHelper);
 		this.painter.transform = newTransform;
-		this.fire(new Event("projectiontransition", { newProjection: this.style.projection.name }));
+		this.fire(new MapProjectionEvent({ newProjection: this.style.projection.name }));
 	}
 	/**
 	* Returns a Boolean indicating whether the map is fully loaded.
@@ -54164,16 +54409,16 @@ var Map$1 = class extends Camera {
 			showPadding: this.showPadding,
 			anisotropicFilterPitch: this.getAnisotropicFilterPitch()
 		});
-		this.fire(new Event("render"));
+		this.fire(new MapLibreEvent("render"));
 		if (this.loaded() && !this._loaded) {
 			this._loaded = true;
-			this.fire(new Event("load"));
+			this.fire(new MapLibreEvent("load"));
 		}
 		if (this.style && (this.style.hasTransitions() || crossFading)) this._styleDirty = true;
 		if (this.style && !this._placementDirty) this.style._releaseSymbolFadeTiles();
 		const somethingDirty = this._sourcesDirty || this._styleDirty || this._placementDirty;
 		if (somethingDirty || this._repaint) this.triggerRepaint();
-		else if (!this.isMoving() && this.loaded()) this.fire(new Event("idle"));
+		else if (!this.isMoving() && this.loaded()) this.fire(new MapLibreEvent("idle"));
 		if (this._loaded && !this._fullyLoaded && !somethingDirty) this._fullyLoaded = true;
 		return this;
 	}
@@ -54229,7 +54474,7 @@ var Map$1 = class extends Camera {
 		this._container.removeEventListener("scroll", this._onMapScroll, false);
 		this._container.classList.remove("maplibregl-map");
 		this._removed = true;
-		this.fire(new Event("remove"));
+		this.fire(new MapLibreEvent("remove"));
 	}
 	/**
 	* Trigger the rendering of a single frame. Use this method with custom layers to
@@ -54250,7 +54495,7 @@ var Map$1 = class extends Camera {
 				try {
 					this._render(paintStartTimeStamp);
 				} catch (error) {
-					if (!isAbortError(error) && !isFramebufferNotCompleteError(error)) throw error;
+					if (!isAbortError(error)) throw error;
 				}
 			}, () => {}, this._ownerWindow);
 		}
@@ -55077,36 +55322,6 @@ var LayerTextWithVariableAnchor = class extends LayerBenchmark {
 				]
 			}
 		}) });
-	}
-};
-//#endregion
-//#region test/bench/benchmarks/layer_line_opacity.ts
-var LineOpacityTranslucent = class extends Benchmark {
-	async setup() {
-		const layers = [];
-		for (let i = 0; i < 50; i++) layers.push({
-			id: `linelayer${i}`,
-			type: "line",
-			source: "openmaptiles",
-			"source-layer": "transportation",
-			paint: { "line-opacity": .5 }
-		});
-		this.map = await createMap({
-			zoom: 16,
-			width: 1024,
-			height: 768,
-			center: [-77.032194, 38.912753],
-			style: {
-				...empty_default,
-				layers
-			}
-		});
-	}
-	bench() {
-		Benchmark.renderMap(this.map);
-	}
-	teardown() {
-		this.map.remove();
 	}
 };
 //#endregion
@@ -57469,6 +57684,18 @@ function applyAnchorClass(element, anchor, prefix) {
 //#endregion
 //#region src/ui/marker.ts
 /**
+* The event class for marker drag events (`dragstart`, `drag` and `dragend`).
+*
+* @group Event Related
+*/
+var MarkerDragEvent = class extends Event {};
+/**
+* The event class for the marker `click` event.
+*
+* @group Event Related
+*/
+var MarkerClickEvent = class extends Event {};
+/**
 * Creates a marker component
 *
 * @group Markers and Controls
@@ -57497,13 +57724,13 @@ function applyAnchorClass(element, anchor, prefix) {
 *
 * ## Events
 *
-* **Event** `dragstart` of type {@link Event} will be fired when dragging starts.
+* **Event** `dragstart` of type {@link MarkerDragEvent} will be fired when dragging starts.
 *
-* **Event** `drag` of type {@link Event} will be fired while dragging.
+* **Event** `drag` of type {@link MarkerDragEvent} will be fired while dragging.
 *
-* **Event** `dragend` of type {@link Event} will be fired when the marker is finished being dragged.
+* **Event** `dragend` of type {@link MarkerDragEvent} will be fired when the marker is finished being dragged.
 *
-* **Event** `click` of type {@link Event} will be fired when the marker is clicked.
+* **Event** `click` of type {@link MarkerClickEvent} will be fired when the marker is clicked.
 *
 * ## CSS Classes
 *
@@ -57526,7 +57753,7 @@ var Marker = class extends Evented {
 	constructor(options) {
 		super();
 		this._onClick = (e) => {
-			this.fire(new Event("click", { originalEvent: e }));
+			this.fire(new MarkerClickEvent("click", { originalEvent: e }));
 		};
 		this._onKeyPress = (e) => {
 			if (e.code === "Space" || e.code === "Enter") this.togglePopup();
@@ -57567,9 +57794,9 @@ var Marker = class extends Evented {
 			this._element.style.pointerEvents = "none";
 			if (this._state === "pending") {
 				this._state = "active";
-				this.fire(new Event("dragstart"));
+				this.fire(new MarkerDragEvent("dragstart"));
 			}
-			this.fire(new Event("drag"));
+			this.fire(new MarkerDragEvent("drag"));
 		};
 		this._onUp = () => {
 			this._element.style.pointerEvents = "auto";
@@ -57578,7 +57805,7 @@ var Marker = class extends Evented {
 			this._isDragging = false;
 			this._map.off("mousemove", this._onMove);
 			this._map.off("touchmove", this._onMove);
-			if (this._state === "active") this.fire(new Event("dragend"));
+			if (this._state === "active") this.fire(new MarkerDragEvent("dragend"));
 			this._state = "inactive";
 		};
 		this._addDragHandler = (e) => {
@@ -58122,6 +58349,27 @@ const defaultOptions$2 = {
 let numberOfWatches = 0;
 let noTimeout = false;
 /**
+* The event class for geolocate control state events
+* (`trackuserlocationstart`, `trackuserlocationend`, `userlocationfocus` and `userlocationlostfocus`).
+*
+* @group Event Related
+*/
+var GeolocateEvent = class extends Event {};
+/**
+* The event class for the geolocate control `geolocate` and `outofmaxbounds` events.
+* Carries the [Position](https://developer.mozilla.org/en-US/docs/Web/API/GeolocationPosition) returned by the Geolocation API.
+*
+* @group Event Related
+*/
+var GeolocatePositionEvent = class extends Event {};
+/**
+* The event class for the geolocate control `error` event.
+* Carries the [PositionError](https://developer.mozilla.org/en-US/docs/Web/API/GeolocationPositionError) returned by the Geolocation API.
+*
+* @group Event Related
+*/
+var GeolocateErrorEvent = class extends Event {};
+/**
 * A `GeolocateControl` control provides a button that uses the browser's geolocation
 * API to locate the user on the map.
 *
@@ -58311,7 +58559,7 @@ var GeolocateControl = class extends Evented {
 			if (!this._map) return;
 			if (this._isOutOfMapMaxBounds(position)) {
 				this._setErrorState();
-				this.fire(new Event("outofmaxbounds", position));
+				this.fire(new GeolocatePositionEvent("outofmaxbounds", position));
 				this._updateMarker();
 				this._finish();
 				return;
@@ -58340,7 +58588,7 @@ var GeolocateControl = class extends Evented {
 			if (this.options.showUserLocation && this._watchState !== "OFF") this._updateMarker(position);
 			if (!this.options.trackUserLocation || this._watchState === "ACTIVE_LOCK") this._updateCamera(position);
 			if (this.options.showUserLocation) this._dotElement.classList.remove("maplibregl-user-location-dot-stale");
-			this.fire(new Event("geolocate", position));
+			this.fire(new GeolocatePositionEvent("geolocate", position));
 			this._finish();
 		};
 		this._updateCamera = (position) => {
@@ -58382,7 +58630,7 @@ var GeolocateControl = class extends Evented {
 			} else if (error.code === 3 && noTimeout) return;
 			else this._setErrorState();
 			if (this._watchState !== "OFF" && this.options.showUserLocation) this._dotElement.classList.add("maplibregl-user-location-dot-stale");
-			this.fire(new Event("error", error));
+			this.fire(new GeolocateErrorEvent("error", error));
 			this._finish();
 		};
 		this._finish = () => {
@@ -58396,8 +58644,8 @@ var GeolocateControl = class extends Evented {
 				this._watchState = "BACKGROUND";
 				this._geolocateButton.classList.add("maplibregl-ctrl-geolocate-background");
 				this._geolocateButton.classList.remove("maplibregl-ctrl-geolocate-active");
-				this.fire(new Event("trackuserlocationend"));
-				this.fire(new Event("userlocationlostfocus"));
+				this.fire(new GeolocateEvent("trackuserlocationend"));
+				this.fire(new GeolocateEvent("userlocationlostfocus"));
 			}
 		};
 		this._setupUI = () => {
@@ -58550,7 +58798,7 @@ var GeolocateControl = class extends Evented {
 			switch (this._watchState) {
 				case "OFF":
 					this._watchState = "WAITING_ACTIVE";
-					this.fire(new Event("trackuserlocationstart"));
+					this.fire(new GeolocateEvent("trackuserlocationstart"));
 					break;
 				case "WAITING_ACTIVE":
 				case "ACTIVE_LOCK":
@@ -58564,14 +58812,14 @@ var GeolocateControl = class extends Evented {
 					this._geolocateButton.classList.remove("maplibregl-ctrl-geolocate-active-error");
 					this._geolocateButton.classList.remove("maplibregl-ctrl-geolocate-background");
 					this._geolocateButton.classList.remove("maplibregl-ctrl-geolocate-background-error");
-					this.fire(new Event("trackuserlocationend"));
+					this.fire(new GeolocateEvent("trackuserlocationend"));
 					break;
 				case "BACKGROUND":
 					this._watchState = "ACTIVE_LOCK";
 					this._geolocateButton.classList.remove("maplibregl-ctrl-geolocate-background");
 					if (this._lastKnownPosition) this._updateCamera(this._lastKnownPosition);
-					this.fire(new Event("trackuserlocationstart"));
-					this.fire(new Event("userlocationfocus"));
+					this.fire(new GeolocateEvent("trackuserlocationstart"));
+					this.fire(new GeolocateEvent("userlocationfocus"));
 					break;
 				default: throw new Error(`Unexpected watchState ${this._watchState}`);
 			}
@@ -58711,6 +58959,12 @@ function getRoundNum(num) {
 //#endregion
 //#region src/ui/control/fullscreen_control.ts
 /**
+* The event class for fullscreen control events (`fullscreenstart` and `fullscreenend`).
+*
+* @group Event Related
+*/
+var FullscreenEvent = class extends Event {};
+/**
 * A `FullscreenControl` control contains a button for toggling the map in and out of fullscreen mode.
 * When [requestFullscreen](https://developer.mozilla.org/en-US/docs/Web/API/Element/requestFullscreen) is not supported, fullscreen is handled via CSS properties.
 * The map's `cooperativeGestures` option is temporarily disabled while the map
@@ -58727,9 +58981,9 @@ function getRoundNum(num) {
 *
 * ## Events
 *
-* **Event** `fullscreenstart` of type {@link Event} will be fired when fullscreen mode has started.
+* **Event** `fullscreenstart` of type {@link FullscreenEvent} will be fired when fullscreen mode has started.
 *
-* **Event** `fullscreenend` of type {@link Event} will be fired when fullscreen mode has ended.
+* **Event** `fullscreenend` of type {@link FullscreenEvent} will be fired when fullscreen mode has ended.
 */
 var FullscreenControl = class extends Evented {
 	/**
@@ -58794,11 +59048,11 @@ var FullscreenControl = class extends Evented {
 		this._fullscreenButton.classList.toggle("maplibregl-ctrl-fullscreen");
 		this._updateTitle();
 		if (this._fullscreen) {
-			this.fire(new Event("fullscreenstart"));
+			this.fire(new FullscreenEvent("fullscreenstart"));
 			this._prevCooperativeGesturesEnabled = this._map.cooperativeGestures.isEnabled();
 			this._map.cooperativeGestures.disable();
 		} else {
-			this.fire(new Event("fullscreenend"));
+			this.fire(new FullscreenEvent("fullscreenend"));
 			if (this._prevCooperativeGesturesEnabled) this._map.cooperativeGestures.enable();
 		}
 	}
@@ -58961,6 +59215,12 @@ const focusQuerySelector = [
 	"textarea:not([disabled])"
 ].join(", ");
 /**
+* The event class for popup events (`open` and `close`).
+*
+* @group Event Related
+*/
+var PopupEvent = class extends Event {};
+/**
 * A popup component.
 *
 * @group Markers and Controls
@@ -59015,9 +59275,9 @@ const focusQuerySelector = [
 *
 * ## Events
 *
-* **Event** `open` of type {@link Event} will be fired when the popup is opened manually or programmatically.
+* **Event** `open` of type {@link PopupEvent} will be fired when the popup is opened manually or programmatically.
 *
-* **Event** `close` of type {@link Event} will be fired when the popup is closed manually or programmatically.
+* **Event** `close` of type {@link PopupEvent} will be fired when the popup is closed manually or programmatically.
 */
 var Popup = class extends Evented {
 	/**
@@ -59048,7 +59308,7 @@ var Popup = class extends Evented {
 				this._map.off("drag", this._update);
 				this._map._canvasContainer.classList.remove("maplibregl-track-pointer");
 				delete this._map;
-				this.fire(new Event("close"));
+				this.fire(new PopupEvent("close"));
 			}
 			return this;
 		};
@@ -59128,7 +59388,7 @@ var Popup = class extends Evented {
 			if (this._container) this._container.classList.add("maplibregl-popup-track-pointer");
 			this._map._canvasContainer.classList.add("maplibregl-track-pointer");
 		} else this._map.on("move", this._update);
-		this.fire(new Event("open"));
+		this.fire(new PopupEvent("open"));
 		return this;
 	}
 	/**
@@ -60244,7 +60504,7 @@ function buildStyle() {
 const styleLocations = locationsWithTileID(features).filter((v) => v.zoom < 15);
 window.maplibreglBenchmarks = window.maplibreglBenchmarks || {};
 setWorkerUrl(new URL("./benchmarks_worker.mjs", import.meta.url).toString());
-const version = "main 5223491";
+const version = "main 80bee4e";
 function register(name, bench) {
 	window.maplibreglBenchmarks[name] = window.maplibreglBenchmarks[name] || {};
 	window.maplibreglBenchmarks[name][version] = bench;
@@ -60285,7 +60545,6 @@ register("LayerCircle", new LayerCircle());
 register("LayerFill", new LayerFill());
 register("LayerFillExtrusion", new LayerFillExtrusion());
 register("LayerHeatmap", new LayerHeatmap());
-register("LineOpacityTranslucent", new LineOpacityTranslucent());
 register("LayerHillshade", new LayerHillshade());
 register("LayerColorRelief2Colors", new LayerColorRelief2Colors());
 register("LayerColorRelief256Colors", new LayerColorRelief256Colors());
@@ -60322,6 +60581,6 @@ Promise.resolve().then(() => {
 	getGlobalWorkerPool().acquire(-1);
 });
 //#endregion
-export { AJAXError, AttributionControl, BoxZoomHandler, CanvasSource, CooperativeGesturesHandler, DoubleClickZoomHandler, DragPanHandler, DragRotateHandler, EXTENT, EdgeInsets, Event, Evented, FullscreenControl, GPUInitializationError, GeoJSONSource, GeolocateControl, GlobeControl, Hash, ImageSource, KeyboardHandler, LngLat, LngLatBounds, LogoControl, Map$1 as Map, Map$1 as MapLibreMap, MapMouseEvent, MapTouchEvent, MapWheelEvent, Marker, MercatorCoordinate, NavigationControl, Point, Popup, RasterDEMTileSource, RasterTileSource, ScaleControl, ScrollZoomHandler, Style, TerrainControl, TwoFingersTouchPitchHandler, TwoFingersTouchRotateHandler, TwoFingersTouchZoomHandler, TwoFingersTouchZoomRotateHandler, VectorTileSource, VideoSource, addProtocol, addSourceType, clearPrewarmedResources, config, createTileMesh, getGlobalDispatcher, getMaxParallelImageRequests, getRTLTextPluginStatus, getVersion, getWorkerCount, getWorkerUrl, importScriptInWorkers, isTimeFrozen, now, prewarm, removeProtocol, restoreNow, setMaxParallelImageRequests, setNow, setRTLTextPlugin, setWorkerCount, setWorkerUrl };
+export { AJAXError, AttributionControl, BoxZoomHandler, CanvasSource, CooperativeGesturesHandler, DoubleClickZoomHandler, DragPanHandler, DragRotateHandler, EXTENT, EdgeInsets, ErrorEvent, Event, Evented, FullscreenControl, FullscreenEvent, GPUInitializationError, GeoJSONSource, GeolocateControl, GeolocateErrorEvent, GeolocateEvent, GeolocatePositionEvent, GlobeControl, Hash, ImageSource, KeyboardHandler, LngLat, LngLatBounds, LogoControl, Map$1 as Map, Map$1 as MapLibreMap, MapBoxZoomEvent, MapContextEvent, MapLibreEvent, MapMouseEvent, MapMovementEvent, MapProjectionEvent, MapSourceDataEvent, MapStyleDataEvent, MapStyleImageMissingEvent, MapStyleLoadEvent, MapTerrainEvent, MapTouchEvent, MapWheelEvent, Marker, MarkerClickEvent, MarkerDragEvent, MercatorCoordinate, NavigationControl, Point, Popup, PopupEvent, RasterDEMTileSource, RasterTileSource, ScaleControl, ScrollZoomHandler, Style, TerrainControl, TwoFingersTouchPitchHandler, TwoFingersTouchRotateHandler, TwoFingersTouchZoomHandler, TwoFingersTouchZoomRotateHandler, VectorTileSource, VideoSource, addProtocol, addSourceType, clearPrewarmedResources, config, createTileMesh, getGlobalDispatcher, getMaxParallelImageRequests, getRTLTextPluginStatus, getVersion, getWorkerCount, getWorkerUrl, importScriptInWorkers, isTimeFrozen, now, prewarm, removeProtocol, restoreNow, setMaxParallelImageRequests, setNow, setRTLTextPlugin, setWorkerCount, setWorkerUrl };
 
 //# sourceMappingURL=benchmarks_generated.mjs.map
