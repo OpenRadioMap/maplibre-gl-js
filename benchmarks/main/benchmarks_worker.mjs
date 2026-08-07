@@ -16,7 +16,7 @@ var __copyProps = (to, from, except, desc) => {
 	}
 	return to;
 };
-var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", {
+var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(isNodeMode || !mod || !mod.__esModule || !__hasOwnProp.call(mod, "default") ? __defProp(target, "default", {
 	value: mod,
 	enumerable: true
 }) : target, mod));
@@ -376,13 +376,13 @@ function isOffscreenCanvasDistorted() {
 			const size = 5;
 			const context = new OffscreenCanvas(size, size).getContext("2d", { willReadFrequently: true });
 			if (context) {
-				for (let i = 0; i < size * size; i++) {
+				for (let i = 0; i < 25; i++) {
 					const base = i * 4;
 					context.fillStyle = `rgb(${base},${base + 1},${base + 2})`;
 					context.fillRect(i % size, Math.floor(i / size), 1, 1);
 				}
 				const data = context.getImageData(0, 0, size, size).data;
-				for (let i = 0; i < size * size * 4; i++) if (i % 4 !== 3 && data[i] !== i) {
+				for (let i = 0; i < 100; i++) if (i % 4 !== 3 && data[i] !== i) {
 					offscreenCanvasDistorted = true;
 					break;
 				}
@@ -407,7 +407,7 @@ Math.PI / 180;
 *
 * @returns {vec4} a new 4D vector
 */
-function create() {
+function create$1() {
 	var out = new ARRAY_TYPE(4);
 	if (ARRAY_TYPE != Float32Array) {
 		out[0] = 0;
@@ -434,7 +434,7 @@ function transformMat4(out, a, m) {
 	return out;
 }
 (function() {
-	var vec = create();
+	var vec = create$1();
 	return function(a, stride, offset, count, fn, arg) {
 		var i, l;
 		if (!stride) stride = 4;
@@ -451,6 +451,185 @@ function transformMat4(out, a, m) {
 			a[i + 1] = vec[1];
 			a[i + 2] = vec[2];
 			a[i + 3] = vec[3];
+		}
+		return a;
+	};
+})();
+//#endregion
+//#region node_modules/gl-matrix/esm/vec2.js
+/**
+* 2 Dimensional Vector
+* @module vec2
+*/
+/**
+* Creates a new, empty vec2
+*
+* @returns {vec2} a new 2D vector
+*/
+function create() {
+	var out = new ARRAY_TYPE(2);
+	if (ARRAY_TYPE != Float32Array) {
+		out[0] = 0;
+		out[1] = 0;
+	}
+	return out;
+}
+/**
+* Creates a new vec2 initialized with values from an existing vector
+*
+* @param {ReadonlyVec2} a vector to clone
+* @returns {vec2} a new 2D vector
+*/
+function clone$1(a) {
+	var out = new ARRAY_TYPE(2);
+	out[0] = a[0];
+	out[1] = a[1];
+	return out;
+}
+/**
+* Creates a new vec2 initialized with the given values
+*
+* @param {Number} x X component
+* @param {Number} y Y component
+* @returns {vec2} a new 2D vector
+*/
+function fromValues(x, y) {
+	var out = new ARRAY_TYPE(2);
+	out[0] = x;
+	out[1] = y;
+	return out;
+}
+/**
+* Adds two vec2's
+*
+* @param {vec2} out the receiving vector
+* @param {ReadonlyVec2} a the first operand
+* @param {ReadonlyVec2} b the second operand
+* @returns {vec2} out
+*/
+function add(out, a, b) {
+	out[0] = a[0] + b[0];
+	out[1] = a[1] + b[1];
+	return out;
+}
+/**
+* Subtracts vector b from vector a
+*
+* @param {vec2} out the receiving vector
+* @param {ReadonlyVec2} a the first operand
+* @param {ReadonlyVec2} b the second operand
+* @returns {vec2} out
+*/
+function subtract(out, a, b) {
+	out[0] = a[0] - b[0];
+	out[1] = a[1] - b[1];
+	return out;
+}
+/**
+* Scales a vec2 by a scalar number
+*
+* @param {vec2} out the receiving vector
+* @param {ReadonlyVec2} a the vector to scale
+* @param {Number} b amount to scale the vector by
+* @returns {vec2} out
+*/
+function scale(out, a, b) {
+	out[0] = a[0] * b;
+	out[1] = a[1] * b;
+	return out;
+}
+/**
+* Adds two vec2's after scaling the second operand by a scalar value
+*
+* @param {vec2} out the receiving vector
+* @param {ReadonlyVec2} a the first operand
+* @param {ReadonlyVec2} b the second operand
+* @param {Number} scale the amount to scale b by before adding
+* @returns {vec2} out
+*/
+function scaleAndAdd(out, a, b, scale) {
+	out[0] = a[0] + b[0] * scale;
+	out[1] = a[1] + b[1] * scale;
+	return out;
+}
+/**
+* Calculates the length of a vec2
+*
+* @param {ReadonlyVec2} a vector to calculate length of
+* @returns {Number} length of a
+*/
+function length(a) {
+	var x = a[0], y = a[1];
+	return Math.sqrt(x * x + y * y);
+}
+/**
+* Normalize a vec2
+*
+* @param {vec2} out the receiving vector
+* @param {ReadonlyVec2} a vector to normalize
+* @returns {vec2} out
+*/
+function normalize(out, a) {
+	var x = a[0], y = a[1];
+	var len = x * x + y * y;
+	if (len > 0) len = 1 / Math.sqrt(len);
+	out[0] = a[0] * len;
+	out[1] = a[1] * len;
+	return out;
+}
+/**
+* Calculates the dot product of two vec2's
+*
+* @param {ReadonlyVec2} a the first operand
+* @param {ReadonlyVec2} b the second operand
+* @returns {Number} dot product of a and b
+*/
+function dot$1(a, b) {
+	return a[0] * b[0] + a[1] * b[1];
+}
+/**
+* Rotate a 2D vector
+* @param {vec2} out The receiving vec2
+* @param {ReadonlyVec2} a The vec2 point to rotate
+* @param {ReadonlyVec2} b The origin of the rotation
+* @param {Number} rad The angle of rotation in radians
+* @returns {vec2} out
+*/
+function rotate(out, a, b, rad) {
+	var p0 = a[0] - b[0], p1 = a[1] - b[1], sinC = Math.sin(rad), cosC = Math.cos(rad);
+	out[0] = p0 * cosC - p1 * sinC + b[0];
+	out[1] = p0 * sinC + p1 * cosC + b[1];
+	return out;
+}
+/**
+* Get the smallest angle between two 2D vectors
+* @param {ReadonlyVec2} a The first operand
+* @param {ReadonlyVec2} b The second operand
+* @returns {Number} The angle in radians
+*/
+function angle(a, b) {
+	var ax = a[0], ay = a[1], bx = b[0], by = b[1];
+	return Math.abs(Math.atan2(ay * bx - ax * by, ax * bx + ay * by));
+}
+/**
+* Alias for {@link vec2.subtract}
+* @function
+*/
+var sub = subtract;
+(function() {
+	var vec = create();
+	return function(a, stride, offset, count, fn, arg) {
+		var i, l;
+		if (!stride) stride = 2;
+		if (!offset) offset = 0;
+		if (count) l = Math.min(count * stride + offset, a.length);
+		else l = a.length;
+		for (i = offset; i < l; i += stride) {
+			vec[0] = a[i];
+			vec[1] = a[i + 1];
+			fn(vec, vec, arg);
+			a[i] = vec[0];
+			a[i + 1] = vec[1];
 		}
 		return a;
 	};
@@ -1344,19 +1523,28 @@ const latest = {
 		},
 		"property-type": "data-constant"
 	} },
-	"layout_fill-extrusion": { "visibility": {
-		"type": "enum",
-		"values": {
-			"visible": {},
-			"none": {}
+	"layout_fill-extrusion": {
+		"visibility": {
+			"type": "enum",
+			"values": {
+				"visible": {},
+				"none": {}
+			},
+			"default": "visible",
+			"expression": {
+				"interpolated": false,
+				"parameters": ["global-state"]
+			},
+			"property-type": "data-constant"
 		},
-		"default": "visible",
-		"expression": {
-			"interpolated": false,
-			"parameters": ["global-state"]
-		},
-		"property-type": "data-constant"
-	} },
+		"fill-extrusion-rounded-corner-distance": {
+			"type": "number",
+			"default": 0,
+			"minimum": 0,
+			"units": "meters",
+			"property-type": "constant"
+		}
+	},
 	layout_line: {
 		"line-cap": {
 			"type": "enum",
@@ -4930,14 +5118,12 @@ var Padding = class Padding {
 					input[1]
 				];
 				break;
-			case 3:
-				input = [
-					input[0],
-					input[1],
-					input[2],
-					input[1]
-				];
-				break;
+			case 3: input = [
+				input[0],
+				input[1],
+				input[2],
+				input[1]
+			];
 		}
 		return new Padding(input);
 	}
@@ -5366,7 +5552,11 @@ var Coercion = class Coercion {
 			}
 			case "formatted": return Formatted.fromString(valueToString(this.args[0].evaluate(ctx)));
 			case "resolvedImage": return ResolvedImage.fromString(valueToString(this.args[0].evaluate(ctx)));
-			case "projectionDefinition": return this.args[0].evaluate(ctx);
+			case "projectionDefinition": {
+				const input = this.args[0].evaluate(ctx);
+				if (ProjectionDefinition.parse(input)) return input;
+				throw new RuntimeError(`Could not parse projectionDefinition from value '${typeof input === "string" ? input : JSON.stringify(input)}'`, this.key);
+			}
 			default: return valueToString(this.args[0].evaluate(ctx));
 		}
 	}
@@ -5465,7 +5655,11 @@ var ParsingContext = class ParsingContext {
 					const expected = this.expectedType;
 					const actual = parsed.type;
 					if ((expected.kind === "string" || expected.kind === "number" || expected.kind === "boolean" || expected.kind === "object" || expected.kind === "array") && actual.kind === "value") parsed = annotate(parsed, expected, options.typeAnnotation || "assert");
-					else if ("projectionDefinition" === expected.kind && ["string", "array"].includes(actual.kind) || [
+					else if ("projectionDefinition" === expected.kind && [
+						"string",
+						"array",
+						"value"
+					].includes(actual.kind) || [
 						"color",
 						"formatted",
 						"resolvedImage"
@@ -6925,8 +7119,7 @@ function calculateSignedArea(ring) {
 	return sum;
 }
 const RE = 6378.137;
-const FE = 1 / 298.257223563;
-const E2 = FE * (2 - FE);
+const E2 = .0066943799901413165;
 const RAD = Math.PI / 180;
 var CheapRuler = class {
 	constructor(lat) {
@@ -6935,7 +7128,7 @@ var CheapRuler = class {
 		const w2 = 1 / (1 - E2 * (1 - coslat * coslat));
 		const w = Math.sqrt(w2);
 		this.kx = m * w * coslat;
-		this.ky = m * w * w2 * (1 - E2);
+		this.ky = m * w * w2 * .9933056200098587;
 	}
 	/**
 	* Given two points of the form [longitude, latitude], returns the distance.
@@ -7272,9 +7465,7 @@ function pointToGeometryDistance(ctx, geometries) {
 			case "LineString":
 				dist = Math.min(dist, pointSetToPointSetDistance(pointPosition, false, geometry.coordinates, true, ruler, dist));
 				break;
-			case "Polygon":
-				dist = Math.min(dist, pointsToPolygonDistance(pointPosition, false, geometry.coordinates, ruler, dist));
-				break;
+			case "Polygon": dist = Math.min(dist, pointsToPolygonDistance(pointPosition, false, geometry.coordinates, ruler, dist));
 		}
 		if (dist === 0) return dist;
 	}
@@ -7294,9 +7485,7 @@ function lineStringToGeometryDistance(ctx, geometries) {
 			case "LineString":
 				dist = Math.min(dist, pointSetToPointSetDistance(linePositions, true, geometry.coordinates, true, ruler, dist));
 				break;
-			case "Polygon":
-				dist = Math.min(dist, pointsToPolygonDistance(linePositions, true, geometry.coordinates, ruler, dist));
-				break;
+			case "Polygon": dist = Math.min(dist, pointsToPolygonDistance(linePositions, true, geometry.coordinates, ruler, dist));
 		}
 		if (dist === 0) return dist;
 	}
@@ -7320,9 +7509,7 @@ function polygonToGeometryDistance(ctx, geometries) {
 			case "LineString":
 				dist = Math.min(dist, pointsToPolygonDistance(geometry.coordinates, true, polygon, ruler, dist));
 				break;
-			case "Polygon":
-				dist = Math.min(dist, polygonToPolygonDistance(polygon, geometry.coordinates, ruler, dist));
-				break;
+			case "Polygon": dist = Math.min(dist, polygonToPolygonDistance(polygon, geometry.coordinates, ruler, dist));
 		}
 		if (dist === 0) return dist;
 	}
@@ -8639,12 +8826,10 @@ function findMixedLegacyFilter(filter, path = []) {
 			if (diagnostic) return diagnostic;
 			break;
 		}
-		case "case":
-			for (let i = 1; i < filter.length - 1; i += 2) {
-				const diagnostic = checkChild(i, path, filter);
-				if (diagnostic) return diagnostic;
-			}
-			break;
+		case "case": for (let i = 1; i < filter.length - 1; i += 2) {
+			const diagnostic = checkChild(i, path, filter);
+			if (diagnostic) return diagnostic;
+		}
 	}
 	return null;
 }
@@ -9136,7 +9321,6 @@ function validateNonExpressionFilter(options) {
 			type = getType(value[1]);
 			if (value.length !== 2) errors.push(new ValidationError(key, value, `filter array for "${value[0]}" operator must have 2 elements`));
 			else if (type !== "string") errors.push(new ValidationError(`${key}[1]`, value[1], `string expected, ${type} found`));
-			break;
 	}
 	return errors;
 }
@@ -10499,23 +10683,23 @@ var Evented = class {
 		return this;
 	}
 	fire(event, properties) {
-		if (typeof event === "string") event = new Event(event, properties || {});
-		const type = event.type;
+		const firedEvent = typeof event === "string" ? new Event(event, properties || {}) : event;
+		const type = firedEvent.type;
 		if (this.listens(type)) {
-			event.target = this;
-			const listeners = this._listeners?.[type] ? this._listeners[type].slice() : [];
-			for (const listener of listeners) listener.call(this, event);
-			const oneTimeListeners = this._oneTimeListeners?.[type] ? this._oneTimeListeners[type].slice() : [];
+			firedEvent.target = this;
+			const listeners = this._listeners?.[type]?.slice() ?? [];
+			for (const listener of listeners) listener.call(this, firedEvent);
+			const oneTimeListeners = this._oneTimeListeners?.[type]?.slice() ?? [];
 			for (const listener of oneTimeListeners) {
 				_removeEventListener(type, listener, this._oneTimeListeners);
-				listener.call(this, event);
+				listener.call(this, firedEvent);
 			}
 			const parent = this._eventedParent;
 			if (parent) {
-				extend(event, typeof this._eventedParentData === "function" ? this._eventedParentData() : this._eventedParentData);
-				parent.fire(event);
+				extend(firedEvent, typeof this._eventedParentData === "function" ? this._eventedParentData() : this._eventedParentData);
+				parent.fire(firedEvent);
 			}
-		} else if (event instanceof ErrorEvent) console.error(event.error);
+		} else if (firedEvent instanceof ErrorEvent) console.error(firedEvent.error);
 		return this;
 	}
 	/**
@@ -10525,7 +10709,7 @@ var Evented = class {
 	* @returns `true` if there is at least one registered listener for specified event type, `false` otherwise
 	*/
 	listens(type) {
-		return this._listeners?.[type]?.length > 0 || this._oneTimeListeners?.[type]?.length > 0 || this._eventedParent?.listens(type);
+		return Boolean(this._listeners?.[type]?.length || this._oneTimeListeners?.[type]?.length || this._eventedParent?.listens(type));
 	}
 	/**
 	* Bubble all events fired by this instance of Evented to this parent instance of Evented.
@@ -11123,6 +11307,22 @@ var PossiblyEvaluated = class {
 	}
 };
 /**
+* Returns the length of the array value, or undefined if the value is not an array or a style spec array wrapper.
+*/
+function getArrayValueLength(value) {
+	if (Array.isArray(value)) return value.length;
+	const values = value?.values;
+	return Array.isArray(values) ? values.length : void 0;
+}
+/**
+* Returns true if the two values are arrays of different length, either bare arrays or style spec array wrappers.
+*/
+function isNonInterpolableArrayChange(a, b) {
+	const lengthA = getArrayValueLength(a);
+	const lengthB = getArrayValueLength(b);
+	return lengthA !== void 0 && lengthB !== void 0 && lengthA !== lengthB;
+}
+/**
 * @internal
 * An implementation of `Property` for properties that do not permit data-driven (source or composite) expressions.
 * This restriction allows us to declare statically that the result of possibly evaluating this kind of property
@@ -11138,7 +11338,12 @@ var DataConstantProperty = class {
 		return value.expression.evaluate(parameters);
 	}
 	interpolate(a, b, t) {
-		const interpolationFn = interpolateFactory[this.specification.type];
+		if (isNonInterpolableArrayChange(a, b)) {
+			warnOnce(`Property "${this.name}" is trying to interpolate arrays of different lengths. Rendering may 'jump'.`);
+			return b;
+		}
+		const interpolationType = this.specification.type;
+		const interpolationFn = interpolateFactory[interpolationType];
 		if (interpolationFn) return interpolationFn(a, b, t);
 		else return a;
 	}
@@ -11168,7 +11373,12 @@ var DataDrivenProperty = class {
 			kind: "constant",
 			value: void 0
 		}, a.parameters);
-		const interpolationFn = interpolateFactory[this.specification.type];
+		if (isNonInterpolableArrayChange(a.value.value, b.value.value)) {
+			warnOnce(`Property "${this.name}" is trying to interpolate arrays of different lengths. Rendering may 'jump'.`);
+			return b;
+		}
+		const interpolationType = this.specification.type;
+		const interpolationFn = interpolateFactory[interpolationType];
 		if (interpolationFn) {
 			const interpolatedValue = interpolationFn(a.value.value, b.value.value, t);
 			return new PossiblyEvaluatedPropertyValue(this, {
@@ -12740,14 +12950,14 @@ var TriangleIndexArray = class extends StructArrayLayout3ui6 {};
 var LineIndexArray = class extends StructArrayLayout2ui4 {};
 //#endregion
 //#region src/data/bucket/circle_attributes.ts
-const layout$6 = createLayout([{
+const layout$7 = createLayout([{
 	name: "a_pos",
 	components: 2,
 	type: "Int16"
 }], 4);
-const members$4 = layout$6.members;
-layout$6.size;
-layout$6.alignment;
+const members$4 = layout$7.members;
+layout$7.size;
+layout$7.alignment;
 //#endregion
 //#region src/data/segment.ts
 /**
@@ -13679,10 +13889,11 @@ var CircleBucket = class {
 			subdivide ||= circleStyle.paint.get("circle-pitch-alignment") === "map";
 		}
 		const granularity = subdivide ? options.subdivisionGranularity.circle : 1;
+		const globalProperties = new EvaluationParameters(this.zoom);
+		const needGeometry = this.layers[0]._featureFilter.needGeometry;
 		for (const { feature, id, index, sourceLayerIndex } of features) {
-			const needGeometry = this.layers[0]._featureFilter.needGeometry;
 			const evaluationFeature = toEvaluationFeature(feature, needGeometry);
-			if (!this.layers[0]._featureFilter.filter(new EvaluationParameters(this.zoom), evaluationFeature, canonical)) continue;
+			if (!this.layers[0]._featureFilter.filter(globalProperties, evaluationFeature, canonical)) continue;
 			const sortKey = sortFeaturesByKey ? circleSortKey.evaluate(evaluationFeature, {}, canonical) : void 0;
 			const bucketFeature = {
 				id,
@@ -14002,8 +14213,8 @@ function projectQueryGeometry$1(queryGeometry, transform, unwrappedTileID, getEl
 }
 //#endregion
 //#region src/style/style_layer/circle_style_layer_properties.g.ts
-let layout$5;
-const getLayout$3 = () => layout$5 = layout$5 || new Properties({ "circle-sort-key": new DataDrivenProperty(latest["layout_circle"]["circle-sort-key"], "circle-sort-key") });
+let layout$6;
+const getLayout$4 = () => layout$6 = layout$6 || new Properties({ "circle-sort-key": new DataDrivenProperty(latest["layout_circle"]["circle-sort-key"], "circle-sort-key") });
 let paint$9;
 const getPaint$9 = () => paint$9 = paint$9 || new Properties({
 	"circle-radius": new DataDrivenProperty(latest["paint_circle"]["circle-radius"], "circle-radius"),
@@ -14023,7 +14234,7 @@ var circle_style_layer_properties_g_default = {
 		return getPaint$9();
 	},
 	get layout() {
-		return getLayout$3();
+		return getLayout$4();
 	}
 };
 //#endregion
@@ -14361,6 +14572,8 @@ var Texture = class {
 			gl.deleteTexture(this.texture);
 			this.texture = gl.createTexture();
 			this._ownedHandle = this.texture;
+			this.filter = void 0;
+			this.wrap = void 0;
 		}
 		gl.bindTexture(gl.TEXTURE_2D, this.texture);
 		context.pixelStoreUnpackFlipY.set(false);
@@ -14506,7 +14719,6 @@ var DEMData = class DEMData {
 				this.greenFactor = 25.6;
 				this.blueFactor = .1;
 				this.baseShift = 1e4;
-				break;
 		}
 		for (let x = 0; x < dim; x++) {
 			this.data[this._idx(-1, x)] = this.data[this._idx(0, x)];
@@ -14579,17 +14791,13 @@ var DEMData = class DEMData {
 			case -1:
 				xMin = xMax - 1;
 				break;
-			case 1:
-				xMax = xMin + 1;
-				break;
+			case 1: xMax = xMin + 1;
 		}
 		switch (dy) {
 			case -1:
 				yMin = yMax - 1;
 				break;
-			case 1:
-				yMax = yMin + 1;
-				break;
+			case 1: yMax = yMin + 1;
 		}
 		const ox = -dx * this.dim;
 		const oy = -dy * this.dim;
@@ -14701,14 +14909,14 @@ var ColorReliefStyleLayer = class extends StyleLayer {
 };
 //#endregion
 //#region src/data/bucket/fill_attributes.ts
-const layout$4 = createLayout([{
+const layout$5 = createLayout([{
 	name: "a_pos",
 	components: 2,
 	type: "Int16"
 }], 4);
-const members$3 = layout$4.members;
-layout$4.size;
-layout$4.alignment;
+const members$3 = layout$5.members;
+layout$5.size;
+layout$5.alignment;
 //#endregion
 //#region src/data/bucket/pattern_bucket_features.ts
 function hasPattern(type, layers, options) {
@@ -15584,7 +15792,7 @@ var Subdivider = class {
 		for (let i = 0; i < flattened.length; i += 2) {
 			const vy = flattened[i + 1];
 			if (vy === -32768) flattened[i + 1] = -32767;
-			if (vy === 32767) flattened[i + 1] = SOUTH_POLE_Y - 1;
+			if (vy === 32767) flattened[i + 1] = 32766;
 		}
 	}
 	/**
@@ -15681,11 +15889,49 @@ var Subdivider = class {
 		if (generateOutlineLines) subdividedLines = this._generateOutline(polygon);
 		this._ensureNoPoleVertices();
 		this._handlePoles(subdividedTriangles);
+		if (this._granularity >= 2 && this._canonical?.z === 0) {
+			subdividedTriangles = this._removeTrianglesOutsideTileX(subdividedTriangles);
+			subdividedLines = subdividedLines.map((lines) => this._removeLinesOutsideTileX(lines));
+		}
 		return {
 			verticesFlattened: this._vertexBuffer,
 			indicesTriangles: subdividedTriangles,
 			indicesLineList: subdividedLines
 		};
+	}
+	_vertexOutsideTileX(index) {
+		const x = this._vertexBuffer[index * 2];
+		return x < 0 || x > 8192;
+	}
+	/**
+	* Drops all triangles that reach beyond the tile's X extent.
+	*
+	* On globe the z0 tile's buffer wraps around the planet onto the tile itself, drawing buffered geometry twice.
+	* Only globe uses subdivision (`granularity >= 2`), so mercator is never affected.
+	* @param indices - Triangle indices into `this._vertexBuffer`.
+	* @returns The indices with every triangle that has a vertex outside the tile's X extent removed.
+	*/
+	_removeTrianglesOutsideTileX(indices) {
+		const filtered = [];
+		for (let i = 0; i < indices.length; i += 3) {
+			if (this._vertexOutsideTileX(indices[i]) || this._vertexOutsideTileX(indices[i + 1]) || this._vertexOutsideTileX(indices[i + 2])) continue;
+			filtered.push(indices[i], indices[i + 1], indices[i + 2]);
+		}
+		return filtered;
+	}
+	/**
+	* Drops all outline line segments that reach beyond the tile's X extent,
+	* for the same reason as {@link Subdivider._removeTrianglesOutsideTileX}.
+	* @param indices - Line segment indices into `this._vertexBuffer`.
+	* @returns The indices with every segment that has a vertex outside the tile's X extent removed.
+	*/
+	_removeLinesOutsideTileX(indices) {
+		const filtered = [];
+		for (let i = 0; i < indices.length; i += 2) {
+			if (this._vertexOutsideTileX(indices[i]) || this._vertexOutsideTileX(indices[i + 1])) continue;
+			filtered.push(indices[i], indices[i + 1]);
+		}
+		return filtered;
 	}
 	/**
 	* Sometimes the supplies vertex and index array has duplicate vertices - same coordinates that are referenced by multiple different indices.
@@ -16090,10 +16336,11 @@ var FillBucket = class {
 		const fillSortKey = this.layers[0].layout.get("fill-sort-key");
 		const sortFeaturesByKey = !fillSortKey.isConstant();
 		const bucketFeatures = [];
+		const globalProperties = new EvaluationParameters(this.zoom);
+		const needGeometry = this.layers[0]._featureFilter.needGeometry;
 		for (const { feature, id, index, sourceLayerIndex } of features) {
-			const needGeometry = this.layers[0]._featureFilter.needGeometry;
 			const evaluationFeature = toEvaluationFeature(feature, needGeometry);
-			if (!this.layers[0]._featureFilter.filter(new EvaluationParameters(this.zoom), evaluationFeature, canonical)) continue;
+			if (!this.layers[0]._featureFilter.filter(globalProperties, evaluationFeature, canonical)) continue;
 			const sortKey = sortFeaturesByKey ? fillSortKey.evaluate(evaluationFeature, {}, canonical, options.availableImages) : void 0;
 			const bucketFeature = {
 				id,
@@ -16166,8 +16413,8 @@ var FillBucket = class {
 register("FillBucket", FillBucket, { omit: ["layers", "patternFeatures"] });
 //#endregion
 //#region src/style/style_layer/fill_style_layer_properties.g.ts
-let layout$3;
-const getLayout$2 = () => layout$3 = layout$3 || new Properties({ "fill-sort-key": new DataDrivenProperty(latest["layout_fill"]["fill-sort-key"], "fill-sort-key") });
+let layout$4;
+const getLayout$3 = () => layout$4 = layout$4 || new Properties({ "fill-sort-key": new DataDrivenProperty(latest["layout_fill"]["fill-sort-key"], "fill-sort-key") });
 let paint$5;
 const getPaint$5 = () => paint$5 = paint$5 || new Properties({
 	"fill-antialias": new DataConstantProperty(latest["paint_fill"]["fill-antialias"], "fill-antialias"),
@@ -16184,7 +16431,7 @@ var fill_style_layer_properties_g_default = {
 		return getPaint$5();
 	},
 	get layout() {
-		return getLayout$2();
+		return getLayout$3();
 	}
 };
 //#endregion
@@ -16213,7 +16460,7 @@ var FillStyleLayer = class extends StyleLayer {
 };
 //#endregion
 //#region src/data/bucket/fill_extrusion_attributes.ts
-const layout$2 = createLayout([{
+const layout$3 = createLayout([{
 	name: "a_pos",
 	components: 2,
 	type: "Int16"
@@ -16227,9 +16474,9 @@ const centroidAttributes = createLayout([{
 	components: 2,
 	type: "Int16"
 }], 4);
-const members$2 = layout$2.members;
-layout$2.size;
-layout$2.alignment;
+const members$2 = layout$3.members;
+layout$3.size;
+layout$3.alignment;
 //#endregion
 //#region node_modules/@mapbox/vector-tile/index.js
 /** @import {PbfReader} from 'pbf' */
@@ -16517,6 +16764,340 @@ var VectorTile = class {
 	}
 };
 //#endregion
+//#region src/geo/lng_lat.ts
+const earthRadius = 6371008.8;
+/**
+* A `LngLat` object represents a given longitude and latitude coordinate, measured in degrees.
+* These coordinates are based on the [WGS84 (EPSG:4326) standard](https://en.wikipedia.org/wiki/World_Geodetic_System#WGS84).
+*
+* MapLibre GL JS uses longitude, latitude coordinate order (as opposed to latitude, longitude) to match the
+* [GeoJSON specification](https://tools.ietf.org/html/rfc7946).
+*
+* Note that any MapLibre GL JS method that accepts a `LngLat` object as an argument or option
+* can also accept an `Array` of two numbers and will perform an implicit conversion.
+* This flexible type is documented as {@link LngLatLike}.
+*
+* @group Geography and Geometry
+*
+* @example
+* ```ts
+* let ll = new LngLat(-123.9749, 40.7736);
+* ll.lng; // = -123.9749
+* ```
+* @see [Get coordinates of the mouse pointer](https://maplibre.org/maplibre-gl-js/docs/examples/get-coordinates-of-the-mouse-pointer/)
+*/
+var LngLat = class LngLat {
+	/**
+	* @param lng - Longitude, measured in degrees.
+	* @param lat - Latitude, measured in degrees.
+	*/
+	constructor(lng, lat) {
+		if (isNaN(lng) || isNaN(lat)) throw new Error(`Invalid LngLat object: (${lng}, ${lat})`);
+		this.lng = +lng;
+		this.lat = +lat;
+		if (this.lat > 90 || this.lat < -90) throw new Error("Invalid LngLat latitude value: must be between -90 and 90");
+	}
+	/**
+	* Returns a new `LngLat` object whose longitude is wrapped to the range (-180, 180).
+	*
+	* @returns The wrapped `LngLat` object.
+	* @example
+	* ```ts
+	* let ll = new LngLat(286.0251, 40.7736);
+	* let wrapped = ll.wrap();
+	* wrapped.lng; // = -73.9749
+	* ```
+	*/
+	wrap() {
+		return new LngLat(wrap$1(this.lng, -180, 180), this.lat);
+	}
+	/**
+	* Returns the coordinates represented as an array of two numbers.
+	*
+	* @returns The coordinates represented as an array of longitude and latitude.
+	* @example
+	* ```ts
+	* let ll = new LngLat(-73.9749, 40.7736);
+	* ll.toArray(); // = [-73.9749, 40.7736]
+	* ```
+	*/
+	toArray() {
+		return [this.lng, this.lat];
+	}
+	/**
+	* Returns the coordinates represent as a string.
+	*
+	* @returns The coordinates represented as a string of the format `'LngLat(lng, lat)'`.
+	* @example
+	* ```ts
+	* let ll = new LngLat(-73.9749, 40.7736);
+	* ll.toString(); // = "LngLat(-73.9749, 40.7736)"
+	* ```
+	*/
+	toString() {
+		return `LngLat(${this.lng}, ${this.lat})`;
+	}
+	/**
+	* Returns the approximate distance between a pair of coordinates in meters
+	* Uses the Haversine Formula (from R.W. Sinnott, "Virtues of the Haversine", Sky and Telescope, vol. 68, no. 2, 1984, p. 159)
+	*
+	* @param lngLat - coordinates to compute the distance to
+	* @returns Distance in meters between the two coordinates.
+	* @example
+	* ```ts
+	* let new_york = new LngLat(-74.0060, 40.7128);
+	* let los_angeles = new LngLat(-118.2437, 34.0522);
+	* new_york.distanceTo(los_angeles); // = 3935751.690893987, "true distance" using a non-spherical approximation is ~3966km
+	* ```
+	*/
+	distanceTo(lngLat) {
+		const rad = Math.PI / 180;
+		const lat1 = this.lat * rad;
+		const lat2 = lngLat.lat * rad;
+		const a = Math.sin(lat1) * Math.sin(lat2) + Math.cos(lat1) * Math.cos(lat2) * Math.cos((lngLat.lng - this.lng) * rad);
+		return earthRadius * Math.acos(Math.min(a, 1));
+	}
+	/**
+	* Converts an array of two numbers or an object with `lng` and `lat` or `lon` and `lat` properties
+	* to a `LngLat` object.
+	*
+	* If a `LngLat` object is passed in, the function returns it unchanged.
+	*
+	* @param input - An array of two numbers or object to convert, or a `LngLat` object to return.
+	* @returns A new `LngLat` object, if a conversion occurred, or the original `LngLat` object.
+	* @example
+	* ```ts
+	* let arr = [-73.9749, 40.7736];
+	* let ll = LngLat.convert(arr);
+	* ll;   // = LngLat {lng: -73.9749, lat: 40.7736}
+	* ```
+	*/
+	static convert(input) {
+		if (input instanceof LngLat) return input;
+		if (Array.isArray(input) && (input.length === 2 || input.length === 3)) return new LngLat(Number(input[0]), Number(input[1]));
+		if (!Array.isArray(input) && typeof input === "object" && input !== null) return new LngLat(Number("lng" in input ? input.lng : input.lon), Number(input.lat));
+		throw new Error("`LngLatLike` argument must be specified as a LngLat instance, an object {lng: <lng>, lat: <lat>}, an object {lon: <lng>, lat: <lat>}, or an array of [<lng>, <lat>]");
+	}
+};
+//#endregion
+//#region src/geo/mercator_coordinate.ts
+const earthCircumference = 2 * Math.PI * earthRadius;
+function circumferenceAtLatitude(latitude) {
+	return earthCircumference * Math.cos(latitude * Math.PI / 180);
+}
+function mercatorXfromLng(lng) {
+	return (180 + lng) / 360;
+}
+function mercatorYfromLat(lat) {
+	return (180 - 180 / Math.PI * Math.log(Math.tan(Math.PI / 4 + lat * Math.PI / 360))) / 360;
+}
+function mercatorZfromAltitude(altitude, lat) {
+	return altitude / circumferenceAtLatitude(lat);
+}
+function lngFromMercatorX(x) {
+	return x * 360 - 180;
+}
+function latFromMercatorY(y) {
+	const y2 = 180 - y * 360;
+	return 360 / Math.PI * Math.atan(Math.exp(y2 * Math.PI / 180)) - 90;
+}
+function altitudeFromMercatorZ(z, y) {
+	return z * circumferenceAtLatitude(latFromMercatorY(y));
+}
+/**
+* Determine the Mercator scale factor for a given latitude, see
+* https://en.wikipedia.org/wiki/Mercator_projection#Scale_factor
+*
+* At the equator the scale factor will be 1, which increases at higher latitudes.
+*
+* @param lat - Latitude
+* @returns scale factor
+*/
+function mercatorScale(lat) {
+	return 1 / Math.cos(lat * Math.PI / 180);
+}
+/**
+* A `MercatorCoordinate` object represents a projected three dimensional position.
+*
+* `MercatorCoordinate` uses the web mercator projection ([EPSG:3857](https://epsg.io/3857)) with slightly different units:
+*
+* - the size of 1 unit is the width of the projected world instead of the "mercator meter"
+* - the origin of the coordinate space is at the north-west corner instead of the middle
+*
+* For example, `MercatorCoordinate(0, 0, 0)` is the north-west corner of the mercator world and
+* `MercatorCoordinate(1, 1, 0)` is the south-east corner. If you are familiar with
+* [vector tiles](https://github.com/mapbox/vector-tile-spec) it may be helpful to think
+* of the coordinate space as the `0/0/0` tile with an extent of `1`.
+*
+* The `z` dimension of `MercatorCoordinate` is conformal. A cube in the mercator coordinate space would be rendered as a cube.
+*
+* @group Geography and Geometry
+*
+* @example
+* ```ts
+* let nullIsland = new MercatorCoordinate(0.5, 0.5, 0);
+* ```
+* @see [Add a custom style layer](https://maplibre.org/maplibre-gl-js/docs/examples/add-a-custom-style-layer/)
+* @see [Add a 3D model using three.js](https://maplibre.org/maplibre-gl-js/docs/examples/add-a-3d-model-using-threejs/)
+* @see [Add a simple custom layer on a globe](https://maplibre.org/maplibre-gl-js/docs/examples/add-a-simple-custom-layer-on-a-globe/)
+*/
+var MercatorCoordinate = class MercatorCoordinate {
+	/**
+	* @param x - The x component of the position.
+	* @param y - The y component of the position.
+	* @param z - The z component of the position.
+	*/
+	constructor(x, y, z = 0) {
+		this.x = +x;
+		this.y = +y;
+		this.z = +z;
+	}
+	/**
+	* Project a `LngLat` to a `MercatorCoordinate`.
+	*
+	* @param lngLatLike - The location to project.
+	* @param altitude - The altitude in meters of the position.
+	* @returns The projected mercator coordinate.
+	* @example
+	* ```ts
+	* let coord = MercatorCoordinate.fromLngLat({ lng: 0, lat: 0}, 0);
+	* coord; // MercatorCoordinate(0.5, 0.5, 0)
+	* ```
+	*/
+	static fromLngLat(lngLatLike, altitude = 0) {
+		const lngLat = LngLat.convert(lngLatLike);
+		return new MercatorCoordinate(mercatorXfromLng(lngLat.lng), mercatorYfromLat(lngLat.lat), mercatorZfromAltitude(altitude, lngLat.lat));
+	}
+	/**
+	* Returns the `LngLat` for the coordinate.
+	*
+	* @returns The `LngLat` object.
+	* @example
+	* ```ts
+	* let coord = new MercatorCoordinate(0.5, 0.5, 0);
+	* let lngLat = coord.toLngLat(); // LngLat(0, 0)
+	* ```
+	*/
+	toLngLat() {
+		return new LngLat(lngFromMercatorX(this.x), latFromMercatorY(this.y));
+	}
+	/**
+	* Returns the altitude in meters of the coordinate.
+	*
+	* @returns The altitude in meters.
+	* @example
+	* ```ts
+	* let coord = new MercatorCoordinate(0, 0, 0.02);
+	* coord.toAltitude(); // 6914.281956295339
+	* ```
+	*/
+	toAltitude() {
+		return altitudeFromMercatorZ(this.z, this.y);
+	}
+	/**
+	* Returns the distance of 1 meter in `MercatorCoordinate` units at this latitude.
+	*
+	* For coordinates in real world units using meters, this naturally provides the scale
+	* to transform into `MercatorCoordinate`s.
+	*
+	* @returns Distance of 1 meter in `MercatorCoordinate` units.
+	*/
+	meterInMercatorCoordinateUnits() {
+		return 1 / earthCircumference * mercatorScale(latFromMercatorY(this.y));
+	}
+};
+//#endregion
+//#region src/geo/projection/mercator_utils.ts
+/**
+* Returns mercator coordinates in range 0..1 for given coordinates inside a specified tile.
+* @param inTileX - X coordinate in tile units - range [0..EXTENT].
+* @param inTileY - Y coordinate in tile units - range [0..EXTENT].
+* @param canonicalTileID - Tile canonical ID - mercator X, Y and zoom.
+* @returns Mercator coordinates of the specified point in range [0..1].
+*/
+function tileCoordinatesToMercatorCoordinates(inTileX, inTileY, canonicalTileID) {
+	const scale = 1 / (1 << canonicalTileID.z);
+	return new MercatorCoordinate(inTileX / EXTENT$1 * scale + canonicalTileID.x * scale, inTileY / EXTENT$1 * scale + canonicalTileID.y * scale);
+}
+/**
+* Returns LngLat for given in-tile coordinates and tile ID.
+* @param inTileX - X coordinate in tile units - range [0..EXTENT].
+* @param inTileY - Y coordinate in tile units - range [0..EXTENT].
+* @param canonicalTileID - Tile canonical ID - mercator X, Y and zoom.
+*/
+function tileCoordinatesToLocation(inTileX, inTileY, canonicalTileID) {
+	return tileCoordinatesToMercatorCoordinates(inTileX, inTileY, canonicalTileID).toLngLat();
+}
+//#endregion
+//#region src/data/bucket/round_polygon_corners.ts
+/**
+* Rounds polygon corners by calculating arc points at each corner vertex.
+* @param polygon - Collection of polygon rings (outer ring and hole rings)
+* @param distanceInMeters - Desired corner rounding distance in meters
+* @param canonical - Canonical tile ID used for meter to tile unit conversion
+*/
+function roundPolygonCorners(polygon, distanceInMeters, canonical) {
+	if (distanceInMeters <= 0 || !polygon || polygon.length === 0) return polygon;
+	const distanceInTileUnits = getTileUnitsForMeters(distanceInMeters, canonical);
+	return polygon.map((ring) => roundRing(ring, distanceInTileUnits));
+}
+function getTileUnitsForMeters(distanceInMeters, canonical) {
+	const centerLocation = tileCoordinatesToLocation(EXTENT$1 / 2, EXTENT$1 / 2, canonical);
+	const meterInMercator = MercatorCoordinate.fromLngLat(centerLocation).meterInMercatorCoordinateUnits();
+	const tileUnitsPerMercator = (1 << canonical.z) * EXTENT$1;
+	return distanceInMeters * meterInMercator * tileUnitsPerMercator;
+}
+function roundRing(ring, distanceInTileUnits) {
+	if (!ring || ring.length < 3) return ring;
+	const isClosed = ring[0].x === ring[ring.length - 1].x && ring[0].y === ring[ring.length - 1].y;
+	const vertexCount = isClosed ? ring.length - 1 : ring.length;
+	if (vertexCount < 3) return ring;
+	const vertices = ring.map((p) => fromValues(p.x, p.y));
+	const newRing = [];
+	for (let i = 0; i < vertexCount; i++) {
+		const prev = vertices[(i - 1 + vertexCount) % vertexCount];
+		const current = vertices[i];
+		const next = vertices[(i + 1) % vertexCount];
+		appendRoundCorner(newRing, prev, current, next, distanceInTileUnits);
+	}
+	if (isClosed && newRing.length > 0) newRing.push(clone$1(newRing[0]));
+	return newRing.map((p) => new Point(p[0], p[1]));
+}
+function appendRoundCorner(newRing, prev, current, next, distanceInTileUnits) {
+	const ua = sub(create(), prev, current);
+	const ub = sub(create(), next, current);
+	const lenA = length(ua);
+	const lenB = length(ub);
+	if (lenA < 1e-6 || lenB < 1e-6) {
+		newRing.push(clone$1(current));
+		return;
+	}
+	scale(ua, ua, 1 / lenA);
+	scale(ub, ub, 1 / lenB);
+	const dot = dot$1(ua, ub);
+	if (Math.abs(dot) > Math.cos(5 * Math.PI / 180)) {
+		newRing.push(clone$1(current));
+		return;
+	}
+	const maxEdgeLenPercent = .2;
+	const r = Math.min(distanceInTileUnits, lenA * maxEdgeLenPercent, lenB * maxEdgeLenPercent);
+	const tangentA = scaleAndAdd(create(), current, ua, r);
+	const tangentB = scaleAndAdd(create(), current, ub, r);
+	const bisector = add(create(), ua, ub);
+	normalize(bisector, bisector);
+	const cosHalfTheta = Math.sqrt((1 + dot) / 2);
+	const center = scaleAndAdd(create(), current, bisector, r / cosHalfTheta);
+	const radiusA = sub(create(), tangentA, center);
+	const radiusB = sub(create(), tangentB, center);
+	const sweepAngle = angle(radiusA, radiusB);
+	const direction = Math.sign(radiusA[0] * radiusB[1] - radiusA[1] * radiusB[0]);
+	const numSegments = Math.max(2, Math.ceil(sweepAngle / (Math.PI / 6) - 1e-6));
+	for (let s = 0; s <= numSegments; s++) {
+		const angle = direction * sweepAngle * (s / numSegments);
+		newRing.push(rotate(create(), tangentA, center, angle));
+	}
+}
+//#endregion
 //#region src/data/bucket/fill_extrusion_bucket.ts
 const EARCUT_MAX_RINGS = 500;
 const FACTOR = Math.pow(2, 13);
@@ -16541,15 +17122,19 @@ var FillExtrusionBucket = class {
 	populate(features, options, canonical) {
 		this.features = [];
 		this.hasDependencies = hasPattern("fill-extrusion", this.layers, options);
+		const globalProperties = new EvaluationParameters(this.zoom);
+		const layer = this.layers[0];
+		const roundedCornerDistance = layer.layout.get("fill-extrusion-rounded-corner-distance");
+		const needGeometry = layer._featureFilter.needGeometry;
 		for (const { feature, id, index, sourceLayerIndex } of features) {
-			const needGeometry = this.layers[0]._featureFilter.needGeometry;
 			const evaluationFeature = toEvaluationFeature(feature, needGeometry);
-			if (!this.layers[0]._featureFilter.filter(new EvaluationParameters(this.zoom), evaluationFeature, canonical)) continue;
+			if (!layer._featureFilter.filter(globalProperties, evaluationFeature, canonical)) continue;
+			const rawGeometry = needGeometry ? evaluationFeature.geometry : loadGeometry(feature);
 			const bucketFeature = {
 				id,
 				sourceLayerIndex,
 				index,
-				geometry: needGeometry ? evaluationFeature.geometry : loadGeometry(feature),
+				geometry: roundedCornerDistance > 0 ? roundPolygonCorners(rawGeometry, roundedCornerDistance, canonical) : rawGeometry,
 				properties: feature.properties,
 				type: feature.type,
 				patterns: {}
@@ -16593,7 +17178,10 @@ var FillExtrusionBucket = class {
 		this.centroidVertexBuffer.destroy();
 	}
 	addFeature(feature, geometry, index, canonical, imagePositions, subdivisionGranularity) {
-		for (const polygon of classifyRings$1(geometry, EARCUT_MAX_RINGS)) {
+		const layer = this.layers[0];
+		const roundedCornerDistance = layer.layout ? layer.layout.get("fill-extrusion-rounded-corner-distance") : 0;
+		const processedGeometry = roundedCornerDistance > 0 ? roundPolygonCorners(geometry, roundedCornerDistance, canonical) : geometry;
+		for (const polygon of classifyRings$1(processedGeometry, EARCUT_MAX_RINGS)) {
 			const centroid = {
 				x: 0,
 				y: 0,
@@ -16683,6 +17271,8 @@ function isEntirelyOutside(ring) {
 }
 //#endregion
 //#region src/style/style_layer/fill_extrusion_style_layer_properties.g.ts
+let layout$2;
+const getLayout$2 = () => layout$2 = layout$2 || new Properties({ "fill-extrusion-rounded-corner-distance": new DataConstantProperty(latest["layout_fill-extrusion"]["fill-extrusion-rounded-corner-distance"], "fill-extrusion-rounded-corner-distance") });
 let paint$4;
 const getPaint$4 = () => paint$4 = paint$4 || new Properties({
 	"fill-extrusion-opacity": new DataConstantProperty(latest["paint_fill-extrusion"]["fill-extrusion-opacity"], "fill-extrusion-opacity"),
@@ -16694,9 +17284,14 @@ const getPaint$4 = () => paint$4 = paint$4 || new Properties({
 	"fill-extrusion-base": new DataDrivenProperty(latest["paint_fill-extrusion"]["fill-extrusion-base"], "fill-extrusion-base"),
 	"fill-extrusion-vertical-gradient": new DataConstantProperty(latest["paint_fill-extrusion"]["fill-extrusion-vertical-gradient"], "fill-extrusion-vertical-gradient")
 });
-var fill_extrusion_style_layer_properties_g_default = { get paint() {
-	return getPaint$4();
-} };
+var fill_extrusion_style_layer_properties_g_default = {
+	get paint() {
+		return getPaint$4();
+	},
+	get layout() {
+		return getLayout$2();
+	}
+};
 //#endregion
 //#region src/style/style_layer/fill_extrusion_style_layer.ts
 var FillExtrusionStyleLayer = class extends StyleLayer {
@@ -16940,9 +17535,7 @@ function createFeature(id, type, geom, tags) {
 		case "MultiLineString":
 			for (const line of data.geom) calcLineBBox(feature, line.points);
 			break;
-		case "MultiPolygon":
-			for (const polygon of data.geom) calcLineBBox(feature, polygon[0].points);
-			break;
+		case "MultiPolygon": for (const polygon of data.geom) calcLineBBox(feature, polygon[0].points);
 	}
 	return feature;
 }
@@ -17603,7 +18196,7 @@ var KDBush = class KDBush {
 			this.coords = new ArrayType(data, HEADER_SIZE + idsByteSize + padCoords, numItems * 2);
 			this._pos = 0;
 			this._finished = false;
-			new Uint8Array(data, 0, 2).set([219, (VERSION << 4) + arrayTypeIndex]);
+			new Uint8Array(data, 0, 2).set([219, 16 + arrayTypeIndex]);
 			new Uint16Array(data, 2, 1)[0] = nodeSize;
 			new Uint32Array(data, 4, 1)[0] = numItems;
 		}
@@ -18766,9 +19359,8 @@ const EXTRUDE_SCALE = 63;
 const COS_HALF_SHARP_CORNER = Math.cos(75 / 2 * (Math.PI / 180));
 const SHARP_CORNER_OFFSET = 15;
 const DEG_PER_TRIANGLE = 20;
-const LINE_DISTANCE_BUFFER_BITS = 15;
 const LINE_DISTANCE_SCALE = 1 / 2;
-const MAX_LINE_DISTANCE = Math.pow(2, LINE_DISTANCE_BUFFER_BITS - 1) / LINE_DISTANCE_SCALE;
+const MAX_LINE_DISTANCE = Math.pow(2, 14) / LINE_DISTANCE_SCALE;
 /**
 * @internal
 * Line bucket class
@@ -18798,10 +19390,11 @@ var LineBucket = class {
 		const lineSortKey = this.layers[0].layout.get("line-sort-key");
 		const sortFeaturesByKey = !lineSortKey.isConstant();
 		const bucketFeatures = [];
+		const globalProperties = new EvaluationParameters(this.zoom);
+		const needGeometry = this.layers[0]._featureFilter.needGeometry;
 		for (const { feature, id, index, sourceLayerIndex } of features) {
-			const needGeometry = this.layers[0]._featureFilter.needGeometry;
 			const evaluationFeature = toEvaluationFeature(feature, needGeometry);
-			if (!this.layers[0]._featureFilter.filter(new EvaluationParameters(this.zoom), evaluationFeature, canonical)) continue;
+			if (!this.layers[0]._featureFilter.filter(globalProperties, evaluationFeature, canonical)) continue;
 			const sortKey = sortFeaturesByKey ? lineSortKey.evaluate(evaluationFeature, {}, canonical) : void 0;
 			const bucketFeature = {
 				id,
@@ -19928,7 +20521,7 @@ var TaggedString = class TaggedString {
 };
 //#endregion
 //#region node_modules/pbf/index.js
-const SHIFT_LEFT_32 = 65536 * 65536;
+const SHIFT_LEFT_32 = 4294967296;
 const SHIFT_RIGHT_32 = 1 / SHIFT_LEFT_32;
 const TEXT_DECODER_MIN_LENGTH$1 = 12;
 const utf8TextDecoder$1 = typeof TextDecoder === "undefined" ? null : new TextDecoder("utf-8");
@@ -21000,9 +21593,7 @@ function getAnchorAlignment(anchor) {
 			break;
 		case "left":
 		case "top-left":
-		case "bottom-left":
-			horizontalAlign = 0;
-			break;
+		case "bottom-left": horizontalAlign = 0;
 	}
 	switch (anchor) {
 		case "bottom":
@@ -21012,9 +21603,7 @@ function getAnchorAlignment(anchor) {
 			break;
 		case "top":
 		case "top-right":
-		case "top-left":
-			verticalAlign = 0;
-			break;
+		case "top-left": verticalAlign = 0;
 	}
 	return {
 		horizontalAlign,
@@ -21291,6 +21880,8 @@ function fitIconToText(shapedIcon, shapedText, textFit, padding, iconOffset, fon
 		collisionPadding
 	};
 }
+//#endregion
+//#region src/symbol/symbol_size.ts
 const MAX_PACKED_SIZE = 32640;
 function getSizeData(tileZoom, value) {
 	const { expression } = value;
@@ -23649,9 +24240,7 @@ function unpackBlock256(inValues, inPos, out, outPos, bitWidth) {
 		case 16:
 			fastUnpack256_16(inValues, inPos, out, outPos);
 			break;
-		default:
-			fastUnpack256_Generic(inValues, inPos, out, outPos, bitWidth);
-			break;
+		default: fastUnpack256_Generic(inValues, inPos, out, outPos, bitWidth);
 	}
 	return inPos + (bitWidth << 3) | 0;
 }
@@ -23769,9 +24358,7 @@ function decodePageBlocks(inValues, pageStart, inPos, packedEnd, out, outPos, bl
 				for (let i = 0; i < 256; i = i + 1 | 0) out[blockOutPos + i | 0] = inValues[tmpInPos + i | 0] | 0;
 				tmpInPos = tmpInPos + 256 | 0;
 				break;
-			default:
-				tmpInPos = unpackBlock256(inValues, tmpInPos, out, blockOutPos, bitWidth);
-				break;
+			default: tmpInPos = unpackBlock256(inValues, tmpInPos, out, blockOutPos, bitWidth);
 		}
 		if (exceptionCount > 0) bytePosIn = applyBlockExceptions(out, blockOutPos, bitWidth, exceptionCount, byteContainer, byteContainerLen, bytePosIn, workspace, run);
 	}
@@ -23906,7 +24493,6 @@ function fastUnpack32(inValues, inPos, out, outPos, bitWidth) {
 		case 32:
 			for (let i = 0; i < 32; i = i + 1 | 0) out[outPos + i | 0] = inValues[inPos + i | 0] | 0;
 			return;
-		default: break;
 	}
 	const valueMask = MASKS[bitWidth] >>> 0;
 	let inputWordIndex = inPos;
@@ -24607,9 +25193,7 @@ function decodeStreamMetadataInternal(tile, offset) {
 		case PhysicalStreamType.OFFSET:
 			logicalStreamType = { offsetType: OFFSET_TYPE_BY_ID[stream_type & 15] };
 			break;
-		case PhysicalStreamType.LENGTH:
-			logicalStreamType = { lengthType: LENGTH_TYPE_BY_ID[stream_type & 15] };
-			break;
+		case PhysicalStreamType.LENGTH: logicalStreamType = { lengthType: LENGTH_TYPE_BY_ID[stream_type & 15] };
 	}
 	offset.increment();
 	const encodings_header = tile[offset.get()];
@@ -25150,7 +25734,8 @@ function convertGeometryVector(geometryVector) {
 							lineStrings[j] = getLineStringOrRing(vertexBuffer, vertexBufferOffset, numVertices, false);
 							vertexBufferOffset += numVertices * 2;
 						} else {
-							lineStrings[j] = decodeDictionaryEncodedLineStringOrRing(geometryVector.vertexBufferType, vertexBuffer, vertexOffsets, vertexOffsetsOffset, numVertices, false, mortonSettings);
+							const vertices = decodeDictionaryEncodedLineStringOrRing(geometryVector.vertexBufferType, vertexBuffer, vertexOffsets, vertexOffsetsOffset, numVertices, false, mortonSettings);
+							lineStrings[j] = vertices;
 							vertexOffsetsOffset += numVertices;
 						}
 					}
@@ -25387,30 +25972,28 @@ var GpuVector = class {
 					if (geometryOffsets) geometryOffsetsCounter++;
 				}
 				break;
-			case GEOMETRY_TYPE.MULTIPOLYGON:
-				{
-					const numPolygons = geometryOffsets[geometryOffsetsCounter] - geometryOffsets[geometryOffsetsCounter - 1];
-					geometryOffsetsCounter++;
-					const allRings = [];
-					for (let p = 0; p < numPolygons; p++) {
-						const numRings = partOffsets[partOffsetCounter] - partOffsets[partOffsetCounter - 1];
-						partOffsetCounter++;
-						for (let j = 0; j < numRings; j++) {
-							const numVertices = ringOffsets[ringOffsetsCounter] - ringOffsets[ringOffsetsCounter - 1];
-							ringOffsetsCounter++;
-							const ring = [];
-							for (let k = 0; k < numVertices; k++) {
-								const x = this._vertexBuffer[vertexBufferOffset++];
-								const y = this._vertexBuffer[vertexBufferOffset++];
-								ring.push(new Point(x, y));
-							}
-							if (ring.length > 0) ring.push(ring[0]);
-							allRings.push(ring);
+			case GEOMETRY_TYPE.MULTIPOLYGON: {
+				const numPolygons = geometryOffsets[geometryOffsetsCounter] - geometryOffsets[geometryOffsetsCounter - 1];
+				geometryOffsetsCounter++;
+				const allRings = [];
+				for (let p = 0; p < numPolygons; p++) {
+					const numRings = partOffsets[partOffsetCounter] - partOffsets[partOffsetCounter - 1];
+					partOffsetCounter++;
+					for (let j = 0; j < numRings; j++) {
+						const numVertices = ringOffsets[ringOffsetsCounter] - ringOffsets[ringOffsetsCounter - 1];
+						ringOffsetsCounter++;
+						const ring = [];
+						for (let k = 0; k < numVertices; k++) {
+							const x = this._vertexBuffer[vertexBufferOffset++];
+							const y = this._vertexBuffer[vertexBufferOffset++];
+							ring.push(new Point(x, y));
 						}
+						if (ring.length > 0) ring.push(ring[0]);
+						allRings.push(ring);
 					}
-					geometries[i] = allRings;
 				}
-				break;
+				geometries[i] = allRings;
+			}
 		}
 		return geometries;
 	}
@@ -25496,22 +26079,18 @@ function decodeGeometryColumn(tile, numStreams, offset, numFeatures, scalingData
 						case OffsetType.VERTEX:
 							vertexOffsets = decodeUnsignedInt32Stream(tile, offset, geometryStreamMetadata);
 							break;
-						case OffsetType.INDEX:
-							indexBuffer = decodeUnsignedInt32Stream(tile, offset, geometryStreamMetadata);
-							break;
+						case OffsetType.INDEX: indexBuffer = decodeUnsignedInt32Stream(tile, offset, geometryStreamMetadata);
 					}
 					break;
-				case PhysicalStreamType.DATA:
-					if (DictionaryType.VERTEX === geometryStreamMetadata.logicalStreamType.dictionaryType) vertexBuffer = decodeSignedInt32Stream(tile, offset, geometryStreamMetadata, scalingData);
-					else {
-						const mortonMetadata = geometryStreamMetadata;
-						mortonSettings = {
-							numBits: mortonMetadata.numBits,
-							coordinateShift: mortonMetadata.coordinateShift
-						};
-						vertexBuffer = decodeUnsignedInt32Stream(tile, offset, geometryStreamMetadata, scalingData);
-					}
-					break;
+				case PhysicalStreamType.DATA: if (DictionaryType.VERTEX === geometryStreamMetadata.logicalStreamType.dictionaryType) vertexBuffer = decodeSignedInt32Stream(tile, offset, geometryStreamMetadata, scalingData);
+				else {
+					const mortonMetadata = geometryStreamMetadata;
+					mortonSettings = {
+						numBits: mortonMetadata.numBits,
+						coordinateShift: mortonMetadata.coordinateShift
+					};
+					vertexBuffer = decodeUnsignedInt32Stream(tile, offset, geometryStreamMetadata, scalingData);
+				}
 			}
 		}
 		if (indexBuffer) {
@@ -25559,22 +26138,18 @@ function decodeGeometryColumn(tile, numStreams, offset, numFeatures, scalingData
 					case OffsetType.VERTEX:
 						vertexOffsets = decodeUnsignedInt32Stream(tile, offset, geometryStreamMetadata);
 						break;
-					case OffsetType.INDEX:
-						indexBuffer = decodeUnsignedInt32Stream(tile, offset, geometryStreamMetadata);
-						break;
+					case OffsetType.INDEX: indexBuffer = decodeUnsignedInt32Stream(tile, offset, geometryStreamMetadata);
 				}
 				break;
-			case PhysicalStreamType.DATA:
-				if (DictionaryType.VERTEX === geometryStreamMetadata.logicalStreamType.dictionaryType) vertexBuffer = decodeSignedInt32Stream(tile, offset, geometryStreamMetadata, scalingData);
-				else {
-					const mortonMetadata = geometryStreamMetadata;
-					mortonSettings = {
-						numBits: mortonMetadata.numBits,
-						coordinateShift: mortonMetadata.coordinateShift
-					};
-					vertexBuffer = decodeUnsignedInt32Stream(tile, offset, geometryStreamMetadata, scalingData);
-				}
-				break;
+			case PhysicalStreamType.DATA: if (DictionaryType.VERTEX === geometryStreamMetadata.logicalStreamType.dictionaryType) vertexBuffer = decodeSignedInt32Stream(tile, offset, geometryStreamMetadata, scalingData);
+			else {
+				const mortonMetadata = geometryStreamMetadata;
+				mortonSettings = {
+					numBits: mortonMetadata.numBits,
+					coordinateShift: mortonMetadata.coordinateShift
+				};
+				vertexBuffer = decodeUnsignedInt32Stream(tile, offset, geometryStreamMetadata, scalingData);
+			}
 		}
 	}
 	let geometryOffsets;
@@ -25966,7 +26541,6 @@ function decodeSharedDictionary(data, offset, column, propertyColumnNames) {
 					dictionaryStreamDecoded = true;
 				} else symbolTableBuffer = data.subarray(offset.get(), offset.get() + streamMetadata.byteLength);
 				offset.add(streamMetadata.byteLength);
-				break;
 		}
 	}
 	const childFields = column.complexType.children;
@@ -27066,8 +27640,8 @@ function getIconQuads(shapedIcon, iconRotate, isSDFIcon, hasIconTextFit) {
 	const quads = [];
 	const image = shapedIcon.image;
 	const pixelRatio = image.pixelRatio;
-	const imageWidth = image.paddedRect.w - 2 * border;
-	const imageHeight = image.paddedRect.h - 2 * border;
+	const imageWidth = image.paddedRect.w - 2;
+	const imageHeight = image.paddedRect.h - 2;
 	let icon = {
 		x1: shapedIcon.left,
 		y1: shapedIcon.top,
@@ -27535,9 +28109,7 @@ function evaluateVariableOffset(anchor, offset) {
 			case "bottom":
 				y = -radialOffset + baselineOffset;
 				break;
-			case "top":
-				y = radialOffset - baselineOffset;
-				break;
+			case "top": y = radialOffset - baselineOffset;
 		}
 		switch (anchor) {
 			case "top-right":
@@ -27551,9 +28123,7 @@ function evaluateVariableOffset(anchor, offset) {
 			case "left":
 				x = radialOffset;
 				break;
-			case "right":
-				x = -radialOffset;
-				break;
+			case "right": x = -radialOffset;
 		}
 		return [x, y];
 	}
@@ -27569,9 +28139,7 @@ function evaluateVariableOffset(anchor, offset) {
 				break;
 			case "bottom-right":
 			case "bottom-left":
-			case "bottom":
-				y = -offsetY + baselineOffset;
-				break;
+			case "bottom": y = -offsetY + baselineOffset;
 		}
 		switch (anchor) {
 			case "top-right":
@@ -27581,9 +28149,7 @@ function evaluateVariableOffset(anchor, offset) {
 				break;
 			case "top-left":
 			case "bottom-left":
-			case "left":
-				x = offsetX;
-				break;
+			case "left": x = offsetX;
 		}
 		return [x, y];
 	}
@@ -27914,8 +28480,8 @@ var GlyphAtlas = class {
 				const bin = {
 					x: 0,
 					y: 0,
-					w: src.bitmap.width + 2 * padding,
-					h: src.bitmap.height + 2 * padding
+					w: src.bitmap.width + 2,
+					h: src.bitmap.height + 2
 				};
 				bins.push(bin);
 				stackPositions[id] = {
@@ -27949,249 +28515,6 @@ var GlyphAtlas = class {
 	}
 };
 register("GlyphAtlas", GlyphAtlas);
-//#endregion
-//#region src/geo/lng_lat.ts
-const earthRadius = 6371008.8;
-/**
-* A `LngLat` object represents a given longitude and latitude coordinate, measured in degrees.
-* These coordinates are based on the [WGS84 (EPSG:4326) standard](https://en.wikipedia.org/wiki/World_Geodetic_System#WGS84).
-*
-* MapLibre GL JS uses longitude, latitude coordinate order (as opposed to latitude, longitude) to match the
-* [GeoJSON specification](https://tools.ietf.org/html/rfc7946).
-*
-* Note that any MapLibre GL JS method that accepts a `LngLat` object as an argument or option
-* can also accept an `Array` of two numbers and will perform an implicit conversion.
-* This flexible type is documented as {@link LngLatLike}.
-*
-* @group Geography and Geometry
-*
-* @example
-* ```ts
-* let ll = new LngLat(-123.9749, 40.7736);
-* ll.lng; // = -123.9749
-* ```
-* @see [Get coordinates of the mouse pointer](https://maplibre.org/maplibre-gl-js/docs/examples/get-coordinates-of-the-mouse-pointer/)
-*/
-var LngLat = class LngLat {
-	/**
-	* @param lng - Longitude, measured in degrees.
-	* @param lat - Latitude, measured in degrees.
-	*/
-	constructor(lng, lat) {
-		if (isNaN(lng) || isNaN(lat)) throw new Error(`Invalid LngLat object: (${lng}, ${lat})`);
-		this.lng = +lng;
-		this.lat = +lat;
-		if (this.lat > 90 || this.lat < -90) throw new Error("Invalid LngLat latitude value: must be between -90 and 90");
-	}
-	/**
-	* Returns a new `LngLat` object whose longitude is wrapped to the range (-180, 180).
-	*
-	* @returns The wrapped `LngLat` object.
-	* @example
-	* ```ts
-	* let ll = new LngLat(286.0251, 40.7736);
-	* let wrapped = ll.wrap();
-	* wrapped.lng; // = -73.9749
-	* ```
-	*/
-	wrap() {
-		return new LngLat(wrap$1(this.lng, -180, 180), this.lat);
-	}
-	/**
-	* Returns the coordinates represented as an array of two numbers.
-	*
-	* @returns The coordinates represented as an array of longitude and latitude.
-	* @example
-	* ```ts
-	* let ll = new LngLat(-73.9749, 40.7736);
-	* ll.toArray(); // = [-73.9749, 40.7736]
-	* ```
-	*/
-	toArray() {
-		return [this.lng, this.lat];
-	}
-	/**
-	* Returns the coordinates represent as a string.
-	*
-	* @returns The coordinates represented as a string of the format `'LngLat(lng, lat)'`.
-	* @example
-	* ```ts
-	* let ll = new LngLat(-73.9749, 40.7736);
-	* ll.toString(); // = "LngLat(-73.9749, 40.7736)"
-	* ```
-	*/
-	toString() {
-		return `LngLat(${this.lng}, ${this.lat})`;
-	}
-	/**
-	* Returns the approximate distance between a pair of coordinates in meters
-	* Uses the Haversine Formula (from R.W. Sinnott, "Virtues of the Haversine", Sky and Telescope, vol. 68, no. 2, 1984, p. 159)
-	*
-	* @param lngLat - coordinates to compute the distance to
-	* @returns Distance in meters between the two coordinates.
-	* @example
-	* ```ts
-	* let new_york = new LngLat(-74.0060, 40.7128);
-	* let los_angeles = new LngLat(-118.2437, 34.0522);
-	* new_york.distanceTo(los_angeles); // = 3935751.690893987, "true distance" using a non-spherical approximation is ~3966km
-	* ```
-	*/
-	distanceTo(lngLat) {
-		const rad = Math.PI / 180;
-		const lat1 = this.lat * rad;
-		const lat2 = lngLat.lat * rad;
-		const a = Math.sin(lat1) * Math.sin(lat2) + Math.cos(lat1) * Math.cos(lat2) * Math.cos((lngLat.lng - this.lng) * rad);
-		return earthRadius * Math.acos(Math.min(a, 1));
-	}
-	/**
-	* Converts an array of two numbers or an object with `lng` and `lat` or `lon` and `lat` properties
-	* to a `LngLat` object.
-	*
-	* If a `LngLat` object is passed in, the function returns it unchanged.
-	*
-	* @param input - An array of two numbers or object to convert, or a `LngLat` object to return.
-	* @returns A new `LngLat` object, if a conversion occurred, or the original `LngLat` object.
-	* @example
-	* ```ts
-	* let arr = [-73.9749, 40.7736];
-	* let ll = LngLat.convert(arr);
-	* ll;   // = LngLat {lng: -73.9749, lat: 40.7736}
-	* ```
-	*/
-	static convert(input) {
-		if (input instanceof LngLat) return input;
-		if (Array.isArray(input) && (input.length === 2 || input.length === 3)) return new LngLat(Number(input[0]), Number(input[1]));
-		if (!Array.isArray(input) && typeof input === "object" && input !== null) return new LngLat(Number("lng" in input ? input.lng : input.lon), Number(input.lat));
-		throw new Error("`LngLatLike` argument must be specified as a LngLat instance, an object {lng: <lng>, lat: <lat>}, an object {lon: <lng>, lat: <lat>}, or an array of [<lng>, <lat>]");
-	}
-};
-//#endregion
-//#region src/geo/mercator_coordinate.ts
-const earthCircumference = 2 * Math.PI * earthRadius;
-function circumferenceAtLatitude(latitude) {
-	return earthCircumference * Math.cos(latitude * Math.PI / 180);
-}
-function mercatorXfromLng(lng) {
-	return (180 + lng) / 360;
-}
-function mercatorYfromLat(lat) {
-	return (180 - 180 / Math.PI * Math.log(Math.tan(Math.PI / 4 + lat * Math.PI / 360))) / 360;
-}
-function mercatorZfromAltitude(altitude, lat) {
-	return altitude / circumferenceAtLatitude(lat);
-}
-function lngFromMercatorX(x) {
-	return x * 360 - 180;
-}
-function latFromMercatorY(y) {
-	const y2 = 180 - y * 360;
-	return 360 / Math.PI * Math.atan(Math.exp(y2 * Math.PI / 180)) - 90;
-}
-function altitudeFromMercatorZ(z, y) {
-	return z * circumferenceAtLatitude(latFromMercatorY(y));
-}
-/**
-* Determine the Mercator scale factor for a given latitude, see
-* https://en.wikipedia.org/wiki/Mercator_projection#Scale_factor
-*
-* At the equator the scale factor will be 1, which increases at higher latitudes.
-*
-* @param lat - Latitude
-* @returns scale factor
-*/
-function mercatorScale(lat) {
-	return 1 / Math.cos(lat * Math.PI / 180);
-}
-/**
-* A `MercatorCoordinate` object represents a projected three dimensional position.
-*
-* `MercatorCoordinate` uses the web mercator projection ([EPSG:3857](https://epsg.io/3857)) with slightly different units:
-*
-* - the size of 1 unit is the width of the projected world instead of the "mercator meter"
-* - the origin of the coordinate space is at the north-west corner instead of the middle
-*
-* For example, `MercatorCoordinate(0, 0, 0)` is the north-west corner of the mercator world and
-* `MercatorCoordinate(1, 1, 0)` is the south-east corner. If you are familiar with
-* [vector tiles](https://github.com/mapbox/vector-tile-spec) it may be helpful to think
-* of the coordinate space as the `0/0/0` tile with an extent of `1`.
-*
-* The `z` dimension of `MercatorCoordinate` is conformal. A cube in the mercator coordinate space would be rendered as a cube.
-*
-* @group Geography and Geometry
-*
-* @example
-* ```ts
-* let nullIsland = new MercatorCoordinate(0.5, 0.5, 0);
-* ```
-* @see [Add a custom style layer](https://maplibre.org/maplibre-gl-js/docs/examples/add-a-custom-style-layer/)
-* @see [Add a 3D model using three.js](https://maplibre.org/maplibre-gl-js/docs/examples/add-a-3d-model-using-threejs/)
-* @see [Add a simple custom layer on a globe](https://maplibre.org/maplibre-gl-js/docs/examples/add-a-simple-custom-layer-on-a-globe/)
-*/
-var MercatorCoordinate = class MercatorCoordinate {
-	/**
-	* @param x - The x component of the position.
-	* @param y - The y component of the position.
-	* @param z - The z component of the position.
-	*/
-	constructor(x, y, z = 0) {
-		this.x = +x;
-		this.y = +y;
-		this.z = +z;
-	}
-	/**
-	* Project a `LngLat` to a `MercatorCoordinate`.
-	*
-	* @param lngLatLike - The location to project.
-	* @param altitude - The altitude in meters of the position.
-	* @returns The projected mercator coordinate.
-	* @example
-	* ```ts
-	* let coord = MercatorCoordinate.fromLngLat({ lng: 0, lat: 0}, 0);
-	* coord; // MercatorCoordinate(0.5, 0.5, 0)
-	* ```
-	*/
-	static fromLngLat(lngLatLike, altitude = 0) {
-		const lngLat = LngLat.convert(lngLatLike);
-		return new MercatorCoordinate(mercatorXfromLng(lngLat.lng), mercatorYfromLat(lngLat.lat), mercatorZfromAltitude(altitude, lngLat.lat));
-	}
-	/**
-	* Returns the `LngLat` for the coordinate.
-	*
-	* @returns The `LngLat` object.
-	* @example
-	* ```ts
-	* let coord = new MercatorCoordinate(0.5, 0.5, 0);
-	* let lngLat = coord.toLngLat(); // LngLat(0, 0)
-	* ```
-	*/
-	toLngLat() {
-		return new LngLat(lngFromMercatorX(this.x), latFromMercatorY(this.y));
-	}
-	/**
-	* Returns the altitude in meters of the coordinate.
-	*
-	* @returns The altitude in meters.
-	* @example
-	* ```ts
-	* let coord = new MercatorCoordinate(0, 0, 0.02);
-	* coord.toAltitude(); // 6914.281956295339
-	* ```
-	*/
-	toAltitude() {
-		return altitudeFromMercatorZ(this.z, this.y);
-	}
-	/**
-	* Returns the distance of 1 meter in `MercatorCoordinate` units at this latitude.
-	*
-	* For coordinates in real world units using meters, this naturally provides the scale
-	* to transform into `MercatorCoordinate`s.
-	*
-	* @returns Distance of 1 meter in `MercatorCoordinate` units.
-	*/
-	meterInMercatorCoordinateUnits() {
-		return 1 / earthCircumference * mercatorScale(latFromMercatorY(this.y));
-	}
-};
 //#endregion
 //#region src/util/world_bounds.ts
 /**
@@ -28441,7 +28764,6 @@ var WorkerTile = class {
 		this.inFlightDependencies = [];
 	}
 	async parse(data, layerIndex, availableImages, actor, subdivisionGranularity) {
-		this.status = "parsing";
 		this.data = data;
 		this.collisionBoxArray = new CollisionBoxArray();
 		const sourceLayerCoder = new DictionaryCoder(Object.keys(data.layers).sort());
@@ -28576,7 +28898,6 @@ var WorkerTile = class {
 				bucket.addFeatures(options, this.tileID.canonical, imageAtlas.patternPositions, dashPositions);
 			}
 		}
-		this.status = "done";
 		return {
 			buckets: Object.values(buckets).filter((b) => !b.isEmpty()),
 			featureIndex,
@@ -28811,20 +29132,15 @@ var VectorTileWorkerSource = class {
 			const resourceTiming = this._finishRequestTiming(timing);
 			workerTile.vectorTile = vectorTile;
 			this.tileState.markLoaded(uid, workerTile);
-			const parseState = {
+			const parsingState = {
 				rawData,
 				cacheControl,
 				resourceTiming
 			};
-			this.tileState.setParsing(uid, parseState);
-			try {
-				return await this._parseWorkerTile(workerTile, params, parseState);
-			} finally {
-				this.tileState.removeParsing(uid);
-			}
+			this.tileState.setParsing(uid, parsingState);
+			return await this._parseWorkerTile(workerTile, params);
 		} catch (err) {
 			this.tileState.finishLoading(uid);
-			workerTile.status = "done";
 			this.tileState.markLoaded(uid, workerTile);
 			throw err;
 		}
@@ -28832,7 +29148,8 @@ var VectorTileWorkerSource = class {
 	_getEtagUnmodifiedResult(response, timing) {
 		return extend({ etagUnmodified: true }, this._getExpiryData(response), this._finishRequestTiming(timing));
 	}
-	async _parseWorkerTile(workerTile, params, parseState) {
+	async _parseWorkerTile(workerTile, params) {
+		const parseState = this.tileState.getParsing(workerTile.uid);
 		let result = await workerTile.parse(workerTile.vectorTile, this.layerIndex, this.availableImages, this.actor, params.subdivisionGranularity);
 		if (parseState) {
 			const { rawData, cacheControl, resourceTiming } = parseState;
@@ -28841,6 +29158,7 @@ var VectorTileWorkerSource = class {
 				rawTileData: rawData.slice(0),
 				encoding
 			}, result, cacheControl, resourceTiming);
+			this.tileState.removeParsing(workerTile.uid);
 		}
 		return result;
 	}
@@ -28894,16 +29212,9 @@ var VectorTileWorkerSource = class {
 		const uid = params.uid;
 		const workerTile = this.tileState.getLoaded(uid);
 		if (!workerTile) throw new Error("Should not be trying to reload a tile that was never loaded or has been removed");
+		if (!workerTile.vectorTile) return;
 		workerTile.showCollisionBoxes = params.showCollisionBoxes;
-		if (workerTile.status === "parsing") {
-			const parseState = this.tileState.getParsing(uid);
-			try {
-				return await this._parseWorkerTile(workerTile, params, parseState);
-			} finally {
-				this.tileState.removeParsing(uid);
-			}
-		}
-		if (workerTile.status === "done" && workerTile.vectorTile) return await this._parseWorkerTile(workerTile, params);
+		return await this._parseWorkerTile(workerTile, params);
 	}
 	/**
 	* Implements {@link WorkerSource.abortTile}.
@@ -28989,35 +29300,16 @@ var GeoJSONWorkerSource = class {
 			const { vectorTile, rawData } = loadResult;
 			workerTile.vectorTile = vectorTile;
 			this.tileState.markLoaded(uid, workerTile);
-			const parseState = { rawData };
-			this.tileState.setParsing(uid, parseState);
-			try {
-				return await this._parseWorkerTile(workerTile, params, parseState);
-			} finally {
-				this.tileState.removeParsing(uid);
-			}
+			const parsingState = { rawData };
+			this.tileState.setParsing(uid, parsingState);
+			return await this._parseWorkerTile(workerTile, params);
 		} catch (err) {
-			workerTile.status = "done";
 			this.tileState.markLoaded(uid, workerTile);
 			throw err;
 		}
 	}
-	async _reloadLoadedTile(params) {
-		const uid = params.uid;
-		const workerTile = this.tileState.getLoaded(uid);
-		if (!workerTile) throw new Error("Should not be trying to reload a tile that was never loaded or has been removed");
-		workerTile.showCollisionBoxes = params.showCollisionBoxes;
-		if (workerTile.status === "parsing") {
-			const parseState = this.tileState.getParsing(uid);
-			try {
-				return await this._parseWorkerTile(workerTile, params, parseState);
-			} finally {
-				this.tileState.removeParsing(uid);
-			}
-		}
-		if (workerTile.status === "done" && workerTile.vectorTile) return await this._parseWorkerTile(workerTile, params);
-	}
-	async _parseWorkerTile(workerTile, params, parseState) {
+	async _parseWorkerTile(workerTile, params) {
+		const parseState = this.tileState.getParsing(workerTile.uid);
 		let result = await workerTile.parse(workerTile.vectorTile, this.layerIndex, this.availableImages, this.actor, params.subdivisionGranularity);
 		if (parseState) {
 			const { rawData } = parseState;
@@ -29025,6 +29317,7 @@ var GeoJSONWorkerSource = class {
 				rawTileData: rawData.slice(0),
 				encoding: "mvt"
 			}, result);
+			this.tileState.removeParsing(workerTile.uid);
 		}
 		return result;
 	}
@@ -29092,9 +29385,13 @@ var GeoJSONWorkerSource = class {
 	* @param params - the parameters
 	* @returns A promise that resolves when the tile is reloaded
 	*/
-	reloadTile(params) {
-		if (this.tileState.getLoaded(params.uid)) return this._reloadLoadedTile(params);
-		return this.loadTile(params);
+	async reloadTile(params) {
+		const uid = params.uid;
+		const workerTile = this.tileState.getLoaded(uid);
+		if (!workerTile) return await this.loadTile(params);
+		if (!workerTile.vectorTile) return;
+		workerTile.showCollisionBoxes = params.showCollisionBoxes;
+		return await this._parseWorkerTile(workerTile, params);
 	}
 	/**
 	* Fetch, parse and process GeoJSON according to the given parameters.
@@ -29382,9 +29679,7 @@ var Worker = class {
 				case "geojson":
 					this.workerSources[mapId][sourceType][sourceName] = new GeoJSONWorkerSource(actor, this._getLayerIndex(mapId), this._getAvailableImages(mapId));
 					break;
-				default:
-					this.workerSources[mapId][sourceType][sourceName] = new this.externalWorkerSourceTypes[sourceType](actor, this._getLayerIndex(mapId), this._getAvailableImages(mapId));
-					break;
+				default: this.workerSources[mapId][sourceType][sourceName] = new this.externalWorkerSourceTypes[sourceType](actor, this._getLayerIndex(mapId), this._getAvailableImages(mapId));
 			}
 		}
 		return this.workerSources[mapId][sourceType][sourceName];
